@@ -56,96 +56,209 @@
 
     <main id="main">
       <section class="card reveal reveal-on-load">
-        <p class="kicker">Profil</p>
-        <h1>Mon parcours, mes passions et ma vision</h1>
-        <p>Cette page se lit comme un jeu de cartes : cliquez sur une carte pour la retourner et afficher le d&eacute;tail juste en dessous.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="projets.html">Voir les projets</a>
-          <a class="btn secondary" href="contact.html">Me contacter</a>
-        </div>
+        <h1>Profil</h1>
       </section>
 
       <section class="section">
         <div class="card reveal">
           <h2>Parcours</h2>
-          <p class="muted">Quatre chapitres qui expliquent comment je me dirige vers le m&eacute;tier de Data Engineer.</p>
 
           <div class="card-deck" data-card-deck>
             <div class="card-deck__grid">
-              <button class="deck-card" type="button" data-deck-card data-card-key="etudes" aria-controls="deck-parcours" aria-expanded="false">
+              <button class="deck-card" type="button" data-deck-card data-card-key="etudes" data-card-title="&Eacute;tudes initiales" aria-controls="deck-parcours" aria-expanded="false">
                 <span class="deck-card__inner">
                   <span class="deck-card__face deck-card__front">
-                    <img class="deck-card__media" src="assets/cards/formationinitial.png" alt="" loading="lazy">
-                    <span class="deck-card__title">&Eacute;tudes initiales</span>
-                    <span class="deck-card__hint">Cliquer pour retourner</span>
+                    <img class="deck-card__media" src="assets/cards/formationinitial.png" alt="&Eacute;tudes initiales" loading="lazy">
                   </span>
-                  <span class="deck-card__face deck-card__back">
-                    <span class="deck-card__kicker">Parcours</span>
-                    <span class="deck-card__title">&Eacute;tudes initiales</span>
-                    <span class="deck-card__hint">Lire le d&eacute;tail</span>
+                  <span class="deck-card__face deck-card__back" aria-hidden="true">
+                    <img class="deck-card__media deck-card__media--back" src="assets/cards/formationinitial.png" alt="" loading="lazy">
                   </span>
                 </span>
               </button>
 
-              <button class="deck-card" type="button" data-deck-card data-card-key="pro" aria-controls="deck-parcours" aria-expanded="false">
+              <button class="deck-card" type="button" data-deck-card data-card-key="pro" data-card-title="D&eacute;but de la voie professionnelle" aria-controls="deck-parcours" aria-expanded="false">
                 <span class="deck-card__inner">
                   <span class="deck-card__face deck-card__front">
-                    <img class="deck-card__media" src="assets/cards/debutcarrierre.jpg" alt="" loading="lazy">
-                    <span class="deck-card__title">D&eacute;but de la voie professionnelle</span>
-                    <span class="deck-card__hint">Cliquer pour retourner</span>
+                    <img class="deck-card__media" src="assets/cards/debutcarrierre.jpg" alt="D&eacute;but de la voie professionnelle" loading="lazy">
                   </span>
-                  <span class="deck-card__face deck-card__back">
-                    <span class="deck-card__kicker">Parcours</span>
-                    <span class="deck-card__title">D&eacute;but de la voie professionnelle</span>
-                    <span class="deck-card__hint">Lire le d&eacute;tail</span>
+                  <span class="deck-card__face deck-card__back" aria-hidden="true">
+                    <img class="deck-card__media deck-card__media--back" src="assets/cards/debutcarrierre.jpg" alt="" loading="lazy">
                   </span>
                 </span>
               </button>
 
-              <button class="deck-card" type="button" data-deck-card data-card-key="info" aria-controls="deck-parcours" aria-expanded="false">
+              <button class="deck-card" type="button" data-deck-card data-card-key="info" data-card-title="Moi &amp; l'informatique" aria-controls="deck-parcours" aria-expanded="false">
                 <span class="deck-card__inner">
                   <span class="deck-card__face deck-card__front">
-                    <img class="deck-card__media" src="assets/cards/informatique.png" alt="" loading="lazy">
-                    <span class="deck-card__title">Moi &amp; l'informatique</span>
-                    <span class="deck-card__hint">Cliquer pour retourner</span>
+                    <img class="deck-card__media" src="assets/cards/informatique.png" alt="Moi &amp; l'informatique" loading="lazy">
                   </span>
-                  <span class="deck-card__face deck-card__back">
-                    <span class="deck-card__kicker">Parcours</span>
-                    <span class="deck-card__title">Moi &amp; l'informatique</span>
-                    <span class="deck-card__hint">Lire le d&eacute;tail</span>
+                  <span class="deck-card__face deck-card__back" aria-hidden="true">
+                    <img class="deck-card__media deck-card__media--back" src="assets/cards/informatique.png" alt="" loading="lazy">
                   </span>
                 </span>
               </button>
 
-              <button class="deck-card" type="button" data-deck-card data-card-key="data" aria-controls="deck-parcours" aria-expanded="false">
+              <button class="deck-card" type="button" data-deck-card data-card-key="data" data-card-title="Vers le m&eacute;tier Data Engineer" aria-controls="deck-parcours" aria-expanded="false">
                 <span class="deck-card__inner">
                   <span class="deck-card__face deck-card__front">
-                    <img class="deck-card__media" src="assets/cards/dataengineer.webp" alt="" loading="lazy">
-                    <span class="deck-card__title">Vers le m&eacute;tier Data Engineer</span>
-                    <span class="deck-card__hint">Cliquer pour retourner</span>
+                    <img class="deck-card__media" src="assets/cards/dataengineer.jpg" alt="Vers le m&eacute;tier Data Engineer" loading="lazy">
                   </span>
-                  <span class="deck-card__face deck-card__back">
-                    <span class="deck-card__kicker">Parcours</span>
-                    <span class="deck-card__title">Vers le m&eacute;tier Data Engineer</span>
-                    <span class="deck-card__hint">Lire le d&eacute;tail</span>
+                  <span class="deck-card__face deck-card__back" aria-hidden="true">
+                    <img class="deck-card__media deck-card__media--back" src="assets/cards/dataengineer.jpg" alt="" loading="lazy">
                   </span>
                 </span>
               </button>
             </div>
 
-            <article class="deck-article" id="deck-parcours" data-deck-article hidden aria-live="polite">
-              <h3 class="deck-article__title" data-deck-article-title></h3>
-              <div class="deck-article__content" data-deck-article-content></div>
-            </article>
+            <template data-card-template="etudes">
+              <p>
+                Mes études initiales m’ont appris un réflexe que je garde encore aujourd’hui :
+                comprendre le "pourquoi" avant de foncer sur le
+                "comment". Quand un problème devient complexe, c’est ce
+                qui permet d’avancer vite et proprement.
+              </p>
+              <p>
+                Très tôt, je savais que je voulais aller vers l’informatique. J’ai choisi une
+                porte d’entrée concrète : un <strong>BEP Systèmes électroniques industriels et domestiques</strong>.
+                On y apprend la rigueur, le diagnostic et la méthode : des bases solides pour
+                travailler proprement.
+              </p>
+              <p>
+                J’ai ensuite fait un <strong>BAC PRO Systèmes électroniques industriels et domestiques</strong>,
+                où l’on aborde aussi des notions utiles en informatique, notamment les bases réseaux.
+              </p>
+              <p>
+                Après le bac, je voulais franchir un cap : <strong>apprendre la programmation</strong>.
+                Je me suis donc inscrit en <strong>BTS Systèmes Informatiques aux Organisations</strong>.
+                Il y avait deux options : <strong>Réseaux</strong> et <strong>Programmation</strong>.
+                Et dans la pratique, presque tout le monde visait la programmation, mais
+                seules la moitié des places étaient disponibles.
+              </p>
+              <p>
+                Les groupes se décidaient au conseil de classe du premier trimestre. Sur les notes, j’étais bien placé
+                (environ <strong>14,5 de moyenne</strong>). Mais j’ai choisi de ne pas aller en cours
+                les deux dernières semaines avant ce conseil, pour des raisons personnelles.
+                Ce choix a pesé : l’assiduité comptait autant que la performance. Résultat :
+                <strong>je n’ai pas eu l’option programmation</strong>.
+              </p>
+              <p>
+                À ce moment-là, j’ai fait un choix simple : si je ne pouvais pas apprendre ce
+                pour quoi j’étais venu, je préférais ne pas perdre deux ans. J’ai donc
+                <strong>quitté le BTS</strong> et je suis entré sur le marché du travail, pour apprendre
+                autrement, au contact du réel.
+              </p>
+              <p>
+                La suite, et ce que cette décision a déclenché, je te la raconte dans la carte suivante.
+              </p>
+            </template>
+
 
             <template data-card-template="etudes">
-              <p>Mes &eacute;tudes initiales m'ont appris la rigueur, la m&eacute;thode et la curiosit&eacute; : comprendre le &laquo; pourquoi &raquo; avant de passer au &laquo; comment &raquo;.</p>
-              <p class="muted">J'y ai aussi d&eacute;velopp&eacute; une mani&egrave;re de travailler structur&eacute;e : analyser, synth&eacute;tiser, et rendre les choses lisibles.</p>
+              <p>
+                Mes &eacute;tudes initiales m&rsquo;ont appris un r&eacute;flexe que je garde encore aujourd&rsquo;hui :
+                comprendre le &quot;pourquoi&quot; avant de foncer sur le &quot;comment&quot;. Quand un probl&egrave;me devient complexe,
+                c&rsquo;est ce qui permet d&rsquo;avancer vite et proprement.
+              </p>
+
+              <div class="article-tags" aria-label="Mots-cl&eacute;s">
+                <span class="tag">Rigueur</span>
+                <span class="tag">M&eacute;thode</span>
+                <span class="tag">Pragmatisme</span>
+              </div>
+
+              <div class="mini-timeline" aria-label="Parcours scolaire r&eacute;sum&eacute;">
+                <span class="mini-timeline__step">BEP</span>
+                <span class="mini-timeline__sep" aria-hidden="true">&rarr;</span>
+                <span class="mini-timeline__step">BAC PRO</span>
+                <span class="mini-timeline__sep" aria-hidden="true">&rarr;</span>
+                <span class="mini-timeline__step is-canceled" title="Arr&ecirc;t avant la fin">BTS SIO</span>
+                <span class="mini-timeline__sep" aria-hidden="true">&rarr;</span>
+                <span class="mini-timeline__step">March&eacute; du travail</span>
+              </div>
+
+              <p>
+                Tr&egrave;s t&ocirc;t, je savais que je voulais aller vers l&rsquo;informatique. J&rsquo;ai choisi une porte d&rsquo;entr&eacute;e
+                concr&egrave;te : un <strong>BEP Syst&egrave;mes &eacute;lectroniques industriels et domestiques</strong>. On y apprend la rigueur,
+                le diagnostic et la m&eacute;thode : des bases solides pour travailler proprement.
+              </p>
+
+              <p>
+                J&rsquo;ai ensuite fait un <strong>BAC PRO Syst&egrave;mes &eacute;lectroniques industriels et domestiques</strong>, o&ugrave; l&rsquo;on aborde
+                aussi des notions utiles en informatique, notamment les bases r&eacute;seaux.
+              </p>
+
+              <p>
+                Apr&egrave;s le bac, je voulais franchir un cap : <strong>apprendre la programmation</strong>. Je me suis donc inscrit en
+                <strong>BTS Syst&egrave;mes Informatiques aux Organisations</strong>. Il y avait deux options : <strong>R&eacute;seaux</strong> et
+                <strong>Programmation</strong>. Dans la pratique, presque tout le monde visait la programmation, mais seule la moiti&eacute;
+                des places &eacute;tait disponible.
+              </p>
+
+              <p>
+                Les groupes se d&eacute;cidaient au conseil de classe du premier trimestre. Sur les notes, j&rsquo;&eacute;tais bien plac&eacute;
+                (environ <strong>14,5 de moyenne</strong>). Mais je n&rsquo;ai pas &eacute;t&eacute; en cours les deux derni&egrave;res semaines avant ce conseil,
+                pour des raisons personnelles. Ce choix a pes&eacute; : les enseignants ont d&eacute;cid&eacute; que l&rsquo;assiduit&eacute; comptait autant
+                que la performance. R&eacute;sultat : <strong>je n&rsquo;ai pas eu l&rsquo;option programmation</strong>.
+              </p>
+
+              <p>
+                &Agrave; ce moment-l&agrave;, j&rsquo;ai fait un choix simple : si je ne pouvais pas apprendre ce pour quoi j&rsquo;&eacute;tais venu,
+                je pr&eacute;f&eacute;rais ne pas perdre deux ans. J&rsquo;ai donc <strong>quitt&eacute; le BTS</strong> et je suis entr&eacute; sur le march&eacute;
+                du travail, pour apprendre autrement, au contact du r&eacute;el.
+              </p>
+
+              <div class="callout">
+                <h3>Ce que &ccedil;a m&rsquo;a laiss&eacute;</h3>
+                <ul>
+                  <li><strong>Rigueur &amp; m&eacute;thode</strong> : diagnostic, approche syst&eacute;mique, travail propre.</li>
+                  <li><strong>D&eacute;cision &amp; pragmatisme</strong> : assumer un choix et avancer.</li>
+                  <li><strong>Apprentissage orient&eacute; terrain</strong> : autonomie, concret, adaptation.</li>
+                </ul>
+              </div>
+
+              <p>La suite, et ce que cette d&eacute;cision a d&eacute;clench&eacute;, je te la raconte dans la carte suivante.</p>
             </template>
 
             <template data-card-template="pro">
-              <p>Le d&eacute;but de ma voie professionnelle m'a donn&eacute; le sens du concret : livrer, m'adapter, et communiquer clairement.</p>
-              <p class="muted">C'est l&agrave; que j'ai compris l'importance des contraintes r&eacute;elles (d&eacute;lais, besoins, priorit&eacute;s) et de la collaboration.</p>
+              <p>
+                Quand je suis entr&eacute; sur le march&eacute; du travail, j&rsquo;ai appris une chose tr&egrave;s simple : dans le monde pro,
+                <strong>on avance en livrant</strong>. Ce passage m&rsquo;a donn&eacute; une mentalit&eacute; orient&eacute;e r&eacute;sultat, sans perdre le sens du
+                collectif.
+              </p>
+
+              <div class="article-tags" aria-label="Mots-cl&eacute;s">
+                <span class="tag">Concret</span>
+                <span class="tag">Adaptation</span>
+                <span class="tag">Communication</span>
+              </div>
+
+              <div class="mini-timeline" aria-label="Progression professionnelle r&eacute;sum&eacute;e">
+                <span class="mini-timeline__step">Premi&egrave;res exp&eacute;riences</span>
+                <span class="mini-timeline__sep" aria-hidden="true">&rarr;</span>
+                <span class="mini-timeline__step">Autonomie</span>
+                <span class="mini-timeline__sep" aria-hidden="true">&rarr;</span>
+                <span class="mini-timeline__step">Travail en &eacute;quipe</span>
+              </div>
+
+              <p>
+                J&rsquo;ai d&ucirc; m&rsquo;adapter vite : comprendre le besoin, g&eacute;rer les priorit&eacute;s, et communiquer clairement
+                (ce qui est fait / ce qui reste / ce qui bloque). C&rsquo;est aussi l&agrave; que j&rsquo;ai appris &agrave; &ecirc;tre fiable :
+                <strong>tenir mes engagements</strong> et rendre visible l&rsquo;avancement.
+              </p>
+
+              <div class="callout">
+                <h3>Ce que j&rsquo;en ai retir&eacute;</h3>
+                <ul>
+                  <li><strong>Sens du livrable</strong> : avancer par &eacute;tapes, terminer proprement.</li>
+                  <li><strong>Communication simple</strong> : rendre l&rsquo;information actionnable.</li>
+                  <li><strong>Rigueur du quotidien</strong> : d&eacute;lais, contraintes, impr&eacute;vus.</li>
+                </ul>
+              </div>
+
+              <p class="muted">
+                Cette base &laquo; terrain &raquo; m&rsquo;a servi ensuite pour aborder l&rsquo;informatique de mani&egrave;re plus structur&eacute;e,
+                et construire une suite logique vers la data.
+              </p>
             </template>
 
             <template data-card-template="info">
@@ -164,90 +277,64 @@
       <section class="section">
         <div class="card reveal">
           <h2>Passions</h2>
-          <p class="muted">Cinq cartes pour comprendre ce qui me motive au quotidien (et ce que j'en retire).</p>
 
           <div class="card-deck" data-card-deck>
             <div class="card-deck__grid">
-              <button class="deck-card" type="button" data-deck-card data-card-key="echecs" aria-controls="deck-passions" aria-expanded="false">
+              <button class="deck-card" type="button" data-deck-card data-card-key="echecs" data-card-title="Jeux d'&eacute;checs" aria-controls="deck-passions" aria-expanded="false">
                 <span class="deck-card__inner">
                   <span class="deck-card__face deck-card__front">
-                    <img class="deck-card__media" src="assets/cards/echecs.webp" alt="" loading="lazy">
-                    <span class="deck-card__title">Jeux d'&eacute;checs</span>
-                    <span class="deck-card__hint">Cliquer pour retourner</span>
+                    <img class="deck-card__media" src="assets/cards/echecs.png" alt="Jeux d'&eacute;checs" loading="lazy">
                   </span>
-                  <span class="deck-card__face deck-card__back">
-                    <span class="deck-card__kicker">Passions</span>
-                    <span class="deck-card__title">Jeux d'&eacute;checs</span>
-                    <span class="deck-card__hint">Lire le d&eacute;tail</span>
+                  <span class="deck-card__face deck-card__back" aria-hidden="true">
+                    <img class="deck-card__media deck-card__media--back" src="assets/cards/echecs.png" alt="" loading="lazy">
                   </span>
                 </span>
               </button>
 
-              <button class="deck-card" type="button" data-deck-card data-card-key="sport" aria-controls="deck-passions" aria-expanded="false">
+              <button class="deck-card" type="button" data-deck-card data-card-key="sport" data-card-title="Sport" aria-controls="deck-passions" aria-expanded="false">
                 <span class="deck-card__inner">
                   <span class="deck-card__face deck-card__front">
-                    <img class="deck-card__media" src="assets/cards/sport.jpg" alt="" loading="lazy">
-                    <span class="deck-card__title">Sport</span>
-                    <span class="deck-card__hint">Cliquer pour retourner</span>
+                    <img class="deck-card__media" src="assets/cards/sport.png" alt="Sport" loading="lazy">
                   </span>
-                  <span class="deck-card__face deck-card__back">
-                    <span class="deck-card__kicker">Passions</span>
-                    <span class="deck-card__title">Sport</span>
-                    <span class="deck-card__hint">Lire le d&eacute;tail</span>
+                  <span class="deck-card__face deck-card__back" aria-hidden="true">
+                    <img class="deck-card__media deck-card__media--back" src="assets/cards/sport.png" alt="" loading="lazy">
                   </span>
                 </span>
               </button>
 
-              <button class="deck-card" type="button" data-deck-card data-card-key="audiovisuel" aria-controls="deck-passions" aria-expanded="false">
+              <button class="deck-card" type="button" data-deck-card data-card-key="audiovisuel" data-card-title="Cr&eacute;ation audiovisuelle" aria-controls="deck-passions" aria-expanded="false">
                 <span class="deck-card__inner">
                   <span class="deck-card__face deck-card__front">
-                    <img class="deck-card__media" src="assets/cards/audiovisuel.png" alt="" loading="lazy">
-                    <span class="deck-card__title">Cr&eacute;ation audiovisuelle</span>
-                    <span class="deck-card__hint">Cliquer pour retourner</span>
+                    <img class="deck-card__media" src="assets/cards/audiovisuel.png" alt="Cr&eacute;ation audiovisuelle" loading="lazy">
                   </span>
-                  <span class="deck-card__face deck-card__back">
-                    <span class="deck-card__kicker">Passions</span>
-                    <span class="deck-card__title">Cr&eacute;ation audiovisuelle</span>
-                    <span class="deck-card__hint">Lire le d&eacute;tail</span>
+                  <span class="deck-card__face deck-card__back" aria-hidden="true">
+                    <img class="deck-card__media deck-card__media--back" src="assets/cards/audiovisuel.png" alt="" loading="lazy">
                   </span>
                 </span>
               </button>
 
-              <button class="deck-card" type="button" data-deck-card data-card-key="jeux" aria-controls="deck-passions" aria-expanded="false">
+              <button class="deck-card" type="button" data-deck-card data-card-key="jeux" data-card-title="Cr&eacute;ation de jeux vid&eacute;o" aria-controls="deck-passions" aria-expanded="false">
                 <span class="deck-card__inner">
                   <span class="deck-card__face deck-card__front">
-                    <img class="deck-card__media" src="assets/cards/jeuxvideos.png" alt="" loading="lazy">
-                    <span class="deck-card__title">Cr&eacute;ation de jeux vid&eacute;o</span>
-                    <span class="deck-card__hint">Cliquer pour retourner</span>
+                    <img class="deck-card__media" src="assets/cards/jeuxvideos.jpg" alt="Cr&eacute;ation de jeux vid&eacute;o" loading="lazy">
                   </span>
-                  <span class="deck-card__face deck-card__back">
-                    <span class="deck-card__kicker">Passions</span>
-                    <span class="deck-card__title">Cr&eacute;ation de jeux vid&eacute;o</span>
-                    <span class="deck-card__hint">Lire le d&eacute;tail</span>
+                  <span class="deck-card__face deck-card__back" aria-hidden="true">
+                    <img class="deck-card__media deck-card__media--back" src="assets/cards/jeuxvideos.jpg" alt="" loading="lazy">
                   </span>
                 </span>
               </button>
 
-              <button class="deck-card" type="button" data-deck-card data-card-key="musique" aria-controls="deck-passions" aria-expanded="false">
+              <button class="deck-card" type="button" data-deck-card data-card-key="musique" data-card-title="Composition musicale" aria-controls="deck-passions" aria-expanded="false">
                 <span class="deck-card__inner">
                   <span class="deck-card__face deck-card__front">
-                    <img class="deck-card__media" src="assets/cards/musique.jpg" alt="" loading="lazy">
-                    <span class="deck-card__title">Composition musicale</span>
-                    <span class="deck-card__hint">Cliquer pour retourner</span>
+                    <img class="deck-card__media" src="assets/cards/musique.jpg" alt="Composition musicale" loading="lazy">
                   </span>
-                  <span class="deck-card__face deck-card__back">
-                    <span class="deck-card__kicker">Passions</span>
-                    <span class="deck-card__title">Composition musicale</span>
-                    <span class="deck-card__hint">Lire le d&eacute;tail</span>
+                  <span class="deck-card__face deck-card__back" aria-hidden="true">
+                    <img class="deck-card__media deck-card__media--back" src="assets/cards/musique.jpg" alt="" loading="lazy">
                   </span>
                 </span>
               </button>
             </div>
-
-            <article class="deck-article" id="deck-passions" data-deck-article hidden aria-live="polite">
-              <h3 class="deck-article__title" data-deck-article-title></h3>
-              <div class="deck-article__content" data-deck-article-content></div>
-            </article>
 
             <template data-card-template="echecs">
               <p>Les &eacute;checs m'apprennent &agrave; anticiper, &agrave; prioriser et &agrave; rester calme : une bonne d&eacute;cision vaut souvent mieux qu'une d&eacute;cision rapide.</p>
@@ -275,60 +362,42 @@
       <section class="section">
         <div class="card reveal">
           <h2>Projets &amp; avenir</h2>
-          <p class="muted">Ce que je veux construire, et comment je me projette dans les prochaines ann&eacute;es.</p>
 
           <div class="card-deck" data-card-deck>
             <div class="card-deck__grid">
-              <button class="deck-card" type="button" data-deck-card data-card-key="contrat" aria-controls="deck-avenir" aria-expanded="false">
+              <button class="deck-card" type="button" data-deck-card data-card-key="contrat" data-card-title="Ce que j'attends du contrat pro" aria-controls="deck-avenir" aria-expanded="false">
                 <span class="deck-card__inner">
                   <span class="deck-card__face deck-card__front">
-                    <img class="deck-card__media" src="assets/cards/cequejattend.jpg" alt="" loading="lazy">
-                    <span class="deck-card__title">Ce que j'attends du contrat pro</span>
-                    <span class="deck-card__hint">Cliquer pour retourner</span>
+                    <img class="deck-card__media" src="assets/cards/cequejattend.jpg" alt="Ce que j'attends du contrat pro" loading="lazy">
                   </span>
-                  <span class="deck-card__face deck-card__back">
-                    <span class="deck-card__kicker">Avenir</span>
-                    <span class="deck-card__title">Ce que j'attends du contrat pro</span>
-                    <span class="deck-card__hint">Lire le d&eacute;tail</span>
+                  <span class="deck-card__face deck-card__back" aria-hidden="true">
+                    <img class="deck-card__media deck-card__media--back" src="assets/cards/cequejattend.jpg" alt="" loading="lazy">
                   </span>
                 </span>
               </button>
 
-              <button class="deck-card" type="button" data-deck-card data-card-key="entreprendre" aria-controls="deck-avenir" aria-expanded="false">
+              <button class="deck-card" type="button" data-deck-card data-card-key="entreprendre" data-card-title="Entrepreneuriat" aria-controls="deck-avenir" aria-expanded="false">
                 <span class="deck-card__inner">
                   <span class="deck-card__face deck-card__front">
-                    <img class="deck-card__media" src="assets/cards/entreprenariat.jpg" alt="" loading="lazy">
-                    <span class="deck-card__title">Entrepreneuriat</span>
-                    <span class="deck-card__hint">Cliquer pour retourner</span>
+                    <img class="deck-card__media" src="assets/cards/entreprenariat.png" alt="Entrepreneuriat" loading="lazy">
                   </span>
-                  <span class="deck-card__face deck-card__back">
-                    <span class="deck-card__kicker">Avenir</span>
-                    <span class="deck-card__title">Entrepreneuriat</span>
-                    <span class="deck-card__hint">Lire le d&eacute;tail</span>
+                  <span class="deck-card__face deck-card__back" aria-hidden="true">
+                    <img class="deck-card__media deck-card__media--back" src="assets/cards/entreprenariat.png" alt="" loading="lazy">
                   </span>
                 </span>
               </button>
 
-              <button class="deck-card" type="button" data-deck-card data-card-key="vision" aria-controls="deck-avenir" aria-expanded="false">
+              <button class="deck-card" type="button" data-deck-card data-card-key="vision" data-card-title="Vision de l'avenir" aria-controls="deck-avenir" aria-expanded="false">
                 <span class="deck-card__inner">
                   <span class="deck-card__face deck-card__front">
-                    <img class="deck-card__media" src="assets/cards/avenir.jpg" alt="" loading="lazy">
-                    <span class="deck-card__title">Vision de l'avenir</span>
-                    <span class="deck-card__hint">Cliquer pour retourner</span>
+                    <img class="deck-card__media" src="assets/cards/avenir.jpg" alt="Vision de l'avenir" loading="lazy">
                   </span>
-                  <span class="deck-card__face deck-card__back">
-                    <span class="deck-card__kicker">Avenir</span>
-                    <span class="deck-card__title">Vision de l'avenir</span>
-                    <span class="deck-card__hint">Lire le d&eacute;tail</span>
+                  <span class="deck-card__face deck-card__back" aria-hidden="true">
+                    <img class="deck-card__media deck-card__media--back" src="assets/cards/avenir.jpg" alt="" loading="lazy">
                   </span>
                 </span>
               </button>
             </div>
-
-            <article class="deck-article" id="deck-avenir" data-deck-article hidden aria-live="polite">
-              <h3 class="deck-article__title" data-deck-article-title></h3>
-              <div class="deck-article__content" data-deck-article-content></div>
-            </article>
 
             <template data-card-template="contrat">
               <p>Dans mon contrat pro Data Engineer, je cherche &agrave; apprendre des standards d'&eacute;quipe (qualit&eacute; de donn&eacute;e, tests, monitoring) tout en livrant des am&eacute;liorations concr&egrave;tes.</p>
@@ -351,6 +420,30 @@
           </div>
         </div>
       </section>
+
+      <div class="deck-modal" data-deck-modal hidden aria-hidden="true">
+        <div class="deck-modal__backdrop" data-deck-modal-backdrop></div>
+        <div class="deck-modal__panel" data-deck-modal-panel role="dialog" aria-modal="true" aria-labelledby="deck-modal-title" tabindex="-1">
+          <button class="icon-btn deck-modal__close" type="button" data-deck-modal-close aria-label="Fermer">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 6l12 12"></path>
+              <path d="M18 6l-12 12"></path>
+            </svg>
+          </button>
+          <div class="deck-modal__body">
+            <div class="deck-modal__hero" data-deck-modal-hero></div>
+            <div class="deck-modal__scroll-cue" data-deck-modal-scroll-cue aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 5v14"></path>
+                <path d="M7 14l5 5 5-5"></path>
+              </svg>
+              <span>D&eacute;filer</span>
+            </div>
+            <h2 class="deck-modal__title sr-only" id="deck-modal-title" data-deck-modal-title></h2>
+            <div class="deck-modal__content" data-deck-modal-content></div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <div class="site-player" data-site-player>
