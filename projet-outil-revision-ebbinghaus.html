@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idris NAULLEAU-AURIAL - Outil de révision (projet)</title>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="playlist.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">Idris NAULLEAU-AURIAL</div>
+      <nav aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="profil.html">Profil</a>
+        <a href="projets.html" aria-current="page">Projets</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions" aria-label="Liens rapides">
+        <a class="btn secondary btn--sm btn--icon" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+            <path d="M8 11v5"></path>
+            <path d="M8 8v.01"></path>
+            <path d="M12 16v-5"></path>
+            <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+        <div class="cv-downloads" aria-label="T&eacute;l&eacute;chargements CV">
+          <details>
+            <summary class="btn secondary btn--sm">Mon CV</summary>
+            <div class="cv-downloads__links">
+              <a class="btn primary btn--sm" href="assets/documents/Papier CV DE alternance.pdf" target="_blank" rel="noreferrer">Version &agrave; imprimer</a>
+              <a class="btn primary btn--sm" href="assets/documents/Mail CV DE alternance.pdf" target="_blank" rel="noreferrer">Version num&eacute;rique</a>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="breadcrumbs" aria-label="Fil d’ariane">
+        <div class="breadcrumbs__trail">
+          <a href="index.html">Accueil</a>
+          <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+          <a href="projets.html">Projets</a>
+          <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+          <span aria-current="page">Outil de révision</span>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="card reveal reveal-on-load">
+        <p class="kicker">Projet</p>
+        <h1>Lorem ipsum outil de r&eacute;vision</h1>
+        <div class="project-meta">
+          <span class="pill">Catégorie : Projets Data</span>
+          <span class="pill">Statut : terminé</span>
+        </div>
+        <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vulputate, mi at ultricies efficitur, ipsum mi ultrices nunc, vitae gravida diam nibh sed velit.</p>
+        <div class="hero-actions">
+          <a class="btn secondary" href="projets.html">Retour aux projets</a>
+          <a class="btn primary" href="contact.html">Me contacter</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="card reveal">
+          <h2>Aperçu</h2>
+          <img class="project-image" src="assets/visual-ebbinghaus.svg" alt="Illustration abstraite : courbe de révision et points de rappel." loading="lazy" data-lightbox>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="card reveal">
+          <h2>Contexte</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer rhoncus dui sed nisi sollicitudin, ac cursus ex tincidunt.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="card reveal">
+          <h2>Objectif</h2>
+          <p>Praesent ut iaculis augue. Mauris non risus consequat, efficitur nisi ac, convallis nisl. Integer bibendum nec metus nec tristique.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="card reveal">
+          <h2>Comp&eacute;tences d&eacute;montr&eacute;es</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut velit sem. Integer venenatis arcu in lorem pellentesque, vitae suscipit ligula blandit.</p>
+        </div>
+      </section>
+    </main>
+
+  </div>
+</body>
+</html>

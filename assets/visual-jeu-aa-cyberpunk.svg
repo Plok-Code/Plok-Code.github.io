@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Aperçu abstrait — Jeu AA top-down</title>
+  <desc id="desc">Illustration abstraite d’une carte top-down avec zones et points d’intérêt.</desc>
+  <rect x="16" y="16" width="928" height="508" rx="18" fill="#161822" stroke="#2A2D3A"/>
+  <rect x="52" y="62" width="856" height="416" rx="16" fill="#0E0F14" stroke="#2A2D3A"/>
+
+  <path d="M92 110 H868" stroke="#2A2D3A"/>
+  <path d="M92 170 H868" stroke="#2A2D3A"/>
+  <path d="M92 230 H868" stroke="#2A2D3A"/>
+  <path d="M92 290 H868" stroke="#2A2D3A"/>
+  <path d="M92 350 H868" stroke="#2A2D3A"/>
+  <path d="M92 410 H868" stroke="#2A2D3A"/>
+
+  <path d="M152 94 V446" stroke="#2A2D3A"/>
+  <path d="M272 94 V446" stroke="#2A2D3A"/>
+  <path d="M392 94 V446" stroke="#2A2D3A"/>
+  <path d="M512 94 V446" stroke="#2A2D3A"/>
+  <path d="M632 94 V446" stroke="#2A2D3A"/>
+  <path d="M752 94 V446" stroke="#2A2D3A"/>
+
+  <path d="M220 360 C310 300, 360 270, 440 240 C520 210, 630 180, 760 150" fill="none" stroke="#4DE3FF" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+  <circle cx="220" cy="360" r="7" fill="#F4C793"/>
+  <circle cx="440" cy="240" r="6" fill="#4DE3FF"/>
+  <circle cx="760" cy="150" r="7" fill="#F4C793"/>
+</svg>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idris NAULLEAU-AURIAL - Projets</title>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="playlist.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">Idris NAULLEAU-AURIAL</div>
+      <nav aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="profil.html">Profil</a>
+        <a href="projets.html" aria-current="page">Projets</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions" aria-label="Liens rapides">
+        <a class="btn secondary btn--sm btn--icon" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+            <path d="M8 11v5"></path>
+            <path d="M8 8v.01"></path>
+            <path d="M12 16v-5"></path>
+            <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+        <div class="cv-downloads" aria-label="T&eacute;l&eacute;chargements CV">
+          <details>
+            <summary class="btn secondary btn--sm">Mon CV</summary>
+            <div class="cv-downloads__links">
+              <a class="btn primary btn--sm" href="assets/documents/Papier CV DE alternance.pdf" target="_blank" rel="noreferrer">Version &agrave; imprimer</a>
+              <a class="btn primary btn--sm" href="assets/documents/Mail CV DE alternance.pdf" target="_blank" rel="noreferrer">Version num&eacute;rique</a>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div class="breadcrumbs" aria-label="Fil d’ariane">
+        <div class="breadcrumbs__trail">
+          <a href="index.html">Accueil</a>
+          <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+          <span aria-current="page">Projets</span>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <h1 class="sr-only">Projets</h1>
+
+      <section class="projects-shell" aria-label="Liste des projets">
+        <aside class="project-nav" aria-label="Navigation des blocs projets">
+          <div class="project-nav__current" id="project-nav-current">Projets Data</div>
+          <div class="project-nav__list" id="project-nav"></div>
+        </aside>
+
+        <div class="project-rail" id="project-rail" tabindex="0" aria-label="Défilement des projets">
+          <section class="project-screen reveal" id="data-dashboard-entreprise" data-project-screen data-type="project" data-nav-label="Toys & Models [Dashboard, KPIs]">
+            <article class="card project-card">
+              <div class="project-card__header">
+                <div class="project-card__title">
+                  <p class="kicker">Projets Data</p>
+                  <h3>Toys & Models : Dashboard dynamique pour une entreprise</h3>
+                </div>
+                <a class="btn secondary btn--sm" href="projet-dashboard-entreprise.html">Page du projet</a>
+              </div>
+              <img class="project-image" src="assets/Toyandmodel1.png" alt="Illustration d'un dashboard et KPIs." loading="lazy" data-lightbox>
+              <p><strong>Contexte :</strong> projet scolaire - un dirigeant souhaite suivre l’activité à partir de sa base de données.</p>
+              <p><strong>Objectif :</strong> définir des KPIs utiles, puis livrer un tableau de bord clair et maintenable.</p>
+              <p><strong>Compétences démontrées :</strong> cadrage des besoins, définition de KPIs, requêtes et structuration de données, restitution orientée décision.</p>
+              <div class="project-meta">
+                <span class="pill">Statut : terminé</span>
+              </div>
+            </article>
+          </section>
+
+          <section class="project-screen reveal" id="data-outil-revision-ebbinghaus" data-project-screen data-type="project" data-nav-label="Apprendre avec la Science [App Python, Scraping, LLM]">
+            <article class="card project-card">
+              <div class="project-card__header">
+                <div class="project-card__title">
+                  <p class="kicker">Projets Data</p>
+                  <h3>Apprendre avec la Science [App Python, Scraping, LLM]</h3>
+                </div>
+                <a class="btn secondary btn--sm" href="projet-outil-revision-ebbinghaus.html">Page du projet</a>
+              </div>
+              <img class="project-image" src="assets/apprendre1.png" alt="Illustration de la courbe de d'Ebbinghaus." loading="lazy" data-lightbox>
+              <p><strong>Contexte :</strong> projet non commercial - création d'un outil pour réviser efficacement des contenus de cours issus du web.</p>
+              <p><strong>Objectif :</strong> automatiser un planning de révision et générer des tests de compréhension.</p>
+              <p><strong>Compétences démontrées :</strong> structuration (Sheets en base), scraping, génération d’auto-tests via LLM, analyse de la littérature scientifique dans le champs de l'apprentissage et la mémorisation.</p>
+              <div class="project-meta">
+                <span class="pill">Statut : terminé</span>
+              </div>
+            </article>
+          </section>
+
+          <section class="project-screen reveal" id="jeux-aa-cyberpunk" data-project-screen data-type="project" data-nav-label="Nova Realm [Jeu vidéo AA]">
+            <article class="card project-card">
+              <div class="project-card__header">
+                <div class="project-card__title">
+                  <p class="kicker">Jeux vidéo &amp; narration interactive</p>
+                  <h3>Création d’un projet de jeu vidéo AA (top-down, cyberpunk parisien)</h3>
+                </div>
+                <a class="btn secondary btn--sm" href="projet-jeu-aa-cyberpunk.html">Page du projet</a>
+              </div>
+              <img class="project-image project-image--contain" src="assets/jv1.png" alt="Organigramme d'un studio de jeu vidéo indiquant les rôles de Idris NAULLEAU-AURIAL : Executive Producer, Game director, Lead Game / Level Designer et Narrative Designer" loading="lazy" data-lightbox>
+              <p><strong>Contexte :</strong> projet commercial - projet en phase concept, avec constitution d’équipe et préparation d’une levée de fonds.</p>
+              <p><strong>Objectif :</strong> porter une vision claire, prototyper les systèmes et cadrer la production.</p>
+              <p><strong>Compétences démontrées :</strong> direction de projet, game &amp; level design, écriture (co-scénariste), cadrage, coordination d’équipe.</p>
+              <div class="project-meta">
+                <span class="pill">Statut : en cours</span>
+              </div>
+            </article>
+          </section>
+
+          <section class="project-screen reveal" id="jeux-arg-discord" data-project-screen data-type="project" data-nav-label="Projet Jack [Jeu vidéo Discord]">
+            <article class="card project-card">
+              <div class="project-card__header">
+                <div class="project-card__title">
+                  <p class="kicker">Jeux vidéo &amp; narration interactive</p>
+                  <h3>Jeu vidéo horreur sous forme d’ARG (Discord, multi-support, audio)</h3>
+                </div>
+                <a class="btn secondary btn--sm" href="projet-jeu-arg-discord.html">Page du projet</a>
+              </div>
+              <img class="project-image" src="assets/arg1.png" alt="Illustration réaliste d'un intérieur de maison sombre et inquiétant en noir et blanc avec un écran de télévision rouge." loading="lazy" data-lightbox>
+              <p><strong>Contexte :</strong> projet non commercial - expérience narrative distribuée, principalement audio, s’appuyant sur Discord.</p>
+              <p><strong>Objectif :</strong> concevoir une progression claire et une expérience audio cohérente, sans friction.</p>
+              <p><strong>Compétences démontrées :</strong> game design, écriture, programmation, conception d’interactions, collaboration (ingénierie son, voix, production).</p>
+              <div class="project-meta">
+                <span class="pill">Statut : en cours</span>
+              </div>
+            </article>
+          </section>
+
+          <section class="project-screen reveal" id="outils-netflix-app" data-project-screen data-type="project" data-nav-label="Wildflix [App de recommendation de contenus]">
+            <article class="card project-card">
+              <div class="project-card__header">
+                <div class="project-card__title">
+                  <p class="kicker">Outils et plateformes numériques</p>
+                  <h3>Projet Wildfix (app web + dashboards + recommandation)</h3>
+                </div>
+                <a class="btn secondary btn--sm" href="projet-netflix.html">Page du projet</a>
+              </div>
+              <img class="project-image" src="assets/wildflix1.png" alt="Schéma comparatif entre le Filtrage Collaboratif et le Filtrage Basé sur le Contenu. 1. Filtrage Collaboratif : La recommandation se fait sur la similarité des utilisateurs. 2. Filtrage Basé sur le Contenu : La recommandation se fait sur la similarité des articles eux-mêmes." loading="lazy" data-lightbox>
+              <p><strong>Contexte :</strong> projet scolaire - application web avec authentification, espace client et espace administrateur.</p>
+              <p><strong>Objectif :</strong> fournir à l’admin des dashboards avec KPIs pertinents, et proposer une recommandation de films adaptée à chaque utilisateur.</p>
+              <p><strong>Compétences démontrées :</strong> conception d’un backoffice, définition de KPIs, gestion des rôles, logique de recommandation (ML), UX d’un produit de contenu.</p>
+              <div class="project-meta">
+                <span class="pill">Statut : terminé</span>
+              </div>
+            </article>
+          </section>
+
+          <section class="project-screen reveal" id="outils-communicateur-pro" data-project-screen data-type="project" data-nav-label="Gérard [App de communication pour la gestion d'équipe]">
+            <article class="card project-card">
+              <div class="project-card__header">
+                <div class="project-card__title">
+                  <p class="kicker">Outils et plateformes numériques</p>
+                  <h3>Communicateur pro (Trello + Drive + Discord)</h3>
+                </div>
+                <a class="btn secondary btn--sm" href="projet-communicateur-pro.html">Page du projet</a>
+              </div>
+              <img class="project-image" src="assets/gerard1.png" alt="Illustration abstraite : connecteurs et flux d’événements." loading="lazy" data-lightbox>
+              <p><strong>Contexte :</strong> projet non commercial - création d'une app pour centraliser la communication sur Discord via Trello et Google Drive pour les projets pro.</p>
+              <p><strong>Objectif :</strong> centraliser les événements et notifier l’équipe sur Discord (qui a fait quoi, où).</p>
+              <p><strong>Compétences démontrées :</strong> intégration d’APIs, automation, gestion d’événements, structuration de messages, fiabilité opérationnelle.</p>
+              <div class="project-meta">
+                <span class="pill">Statut : terminé</span>
+              </div>
+            </article>
+          </section>
+
+          <section class="project-screen reveal" id="encours-saas-discord" data-project-screen data-type="project" data-nav-label="Upforge [SaaS B2B2C pour l'engagement communautaire sur Discord]">
+            <article class="card project-card">
+              <div class="project-card__header">
+                <div class="project-card__title">
+                  <p class="kicker">Projets en cours</p>
+                  <h3>SaaS Discord (B2B2C) pour créateurs de communautés</h3>
+                </div>
+                <a class="btn secondary btn--sm" href="projet-saas-discord.html">Page du projet</a>
+              </div>
+              <img class="project-image" src="assets/upforge1.png" alt="Illustration abstraite : modules SaaS et scaling." loading="lazy" data-lightbox>
+              <p><strong>Contexte :</strong> projet commercial - produit en cours, destiné aux marques et créateurs qui gèrent des communautés Discord.</p>
+              <p><strong>Objectif :</strong> optimiser l’engagement via des mécanismes UX solides, avec une approche sérieuse du marché.</p>
+              <p><strong>Compétences démontrées :</strong> conception produit, réflexion scaling, positionnement, itérations UX, contraintes d’un projet entreprenarial.</p>
+              <div class="project-meta">
+                <span class="pill">Statut : en cours</span>
+              </div>
+            </article>
+          </section>
+
+          <section class="project-screen reveal" id="encours-plateforme-revision-ds" data-project-screen data-type="project" data-nav-label="Data Trainer [Platforme de révision pour la data science]">
+            <article class="card project-card">
+              <div class="project-card__header">
+                <div class="project-card__title">
+                  <p class="kicker">Projets en cours</p>
+                  <h3>Plateforme de révision Data Science / Data Analyst</h3>
+                </div>
+                <a class="btn secondary btn--sm" href="projet-plateforme-revision-ds.html">Page du projet</a>
+              </div>
+              <img class="project-image" src="assets/dt1.png" alt="Illustration abstraite : flashcards, QCM et cours." loading="lazy" data-lightbox>
+              <p><strong>Contexte :</strong> projet commercial - besoin d’un support complet pour réviser ou se former au métier de data analyst.</p>
+              <p><strong>Objectif :</strong> proposer une plateforme structurée : + de 7000 tests, flashcards et cours écrits avec triple itération pour s'assurer de la qualité du contenu.</p>
+              <p><strong>Compétences démontrées :</strong> structuration de contenu, conception d’un parcours, priorisation, UX de révision, organisation de données.</p>
+              <div class="project-meta">
+                <span class="pill">Statut : en cours</span>
+              </div>
+            </article>
+          </section>
+        </div>
+      </section>
+    </main>
+
+  </div>
+</body>
+</html>

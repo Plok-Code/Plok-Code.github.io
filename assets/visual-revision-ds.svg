@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Aperçu abstrait — Révision Data Science</title>
+  <desc id="desc">Illustration abstraite de flashcards, QCM et cours structurés.</desc>
+  <rect x="16" y="16" width="928" height="508" rx="18" fill="#161822" stroke="#2A2D3A"/>
+  <rect x="52" y="62" width="420" height="416" rx="16" fill="#0E0F14" stroke="#2A2D3A"/>
+  <rect x="488" y="62" width="420" height="196" rx="16" fill="#0E0F14" stroke="#2A2D3A"/>
+  <rect x="488" y="282" width="420" height="196" rx="16" fill="#0E0F14" stroke="#2A2D3A"/>
+
+  <rect x="92" y="110" width="340" height="84" rx="14" fill="#161822" stroke="#2A2D3A"/>
+  <rect x="92" y="214" width="340" height="84" rx="14" fill="#161822" stroke="#2A2D3A"/>
+  <rect x="92" y="318" width="340" height="84" rx="14" fill="#161822" stroke="#2A2D3A"/>
+
+  <path d="M528 110 H868" stroke="#2A2D3A"/>
+  <path d="M528 150 H820" stroke="#2A2D3A"/>
+  <path d="M528 190 H760" stroke="#2A2D3A"/>
+  <path d="M528 330 H868" stroke="#2A2D3A"/>
+  <path d="M528 370 H820" stroke="#2A2D3A"/>
+  <path d="M528 410 H760" stroke="#2A2D3A"/>
+
+  <path d="M560 256 C612 228, 680 240, 724 216 C774 190, 830 210, 868 186" fill="none" stroke="#4DE3FF" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+  <circle cx="724" cy="216" r="6" fill="#F4C793"/>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Aperçu abstrait — ARG Discord et audio</title>
+  <desc id="desc">Illustration abstraite d’une interface Discord et d’une forme d’onde audio.</desc>
+  <rect x="16" y="16" width="928" height="508" rx="18" fill="#161822" stroke="#2A2D3A"/>
+  <rect x="52" y="62" width="220" height="416" rx="16" fill="#0E0F14" stroke="#2A2D3A"/>
+  <rect x="292" y="62" width="616" height="416" rx="16" fill="#0E0F14" stroke="#2A2D3A"/>
+
+  <path d="M88 120 H236" stroke="#2A2D3A"/>
+  <path d="M88 164 H206" stroke="#2A2D3A"/>
+  <path d="M88 208 H220" stroke="#2A2D3A"/>
+  <path d="M88 252 H192" stroke="#2A2D3A"/>
+  <path d="M88 296 H216" stroke="#2A2D3A"/>
+
+  <path d="M332 380 H868" stroke="#2A2D3A"/>
+  <path d="M332 412 H740" stroke="#2A2D3A"/>
+
+  <path d="M336 280 L360 320 L384 250 L408 338 L432 260 L456 318 L480 270 L504 338 L528 252 L552 320 L576 280 L600 320 L624 252 L648 338 L672 270 L696 318 L720 260 L744 338 L768 250 L792 320 L816 280" fill="none" stroke="#4DE3FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+  <circle cx="336" cy="280" r="6" fill="#F4C793"/>
+  <circle cx="816" cy="280" r="6" fill="#F4C793"/>
+</svg>

@@ -1,0 +1,197 @@
+IDENTITÉ VISUELLE — SITE PERSONNEL IDRIS NAULLEAU (VERSION CYBER TECH / MODERNE)
+
+0. OBJECTIF
+Construire une identité visuelle très moderne, tech, futuriste (tendance cyberpunk “propre”), destinée à des recruteurs et clients.
+Le style doit évoquer une interface produit / dashboard avancé : précis, contrasté, animé, mais toujours lisible.
+Le beige #F4C793 (issu du CV papier) reste une signature, mais ne doit jamais dominer l’interface.
+
+1. ADN VISUEL (MOTS-CLÉS)
+- Futur proche / tech avancée
+- Interface produit / R&D / data
+- Contraste, précision, tension contrôlée
+- Créativité assumée mais pas “gaming”
+- Lisibilité prioritaire
+À éviter : look “portfolio beige”, look “startup marketing”, néon agressif, esthétique trop “jeu vidéo”.
+
+2. PALETTE COULEUR (OFFICIELLE)
+
+2.1 Couleurs principales
+- Fond global (dominant) : #0E0F14
+  Rôle : arrière-plan du site, ambiance générale. Toujours présent en fond.
+- Surfaces / cartes / panneaux : #161822
+  Rôle : cartes projets, blocs de texte, sections encadrées, UI panels.
+- Bordures & séparateurs : #2A2D3A
+  Rôle : traits fins, séparations, grilles, contours discrets.
+- Texte principal : #EDEDED
+  Rôle : paragraphes, titres, éléments essentiels.
+- Texte secondaire : #9A9A9A
+  Rôle : méta-infos, dates, statuts, descriptions secondaires.
+
+2.2 Accents (signaux)
+- Accent signature (chaud, CV) : #F4C793
+  Rôle : signal rare et mémorable.
+  Utilisations autorisées :
+  - état actif (dot actif, nav active)
+  - soulignement animé de lien
+  - highlight de mot-clé dans un titre (très ponctuel)
+  - indicateur de progression / scroll
+  - micro-détails UI (icône, badge, curseur)
+  Utilisations interdites :
+  - fond plein
+  - grandes sections
+  - cartes complètes
+  - texte long dessus
+
+- Accent tech (froid, secondaire) : #4DE3FF
+  Rôle : signal tech, focus, “data glow” parcimonieux.
+  Utilisations autorisées :
+  - focus keyboard (accessibilité)
+  - hover très subtil
+  - éléments de navigation / UI
+  - micro-lumière sur indicateurs
+  Utilisations interdites :
+  - néon omniprésent
+  - grosses surfaces
+  - dégradés flashy
+
+2.3 Règles de proportions (très important)
+- #0E0F14 : 60–80% (dominant)
+- #161822 : 15–30% (surfaces)
+- #EDEDED / #9A9A9A : selon contenu (texte)
+- #F4C793 : 1–3% (signature rare)
+- #4DE3FF : 0.5–2% (signal tech rare)
+
+3. TYPOGRAPHIE
+
+3.1 Police
+- Principale : Inter
+- Fallback : Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif
+
+3.2 Style typographique
+- Titres : net, espacés, “tech”
+  - letter-spacing léger sur H1/H2 (ex: 0.02em à 0.06em)
+- Texte : sobre, très lisible, hauteur de ligne confortable
+
+3.3 Hiérarchie recommandée
+- H1 : 40–52 px (selon responsive)
+- H2 : 28–34 px
+- H3 : 20–24 px
+- Body : 16–18 px
+- Small/meta : 13–14 px
+- Line-height :
+  - titres : 1.15 à 1.25
+  - texte : 1.5 à 1.75
+
+4. MISE EN PAGE (LAYOUT)
+
+4.1 Grille & largeur
+- Largeur de lecture max : 760–860 px
+- Contenu centré
+- Marges généreuses
+- Sections verticales respirantes
+
+4.2 Structure visuelle type
+Fond sombre (#0E0F14)
+→ Panneau / carte (#161822)
+→ Contenu lisible (texte #EDEDED)
+
+4.3 Rythme
+- Peu d’éléments à l’écran
+- Hiérarchie forte
+- Utilisation de séparateurs fins (#2A2D3A)
+- Sensation “interface modulaire” : blocs nets, alignements propres
+
+5. COMPOSANTS UI (RÈGLES)
+
+5.1 Cartes (projets, sections)
+- Fond : #161822
+- Bordure : 1px #2A2D3A
+- Rayon : 14–18px (moderne)
+- Padding : 18–28px
+- Ombres : minimales, plutôt “glow” discret que shadow molle
+- Hover : légère montée (translateY -2px) + accent bordure subtil
+
+5.2 Boutons
+- Bouton primaire :
+  - fond : #EDEDED (ou #161822 selon design)
+  - texte : #0E0F14 (si fond clair) ou #EDEDED (si fond sombre)
+  - accent au hover : soulignement / bordure #F4C793 (ou glow cyan minimal)
+- Bouton secondaire :
+  - fond : transparent
+  - bordure : 1px #2A2D3A
+  - hover : bordure plus claire + micro glow #4DE3FF ou #F4C793 (rare)
+
+5.3 Liens
+- Couleur : #EDEDED
+- Hover : soulignement animé (de gauche à droite)
+- État actif : accent #F4C793 (rare)
+
+5.4 Tags / Badges
+- Fond : transparent ou #0E0F14
+- Bordure : #2A2D3A
+- Texte : #9A9A9A
+- Accent optionnel : liseré #F4C793 pour “Actif / Highlight” uniquement
+
+6. ANIMATIONS & MICRO-INTERACTIONS (OBLIGATOIRES)
+
+6.1 Principes
+- Animations sobres, “produit”
+- Durées courtes, fluides
+- Tout sert la lecture (pas de gadget)
+
+6.2 Animations recommandées
+- Entrée au scroll : opacity 0→1 + translateY 8→0
+- Hover sur carte : translateY léger + bordure/glow discret
+- Hover sur lien : underline animé + micro glow
+- Transitions de page : fade très léger
+- Navigation : état actif clairement visible (dot/beige)
+
+6.3 Courbes & timings
+- Transitions : 150–250ms (hover)
+- Entrées : 300–600ms (scroll)
+- Easing : ease-in-out ou spring (si lib)
+- Éviter : bounce exagéré, strobe, glitch agressif
+
+7. PAGE “PROJETS” (SPÉCIFICATION VISUELLE CLÉ)
+
+Objectif : créer une sensation de “chapitres” tech, scroll par blocs, navigation claire.
+
+- Scroll vertical par blocs (chaque projet ou section de projet = écran logique)
+- Une barre de navigation verticale (gauche ou droite)
+- Des points (dots) de sélection correspondant aux blocs
+- Dot actif : accent #F4C793 ou #4DE3FF (préférer #F4C793 pour la signature)
+- Mise à jour du dot actif au scroll
+- Transitions douces entre blocs (pas de scroll violent)
+- Regroupements visibles :
+  - Projets Data
+  - Jeux vidéo & narration interactive
+  - Outils & plateformes numériques
+  - Projets en cours
+
+8. ICONOGRAPHIE & IMAGERIE
+
+- Icônes : outline, fines, minimalistes
+- Images : uniquement si utiles
+- Jeux vidéo : aucune image choquante, pas d’autoplay
+- Préférer : captures d’interface, schémas, mockups sobres (si nécessaire)
+
+9. TON ÉDITORIAL (COHÉRENT AVEC LE VISUEL)
+
+- phrases courtes
+- pas de jargon inutile
+- pas de marketing
+- formulation orientée résultats / preuves
+- calme, précis, intelligent
+
+10. ACCESSIBILITÉ (NON NÉGOCIABLE)
+- Contraste suffisant entre texte et fond
+- États focus visibles (utiliser #4DE3FF avec parcimonie)
+- Navigation clavier fonctionnelle
+- Animations respectueuses (prévoir “prefers-reduced-motion” si possible)
+
+11. RÈGLES D’OR (À RESPECTER)
+- Le beige #F4C793 est une SIGNATURE, pas un fond.
+- Le futurisme vient de la structure + animation + contraste, pas de néons partout.
+- Lisibilité > effets.
+- Peu d’éléments, mais parfaitement hiérarchisés.
+- Tout doit donner l’impression d’un produit maîtrisé.

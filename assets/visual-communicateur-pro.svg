@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Aperçu abstrait — Connecteurs d’APIs</title>
+  <desc id="desc">Illustration abstraite de trois services reliés et d’un flux d’événements.</desc>
+  <rect x="16" y="16" width="928" height="508" rx="18" fill="#161822" stroke="#2A2D3A"/>
+  <rect x="72" y="116" width="260" height="160" rx="16" fill="#0E0F14" stroke="#2A2D3A"/>
+  <rect x="350" y="116" width="260" height="160" rx="16" fill="#0E0F14" stroke="#2A2D3A"/>
+  <rect x="628" y="116" width="260" height="160" rx="16" fill="#0E0F14" stroke="#2A2D3A"/>
+
+  <path d="M332 196 H350" stroke="#4DE3FF" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+  <path d="M610 196 H628" stroke="#4DE3FF" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+  <circle cx="202" cy="196" r="7" fill="#F4C793"/>
+  <circle cx="480" cy="196" r="7" fill="#4DE3FF"/>
+  <circle cx="758" cy="196" r="7" fill="#F4C793"/>
+
+  <rect x="72" y="320" width="816" height="120" rx="16" fill="#0E0F14" stroke="#2A2D3A"/>
+  <path d="M112 356 H848" stroke="#2A2D3A"/>
+  <path d="M112 392 H720" stroke="#2A2D3A"/>
+  <path d="M112 428 H640" stroke="#2A2D3A"/>
+</svg>

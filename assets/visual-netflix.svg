@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Aperçu abstrait — Application web avec admin et recommandation</title>
+  <desc id="desc">Illustration abstraite d’une application web avec backoffice et liste de contenus.</desc>
+  <rect x="16" y="16" width="928" height="508" rx="18" fill="#161822" stroke="#2A2D3A"/>
+  <rect x="52" y="62" width="856" height="416" rx="16" fill="#0E0F14" stroke="#2A2D3A"/>
+  <rect x="84" y="96" width="260" height="152" rx="14" fill="#161822" stroke="#2A2D3A"/>
+  <rect x="364" y="96" width="512" height="72" rx="14" fill="#161822" stroke="#2A2D3A"/>
+  <rect x="364" y="184" width="512" height="64" rx="14" fill="#161822" stroke="#2A2D3A"/>
+
+  <rect x="84" y="276" width="792" height="64" rx="14" fill="#161822" stroke="#2A2D3A"/>
+  <rect x="84" y="356" width="792" height="64" rx="14" fill="#161822" stroke="#2A2D3A"/>
+
+  <path d="M392 132 C430 110, 470 150, 512 126 C556 102, 608 144, 662 120 C726 92, 792 130, 848 108" fill="none" stroke="#4DE3FF" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+  <circle cx="512" cy="126" r="6" fill="#F4C793"/>
+</svg>

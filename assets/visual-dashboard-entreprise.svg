@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Aperçu abstrait — Dashboard et KPIs</title>
+  <desc id="desc">Illustration abstraite d’un tableau de bord avec cartes et courbe de KPI.</desc>
+  <rect x="16" y="16" width="928" height="508" rx="18" fill="#161822" stroke="#2A2D3A"/>
+  <rect x="52" y="62" width="250" height="140" rx="14" fill="#0E0F14" stroke="#2A2D3A"/>
+  <rect x="52" y="222" width="250" height="110" rx="14" fill="#0E0F14" stroke="#2A2D3A"/>
+  <rect x="52" y="350" width="250" height="128" rx="14" fill="#0E0F14" stroke="#2A2D3A"/>
+
+  <rect x="324" y="62" width="584" height="416" rx="16" fill="#0E0F14" stroke="#2A2D3A"/>
+  <path d="M360 410 C420 332, 474 362, 526 282 C580 201, 650 250, 706 188 C774 112, 832 160, 872 126" fill="none" stroke="#4DE3FF" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+  <circle cx="526" cy="282" r="7" fill="#F4C793"/>
+  <circle cx="706" cy="188" r="6" fill="#4DE3FF"/>
+  <circle cx="872" cy="126" r="6" fill="#4DE3FF"/>
+
+  <path d="M360 124 H868" stroke="#2A2D3A"/>
+  <path d="M360 172 H868" stroke="#2A2D3A"/>
+  <path d="M360 220 H868" stroke="#2A2D3A"/>
+  <path d="M360 268 H868" stroke="#2A2D3A"/>
+</svg>
