@@ -637,6 +637,22 @@ p {
   background: rgba(14, 15, 20, 0.55);
 }
 
+.cv-preview {
+  margin: 18px 0;
+}
+
+.cv-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cv-preview figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .article-tags {
   display: flex;
   flex-wrap: wrap;

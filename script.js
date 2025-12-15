@@ -521,7 +521,7 @@
       })();
       const candidateKeys = Array.from(
         new Set(
-          [key, sourceBasename, "debutcarrierre", "debutcarriere", "carriere", "voiepro", "pro"].filter(
+          [key, sourceBasename, "debut-voie-pro", "debutcarrierre", "debutcarriere", "carriere", "voiepro", "pro"].filter(
             (value) => typeof value === "string" && value.trim(),
           ),
         ),
