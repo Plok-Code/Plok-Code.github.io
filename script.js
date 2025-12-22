@@ -38,26 +38,19 @@
     }
   };
   const playerGlobalKey = "ina-player-global-enabled";
-  const session = (() => {
-    try {
-      return window.sessionStorage;
-    } catch {
-      return null;
-    }
-  })();
   const isGlobalPlayerEnabled = () => {
-    if (!session) return false;
+    if (!storage) return false;
     try {
-      return session.getItem(playerGlobalKey) === "1";
+      return storage.getItem(playerGlobalKey) === "1";
     } catch {
       return false;
     }
   };
   const setGlobalPlayerEnabled = (enabled) => {
-    if (!session) return;
+    if (!storage) return;
     try {
-      if (enabled) session.setItem(playerGlobalKey, "1");
-      else session.removeItem(playerGlobalKey);
+      if (enabled) storage.setItem(playerGlobalKey, "1");
+      else storage.removeItem(playerGlobalKey);
     } catch {
       // Ignore storage errors.
     }
@@ -691,6 +684,16 @@
   const storedState = readStoredPlayerState();
   const isProfilePage = () => (window.location?.pathname ?? "").endsWith("profil.html");
 
+  const setSitePlayerVisible = (visible) => {
+    const shouldShow = Boolean(visible);
+    const sitePlayer = document.querySelector("[data-site-player]");
+    if (sitePlayer) {
+      sitePlayer.hidden = !shouldShow;
+      sitePlayer.setAttribute("aria-hidden", shouldShow ? "false" : "true");
+    }
+    document.body.classList.toggle("has-site-player", shouldShow && Boolean(document.querySelector("[data-player]")));
+  };
+
   const mountSitePlayer = () => {
     if (document.querySelector("[data-site-player]")) return;
 
@@ -731,9 +734,9 @@
     players = document.querySelectorAll("[data-player]");
   }
 
-  if (players.length) {
-    document.body.classList.add("has-site-player");
+  setSitePlayerVisible(isGlobalPlayerEnabled());
 
+  if (players.length) {
     let storedStateConsumed = false;
 
     for (const player of players) {
@@ -840,17 +843,6 @@
       inline.append(transport, info, progress, volumeWrap);
       player.insertBefore(inline, panelButton);
 
-      const globalToggleButton = document.createElement("button");
-      globalToggleButton.type = "button";
-      globalToggleButton.className = "icon-btn player-global-btn";
-      globalToggleButton.innerHTML = `
-        <svg class="icon" data-icon="pin" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M9 4h6v5l2 3v2H7v-2l2-3z"></path>
-          <path d="M12 14v7"></path>
-        </svg>
-      `;
-      player.insertBefore(globalToggleButton, panelButton);
-
       let activeIndex = -1;
       let panelOpen = false;
       let isSeeking = false;
@@ -873,46 +865,6 @@
         };
         writeStoredPlayerState(payload);
       };
-
-      const updateGlobalToggleUI = () => {
-        const enabled = isGlobalPlayerEnabled();
-        globalToggleButton.classList.toggle("is-active", enabled);
-        globalToggleButton.setAttribute("aria-pressed", enabled ? "true" : "false");
-        globalToggleButton.setAttribute(
-          "aria-label",
-          enabled ? "D\u00e9sactiver le lecteur sur les autres pages" : "Activer le lecteur sur les autres pages",
-        );
-        globalToggleButton.title = enabled ? "Le lecteur est visible sur tout le site" : "Afficher le lecteur sur tout le site";
-      };
-
-      const stopPlayback = () => {
-        statusOverride = "";
-        audio.pause();
-        try {
-          audio.currentTime = 0;
-        } catch {
-          // Ignore seek issues.
-        }
-        updateProgressUI();
-        updatePlayUI();
-        persistState({ time: 0, isPlaying: false }, { immediate: true });
-      };
-
-      updateGlobalToggleUI();
-
-      globalToggleButton.addEventListener("click", () => {
-        const nextEnabled = !isGlobalPlayerEnabled();
-        setGlobalPlayerEnabled(nextEnabled);
-        updateGlobalToggleUI();
-
-        if (!nextEnabled) {
-          if (!isProfilePage()) {
-            stopPlayback();
-            document.querySelector("[data-site-player]")?.remove();
-            document.body.classList.remove("has-site-player");
-          }
-        }
-      });
 
       const setPanelOpen = (nextOpen) => {
         const shouldOpen = Boolean(nextOpen);
@@ -1280,6 +1232,50 @@
       });
     }
   }
+
+  const showPlayerUnlockToast = () => {
+    const existing = document.querySelector("[data-player-unlock-toast]");
+    if (existing) existing.remove();
+
+    const toast = document.createElement("div");
+    toast.className = "player-unlock-toast";
+    toast.dataset.playerUnlockToast = "1";
+    toast.innerHTML = `
+      <div class="player-unlock-toast__inner" role="status" aria-live="polite">
+        Bravo, vous avez d\u00e9bloqu\u00e9 le lecteur musical cach\u00e9.
+      </div>
+    `;
+
+    document.body.appendChild(toast);
+
+    window.setTimeout(() => {
+      if (prefersReducedMotion) {
+        toast.remove();
+        return;
+      }
+
+      toast.classList.add("is-out");
+      toast.addEventListener("animationend", () => toast.remove(), { once: true });
+      window.setTimeout(() => toast.remove(), 800);
+    }, prefersReducedMotion ? 900 : 1800);
+  };
+
+  document.addEventListener("click", (event) => {
+    const button = event.target?.closest?.("[data-player-unlock]");
+    if (!button) return;
+    event.preventDefault();
+
+    const wasEnabled = isGlobalPlayerEnabled();
+    setGlobalPlayerEnabled(true);
+    setSitePlayerVisible(true);
+
+    if (button instanceof HTMLButtonElement) {
+      button.disabled = true;
+    }
+    button.textContent = "Lecteur musical d\u00e9bloqu\u00e9";
+
+    if (!wasEnabled) showPlayerUnlockToast();
+  });
 
   let pjaxController = null;
   let pjaxNavigationId = 0;
