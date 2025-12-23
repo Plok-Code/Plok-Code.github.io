@@ -1,68 +1,46 @@
-IDENTITÉ VISUELLE — SITE PERSONNEL IDRIS NAULLEAU (VERSION TOKYOITE CYBERPUNK)
+IDENTITÉ VISUELLE 2.0 — "MODERN INDUSTRIAL PRO"
 
-0. OBJECTIF
-Construire une identité "Tokyo Night" : sophistiquée, sombre, atmosphérique.
-On s'éloigne du "Cyberpunk Gaming" flashy (Neoncore) pour aller vers une esthétique "High-End Tech" / "Cinematic".
-L'interface doit ressembler à un HUD de pilotage avancé ou un terminal de data-science nocturne.
+1. LE DIAGNOSTIC (POURQUOI C'ÉTAIT "MOCHE")
+- Trop de "Bebas Neue" partout : Utiliser une police "Display" (titre) pour des petits éléments (menu, boutons) rend la lecture difficile et donne un aspect "amateur" ou "brouillon".
+- Manque de hiérarchie : Si tout crie (MAJUSCULES PARTOUT), rien n'est important.
+- Boutons "faibles" : Transformer des boutons d'action (CV, LinkedIn) en simples liens texte réduit leur fonction d'appel à l'action.
 
-1. ADN VISUEL (MOTS-CLÉS)
-- Nuit urbaine / Asphalte mouillé
-- Grain cinéma / Texture analogique
-- Précision chirurgicale (lignes fines d'1px)
-- Données brutes (Monospace)
-- Lueurs focalisées (comme des phares, pas des néons diffus)
+2. LA NOUVELLE PHILOSOPHIE : "CLARTÉ & IMPACT"
+On garde l'âme "Industrial Tokyo" (couleurs sombres, néons) mais on structure la typographie de manière professionnelle.
 
-2. PALETTE COULEUR (TOKYO NIGHT)
+3. LE SYSTÈME TYPOGRAPHIQUE (DUO GAGNANT)
 
-2.1 Couleurs principales
-- Fond global : #050508 (Noir quasi absolu, "Dark Void")
-- Surfaces : #0E0F14 (Asphalte sombre) avec translucidité (Glassmorphism "fumé")
-- Bordures : #2A2D3A (Métal froid)
-- Texte principal : #EDEDED (Blanc cassé, jamais pur)
-- Texte secondaire : #888890 (Gris béton)
+3.1 TITRES (DISPLAY) -> BEBAS NEUE
+- Rôle : Capter l'attention, donner l'ambiance.
+- Usage STRICT : Uniquement H1, H2, et très gros chiffres.
+- Interdiction : Ne JAMAIS utiliser pour des textes longs ou petits (< 24px).
 
-2.2 Accents
-- Signature (Chaud) : #F4C793 (Lumière tungstène, rétro-éclairage chaud)
-- Tech (Froid) : #4DE3FF (Cyan électrique, holographique)
-IMPORTANT : Les accents sont des "points de lumière" dans l'obscurité. Ils ne doivent pas inonder l'écran.
+3.2 UI & LECTURE (FONCTIONNEL) -> INTER (ou MONTSERRAT, plus géométrique)
+- Rôle : Lisibilité, Navigation, Crédibilité professionnelle.
+- Usage : 
+  - Menu de navigation (Clarté).
+  - Boutons (Call to Action lisible).
+  - Paragraphes (Confort de lecture).
+  - Métadonnées.
+- Avantage : "Inter" est la référence du design d'interface moderne. Elle est neutre, précise et "Pro".
 
-3. TYPOGRAPHIE
+4. LE HEADER (STRUCTURE PRO)
+Au lieu de tout mélanger, on crée des zones distinctes mais harmonieuses :
+- Logo (Nom) : Inter Bold (Affirmé).
+- Menu : Inter Medium (Lisible, aéré).
+- Actions (LinkedIn/CV) : VRAIS BOUTONS.
+  - Uniformité de hauteur : Liens menu et Boutons auront la même *hauteur visuelle* (alignement optique).
+  - Différenciation subtile : Les boutons auront une bordure fine ou un fond léger pour inviter au clic, mais avec la même *police* que le menu pour ne pas jurer.
 
-3.1 Polices
-- Principale (Titres/Corps) : Inter (Humaniste, lisible)
-- Secondaire (Data/Méta) : "JetBrains Mono", "Fira Code", ou Monospace système.
-  -> Utilisé pour : Dates, Tags, Statuts, Kickers, Chiffres.
+5. PALETTE (RAFFINÉE)
+- Fond : #0E0F14 (Toujours ce noir profond "Tokyo").
+- Texte : #E2E4E9 (Blanc cassé premium, moins dur que #FFF).
+- Accent : #38BDF8 (Sky Blue) pour les liens/actions -> Plus moderne que le Cyan pur.
 
-4. EFFETS GRAPHIQUES CLÉS
-
-4.1 Texture "Noise" (Grain)
-Un grain subtil recouvre l'arrière-plan pour éviter l'aspect "plastique" des écrans plats.
-Cela donne une matérialité "papier photo" ou "film".
-
-4.2 Glows "Focus"
-Au lieu d'ombres portées classiques, on utilise des lueurs internes ou des bordures lumineuses au survol.
-L'objet semble s'allumer de l'intérieur.
-
-4.3 Lignes de construction
-Des filets très fins (opacity 0.1) traversent parfois l'écran pour structurer l'espace (grille technique).
-
-5. COMPOSANTS UI
-
-5.1 Cartes
-- Fond : Noir transparent avec flou (Backdrop blur)
-- Bordure : Très fine (1px), grise au repos.
-- Hover : La bordure devient Cyan ou Tungstène, une légère lueur apparaît.
-
-5.2 Boutons & Tags
-- Style "Chips" électroniques ou connecteurs.
-- Angles marqués mais légèrement adoucis (radius: 4-6px ou 100px pour les pills).
-- Typo Monospace pour les boutons d'action technique.
-
-6. ANIMATIONS
-- "Scanline" : Apparition progressive ligne par ligne (imagé).
-- "Glitch" maîtrisé : Uniquement sur des interactions fortes, très bref.
-- Fluidité : Tout doit flotter comme dans un liquide (easing doux).
-
-7. RÈGLE D'OR
-"Less is more, but make it deep."
-Moins d'éléments, mais plus de profondeur (textures, flous, superpositions).
+6. PLAN D'ACTION IMMÉDIAT
+- [HTML] Réintégrer "Inter" (la meilleure font pour l'UI).
+- [CSS] Réassigner les rôles : 
+  - Menu = Inter.
+  - Titres = Bebas.
+  - Boutons = Inter (Style "Button", pas "Lien").
+- [DESIGN] Calibrer les espacements pour que le Header respire.

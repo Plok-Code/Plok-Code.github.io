@@ -1,6 +1,11 @@
 (() => {
   document.documentElement.classList.add("js");
   const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
+  const rootStyles = getComputedStyle(document.documentElement);
+  const sparkColors = [
+    rootStyles.getPropertyValue("--text").trim() || "#E2E4E9",
+    rootStyles.getPropertyValue("--accent-cool").trim() || "#38BDF8",
+  ];
 
   /* --- SPARK FX SYSTEM (Re-Enabled) --- */
   const createSpark = (x, y) => {
@@ -15,7 +20,7 @@
       spark.style.top = `${y}px`;
       spark.style.setProperty("--tx", `${Math.cos(angle) * velocity}px`);
       spark.style.setProperty("--ty", `${Math.sin(angle) * velocity}px`);
-      spark.style.backgroundColor = ["#FFF", "#FFB74D", "#00BCD4"][Math.floor(Math.random() * 3)];
+      spark.style.backgroundColor = sparkColors[Math.floor(Math.random() * sparkColors.length)];
       document.body.appendChild(spark);
       spark.addEventListener("animationend", () => spark.remove());
     }
@@ -1011,7 +1016,8 @@
         const fromName = String(data.get("name") || "").trim();
         const replyTo = String(data.get("email") || "").trim();
         const rawSubject = String(data.get("subject") || "").trim();
-        const subject = rawSubject || `Message depuis le site${fromName ? ` — ${fromName}` : ""}`;
+        const baseSubject = rawSubject || "Message depuis le site";
+        const subject = `${baseSubject}${fromName ? ` — ${fromName}` : ""}${replyTo ? ` (${replyTo})` : ""}`;
         const message = String(data.get("message") || "").trim();
         const toEmail = (form.dataset.contactToEmail || globalEmailJs?.toEmail || "").trim();
         const toName = (globalEmailJs?.toName || "").trim();
