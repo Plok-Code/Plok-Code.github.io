@@ -11,7 +11,7 @@ window.INA_PLAYLIST = [
   { title: "07 - Requiem for Nightmares - [Cover of Clint Mansell - Requiem for a Dream]", src: "assets/audio/07 - Requiem for Nightmares - [Cover of Clint Mansell - Requiem for a Dream].mp3" },
   { title: "08 - Monkey [Improvisation]", src: "assets/audio/08 - Monkey [Improvisation].wav" },
   { title: "09 - Moon [Improvisation]", src: "assets/audio/09 - Moon [Improvisation].wav" },
-  { title: "10 - Bain de sir\u00e8nes [Improvisation]", src: "assets/audio/10 - Bain de sir\u0160nes [Improvisation].wav" },
+  { title: "10 - Bain de sir\u00e8nes [Improvisation]", src: "assets/audio/10 - Bain de sirenes [Improvisation].wav" },
   { title: "11 - Hijaz (feat Elayan) [Composition]", src: "assets/audio/11 - Hijaz (feat Elayan) [Composition].wav" },
   { title: "12 - Flute ! [Improvisation]", src: "assets/audio/12 - Flute ! [Improvisation].wav" },
   { title: "13 - Salsa [Improvisation]", src: "assets/audio/13 - Salsa [Improvisation].wav" },

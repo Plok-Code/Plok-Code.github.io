@@ -9,7 +9,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="playlist.js" defer></script>
   <script src="script.js" defer></script>
@@ -59,8 +59,10 @@
 
       <section class="projects-shell" aria-label="Liste des projets">
         <aside class="project-nav" aria-label="Navigation des blocs projets">
-          <div class="project-nav__current" id="project-nav-current">Projets Data</div>
-          <div class="project-nav__list" id="project-nav"></div>
+          <details class="project-nav__menu" data-project-nav-menu open>
+            <summary class="project-nav__current" id="project-nav-current">Projets Data</summary>
+            <div class="project-nav__list" id="project-nav"></div>
+          </details>
         </aside>
 
         <div class="project-rail" id="project-rail" tabindex="0" aria-label="Défilement des projets">

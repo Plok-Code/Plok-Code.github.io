@@ -1,6 +1,28 @@
 (() => {
   document.documentElement.classList.add("js");
   const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
+
+  /* --- SPARK FX SYSTEM (Re-Enabled) --- */
+  const createSpark = (x, y) => {
+    if (prefersReducedMotion) return;
+    const count = 6 + Math.random() * 4;
+    for (let i = 0; i < count; i++) {
+      const spark = document.createElement("div");
+      spark.className = "fx-spark";
+      const angle = Math.random() * Math.PI * 2;
+      const velocity = 20 + Math.random() * 40;
+      spark.style.left = `${x}px`;
+      spark.style.top = `${y}px`;
+      spark.style.setProperty("--tx", `${Math.cos(angle) * velocity}px`);
+      spark.style.setProperty("--ty", `${Math.sin(angle) * velocity}px`);
+      spark.style.backgroundColor = ["#FFF", "#FFB74D", "#00BCD4"][Math.floor(Math.random() * 3)];
+      document.body.appendChild(spark);
+      spark.addEventListener("animationend", () => spark.remove());
+    }
+  };
+  document.addEventListener("click", (e) => createSpark(e.clientX, e.clientY));
+  /* ----------------------- */
+
   const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
   const formatTime = (value) => {
     if (!Number.isFinite(value) || value < 0) return "0:00";
@@ -68,6 +90,17 @@
     const revealElements = document.querySelectorAll(".reveal:not(.reveal-on-load)");
     if (!revealElements.length) return;
 
+    const delayGroups = new Map();
+    for (const element of revealElements) {
+      if (element.dataset.revealDelayBound === "1") continue;
+      element.dataset.revealDelayBound = "1";
+      const group = element.closest(".section") || element.closest("main") || document.body;
+      const index = delayGroups.get(group) ?? 0;
+      delayGroups.set(group, index + 1);
+      const delay = prefersReducedMotion ? 0 : Math.min(index, 6) * 90;
+      element.style.setProperty("--reveal-delay", `${delay}ms`);
+    }
+
     revealObserver = new IntersectionObserver(
       (entries, observer) => {
         for (const entry of entries) {
@@ -87,6 +120,11 @@
     if (!revealOnLoad.length) return;
     const baseDelay = prefersReducedMotion ? 0 : 70;
     revealOnLoad.forEach((element, index) => {
+      if (element.dataset.revealDelayBound !== "1") {
+        element.dataset.revealDelayBound = "1";
+        const staggerDelay = prefersReducedMotion ? 0 : Math.min(index, 6) * 90;
+        element.style.setProperty("--reveal-delay", `${staggerDelay}ms`);
+      }
       const delay = prefersReducedMotion ? 0 : baseDelay + index * 90;
       window.setTimeout(() => element.classList.add("is-visible"), delay);
     });
@@ -103,6 +141,18 @@
     const navCurrent = document.querySelector("#project-nav-current");
 
     if (!rail || !navList) return;
+
+    const navMenu = navList.closest("details");
+    const mobileMenuMedia = window.matchMedia?.("(max-width: 820px)") ?? null;
+    const syncNavMenu = () => {
+      if (!navMenu || !mobileMenuMedia) return;
+      navMenu.open = !mobileMenuMedia.matches;
+    };
+    syncNavMenu();
+    if (navMenu && mobileMenuMedia) {
+      if (typeof mobileMenuMedia.addEventListener === "function") mobileMenuMedia.addEventListener("change", syncNavMenu);
+      else if (typeof mobileMenuMedia.addListener === "function") mobileMenuMedia.addListener(syncNavMenu);
+    }
 
     const screens = Array.from(rail.querySelectorAll("[data-project-screen]"));
     if (!screens.length) return;
@@ -142,6 +192,8 @@
           behavior: prefersReducedMotion ? "auto" : "smooth",
           block: "start",
         });
+
+        if (navMenu && mobileMenuMedia?.matches) navMenu.open = false;
       });
 
       navList.appendChild(button);
@@ -168,15 +220,30 @@
       if (navCurrent && activeItem) navCurrent.textContent = activeItem.dataset.label;
     };
 
+    const intersections = new Map();
     projectObserver = new IntersectionObserver(
       (entries) => {
-        const visible = entries.filter((entry) => entry.isIntersecting);
+        for (const entry of entries) intersections.set(entry.target.id, entry);
+
+        const visible = [];
+        for (const screen of screens) {
+          const latest = intersections.get(screen.id);
+          if (!latest?.isIntersecting) continue;
+          visible.push(latest);
+        }
         if (!visible.length) return;
 
         visible.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
         setActive(visible[0].target.id);
       },
-      { root: rail, threshold: [0.55, 0.65] },
+      (() => {
+        const styles = window.getComputedStyle(rail);
+        const overflowY = styles.overflowY;
+        const usesInternalScroll =
+          (overflowY === "auto" || overflowY === "scroll") && rail.scrollHeight > rail.clientHeight + 1;
+        const thresholds = usesInternalScroll ? [0.55, 0.65] : [0.15, 0.25, 0.35, 0.45, 0.55];
+        return usesInternalScroll ? { root: rail, threshold: thresholds } : { threshold: thresholds };
+      })(),
     );
 
     for (const screen of screens) projectObserver.observe(screen);
@@ -206,7 +273,16 @@
     };
 
     rail.addEventListener("keydown", onKeyDown);
-    projectRailCleanup = () => rail.removeEventListener("keydown", onKeyDown);
+    projectRailCleanup = () => {
+      rail.removeEventListener("keydown", onKeyDown);
+      if (navMenu && mobileMenuMedia) {
+        if (typeof mobileMenuMedia.removeEventListener === "function") {
+          mobileMenuMedia.removeEventListener("change", syncNavMenu);
+        } else if (typeof mobileMenuMedia.removeListener === "function") {
+          mobileMenuMedia.removeListener(syncNavMenu);
+        }
+      }
+    };
   };
 
   const ensureLightbox = () => {
@@ -615,7 +691,7 @@
         }, 980);
 
         if (animation.finished && typeof animation.finished.then === "function") {
-          animation.finished.catch(() => {}).then(reveal);
+          animation.finished.catch(() => { }).then(reveal);
         } else {
           reveal();
         }
@@ -663,12 +739,393 @@
     }
   };
 
+  const initContactForms = () => {
+    const forms = document.querySelectorAll("[data-contact-form]");
+    if (!forms.length) return;
+
+    const ensureRecaptchaApi = (() => {
+      let promise = null;
+      return () => {
+        if (window.grecaptcha?.render && window.grecaptcha?.getResponse) {
+          return Promise.resolve(window.grecaptcha);
+        }
+
+        if (promise) return promise;
+
+        promise = new Promise((resolve, reject) => {
+          const existing = document.querySelector("script[data-ina-recaptcha]");
+          if (existing) {
+            existing.addEventListener("load", () => resolve(window.grecaptcha), { once: true });
+            existing.addEventListener("error", () => reject(new Error("reCAPTCHA failed to load")), { once: true });
+            return;
+          }
+
+          const script = document.createElement("script");
+          script.src = "https://www.google.com/recaptcha/api.js?render=explicit";
+          script.async = true;
+          script.defer = true;
+          script.dataset.inaRecaptcha = "1";
+          script.addEventListener("load", () => resolve(window.grecaptcha), { once: true });
+          script.addEventListener("error", () => reject(new Error("reCAPTCHA failed to load")), { once: true });
+          document.head.appendChild(script);
+        }).then((grecaptcha) => {
+          if (grecaptcha?.render && grecaptcha?.getResponse) return grecaptcha;
+          throw new Error("reCAPTCHA unavailable");
+        });
+
+        return promise;
+      };
+    })();
+
+    const globalEmailJs = (() => {
+      const cfg = window.INA_SITE_CONFIG?.contact?.emailjs;
+      if (!cfg) return null;
+      return {
+        publicKey: String(cfg.publicKey || "").trim(),
+        serviceId: String(cfg.serviceId || "").trim(),
+        templateId: String(cfg.templateId || "").trim(),
+        toEmail: String(cfg.toEmail || "").trim(),
+        toName: String(cfg.toName || "").trim(),
+      };
+    })();
+
+    const buildMailtoHref = (toEmail, subject, body) => {
+      const params = [];
+      if (subject) params.push(`subject=${encodeURIComponent(subject)}`);
+      if (body) params.push(`body=${encodeURIComponent(body)}`);
+      return `mailto:${toEmail}${params.length ? `?${params.join("&")}` : ""}`;
+    };
+
+    const copyToClipboard = async (text) => {
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+      } catch {
+        // Ignore clipboard failures.
+      }
+      return false;
+    };
+
+    const normalizeEmailJsErrorText = (error) => {
+      const raw = String(error?.details || error?.message || "").trim();
+      if (!raw) return "";
+
+      try {
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === "object") {
+          const value = parsed.message || parsed.text || parsed.error || raw;
+          return String(value || "").trim();
+        }
+      } catch {
+        // Ignore parse errors.
+      }
+
+      return raw;
+    };
+
+    const truncate = (text, limit) => {
+      const value = String(text || "").trim();
+      if (!value) return "";
+      if (value.length <= limit) return value;
+      return `${value.slice(0, limit - 1)}…`;
+    };
+
+    const formatEmailJsTroubleshooting = (details) => {
+      const message = String(details || "").trim();
+      const lower = message.toLowerCase();
+      const protocol = String(window.location?.protocol || "").toLowerCase();
+
+      if (protocol === "file:") {
+        return "Ouvre le site via http(s) (Live Server / GitHub Pages) : EmailJS bloque l’envoi depuis un fichier local.";
+      }
+
+      if (lower.includes("api calls are disabled for non-browser applications")) {
+        return "EmailJS bloque les envois hors navigateur (scripts, certains environnements). Teste depuis ton site en ligne ou un serveur local.";
+      }
+
+      if (lower.includes("insufficient authentication scopes") || lower.includes("gmail_api")) {
+        return "Ton service Gmail EmailJS n’est pas correctement autorisé : va dans EmailJS → Email Services, reconnecte Gmail, puis accepte les permissions.";
+      }
+
+      if (lower.includes("origin") && (lower.includes("not allowed") || lower.includes("forbidden"))) {
+        return "Le domaine/origine est refusé par EmailJS. Vérifie que tu testes bien depuis l’URL du site (pas un fichier local) et la sécurité EmailJS.";
+      }
+
+      if (lower.includes("service") && lower.includes("not found")) {
+        return "Service EmailJS introuvable : vérifie `service_id` dans `contact.html`.";
+      }
+
+      if (lower.includes("template") && lower.includes("not found")) {
+        return "Template EmailJS introuvable : vérifie `template_id` dans `contact.html`.";
+      }
+
+      if (lower.includes("public key") || lower.includes("user_id") || lower.includes("invalid user")) {
+        return "Clé EmailJS invalide : vérifie la Public Key dans `contact.html`.";
+      }
+
+      return "EmailJS a refusé l’envoi : vérifie la configuration du service + du template (destinataire, champs) et réessaie.";
+    };
+
+    const sendViaEmailJs = async ({ serviceId, templateId, publicKey, templateParams }) => {
+      const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          service_id: serviceId,
+          template_id: templateId,
+          user_id: publicKey,
+          template_params: templateParams,
+        }),
+      });
+
+      if (!response.ok) {
+        const details = await response.text().catch(() => "");
+        const error = new Error(details || `HTTP ${response.status}`);
+        error.details = details;
+        error.status = response.status;
+        throw error;
+      }
+    };
+
+    for (const form of forms) {
+      if (!(form instanceof HTMLFormElement)) continue;
+      if (form.dataset.contactFormBound === "1") continue;
+      form.dataset.contactFormBound = "1";
+
+      const statusEl = form.querySelector("[data-contact-form-status]");
+      const setStatus = (message, { actionHref = "", actionLabel = "" } = {}) => {
+        if (!statusEl) return;
+        statusEl.textContent = "";
+        const textSpan = document.createElement("span");
+        textSpan.textContent = message;
+        statusEl.append(textSpan);
+
+        if (!actionHref) return;
+        const link = document.createElement("a");
+        link.href = actionHref;
+        link.textContent = actionLabel || actionHref;
+        link.rel = "noreferrer";
+        statusEl.append(" ", link);
+      };
+
+      const recaptchaSiteKey = (form.dataset.recaptchaSiteKey || "").trim();
+      const captchaWrap = form.querySelector("[data-contact-captcha]");
+      const captchaRoot = form.querySelector("[data-contact-recaptcha]");
+      let recaptchaWidgetId = null;
+
+      const updateCaptchaScale = () => {
+        if (!(captchaWrap instanceof HTMLElement)) return;
+        const container = form.closest(".contact-panel") || form;
+        const available = Math.max(0, (container instanceof HTMLElement ? container.clientWidth : form.clientWidth) - 24);
+        const scale = Math.max(0.65, Math.min(1, available / 304));
+        captchaWrap.style.setProperty("--captcha-scale", scale.toFixed(3));
+      };
+
+      const mountRecaptcha = async () => {
+        if (!recaptchaSiteKey) return;
+        if (!(captchaWrap instanceof HTMLElement) || !(captchaRoot instanceof HTMLElement)) return;
+        if (form.dataset.recaptchaBound === "1") return;
+        form.dataset.recaptchaBound = "1";
+        delete form.dataset.recaptchaUnavailable;
+
+        captchaWrap.hidden = false;
+        captchaWrap.setAttribute("aria-hidden", "false");
+        updateCaptchaScale();
+
+        try {
+          const grecaptcha = await ensureRecaptchaApi();
+          captchaRoot.textContent = "";
+          recaptchaWidgetId = grecaptcha.render(captchaRoot, { sitekey: recaptchaSiteKey, theme: "dark" });
+          form.dataset.recaptchaWidgetId = String(recaptchaWidgetId);
+          updateCaptchaScale();
+        } catch (error) {
+          console.warn("reCAPTCHA init failed:", error);
+          form.dataset.recaptchaUnavailable = "1";
+          captchaWrap.hidden = true;
+          captchaWrap.setAttribute("aria-hidden", "true");
+        }
+      };
+
+      void mountRecaptcha();
+
+      if (typeof window.ResizeObserver === "function" && captchaWrap instanceof HTMLElement) {
+        const ro = new ResizeObserver(() => updateCaptchaScale());
+        ro.observe(form);
+      } else {
+        window.addEventListener("resize", updateCaptchaScale, { passive: true });
+      }
+
+      const submitButton = form.querySelector('button[type="submit"]');
+      const setBusy = (busy) => {
+        form.dataset.contactSending = busy ? "1" : "";
+        form.setAttribute("aria-busy", busy ? "true" : "false");
+        if (submitButton instanceof HTMLButtonElement) submitButton.disabled = busy;
+      };
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (form.dataset.contactSending === "1") return;
+
+        setBusy(true);
+        setStatus("Envoi en cours…");
+
+        if (String(window.location?.protocol || "").toLowerCase() === "file:") {
+          setStatus("Ouvre le site via http(s) (Live Server / GitHub Pages) pour envoyer un message.");
+          setBusy(false);
+          return;
+        }
+
+        if (typeof form.checkValidity === "function" && !form.checkValidity()) {
+          form.reportValidity?.();
+          setStatus("Merci de compléter les champs requis.");
+          setBusy(false);
+          return;
+        }
+
+        const data = new FormData(form);
+        const honeypotValue = String(data.get("website") || data.get("_honey") || "").trim();
+        if (honeypotValue) {
+          setStatus("Message envoyé. Merci !");
+          form.reset();
+          setBusy(false);
+          return;
+        }
+
+        try {
+          const cooldownMs = 60_000;
+          const now = Date.now();
+          const lastSent = Number(window.localStorage?.getItem("ina_contact_last_sent") || "0");
+          if (Number.isFinite(lastSent) && lastSent > 0 && now - lastSent < cooldownMs) {
+            setStatus("Merci de patienter un peu avant de renvoyer un message.");
+            setBusy(false);
+            return;
+          }
+        } catch {
+          // Ignore storage failures.
+        }
+
+        const fromName = String(data.get("name") || "").trim();
+        const replyTo = String(data.get("email") || "").trim();
+        const rawSubject = String(data.get("subject") || "").trim();
+        const subject = rawSubject || `Message depuis le site${fromName ? ` — ${fromName}` : ""}`;
+        const message = String(data.get("message") || "").trim();
+        const toEmail = (form.dataset.contactToEmail || globalEmailJs?.toEmail || "").trim();
+        const toName = (globalEmailJs?.toName || "").trim();
+
+        const mailBody = [
+          `Nom : ${fromName || "-"}`,
+          `Email : ${replyTo || "-"}`,
+          `Sujet : ${subject || "-"}`,
+          "",
+          message || "",
+          "",
+          `Envoyé depuis : ${window.location.href}`,
+        ].join("\n");
+
+        const mailtoHref = toEmail ? buildMailtoHref(toEmail, subject, mailBody) : "";
+
+        const isPlaceholder = (value) => !value || /^YOUR_|CHANGE_ME/i.test(value);
+        const provider = (form.dataset.contactProvider || "").trim().toLowerCase();
+        const serviceId = (form.dataset.emailjsServiceId || globalEmailJs?.serviceId || "").trim();
+        const templateId = (form.dataset.emailjsTemplateId || globalEmailJs?.templateId || "").trim();
+        const publicKey = (form.dataset.emailjsPublicKey || globalEmailJs?.publicKey || "").trim();
+        const hasEmailJsHints = Boolean(serviceId || templateId || publicKey) || provider === "emailjs";
+        const hasEmailJsPlaceholders =
+          /^YOUR_|CHANGE_ME/i.test(serviceId) || /^YOUR_|CHANGE_ME/i.test(templateId) || /^YOUR_|CHANGE_ME/i.test(publicKey);
+        const canUseEmailJs =
+          (provider === "emailjs" || (!provider && (serviceId || templateId || publicKey))) &&
+          !isPlaceholder(serviceId) &&
+          !isPlaceholder(templateId) &&
+          !isPlaceholder(publicKey);
+
+        const showFallback = async (reason) => {
+          const copied = await copyToClipboard(mailBody);
+          const linkedIn = document.querySelector('a[href*="linkedin.com/in/"]');
+          const fallbackHref = mailtoHref || (linkedIn instanceof HTMLAnchorElement ? linkedIn.href : "");
+          const fallbackLabel = mailtoHref ? `Écrire par email` : "Me contacter sur LinkedIn";
+          setStatus(`${reason}${copied ? " Message copié." : ""}`, { actionHref: fallbackHref, actionLabel: fallbackLabel });
+        };
+
+        try {
+          if (!canUseEmailJs) {
+            await showFallback(
+              hasEmailJsHints && hasEmailJsPlaceholders
+                ? "Envoi automatique non configuré (EmailJS) : clés manquantes."
+                : "Envoi automatique indisponible.",
+            );
+            return;
+          }
+
+          const widgetId = Number(form.dataset.recaptchaWidgetId);
+          const recaptchaToken =
+            Number.isFinite(widgetId) && widgetId >= 0 && window.grecaptcha?.getResponse
+              ? String(window.grecaptcha.getResponse(widgetId) || "").trim()
+              : "";
+
+          if (recaptchaSiteKey && !recaptchaToken) {
+            if (form.dataset.recaptchaUnavailable === "1") {
+              await showFallback("reCAPTCHA bloqué/indisponible. Désactive le bloqueur de pubs ou contacte-moi via LinkedIn.");
+              return;
+            }
+
+            setStatus("Merci de valider le reCAPTCHA avant l'envoi.");
+            setBusy(false);
+            return;
+          }
+
+          await sendViaEmailJs({
+            serviceId,
+            templateId,
+            publicKey,
+            templateParams: {
+              name: fromName,
+              title: subject,
+              "g-recaptcha-response": recaptchaToken || undefined,
+              to_name: toName || undefined,
+              from_name: fromName,
+              from_email: replyTo,
+              reply_to: replyTo,
+              email: replyTo,
+              subject,
+              message,
+              page_url: window.location.href,
+            },
+          });
+
+          setStatus("Message envoyé. Merci !");
+          try {
+            window.localStorage?.setItem("ina_contact_last_sent", String(Date.now()));
+          } catch {
+            // Ignore storage failures.
+          }
+          form.reset();
+          if (Number.isFinite(widgetId) && widgetId >= 0 && window.grecaptcha?.reset) {
+            window.grecaptcha.reset(widgetId);
+          }
+        } catch (error) {
+          console.error("Contact form send failed:", error);
+          const details = normalizeEmailJsErrorText(error);
+          const hint = formatEmailJsTroubleshooting(details);
+          const appendix = details ? ` Détails : ${truncate(details, 140)}` : "";
+          await showFallback(`${hint}${appendix}`);
+        } finally {
+          setBusy(false);
+        }
+      });
+    }
+  };
+
   const initPageFeatures = () => {
     initReveal();
     initRevealOnLoad();
     initProjectRail();
     ensureLightbox();
     initCardDecks();
+    initContactForms();
   };
 
   initPageFeatures();
@@ -764,8 +1221,7 @@
       prevButton.setAttribute("aria-label", "Morceau pr\u00e9c\u00e9dent");
       prevButton.innerHTML = `
         <svg class="icon icon--filled" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M12 7v10l-7-5z"></path>
-          <path d="M19 7v10l-7-5z"></path>
+          <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"></path>
         </svg>
       `;
 
@@ -775,8 +1231,7 @@
       nextButton.setAttribute("aria-label", "Morceau suivant");
       nextButton.innerHTML = `
         <svg class="icon icon--filled" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M5 7v10l7-5z"></path>
-          <path d="M12 7v10l7-5z"></path>
+          <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"></path>
         </svg>
       `;
 
@@ -787,7 +1242,23 @@
       info.className = "player-info";
       const titleEl = document.createElement("div");
       titleEl.className = "player-title";
-      titleEl.textContent = validTracks.length ? "S\u00e9lectionnez un morceau" : "Ajoutez vos morceaux";
+      const titleTrackEl = document.createElement("span");
+      titleTrackEl.className = "player-title__track";
+      const titleTextEl = document.createElement("span");
+      titleTextEl.className = "player-title__text";
+      const titleGapEl = document.createElement("span");
+      titleGapEl.className = "player-title__gap";
+      titleGapEl.setAttribute("aria-hidden", "true");
+      const titleCloneEl = document.createElement("span");
+      titleCloneEl.className = "player-title__text player-title__text--clone";
+      titleCloneEl.setAttribute("aria-hidden", "true");
+
+      const initialTitle = validTracks.length ? "S\u00e9lectionnez un morceau" : "Ajoutez vos morceaux";
+      titleTextEl.textContent = initialTitle;
+      titleCloneEl.textContent = initialTitle;
+      titleTrackEl.append(titleTextEl, titleGapEl, titleCloneEl);
+      titleEl.appendChild(titleTrackEl);
+      titleEl.title = initialTitle;
       const statusEl = document.createElement("div");
       statusEl.className = "player-status";
       statusEl.textContent = validTracks.length ? "Pr\u00eat" : "Aucune piste";
@@ -849,6 +1320,59 @@
       let lastPersist = 0;
       let lastNonZeroVolume = clamp(Number(initialState?.volume ?? 1), 0, 1) || 0.7;
       let statusOverride = "";
+      let marqueeRaf = 0;
+
+      const clearTitleMarquee = () => {
+        titleEl.classList.remove("is-marquee");
+        titleEl.style.removeProperty("--player-title-distance");
+        titleEl.style.removeProperty("--player-title-duration");
+      };
+
+      const updateTitleMarquee = () => {
+        clearTitleMarquee();
+        if (prefersReducedMotion) return;
+
+        const isPlaying = !audio.paused && !audio.ended;
+        const hasTrack = Number.isFinite(activeIndex) && activeIndex >= 0 && Boolean(audio.src);
+        if (!isPlaying || !hasTrack) return;
+
+        void titleEl.offsetWidth;
+        const containerWidth = titleEl.clientWidth;
+        if (!containerWidth) return;
+
+        const textWidth = titleTextEl.getBoundingClientRect().width;
+        const overflow = Math.max(0, textWidth - containerWidth);
+        if (overflow < 8) return;
+
+        const gapValue = Number.parseFloat(window.getComputedStyle(titleEl).getPropertyValue("--player-title-gap")) || 40;
+        const distance = textWidth + gapValue;
+        const durationSeconds = Math.min(Math.max(distance / 40 + 2, 8), 45);
+        titleEl.style.setProperty("--player-title-distance", `${distance.toFixed(2)}px`);
+        titleEl.style.setProperty("--player-title-duration", `${durationSeconds}s`);
+
+        void titleEl.offsetWidth;
+        titleEl.classList.add("is-marquee");
+      };
+
+      const scheduleTitleMarqueeUpdate = () => {
+        if (marqueeRaf) window.cancelAnimationFrame(marqueeRaf);
+        marqueeRaf = window.requestAnimationFrame(() => {
+          marqueeRaf = 0;
+          updateTitleMarquee();
+        });
+      };
+
+      let titleResizeObserver = null;
+      if (typeof window.ResizeObserver === "function") {
+        titleResizeObserver = new ResizeObserver(() => scheduleTitleMarqueeUpdate());
+        titleResizeObserver.observe(titleEl);
+      } else {
+        window.addEventListener("resize", scheduleTitleMarqueeUpdate);
+      }
+
+      if (document.fonts?.ready) {
+        document.fonts.ready.then(scheduleTitleMarqueeUpdate).catch(() => {});
+      }
 
       const persistState = (overrides = {}, { immediate = false } = {}) => {
         if (!storage) return;
@@ -917,25 +1441,30 @@
 
         if (!validTracks.length) {
           statusEl.textContent = "Aucune piste";
+          scheduleTitleMarqueeUpdate();
           return;
         }
 
         if (!hasTrack) {
           statusEl.textContent = "Pr\u00eat";
+          scheduleTitleMarqueeUpdate();
           return;
         }
 
         if (audio.ended) {
           statusEl.textContent = "Morceau termin\u00e9";
+          scheduleTitleMarqueeUpdate();
           return;
         }
 
         if (statusOverride) {
           statusEl.textContent = statusOverride;
+          scheduleTitleMarqueeUpdate();
           return;
         }
 
         statusEl.textContent = isPlaying ? "Lecture en cours" : "En pause";
+        scheduleTitleMarqueeUpdate();
       };
 
       const updateProgressUI = () => {
@@ -977,12 +1506,15 @@
 
         if (!wasActive) {
           audio.src = track.src;
-          titleEl.textContent = track.title;
+          titleTextEl.textContent = track.title;
+          titleCloneEl.textContent = track.title;
+          titleEl.title = track.title;
           progressInput.value = "0";
           progressInput.disabled = true;
           progressInput.style.setProperty("--progress", "0%");
           currentTimeEl.textContent = "0:00";
           durationEl.textContent = "0:00";
+          scheduleTitleMarqueeUpdate();
         }
 
         highlightActiveTrack();
@@ -1233,7 +1765,397 @@
     }
   }
 
-  const showPlayerUnlockToast = () => {
+  const showPlayerUnlockFireworks = ({ text = "Let Play Music", durationMs = 5200 } = {}) => {
+    const existing = document.querySelector("[data-unlock-fireworks]");
+    if (existing) existing.remove();
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "unlock-fireworks";
+    wrapper.dataset.unlockFireworks = "1";
+    wrapper.innerHTML = `<canvas class="unlock-fireworks__canvas" aria-hidden="true"></canvas>`;
+    document.body.appendChild(wrapper);
+
+    let doneResolved = false;
+    let resolveDone = null;
+    const done = new Promise((resolve) => {
+      resolveDone = () => {
+        if (doneResolved) return;
+        doneResolved = true;
+        resolve();
+      };
+    });
+
+    const removeWrapper = () => {
+      if (wrapper.isConnected) wrapper.remove();
+    };
+
+    const canvas = wrapper.querySelector("canvas");
+    const ctx = canvas?.getContext?.("2d", { alpha: true });
+    if (!canvas || !ctx) {
+      removeWrapper();
+      resolveDone?.();
+      return done;
+    }
+
+    let width = 0;
+    let height = 0;
+
+    const setCanvasSize = () => {
+      const dpr = window.devicePixelRatio || 1;
+      width = window.innerWidth || 0;
+      height = window.innerHeight || 0;
+      canvas.width = Math.max(1, Math.round(width * dpr));
+      canvas.height = Math.max(1, Math.round(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+    };
+
+    setCanvasSize();
+
+    const textFontFamily = `"Bebas Neue", "Inter", system-ui, sans-serif`;
+    const fitTextFontSize = (context, value, initialSize, maxWidth, { minSize = 28 } = {}) => {
+      let size = Number.isFinite(initialSize) ? initialSize : 42;
+      const min = Number.isFinite(minSize) ? minSize : 28;
+      const iterations = 14;
+      for (let i = 0; i < iterations; i++) {
+        context.font = `900 ${Math.max(min, size)}px ${textFontFamily}`;
+        const measured = context.measureText(String(value || "")).width || 0;
+        if (measured <= maxWidth) break;
+        const next = Math.floor(size * 0.92);
+        if (next >= size) size -= 1;
+        else size = next;
+        if (size <= min) {
+          size = min;
+          break;
+        }
+      }
+      return Math.max(min, size);
+    };
+
+    if (prefersReducedMotion) {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = "rgba(0, 0, 0, 0.55)";
+      ctx.fillRect(0, 0, width, height);
+      ctx.fillStyle = "#fff";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      const baseSize = Math.round(Math.max(Math.min(width * 0.1, 96), 46));
+      const fontSize = fitTextFontSize(ctx, text, baseSize, width * 0.92, { minSize: 28 });
+      ctx.font = `900 ${fontSize}px ${textFontFamily}`;
+      ctx.fillText(text, width / 2, height * 0.34);
+
+      wrapper.classList.add("is-out");
+      window.setTimeout(() => resolveDone?.(), 420);
+      window.setTimeout(removeWrapper, 900);
+      return done;
+    }
+
+    const tau = Math.PI * 2;
+    const neonHues = [0, 18, 35, 55, 95, 140, 185, 210, 255, 290, 320];
+    const pickHue = () => neonHues[(Math.random() * neonHues.length) | 0] + (Math.random() * 16 - 8);
+
+    const rockets = [];
+    const particles = [];
+
+    const makeColor = (hue, alpha) => `hsla(${hue}, 100%, 62%, ${alpha})`;
+
+    const spawnBurst = (x, y, hue, { count = 60, speedMin = 4, speedMax = 12 } = {}) => {
+      const baseHue = Number.isFinite(hue) ? hue : pickHue();
+      for (let i = 0; i < count; i++) {
+        const a = Math.random() * tau;
+        const s = speedMin + Math.random() * (speedMax - speedMin);
+        particles.push({
+          type: "burst",
+          x,
+          y,
+          lastX: x,
+          lastY: y,
+          vx: Math.cos(a) * s,
+          vy: Math.sin(a) * s,
+          hue: baseHue + (Math.random() * 40 - 20),
+          life: 1,
+          decay: 0.012 + Math.random() * 0.016,
+          width: 1.8 + Math.random() * 1.4,
+        });
+      }
+    };
+
+    const spawnRocket = () => {
+      rockets.push({
+        x: width * (0.12 + Math.random() * 0.76),
+        y: height + 18,
+        lastX: 0,
+        lastY: 0,
+        vx: (Math.random() - 0.5) * 1.2,
+        vy: -(10 + Math.random() * 4.5),
+        hue: pickHue(),
+      });
+    };
+
+    const buildTextTargets = () => {
+      const bufferW = Math.min(980, Math.max(320, Math.round(width * 0.92)));
+      const buffer = document.createElement("canvas");
+      buffer.width = bufferW;
+      buffer.height = 1;
+      const bctx = buffer.getContext("2d");
+      if (!bctx) return [];
+
+      const baseSize = Math.round(Math.max(Math.min(width * 0.11, 110), 52));
+      const minSize = width < 360 ? 26 : 30;
+      const fontSize = fitTextFontSize(bctx, text, baseSize, bufferW * 0.92, { minSize });
+      const bufferH = Math.round(fontSize * 1.25);
+      buffer.height = bufferH;
+
+      bctx.clearRect(0, 0, bufferW, bufferH);
+      bctx.fillStyle = "#fff";
+      bctx.textAlign = "center";
+      bctx.textBaseline = "middle";
+      bctx.font = `900 ${fontSize}px ${textFontFamily}`;
+      bctx.fillText(text, bufferW / 2, bufferH / 2);
+
+      const pixels = bctx.getImageData(0, 0, bufferW, bufferH).data;
+      const step = width < 520 ? 7 : 6;
+      const points = [];
+      for (let y = 0; y < bufferH; y += step) {
+        for (let x = 0; x < bufferW; x += step) {
+          const alpha = pixels[(y * bufferW + x) * 4 + 3];
+          if (alpha > 160) points.push({ x, y });
+        }
+      }
+
+      const maxPoints = width < 520 ? 700 : 1100;
+      if (points.length > maxPoints) {
+        const ratio = maxPoints / points.length;
+        return points.filter(() => Math.random() < ratio).map((p) => ({ x: p.x, y: p.y, w: bufferW, h: bufferH }));
+      }
+
+      return points.map((p) => ({ x: p.x, y: p.y, w: bufferW, h: bufferH }));
+    };
+
+    const spawnTextFirework = () => {
+      const rawTargets = buildTextTargets();
+      if (!rawTargets.length) return false;
+
+      const bufferW = rawTargets[0].w;
+      const bufferH = rawTargets[0].h;
+      const offsetX = (width - bufferW) / 2;
+      const centerY = height * 0.32;
+      const offsetY = centerY - bufferH / 2;
+      const targets = rawTargets.map((p) => ({ x: p.x + offsetX, y: p.y + offsetY }));
+
+      const originX = width * (0.35 + Math.random() * 0.3);
+      const originY = height * 0.72;
+      spawnBurst(originX, originY, pickHue(), { count: 90, speedMin: 6, speedMax: 13 });
+
+      for (const target of targets) {
+        const angle = Math.random() * tau;
+        const speed = 1.5 + Math.random() * 6;
+        const hue = pickHue();
+        particles.push({
+          type: "text",
+          x: originX,
+          y: originY,
+          lastX: originX,
+          lastY: originY,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed - 5,
+          tx: target.x,
+          ty: target.y,
+          hue,
+          life: 1,
+          decay: 0.006 + Math.random() * 0.003,
+          width: 2.1 + Math.random() * 1.6,
+          hold: 140 + Math.random() * 90,
+          arrived: false,
+        });
+      }
+
+      return true;
+    };
+
+    const updateParticle = (p, dt) => {
+      p.lastX = p.x;
+      p.lastY = p.y;
+
+      if (p.type === "burst") {
+        p.vy += 0.22 * dt;
+        p.vx *= 0.985;
+        p.vy *= 0.985;
+        p.x += p.vx * dt;
+        p.y += p.vy * dt;
+        p.life -= p.decay * dt;
+        return;
+      }
+
+      const dx = p.tx - p.x;
+      const dy = p.ty - p.y;
+      const dist = Math.hypot(dx, dy) || 0;
+
+      if (!p.arrived) {
+        const maxSpeed = 12;
+        const nearRadius = 140;
+        const desiredSpeed = dist > nearRadius ? maxSpeed : (maxSpeed * dist) / nearRadius;
+        const inv = dist ? 1 / dist : 0;
+        const desiredVx = dx * inv * desiredSpeed;
+        const desiredVy = dy * inv * desiredSpeed;
+
+        const steerX = desiredVx - p.vx;
+        const steerY = desiredVy - p.vy;
+        const maxForce = 0.62;
+        p.vx += Math.max(-maxForce, Math.min(steerX, maxForce)) * dt;
+        p.vy += Math.max(-maxForce, Math.min(steerY, maxForce)) * dt;
+
+        p.vx *= 0.92;
+        p.vy *= 0.92;
+
+        p.x += p.vx * dt;
+        p.y += p.vy * dt;
+
+        if (dist < 6) {
+          p.arrived = true;
+        }
+
+        return;
+      }
+
+      if (p.hold > 0) {
+        p.hold -= dt;
+        const settleStrength = 0.09;
+        p.vx += dx * settleStrength * dt;
+        p.vy += dy * settleStrength * dt;
+        p.vx *= 0.82;
+        p.vy *= 0.82;
+      } else {
+        p.vy += 0.18 * dt;
+        p.vx *= 0.985;
+        p.vy *= 0.985;
+        p.life -= (p.decay || 0.012) * dt;
+      }
+
+      p.x += p.vx * dt;
+      p.y += p.vy * dt;
+    };
+
+    const drawParticle = (p) => {
+      const alpha = Math.max(0, Math.min(1, p.life));
+      if (alpha <= 0) return;
+
+      if (p.type === "burst") {
+        ctx.strokeStyle = makeColor(p.hue, alpha);
+        ctx.lineWidth = p.width;
+        ctx.beginPath();
+        ctx.moveTo(p.lastX, p.lastY);
+        ctx.lineTo(p.x, p.y);
+        ctx.stroke();
+        return;
+      }
+
+      ctx.fillStyle = makeColor(p.hue, alpha);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.width, 0, tau);
+      ctx.fill();
+    };
+
+    let cleanedUp = false;
+    const cleanup = ({ immediate = false } = {}) => {
+      if (cleanedUp) return;
+      cleanedUp = true;
+      window.removeEventListener("resize", setCanvasSize);
+      resolveDone?.();
+
+      if (immediate) {
+        removeWrapper();
+        return;
+      }
+
+      wrapper.classList.add("is-out");
+      wrapper.addEventListener("transitionend", removeWrapper, { once: true });
+      window.setTimeout(removeWrapper, 900);
+    };
+
+    window.addEventListener("resize", setCanvasSize, { passive: true });
+
+    const start = performance.now();
+    let last = start;
+    let nextRocketAt = start + 50;
+    let textSpawned = false;
+    let textSpawnedOk = false;
+    const textSpawnAt = start + 560;
+    const endAt = start + Math.max(1200, Number(durationMs) || 5200);
+
+    const frame = (now) => {
+      const dt = Math.min((now - last) / 16.666, 2);
+      last = now;
+
+      ctx.globalCompositeOperation = "source-over";
+      ctx.fillStyle = "rgba(0, 0, 0, 0.18)";
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.globalCompositeOperation = "lighter";
+
+      if (now >= nextRocketAt && now < endAt - 400) {
+        spawnRocket();
+        nextRocketAt = now + 220 + Math.random() * 240;
+      }
+
+      if (!textSpawned && now >= textSpawnAt) {
+        textSpawnedOk = spawnTextFirework();
+        textSpawned = true;
+      }
+
+      for (let i = rockets.length - 1; i >= 0; i--) {
+        const r = rockets[i];
+        r.lastX = r.x;
+        r.lastY = r.y;
+        r.vy += 0.12 * dt;
+        r.vx *= 0.995;
+        r.x += r.vx * dt;
+        r.y += r.vy * dt;
+
+        ctx.strokeStyle = makeColor(r.hue, 0.9);
+        ctx.lineWidth = 2.2;
+        ctx.beginPath();
+        ctx.moveTo(r.lastX, r.lastY);
+        ctx.lineTo(r.x, r.y);
+        ctx.stroke();
+
+        const shouldExplode = r.vy >= 0 || r.y < height * 0.18;
+        if (!shouldExplode) continue;
+
+        spawnBurst(r.x, r.y, r.hue, { count: 70, speedMin: 6, speedMax: 14 });
+        rockets.splice(i, 1);
+      }
+
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        updateParticle(p, dt);
+        drawParticle(p);
+        if (p.life <= 0) particles.splice(i, 1);
+      }
+
+      if (textSpawnedOk) {
+        const hasText = particles.some((p) => p.type === "text");
+        if (!hasText) {
+          cleanup({ immediate: true });
+          return;
+        }
+      }
+
+      const hasMore = now < endAt || rockets.length || particles.length;
+      if (hasMore) {
+        window.requestAnimationFrame(frame);
+        return;
+      }
+
+      cleanup();
+    };
+
+    window.requestAnimationFrame(frame);
+    return done;
+  };
+
+  const showPlayerUnlockToast = ({ until = null } = {}) => {
     const existing = document.querySelector("[data-player-unlock-toast]");
     if (existing) existing.remove();
 
@@ -1242,13 +2164,13 @@
     toast.dataset.playerUnlockToast = "1";
     toast.innerHTML = `
       <div class="player-unlock-toast__inner" role="status" aria-live="polite">
-        Bravo, vous avez d\u00e9bloqu\u00e9 le lecteur musical cach\u00e9.
+        <div class="player-unlock-toast__title">Lecteur musical d\u00e9bloqu\u00e9</div>
       </div>
     `;
 
     document.body.appendChild(toast);
 
-    window.setTimeout(() => {
+    const exitToast = () => {
       if (prefersReducedMotion) {
         toast.remove();
         return;
@@ -1257,7 +2179,14 @@
       toast.classList.add("is-out");
       toast.addEventListener("animationend", () => toast.remove(), { once: true });
       window.setTimeout(() => toast.remove(), 800);
-    }, prefersReducedMotion ? 900 : 1800);
+    };
+
+    if (until && typeof until.then === "function") {
+      until.finally(exitToast);
+      return;
+    }
+
+    window.setTimeout(exitToast, prefersReducedMotion ? 1200 : 2600);
   };
 
   document.addEventListener("click", (event) => {
@@ -1274,7 +2203,10 @@
     }
     button.textContent = "Lecteur musical d\u00e9bloqu\u00e9";
 
-    if (!wasEnabled) showPlayerUnlockToast();
+    if (!wasEnabled) {
+      const fireworksDone = showPlayerUnlockFireworks({ text: "Let Play Music" });
+      showPlayerUnlockToast({ until: fireworksDone });
+    }
   });
 
   let pjaxController = null;

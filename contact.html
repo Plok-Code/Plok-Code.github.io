@@ -9,7 +9,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="playlist.js" defer></script>
   <script src="script.js" defer></script>
@@ -45,7 +45,7 @@
           </details>
         </div>
       </div>
-      <div class="breadcrumbs" aria-label="Fil d’ariane">
+      <div class="breadcrumbs" aria-label="Fil d’Ariane">
         <div class="breadcrumbs__trail">
           <a href="index.html">Accueil</a>
           <span class="breadcrumbs__sep" aria-hidden="true">/</span>
@@ -56,11 +56,71 @@
 
     <main id="main">
       <section class="card reveal reveal-on-load">
-        <h1>Lorem ipsum contact</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer consequat, justo ut egestas consectetur, turpis libero vulputate sapien, eget accumsan magna ex non dui.</p>
-        <p><strong>Email :</strong> <a href="mailto:idris.naulleau.aurial@gmail.com">idris.naulleau.aurial@gmail.com</a></p>
-        <p><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/idris-naulleau-aurial-9278b711b/" target="_blank" rel="noreferrer">Profil LinkedIn</a></p>
-        <p class="muted">Praesent vel augue non lectus viverra ornare. Sed a imperdiet turpis, a viverra quam.</p>
+        <p class="kicker">Me contacter</p>
+        <h1>Contact</h1>
+        <p>
+          Une question, une opportunité, ou simplement envie d’échanger ? Écrivez-moi via le formulaire ci-dessous,
+          ou contactez-moi via LinkedIn.
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-panel">
+            <p class="kicker">Coordonnées</p>
+            <ul class="contact-list">
+              <li class="contact-item">
+                <span class="contact-item__label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/idris-naulleau-aurial-9278b711b/" target="_blank" rel="noreferrer">linkedin.com/in/idris-naulleau-aurial</a>
+              </li>
+            </ul>
+            <p class="muted contact-note">
+              Je réponds généralement sous 24–48h ouvrées. Je suis ouvert aux opportunités en visio, et en présentiel sur Bordeaux et ses alentours.
+            </p>
+          </div>
+
+          <form class="contact-panel contact-form"
+            method="post"
+            data-contact-form
+            data-contact-provider="emailjs"
+            data-emailjs-service-id="service_ux6z2mj"
+            data-emailjs-template-id="template_qc950q7"
+            data-emailjs-public-key="bIrsU5IhADu8Sarti"
+            data-recaptcha-site-key="">
+            <div class="sr-only" aria-hidden="true">
+              <label for="contact-website">Ne pas remplir</label>
+              <input id="contact-website" type="text" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <p class="kicker">Envoyer un message</p>
+            <div class="contact-form__grid">
+              <div class="field">
+                <label for="contact-name">Nom</label>
+                <input id="contact-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="contact-email">Email</label>
+                <input id="contact-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field field--full">
+                <label for="contact-subject">Sujet</label>
+                <input id="contact-subject" name="subject" type="text" placeholder="Ex : Alternance, mission, question…">
+              </div>
+              <div class="field field--full">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" rows="6" required placeholder="Décrivez votre demande en quelques lignes."></textarea>
+              </div>
+            </div>
+
+            <div class="contact-form__captcha" data-contact-captcha hidden>
+              <div class="contact-form__captcha-inner" data-contact-recaptcha></div>
+            </div>
+
+            <div class="contact-form__actions">
+              <button class="btn primary" type="submit">Envoyer</button>
+              <p class="muted contact-form__hint">Une confirmation s’affichera ici après l’envoi.</p>
+            </div>
+
+            <p class="muted contact-form__status" role="status" aria-live="polite" data-contact-form-status></p>
+          </form>
+        </div>
       </section>
     </main>
   </div>
