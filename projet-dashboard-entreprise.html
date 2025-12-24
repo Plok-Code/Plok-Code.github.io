@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Idris NAULLEAU-AURIAL - Dashboard dynamique (projet)</title>
+  <title>Idris NAULLEAU-AURIAL - Toys &amp; Models (dashboard SQL &amp; BI)</title>
   <script>
     document.documentElement.classList.add('js');
   </script>
@@ -35,71 +35,542 @@
           </svg>
           <span>LinkedIn</span>
         </a>
-        <div class="cv-downloads" aria-label="T&eacute;l&eacute;chargements CV">
+        <div class="cv-downloads" aria-label="Téléchargements CV">
           <details>
             <summary class="btn secondary btn--sm">Mon CV</summary>
             <div class="cv-downloads__links">
-              <a class="btn primary btn--sm" href="assets/documents/Papier CV DE alternance.pdf" target="_blank" rel="noreferrer">Version &agrave; imprimer</a>
-              <a class="btn primary btn--sm" href="assets/documents/Mail CV DE alternance.pdf" target="_blank" rel="noreferrer">Version num&eacute;rique</a>
+              <a class="btn primary btn--sm" href="assets/documents/Papier CV DE alternance.pdf" target="_blank" rel="noreferrer">Version à imprimer</a>
+              <a class="btn primary btn--sm" href="assets/documents/Mail CV DE alternance.pdf" target="_blank" rel="noreferrer">Version numérique</a>
             </div>
           </details>
         </div>
       </div>
-      <div class="breadcrumbs" aria-label="Fil d’Ariane">
+      <div class="breadcrumbs" aria-label="Fil d'Ariane">
         <div class="breadcrumbs__trail">
           <a href="index.html">Accueil</a>
           <span class="breadcrumbs__sep" aria-hidden="true">/</span>
           <a href="projets.html">Projets</a>
           <span class="breadcrumbs__sep" aria-hidden="true">/</span>
-          <span aria-current="page">Dashboard entreprise</span>
+          <span aria-current="page">Toys &amp; Models (dashboard)</span>
         </div>
       </div>
     </header>
 
     <main id="main">
+      <!-- HERO -->
       <section class="card reveal reveal-on-load">
         <p class="kicker">Projet</p>
-        <h1>Lorem ipsum dashboard entreprise</h1>
+        <h1>Toys &amp; Models — Dashboard SQL &amp; Power BI</h1>
         <div class="project-meta">
-          <span class="pill">Catégorie : Projets Data</span>
+          <span class="pill">Catégorie : Business Intelligence</span>
           <span class="pill">Statut : terminé</span>
         </div>
-        <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vulputate, mi at ultricies efficitur, ipsum mi ultrices nunc, vitae gravida diam nibh sed velit.</p>
+        <p class="muted">
+          Objectif : transformer une base transactionnelle (commandes, paiements, produits, clients, expéditions) en un tableau de bord de pilotage Power BI,
+          actualisable et lisible par un décideur non technique.
+        </p>
         <div class="hero-actions">
           <a class="btn secondary" href="projets.html">Retour aux projets</a>
           <a class="btn primary" href="contact.html">Me contacter</a>
         </div>
       </section>
 
+      <!-- APERCU + BRIEF -->
       <section class="section">
         <div class="card reveal">
           <h2>Aperçu</h2>
           <img class="project-image" src="assets/visual-dashboard-entreprise.svg" alt="Illustration abstraite : dashboard et KPIs." loading="lazy" data-lightbox>
+
+          <div class="hero-actions" style="margin-top:1rem;">
+            <a class="btn secondary btn--sm" href="brief-toys-models.html" target="_blank" rel="noreferrer">
+              Voir le brief complet du projet
+            </a>
+            <a class="btn secondary btn--sm" href="https://wildcodeschool.github.io/data-training-resources/projet/projet-1/#introduction" target="_blank" rel="noreferrer">
+              Source (brief original)
+            </a>
+          </div>
         </div>
       </section>
 
+      <!-- CONTEXTE + APPROCHE -->
       <section class="section">
         <div class="card reveal">
           <h2>Contexte</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer rhoncus dui sed nisi sollicitudin, ac cursus ex tincidunt.</p>
+          <p>
+            Nous étions 4. Le besoin était clair : un directeur souhaite un tableau de bord dynamique qu’il peut actualiser chaque matin pour suivre l’entreprise.
+            Le défi est double : partir d’un schéma transactionnel (OLTP) et produire des indicateurs fiables, comparables dans le temps, puis exploitables dans Power BI
+            sans multiplier les requêtes ad hoc.
+          </p>
+          <p>
+            Mon axe de travail a été d’apporter un cadrage “entreprise” : définition métier des KPI, hypothèses explicites, périmètre de données,
+            fenêtre temporelle stable, puis implémentation SQL sous forme de vues réutilisables.
+          </p>
         </div>
       </section>
 
       <section class="section">
         <div class="card reveal">
-          <h2>Objectif</h2>
-          <p>Praesent ut iaculis augue. Mauris non risus consequat, efficitur nisi ac, convallis nisl. Integer bibendum nec metus nec tristique.</p>
+          <h2>Workflow choisi</h2>
+          <p>
+            Pour éviter un dashboard “catalogue de graphs”, on a structuré la production en quatre étapes : cadrage, production SQL, intégration BI,
+            puis parcours de lecture orienté décision.
+          </p>
+          <ol>
+            <li><strong>Analyse de la base</strong> : identification des tables clés et des champs de référence (dates, statuts, clés clients/produits).</li>
+            <li><strong>Définition des KPI</strong> : formulation business + hypothèses, pour éviter les ambiguïtés (notamment sur le temps et le périmètre).</li>
+            <li><strong>Vues SQL</strong> : vues stables, réutilisables, prêtes à être connectées à Power BI.</li>
+            <li><strong>Power BI</strong> : modèle, relations, visuels et filtres (les détails DAX/M sont traités après validation métier des KPI).</li>
+          </ol>
         </div>
       </section>
 
+      <!-- CONTRIBUTIONS -->
       <section class="section">
         <div class="card reveal">
-          <h2>Comp&eacute;tences d&eacute;montr&eacute;es</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut velit sem. Integer venenatis arcu in lorem pellentesque, vitae suscipit ligula blandit.</p>
+          <h2>Mes contributions</h2>
+          <p class="muted">
+            Les onglets du rapport final ne correspondent pas toujours à un KPI unique : certaines pages agrègent plusieurs KPI afin de proposer une lecture cohérente
+            pour un directeur. Ci-dessous, les KPI dont j’ai cadré la définition et produit les vues SQL.
+          </p>
+
+          <!-- KPI 1 -->
+          <div class="card" style="margin-top:1rem;">
+            <p class="kicker">SQL_KPI — Finance</p>
+            <h3>Clients générant le plus / le moins de revenus</h3>
+            <p>
+              <strong>But :</strong> identifier les clients à forte valeur (Top) et ceux à faible contribution (Bottom) pour orienter fidélisation, relance et priorisation commerciale.
+            </p>
+
+            <div class="hero-actions" style="margin-top:.75rem;">
+              <details class="kpi-disclosure">
+                <summary class="btn secondary btn--sm">Définition KPI</summary>
+                <div class="kpi-disclosure__content">
+                  <p>
+                    <strong>Objectif :</strong> identifier les clients qui génèrent le plus de chiffre d’affaires (cibles d’expansion/upsell)
+                    et ceux qui en génèrent le moins (cibles à relancer et à “nurturer”). Le point important : je classe sur du <em>réalisé</em>,
+                    pas sur des commandes en cours.
+                  </p>
+
+                  <h4>Périmètre et date de référence</h4>
+                  <p>
+                    Je me base uniquement sur des commandes <strong>expédiées</strong>, avec <code>orders.shippedDate</code> comme référence de temps,
+                    et je retiens uniquement les statuts <code>Shipped</code> et <code>Resolved</code>. Cela limite la volatilité (annulations, retards)
+                    et colle à une logique “business” : on mesure ce qui a effectivement été livré.
+                  </p>
+
+                  <h4>Période d'analyse (12 mois pleins)</h4>
+                  <p>
+                    La période couvre <strong>douze mois pleins</strong>, arrêtés au dernier mois complet disponible dans la base.
+                    Concrètement : <code>month_end</code> correspond au dernier jour du mois qui précède le mois de la dernière expédition observée,
+                    et <code>month_start</code> est le 1er jour du mois suivant <code>month_end</code>, moins 12 mois. Je conserve ensuite toutes les ventes
+                    dont <code>shippedDate</code> est comprise entre <code>month_start</code> et <code>month_end</code> (inclus).
+                  </p>
+                  <p class="muted">
+                    Exemple : si la dernière expédition observée est le 13 avril 2025, alors <code>month_end</code> = 31 mars 2025 et la fenêtre démarre le 1er avril 2024.
+                  </p>
+
+                  <h4>Définition du chiffre d'affaires</h4>
+                  <p>
+                    Le chiffre d’affaires correspond au montant total des ventes sur la période (avant toute déduction). Je le calcule au niveau lignes de commande :
+                    <code>CA = SUM(orderdetails.quantityOrdered * orderdetails.priceEach)</code> pour toutes les commandes expédiées dans la fenêtre.
+                  </p>
+
+                  <h4>Top N / Bottom N (pilotable)</h4>
+                  <p>
+                    Les listes Top et Bottom sont <strong>paramétrables</strong> : N n’est pas figé dans le SQL, il est piloté dans Power BI via un filtre sur le rang.
+                    Pour le Bottom, je ne garde que les clients avec un CA strictement positif (<code>revenue &gt; 0</code>), afin d’éviter des classements ambigus
+                    liés à des zéros “techniques”.
+                  </p>
+                  <p class="muted">
+                    Note : je n’introduis pas de “cooldown” de remboursement (retours) faute d’information métier sur les délais ; je mesure volontairement le réalisé tel qu’il apparaît en base.
+                  </p>
+                </div>
+              </details>
+
+              <details class="kpi-disclosure">
+                <summary class="btn secondary btn--sm">Requêtes SQL</summary>
+                <div class="kpi-disclosure__content">
+                  <h4>Base : revenus par client</h4>
+                  <pre><code>CREATE OR REPLACE VIEW rev_base AS
+SELECT
+  c.customerNumber,
+  c.customerName,
+  SUM(od.quantityOrdered * od.priceEach) AS revenue,
+  p.month_start,
+  p.month_end
+FROM orders o
+JOIN orderdetails od ON od.orderNumber = o.orderNumber
+JOIN customers c ON c.customerNumber = o.customerNumber
+CROSS JOIN (
+  SELECT
+    DATE_SUB(
+      DATE_ADD(LAST_DAY(DATE_SUB(MAX(o2.shippedDate), INTERVAL 1 MONTH)), INTERVAL 1 DAY),
+      INTERVAL 12 MONTH
+    ) AS month_start,
+    LAST_DAY(DATE_SUB(MAX(o2.shippedDate), INTERVAL 1 MONTH)) AS month_end
+  FROM orders o2
+  WHERE o2.shippedDate IS NOT NULL
+) AS p
+WHERE o.status IN ('Shipped','Resolved')
+  AND o.shippedDate BETWEEN p.month_start AND p.month_end
+GROUP BY c.customerNumber, c.customerName, p.month_start, p.month_end;</code></pre>
+
+                  <h4>Ranking : Top / Bottom</h4>
+                  <pre><code>CREATE OR REPLACE VIEW rev_rank AS
+SELECT
+  vb.customerNumber,
+  vb.customerName,
+  vb.revenue,
+  ROW_NUMBER() OVER (ORDER BY vb.revenue DESC, vb.customerName ASC) AS r_top,
+  CASE
+    WHEN vb.revenue &gt; 0 THEN ROW_NUMBER() OVER (ORDER BY vb.revenue ASC, vb.customerName ASC)
+  END AS r_bottom,
+  vb.month_start,
+  vb.month_end
+FROM rev_base vb;</code></pre>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <!-- KPI 2 -->
+          <div class="card" style="margin-top:1rem;">
+            <p class="kicker">SQL_KPI — Ventes</p>
+            <h3>Marge brute par produit et par catégorie</h3>
+            <p>
+              <strong>But :</strong> mesurer la rentabilité réelle et détecter les références à optimiser (faible valeur ajoutée, ventes à perte, invendus).
+            </p>
+
+            <div class="hero-actions" style="margin-top:.75rem;">
+              <details class="kpi-disclosure">
+                <summary class="btn secondary btn--sm">Définition KPI</summary>
+                <div class="kpi-disclosure__content">
+                  <p>
+                    <strong>Objectif :</strong> mesurer la marge brute et en déduire les produits/catégories les plus et les moins rentables.
+                    L’enjeu est très “direction” : savoir où l’entreprise crée réellement de la valeur, où elle se fragilise, et où elle doit agir
+                    (prix, négociation fournisseurs, mix produit, déstockage, déréférencement).
+                  </p>
+
+                  <h4>Définitions (marge unitaire, marge totale, taux)</h4>
+                  <p>
+                    La marge brute correspond à la différence entre le prix de vente (<code>priceEach</code>) et le coût d’achat (<code>buyPrice</code>).
+                    Je commence par définir une <strong>marge unitaire</strong> : <code>priceEach - buyPrice</code>.
+                  </p>
+                  <p>
+                    Ensuite, deux façons de lire la “rentabilité” coexistent :
+                    la <strong>marge brute totale</strong> et le <strong>taux de marge</strong>.
+                  </p>
+                  <p>
+                    La <strong>marge brute totale</strong> sert à mesurer “l’argent qui paye tout le reste” (salaires, loyers, marketing, impôts).
+                    Elle se calcule en additionnant la marge de chaque ligne de vente :
+                    <code>SUM((priceEach - buyPrice) * quantityOrdered)</code>.
+                  </p>
+                  <p>
+                    Le <strong>taux de marge</strong> sert à mesurer la “qualité” de la vente, c’est-à-dire la valeur ajoutée relative :
+                    <code>(priceEach - buyPrice) / priceEach</code>. Il est complémentaire de la marge totale : une marge totale élevée peut masquer une fragilité
+                    si elle est obtenue via de très gros volumes à taux très faible (une légère hausse des coûts suffit alors à rendre la vente non rentable).
+                  </p>
+
+                  <h4>Ce que j'entends par “plus / moins rentable”</h4>
+                  <p>
+                    Un produit devient rentable dès que sa marge brute est strictement positive (<code>&gt; 0</code>).
+                    Pour classer les produits/catégories en “plus” ou “moins” rentables, on peut toutefois choisir soit une lecture par <em>volume</em>
+                    (marge brute totale), soit une lecture par <em>valeur ajoutée</em> (taux de marge).
+                  </p>
+
+                  <h4>Hypothèse retenue (choix assumé)</h4>
+                  <p>
+                    Compte tenu de la complexité nécessaire pour couvrir parfaitement les deux définitions, je tranche en faveur du <strong>taux de marge</strong>.
+                    La marge brute totale capte surtout le succès commercial (volume x prix), alors que le taux met en évidence la valeur ajoutée unitaire
+                    et donc la pérennité du business. Enfin, un autre KPI du brief porte déjà sur l’évolution des ventes : quand une entreprise parle de
+                    “plus/moins rentable”, cela sous-entend généralement la valeur ajoutée, pas uniquement le volume.
+                  </p>
+                  <p>
+                    On pourrait objecter qu’un taux de marge est “fixe”, donc peu utile dans un dashboard : en réalité il bouge avec les promotions, remises,
+                    renégociations ou changements de coûts. Même si la base ne modélise pas toutes ces causes, le KPI reste pertinent pour le pilotage.
+                  </p>
+
+                  <h4>Calcul retenu (produit et catégorie)</h4>
+                  <p>
+                    <strong>Par produit</strong> : <code>Taux_produit = AVG((priceEach - buyPrice) / priceEach)</code> sur la fenêtre.
+                    C’est une moyenne simple (non pondérée par les quantités) : elle vise à mesurer la valeur ajoutée unitaire, sans être écrasée par les gros volumes.
+                  </p>
+                  <p>
+                    <strong>Par catégorie</strong> : moyenne simple des <code>Taux_produit</code> (chaque produit compte 1, qu’il ait 3 ventes ou 3000).
+                    Le but est de comparer des catégories sur leur structure de marge, pas sur leur taille.
+                  </p>
+
+                  <h4>Fenêtre et périmètre</h4>
+                  <p>
+                    Je travaille sur <strong>12 mois glissants</strong>, basés sur la dernière date d’expédition observée et arrêtés au dernier mois complet.
+                    Pourquoi 12 mois ? Pour capturer l’intégralité de la saisonnalité (Noël, soldes, été…). Un trimestre aurait pu détecter plus vite une dérive,
+                    mais en l’absence de consigne métier, 1 année est le standard financier le plus défendable.
+                  </p>
+                  <p>
+                    Périmètre : uniquement les commandes expédiées (statuts <code>Shipped</code> et <code>Resolved</code>).
+                  </p>
+
+                  <h4>Ce que voit un directeur (3 écrans complémentaires)</h4>
+                  <p>
+                    <strong>Dashboard 1 (taux de marge en quartiles)</strong> : segmentation en Q1 à Q4. Q1 = 25% les moins rentables (“À surveiller”),
+                    Q2 et Q3 = “Potentiels à optimiser”, Q4 = “TOP”. Le dashboard existe en vue Produit et en vue Catégorie (via un slicer).
+                  </p>
+                  <p>
+                    <strong>Dashboard 2 (produits à perte)</strong> : vue d’urgence listant les produits à perte.
+                    On distingue une perte “structurelle” (prix de vente inférieur ou égal au coût) et une perte “sur période”
+                    (marge cumulée négative malgré un chiffre d’affaires non nul).
+                  </p>
+                  <p>
+                    <strong>Dashboard 3 (invendus)</strong> : produits jamais vendus sur la fenêtre (aucune ligne vendue) — à déstocker, déréférencer,
+                    remiser ou nettoyer du catalogue.
+                  </p>
+                </div>
+              </details>
+
+              <details class="kpi-disclosure">
+                <summary class="btn secondary btn--sm">Requêtes SQL</summary>
+                <div class="kpi-disclosure__content">
+                  <h4>Base technique</h4>
+                  <pre><code>CREATE OR REPLACE VIEW gm_base AS
+SELECT
+  p.productCode,
+  p.productName,
+  p.productLine AS category,
+  od.quantityOrdered,
+  od.priceEach,
+  p.buyPrice,
+  (od.priceEach * od.quantityOrdered) AS line_revenue,
+  (od.priceEach - p.buyPrice) * od.quantityOrdered AS line_margin,
+  (od.priceEach - p.buyPrice) / NULLIF(od.priceEach, 0) AS line_rate,
+  w.month_start,
+  w.month_end
+FROM orders o
+JOIN orderdetails od ON od.orderNumber = o.orderNumber
+JOIN products p ON p.productCode = od.productCode
+CROSS JOIN (
+  SELECT
+    DATE_SUB(
+      DATE_ADD(LAST_DAY(DATE_SUB(MAX(o2.shippedDate), INTERVAL 1 MONTH)), INTERVAL 1 DAY),
+      INTERVAL 12 MONTH
+    ) AS month_start,
+    LAST_DAY(DATE_SUB(MAX(o2.shippedDate), INTERVAL 1 MONTH)) AS month_end
+  FROM orders o2
+  WHERE o2.shippedDate IS NOT NULL
+) AS w
+WHERE o.status IN ('Shipped', 'Resolved')
+  AND o.shippedDate BETWEEN w.month_start AND w.month_end;</code></pre>
+
+                  <h4>Taux de marge par produit</h4>
+                  <pre><code>CREATE OR REPLACE VIEW gm_prod AS
+SELECT
+  productCode,
+  productName,
+  category,
+  AVG(line_rate) AS gm_rate,
+  month_start,
+  month_end
+FROM gm_base
+GROUP BY productCode, productName, category, month_start, month_end;</code></pre>
+
+                  <h4>Taux de marge par catégorie</h4>
+                  <pre><code>CREATE OR REPLACE VIEW gm_cat AS
+SELECT
+  category,
+  AVG(gm_rate) AS gm_rate,
+  MIN(month_start) AS month_start,
+  MAX(month_end) AS month_end
+FROM gm_prod
+GROUP BY category;</code></pre>
+
+                  <h4>Produits à perte</h4>
+                  <pre><code>CREATE OR REPLACE VIEW gm_loss AS
+SELECT
+  b.productCode,
+  MAX(b.productName) AS productName,
+  MAX(b.category) AS category,
+  MAX(b.month_start) AS month_start,
+  MAX(b.month_end) AS month_end,
+  MAX(b.priceEach &lt;= b.buyPrice) AS loss_structural,
+  (SUM(b.line_margin) &lt;= 0 AND SUM(b.line_revenue) &gt; 0) AS loss_period
+FROM gm_base b
+GROUP BY b.productCode
+HAVING loss_structural = 1 OR loss_period = 1;</code></pre>
+
+                  <h4>Produits invendus</h4>
+                  <pre><code>CREATE OR REPLACE VIEW gm_unsold AS
+SELECT
+  p.productCode,
+  p.productName,
+  p.productLine AS category,
+  w.month_start,
+  w.month_end
+FROM products p
+CROSS JOIN (
+  SELECT
+    DATE_SUB(
+      DATE_ADD(LAST_DAY(DATE_SUB(MAX(o2.shippedDate), INTERVAL 1 MONTH)), INTERVAL 1 DAY),
+      INTERVAL 12 MONTH
+    ) AS month_start,
+    LAST_DAY(DATE_SUB(MAX(o2.shippedDate), INTERVAL 1 MONTH)) AS month_end
+  FROM orders o2
+  WHERE o2.shippedDate IS NOT NULL
+) AS w
+LEFT JOIN gm_base b ON b.productCode = p.productCode
+WHERE b.productCode IS NULL;</code></pre>
+
+                  <p class="muted">
+                    Ressource : <a href="https://www.youtube.com/watch?v=wJ7u60pMmqs" target="_blank" rel="noreferrer">vidéo (SQL)</a>
+                  </p>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <!-- KPI 3 -->
+          <div class="card" style="margin-top:1rem;">
+            <p class="kicker">SQL_KPI — Finance</p>
+            <h3>Taux de recouvrement des créances par client</h3>
+            <p>
+              <strong>But :</strong> identifier les clients ayant un montant élevé de commandes non payées, et prioriser les relances de recouvrement.
+            </p>
+
+            <div class="hero-actions" style="margin-top:.75rem;">
+              <details class="kpi-disclosure">
+                <summary class="btn secondary btn--sm">Définition KPI</summary>
+                <div class="kpi-disclosure__content">
+                  <p>
+                    <strong>Objectif :</strong> identifier les clients dont le niveau d’impayés est élevé afin de prioriser le recouvrement.
+                    L’idée n’est pas seulement de “faire un classement”, mais d’objectiver un risque client à partir des ventes réellement expédiées
+                    et des paiements enregistrés.
+                  </p>
+
+                  <h4>Définition : qu'est-ce qu'un impayé ici ?</h4>
+                  <p>
+                    Une commande est considérée non payée si elle a été expédiée (statut <code>Shipped</code> ou <code>Resolved</code>) et que,
+                    à la date de coupure, les paiements cumulés du client ne couvrent pas le montant des ventes expédiées.
+                    En résumé : si <code>Paiements_cumulés &lt; CA_expédié_cumulé</code>, la différence est une dette (impayé).
+                  </p>
+
+                  <h4>Fenêtre d'analyse et date de coupure</h4>
+                  <p>
+                    Je travaille sur <strong>douze mois pleins</strong>. La date de coupure <code>month_end</code> est le dernier jour du mois qui précède
+                    le mois de la dernière expédition observée dans la base. Le début <code>month_start</code> est le 1er jour du mois suivant <code>month_end</code>,
+                    moins 12 mois. Je retiens toutes les ventes expédiées entre <code>month_start</code> et <code>month_end</code> (inclus), ainsi que tous les paiements
+                    dont <code>payments.paymentDate</code> est inférieur ou égal à <code>month_end</code>.
+                  </p>
+                  <p class="muted">
+                    Exemple : si la dernière expédition observée est le 13 avril 2025, la coupure est au 31 mars 2025 et la fenêtre démarre le 1er avril 2024.
+                  </p>
+
+                  <h4>Logique de calcul (dette d'ouverture, dette de clôture)</h4>
+                  <p>
+                    Je travaille avec un solde client défini ainsi : <strong>Solde = Paiements - Achats</strong> (positif = avance, négatif = dette).
+                    Je calcule d’abord un <strong>solde d’ouverture</strong> au début de fenêtre : <code>S_ouv = paiements_avant - achats_avant</code>,
+                    puis un <strong>solde de clôture</strong> à la coupure : <code>S_clo = paiements_&lt;=month_end - achats_&lt;=month_end</code>.
+                  </p>
+                  <p>
+                    Je convertis ensuite ces soldes en dette (partie négative) :
+                    <code>Dette_ouv = max(0, -S_ouv)</code> et <code>Dette_clo = max(0, -S_clo)</code>.
+                    L’<strong>impayé sur la fenêtre</strong> est la hausse de dette :
+                    <code>Impayé_fenêtre = max(0, Dette_clo - Dette_ouv)</code>.
+                  </p>
+                  <p>
+                    Lecture utile : le mouvement de fenêtre peut se voir comme <code>D = Achats_fenêtre - Paiements_fenêtre</code>
+                    (si <code>D &gt; 0</code>, la dette augmente ; si <code>D &lt; 0</code>, elle diminue) et on retrouve <code>S_clo = S_ouv - D</code>.
+                    Cette approche évite de confondre une dette “historique” et une dette “créée” pendant la période.
+                  </p>
+
+                  <h4>Sorties attendues</h4>
+                  <p>
+                    Pour chaque client : impayé sur la fenêtre, chiffre d’affaires expédié sur la fenêtre, nombre de commandes expédiées, et bornes de période
+                    (<code>month_start</code> / <code>month_end</code>). La catégorisation “risque” (seuils) se fera ensuite côté Power BI, une fois le KPI validé,
+                    pas dans cette section.
+                  </p>
+                </div>
+              </details>
+
+              <details class="kpi-disclosure">
+                <summary class="btn secondary btn--sm">Requêtes SQL</summary>
+                <div class="kpi-disclosure__content">
+                  <pre><code>CREATE OR REPLACE VIEW vw_ar_unpaid_customers AS
+WITH
+params AS (
+  SELECT
+    LAST_DAY(DATE_SUB(MAX(o.shippedDate), INTERVAL 1 MONTH)) AS month_end,
+    DATE_SUB(
+      DATE_ADD(LAST_DAY(DATE_SUB(MAX(o.shippedDate), INTERVAL 1 MONTH)), INTERVAL 1 DAY),
+      INTERVAL 12 MONTH
+    ) AS month_start
+  FROM orders o
+  WHERE o.shippedDate IS NOT NULL
+),
+sales_before AS (
+  SELECT o.customerNumber, SUM(od.quantityOrdered * od.priceEach) AS achats_avant
+  FROM orders o
+  JOIN orderdetails od ON od.orderNumber = o.orderNumber
+  CROSS JOIN params p
+  WHERE o.status IN ('Shipped','Resolved') AND o.shippedDate &lt; p.month_start
+  GROUP BY o.customerNumber
+),
+sales_until AS (
+  SELECT o.customerNumber, SUM(od.quantityOrdered * od.priceEach) AS achats_jusqua
+  FROM orders o
+  JOIN orderdetails od ON od.orderNumber = o.orderNumber
+  CROSS JOIN params p
+  WHERE o.status IN ('Shipped','Resolved') AND o.shippedDate &lt;= p.month_end
+  GROUP BY o.customerNumber
+),
+sales_window AS (
+  SELECT
+    o.customerNumber,
+    SUM(od.quantityOrdered * od.priceEach) AS ca_fenetre,
+    COUNT(DISTINCT o.orderNumber) AS nb_commandes_expediees
+  FROM orders o
+  JOIN orderdetails od ON od.orderNumber = o.orderNumber
+  CROSS JOIN params p
+  WHERE o.status IN ('Shipped','Resolved') AND o.shippedDate BETWEEN p.month_start AND p.month_end
+  GROUP BY o.customerNumber
+),
+pay_before AS (
+  SELECT pay.customerNumber, SUM(pay.amount) AS paiements_avant
+  FROM payments pay
+  CROSS JOIN params p
+  WHERE pay.paymentDate &lt; p.month_start
+  GROUP BY pay.customerNumber
+),
+pay_until AS (
+  SELECT pay.customerNumber, SUM(pay.amount) AS paiements_jusqua
+  FROM payments pay
+  CROSS JOIN params p
+  WHERE pay.paymentDate &lt;= p.month_end
+  GROUP BY pay.customerNumber
+)
+SELECT
+  c.customerNumber,
+  c.customerName,
+  GREATEST(
+    0,
+    GREATEST(0, COALESCE(su.achats_jusqua, 0) - COALESCE(pu.paiements_jusqua, 0)) -
+    GREATEST(0, COALESCE(sb.achats_avant, 0) - COALESCE(pb.paiements_avant, 0))
+  ) AS impaye_fenetre,
+  COALESCE(sw.ca_fenetre, 0) AS ca_fenetre,
+  COALESCE(sw.nb_commandes_expediees, 0) AS nb_commandes_expediees,
+  p.month_start,
+  p.month_end
+FROM customers c
+CROSS JOIN params p
+LEFT JOIN sales_before sb ON sb.customerNumber = c.customerNumber
+LEFT JOIN sales_until su ON su.customerNumber = c.customerNumber
+LEFT JOIN sales_window sw ON sw.customerNumber = c.customerNumber
+LEFT JOIN pay_before pb ON pb.customerNumber = c.customerNumber
+LEFT JOIN pay_until pu ON pu.customerNumber = c.customerNumber;</code></pre>
+                </div>
+              </details>
+            </div>
+          </div>
         </div>
       </section>
     </main>
-
   </div>
 </body>
 </html>

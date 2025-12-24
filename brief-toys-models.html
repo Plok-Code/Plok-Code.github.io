@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brief — Toys &amp; Models | Idris NAULLEAU-AURIAL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="doc-page">
+  <div class="page">
+    <main id="main">
+      <section class="card">
+        <p class="kicker">Brief du projet</p>
+        <h1>SQL &amp; BI - Toys &amp; Models</h1>
+        <p class="muted">
+          Source (brief original) :
+          <a href="https://wildcodeschool.github.io/data-training-resources/projet/projet-1/#introduction" target="_blank" rel="noreferrer">
+            wildcodeschool.github.io/data-training-resources
+          </a>
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="card doc-sheet">
+          <p class="doc-sheet__hero">
+            <img src="https://wildcodeschool.github.io/data-training-resources/projet/projet-1/assets/image/header.PNG" alt="Header" loading="lazy">
+          </p>
+
+          <h2 id="introduction">Introduction</h2>
+
+          <p>Vous êtes mandaté par une entreprise qui vend des modèles et des maquettes.</p>
+
+          <p>L’entreprise possède déjà une base de données qui répertorie les employés, les produits, les commandes et bien plus encore. Vous êtes invité à explorer et découvrir cette base de données.</p>
+
+          <p><strong>Le directeur de l’entreprise souhaite avoir un tableau de bord dynamique qu’il pourrait actualiser chaque matin pour obtenir les dernières informations afin de gérer l’entreprise.</strong></p>
+
+          <h2 id="objectif--enjeux">Objectif &amp; Enjeux</h2>
+
+          <p>Votre tableau de bord doit s’articuler autour de ces 4 sujets principaux : <strong>ventes</strong>, <strong>finances</strong>, <strong>logistique</strong>, et <strong>ressources humaines</strong>.</p>
+
+          <p>Les <strong>indicateurs clés de performance</strong> (<strong>KPI</strong>) ci-dessous sont requis pour ce tableau de bord, avec une distinction claire entre les priorités définies par le client :</p>
+
+          <ul>
+            <li><strong>Obligatoire</strong> : Indicateurs requis</li>
+            <li><strong>Complémentaire</strong> : Indicateurs additionnels</li>
+            <li><strong>Optionnel</strong> : Indicateurs au choix</li>
+          </ul>
+
+          <p>Il est recommandé de <strong>proposer des KPI supplémentaires</strong>, surtout en cas d’impossibilité technique de répondre à certaines demandes. Cette partie est essentielle pour démontrer votre créativité et vos compétences en tant que data analyst.</p>
+
+          <h2 id="i-partie-1--calcul-des-métriques-en-sql">I. Partie 1 : Calcul des Métriques en SQL</h2>
+
+          <h3 id="-objectif-de-la-partie-sql">Objectif de la Partie SQL</h3>
+
+          <p>Tout d’abord, vous allez tester et étendre vos compétences en <strong>SQL</strong> en récupérant tous ces <strong>KPIs</strong> ! Cela va vous permettre de progresser dans l’écriture de requêtes complexes, ce qui est <strong>essentiel</strong> !</p>
+
+          <p>En effet, être capable de requêter les données de manière efficace est la fondation <strong>indispensable</strong> pour pouvoir <strong>valoriser</strong> la donnée ! D’ailleurs, les entretiens techniques de data analyst en entreprise sont souvent basés sur des exercices de requêtage SQL, pour ces même raisons !</p>
+
+          <h3 id="calcul-des-kpi-en-sql">Calcul des KPI en SQL</h3>
+
+          <p>Vous devez écrire des requêtes SQL pour calculer les indicateurs suivants. Vous pouvez également ajouter des indicateurs supplémentaires si vous le souhaitez.</p>
+
+          <h3 id="-ressources-humaines">Ressources humaines</h3>
+
+          <ul>
+            <li><strong>[Obligatoire]</strong> <strong>Performance des représentants commerciaux</strong> : calculer le chiffre d’affaires généré par chaque employé chargé des ventes.</li>
+            <li><strong>[Complémentaire]</strong> <strong>Ratio commandes/paiements par représentant commercial</strong> : identifier les écarts entre les commandes passées et les paiements reçus pour chaque représentant.</li>
+            <li><strong>[Complémentaire]</strong> <strong>Performance des bureaux</strong> : mesurer le chiffre d’affaires généré par chaque bureau.</li>
+          </ul>
+
+          <h3 id="-ventes">Ventes</h3>
+
+          <ul>
+            <li><strong>[Obligatoire]</strong> <strong>Chiffre d’affaires par mois et par région + taux d’évolution mensuel</strong> : suivre les revenus générés par région et par mois pour identifier les tendances géographiques.</li>
+            <li><strong>[Obligatoire]</strong> <strong>Produits les plus/moins vendus par catégorie</strong> : identifier les produits les plus performants dans chaque catégorie.</li>
+            <li><strong>[Complémentaire]</strong> <strong>La marge brute par produit et par catégorie</strong> : mesurer la marge brute et en déduire les produits/catégories les plus/moins rentables.</li>
+            <li><strong>[Optionnel]</strong> <strong>Taux d’évolution mensuel des ventes par catégorie</strong> : mesurer la performance de chaque catégorie de produit dans le temps.</li>
+            <li><strong>[Optionnel]</strong> <strong>Panier moyen</strong> : mesurer le panier moyen des commandes.</li>
+            <li><strong>[Optionnel]</strong> <strong>Taux de retour des clients (repeat customers)</strong> : mesurer la fidélité des clients en identifiant ceux qui passent plusieurs commandes.</li>
+          </ul>
+
+          <h3 id="-finances">Finances</h3>
+
+          <ul>
+            <li><strong>[Obligatoire]</strong> <strong>Clients générant le plus/moins de revenus</strong> : identifier les clients générant le plus de revenus pour mieux les fidéliser.</li>
+            <li><strong>[Complémentaire]</strong> <strong>Taux de recouvrement des créances par client</strong> : identifier les clients ayant un montant élevé de commandes non payées.</li>
+            <li><strong>[Optionnel]</strong> <strong>Croissance des ventes par trimestre</strong> : identifier les tendances saisonnières ou les opportunités de croissance.</li>
+            <li><strong>[Optionnel]</strong> <strong>Montant moyen des paiements + clients en dessous de la moyenne</strong> : évaluer la capacité de paiement des clients.</li>
+            <li><strong>[Optionnel]</strong> <strong>Taux de paiement par délai</strong> : identifier combien de temps les clients mettent pour payer après une commande.</li>
+          </ul>
+
+          <h3 id="-logistique">Logistique</h3>
+
+          <ul>
+            <li><strong>[Obligatoire]</strong> <strong>Stock des produits sous seuil critique</strong> : identifier les produits dont le stock est faible pour éviter les ruptures.</li>
+            <li><strong>[Complémentaire]</strong> <strong>Durée moyenne de traitement des commandes + commandes au-dessus de la moyenne de livraison</strong> : mesurer l’efficacité opérationnelle en analysant le temps entre la date de commande et la date d’expédition.</li>
+            <li><strong>[Optionnel]</strong> <strong>Taux d’écoulement des stocks</strong> : mesurer la rapidité avec laquelle les stocks sont vendus pour chaque produit.</li>
+            <li><strong>[Optionnel]</strong> <strong>Taux de commandes livrées en retard</strong> : identifier les problèmes logistiques et améliorer les délais de livraison.</li>
+          </ul>
+
+          <h3 id="i-partie-2--calcul-des-métriques-en-sql">I. Partie 2 : Calcul des Métriques en SQL</h3>
+
+          <p>Après avoir développé vos compétences en SQL pour écrire des requêtes, nous allons maintenant aborder un autre aspect essentiel : l’optimisation des requêtes pour Power BI.</p>
+
+          <p>Power BI fonctionne beaucoup mieux avec un schéma analytique, tel qu’un modèle en étoile, plutôt qu’avec un schéma transactionnel.</p>
+
+          <p>Manque de chance, la base de données toys and models est basée sur un <strong>schéma transactionnel</strong>.</p>
+
+          <blockquote>
+            <p>Mais qu’est-ce qu’un schéma transactionnel et un schéma analytique ?</p>
+          </blockquote>
+
+          <p>Le <strong>schéma transactionnel</strong> (OLTP) est conçu pour gérer les données de manière efficace et cohérente, en évitant la redondance et en garantissant l’intégrité des informations, même lorsqu’elles sont mises à jour. Tout le travail de modélisation que nous avons réalisé jusqu’ici avec la méthode MERISE visait à construire ce type de schéma. Son objectif principal est de faciliter les opérations transactionnelles comme l’ajout, la modification et la suppression de données. Toutefois, pour l’analyse — comme dans un projet de tableau de bord — ce schéma devient moins performant, car il nécessite de nombreuses jointures, ce qui ralentit considérablement les requêtes et l’affichage des résultats !</p>
+
+          <p>En revanche, le <strong>schéma analytique</strong> (OLAP) est optimisé pour l’analyse des données, c’est ce dont nous avons besoin ! Dans ce modèle, nous <strong>choisissons</strong> d’introduire des redondances en regroupant toutes les informations et métriques cruciales dans une seule table appelée <strong>table de faits</strong>. Dans les autres tables, nous allons placer les données descriptives et non numériques, appelée <strong>tables de dimensions</strong>. Ce compromis améliore significativement la performance. Moins de jointures sont nécessaires, les calculs sont optimisés, et les performances dans Power BI sont nettement meilleures. En résumé, un modèle analytique permet de tirer pleinement parti des capacités de Power BI pour la visualisation et l’analyse des données.</p>
+
+          <p><strong>Objectif</strong></p>
+
+          <p>L’enjeu de cette deuxième partie va donc être de transformer notre modèle <strong>transactionnel</strong> (OLTP) en modèle <strong>analytique</strong> (OLAP) pour faciliter notre travail sur PowerBI !</p>
+
+          <p>Afin de faciliter leur récupération dans Power BI, vous devez créer des <strong>vues SQL</strong> qui préparent les <strong>tables de faits</strong> et <strong>tables de dimensions</strong> en amont. Cela permettra d’optimiser la performance et de garantir des données prêtes à l’emploi !</p>
+
+          <h3 id="méthode-à-suivre-pour-créer-les-tables-de-faits-et-de-dimensions">Méthode à suivre pour créer les tables de faits et de dimensions</h3>
+
+          <p><strong>1. Créer une ou plusieurs tables de faits</strong></p>
+
+          <p>Les tables de faits centralisent les informations nécessaires au calcul des indicateurs de performance.</p>
+
+          <p>Par exemple, une table <code>fact_sales</code> pourrait contenir :</p>
+
+          <ul>
+            <li><strong>Clés étrangères</strong> : permettant de faire le lien avec les tables de dimensions (<code>customer_id</code>, <code>product_id</code>, <code>employee_id</code>, <code>order_date</code>).</li>
+            <li><strong>Identifiants</strong> : tels que <code>order_id</code> pour identifier chaque commande.</li>
+            <li><strong>Données analytiques</strong> : toutes les informations permettant de réaliser des mesures (ex. <code>quantity_sold</code>, <code>unit_price</code>, <code>total_revenue</code>, <code>delivery_status</code>…).</li>
+            <li>Autres exemples de tables de faits :</li>
+            <li><code>fact_payments</code> : regroupe les informations sur les paiements effectués par les clients.</li>
+            <li><code>fact_inventory</code> : contient les données liées à la logistique et à la gestion des stocks.</li>
+          </ul>
+
+          <p><strong>2. Créer des tables de dimensions.</strong></p>
+
+          <p>Les tables de dimensions stockent les informations descriptives qui permettent d’analyser les faits sous différents angles. Exemples de tables de dimensions :</p>
+
+          <ul>
+            <li><code>dim_customers</code> : liste des clients avec leurs informations (<code>customer_id</code>, <code>customer_name</code>, <code>region</code>, <code>country</code>…).</li>
+            <li><code>dim_products</code> : détails des produits (<code>product_id</code>, <code>product_name</code>, <code>category</code>, <code>unit_price</code>…).</li>
+            <li><code>dim_dates</code> : table calendrier permettant les analyses temporelles (<code>date_id</code>, <code>year</code>, <code>month</code>, <code>week</code>, <code>day</code>…).</li>
+            <li>Autres dimensions : <code>dim_employees</code>, <code>dim_offices</code>, <code>dim_managers</code>…</li>
+          </ul>
+
+          <p><strong>Exemple de structure :</strong></p>
+
+          <ul>
+            <li><code>fact_sales</code> : table de fait contenant les informations de ventes : quantité commandée, chiffre d’affaires …</li>
+            <li><code>dim_customers</code> : Clients (Nom, Région,…)</li>
+            <li><code>dim_products</code> : Produits (Nom, Catégorie …)</li>
+            <li><code>dim_employees</code> : Employés (Nom, job title,…)</li>
+            <li><code>dim_manager</code> : Managers (Nom, job title…)</li>
+            <li><code>dim_office</code> : Offices (Bureau, country…)</li>
+            <li><code>dim_dates</code> : Dates pour les analyses temporelles (peut-être faite en SQL ou sur PowerBI)</li>
+          </ul>
+
+          <p>Exemple de schéma en étoile possible</p>
+
+          <p>
+            <img src="https://wildcodeschool.github.io/data-training-resources/projet/projet-1/assets/image/star.png" alt="Schéma en étoile" loading="lazy">
+          </p>
+
+          <h2 id="ii--construction-du-dashboard-dans-power-bi">II : Construction du Dashboard dans Power BI</h2>
+
+          <h3 id="-pourquoi-utiliser-power-bi-après-sql-">Pourquoi utiliser Power BI après SQL ?</h3>
+
+          <p>Power BI va permettre de récupérer directement les vues SQL créées et de les utiliser comme des tables liées dans un modèle de données. Cela facilite :</p>
+
+          <ul>
+            <li>La gestion des filtres et relations entre les tables</li>
+            <li>L’actualisation automatique des données</li>
+            <li>L’affichage rapide des indicateurs clés</li>
+          </ul>
+
+          <h3 id="-travail-à-réaliser-en-power-bi">Travail à réaliser en Power BI</h3>
+
+          <ul>
+            <li>Importer les vues SQL créées depuis MySQL.</li>
+            <li>Établir les relations entre les tables selon le schéma en étoile.</li>
+            <li>Créer les visualisations (graphiques, tableaux, KPI) en utilisant les métriques demandées.</li>
+            <li>Créer des filtres interactifs pour explorer les données en fonction des régions, produits, employés, etc.</li>
+            <li>S’assurer que le tableau de bord est actualisable quotidiennement.</li>
+          </ul>
+
+          <p><strong>Livrable attendu</strong> : un tableau de bord Power BI complet avec les indicateurs demandés, basé sur les vues SQL créées en amont.</p>
+
+          <h2 id="conclusion">Conclusion</h2>
+
+          <p>Vous devrez structurer les données en SQL avant de les exploiter dans Power BI. Ce projet vous permettra de comprendre l’importance du Data Modeling, d’optimiser les performances des requêtes et de créer un dashboard interactif qui répond aux besoins d’un directeur d’entreprise.</p>
+
+          <p>À vous de jouer !</p>
+
+          <p class="alert-info"><strong>Note importante</strong> : Les stocks sont mis à jour tous les deux mois. Par conséquent, les données actuelles reflètent uniquement les deux derniers mois.</p>
+
+          <p class="alert-warning">Si des limitations techniques empêchent de répondre à certains KPI, proposez des alternatives alignées avec les objectifs métiers du client.</p>
+
+          <h2 id="ressources">Ressources</h2>
+
+          <p>Requêtes pour générer la <code>dim_date</code> :</p>
+
+          <pre><code>SET @@cte_max_recursion_depth = 3000;
+CREATE VIEW DIM_DATES AS
+WITH RECURSIVE date_series AS (
+    SELECT DATE('2019-01-01') AS full_date
+    UNION ALL
+    SELECT DATE_ADD(full_date, INTERVAL 1 DAY)
+    FROM date_series
+    WHERE full_date &lt; DATE('2025-12-31')
+)
+SELECT
+    full_date AS order_date,
+    YEAR(full_date) AS year,
+    MONTH(full_date) AS month,
+    QUARTER(full_date) AS quarter,
+    DATE_FORMAT(full_date, '%M') AS month_name,
+    WEEK(full_date, 1) AS week_number,
+    DAY(full_date) AS day_of_month,
+    DAYNAME(full_date) AS day_name
+FROM date_series;</code></pre>
+
+          <p>Voici le schéma de la base de données :</p>
+
+          <p>
+            <img src="https://wildcodeschool.github.io/data-training-resources/projet/projet-1/assets/image/diagram.PNG" alt="Diagram" loading="lazy">
+          </p>
+
+          <h2 id="outils">Outils</h2>
+
+          <p>Le directeur ne souhaite pas travailler avec SQL mais veut accéder aux données automatiquement et graphiquement. Vous pouvez proposer l’outil de votre choix (Power BI, Tableau, etc.), tant que le tableau de bord est pertinent.</p>
+
+          <p>À titre d’information, la base de données est disponible sur un serveur de l’entreprise. Vous y accédez en mode lecture seule avec un compte utilisateur fourni.</p>
+
+          <p>L’entreprise vous fournit également le script que vous pouvez exécuter sur votre serveur MySQL local. Les données sont identiques et s’arrêtent à la fin du mois précédent.</p>
+
+          <h2 id="base-de-données-sql">Base de données SQL</h2>
+
+          <p>Vous avez le choix entre vous connecter au serveur cloud ou déployer le script localement. Les données sont identiques dans les deux cas.</p>
+
+          <h3 id="installation-locale">Installation locale</h3>
+
+          <p>Vous pouvez installer un serveur MySQL Community sur votre machine, ainsi que le client MySQL Workbench. La base de données est prête à être chargée dans un serveur MySQL. Connectez-vous à votre serveur via Workbench, et exécutez <a href="https://drive.google.com/file/d/103Qm2gwiTkRFlHH4Sn-dOSAW97b8zX8U/view?usp=sharing" target="_blank" rel="noreferrer">tout le code dans ce fichier</a>.</p>
+
+          <h3 id="serveur-cloud">Serveur cloud</h3>
+
+          <p>Vous pouvez vous connecter au serveur MariaDB (un fork de MySQL) de l’entreprise.</p>
+
+          <ul>
+            <li><strong>Hostname</strong> : <strong>51.178.25.157</strong></li>
+            <li><strong>Port</strong> : <strong>23456</strong></li>
+            <li><strong>Username</strong> : <strong>toyscie</strong></li>
+            <li><strong>Password</strong> : <strong>[masqué]</strong></li>
+          </ul>
+
+          <h2 id="connexion-avec-mysql-workbench">Connexion avec MySQL Workbench</h2>
+
+          <p>
+            <img src="https://wildcodeschool.github.io/data-training-resources/projet/projet-1/assets/image/mysql_connection.PNG" alt="MySQL Connect" loading="lazy">
+          </p>
+
+          <h2 id="livrable-attendu">Livrable attendu</h2>
+
+          <p>Vous fournirez le fichier SQL des requêtes de la partie 1.1. Ensuite, vous donnerez une courte présentation de votre tableau de bord (demandez à votre formateur la durée). La présentation doit inclure :</p>
+
+          <ul>
+            <li><strong>Vue d’ensemble du contexte, présentation de l’équipe et des outils utilisés.</strong></li>
+            <li><strong>Démonstration de votre tableau de bord, et interprétation des KPI métiers.</strong></li>
+            <li><strong>Difficultés rencontrées et perspectives d’évolution.</strong></li>
+          </ul>
+
+          <p><strong>N’hésitez pas à créer des KPI supplémentaires !</strong></p>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
