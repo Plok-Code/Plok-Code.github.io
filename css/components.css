@@ -1,0 +1,5051 @@
+/* Plus de cards-blocs. Style editorial : sections separees par une ligne fine et de l'espace.
+   L'aurore animee du body donne la signature visuelle, le contenu se pose dessus. */
+.card {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: clamp(36px, 5vw, 64px) 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition: none;
+    position: relative;
+    overflow: visible;
+}
+
+.card::before,
+.card::after {
+    display: none;
+}
+
+.card+.card,
+.section .card {
+    margin-top: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.card:hover {
+    transform: none;
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.07);
+    box-shadow: none;
+}
+
+/* La toute premiere card (sous le header) garde une respiration sans ligne au-dessus */
+main > .card:first-of-type,
+main > section:first-of-type > .card {
+    border-top: 0;
+    padding-top: clamp(28px, 4vw, 48px);
+}
+
+/* Le main a besoin d'un peu de respiration verticale */
+main {
+    position: relative;
+    z-index: 1;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    transition: all var(--dur-fast) var(--ease);
+}
+
+.btn.primary {
+    background: var(--accent);
+    color: #061914;
+    border-color: rgba(var(--accent-rgb), 0.55);
+}
+
+.btn.primary:hover,
+.btn.primary:focus-visible {
+    background: var(--accent-soft);
+    border-color: rgba(var(--accent-rgb), 0.7);
+    box-shadow: 0 0 0 1px rgba(var(--accent-rgb), 0.25), 0 0 22px rgba(var(--accent-rgb), 0.35);
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--text);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+.btn.secondary:hover,
+.btn.secondary:focus-visible {
+    border-color: var(--accent-cool);
+    background: rgba(var(--accent-cool-rgb), 0.1);
+    box-shadow: 0 0 15px rgba(var(--accent-cool-rgb), 0.15);
+    transform: translateY(-2px);
+}
+
+.btn.btn--sm {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    letter-spacing: 0.01em;
+}
+
+.btn--icon {
+    gap: 8px;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.icon--filled {
+    fill: currentColor;
+    stroke: none;
+}
+
+.icon-btn {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text);
+    cursor: pointer;
+    transition: all var(--dur-fast);
+}
+
+.icon-btn:hover,
+.icon-btn:focus-visible {
+    border-color: var(--accent-cool);
+    background: rgba(var(--accent-cool-rgb), 0.1);
+    color: #fff;
+}
+
+.list {
+    display: grid;
+    gap: 16px;
+}
+
+.pill {
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.callout {
+    margin: 20px 0;
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 2px solid var(--accent-cool);
+    background: linear-gradient(90deg, rgba(var(--accent-cool-rgb), 0.08), transparent);
+}
+
+.callout h3 {
+    margin: 0 0 8px;
+    font-size: 13px;
+    font-family: var(--font-mono);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent-cool);
+}
+
+.callout ul {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--text-soft);
+}
+
+/* KPI accordions */
+.kpi-disclosure {
+    flex: 0 0 auto;
+}
+
+.kpi-disclosure[open] {
+    flex: 1 1 100%;
+    width: 100%;
+}
+
+.kpi-disclosure>summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+.kpi-disclosure>summary::-webkit-details-marker {
+    display: none;
+}
+
+.kpi-disclosure>summary.btn::after {
+    content: "▾";
+    margin-left: 8px;
+    opacity: 0.75;
+    transition: transform var(--dur-fast) var(--ease);
+}
+
+.kpi-disclosure[open]>summary.btn::after {
+    transform: rotate(180deg);
+}
+
+.kpi-disclosure__content {
+    margin-top: 12px;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(14, 15, 20, 0.45);
+    width: 100%;
+}
+
+.kpi-disclosure__content h4 {
+    margin: 16px 0 8px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.kpi-disclosure__content h4:first-child {
+    margin-top: 0;
+}
+
+.kpi-disclosure__content p {
+    max-width: none;
+}
+
+.kpi-disclosure__content pre {
+    margin: 12px 0 0;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(6, 7, 10, 0.65);
+    overflow: auto;
+}
+
+.kpi-disclosure__content code {
+    font-family: var(--font-mono);
+    font-size: 0.92em;
+}
+
+.kpi-disclosure__content pre code {
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+    .kpi-disclosure__content {
+        padding: 12px;
+    }
+
+    .kpi-disclosure__content pre {
+        padding: 10px 12px;
+    }
+
+    .kpi-disclosure__content pre code {
+        font-size: 11px;
+    }
+}
+
+/* Inline links inside text content (paragraphs, lists, callouts, modal content) */
+/* Couleur emeraude (--accent-warm) pour distinguer les liens cliquables des elements cyan informatifs */
+.card p > a:not(.btn):not(.project-card__title-link):not(.project-card__media-link):not(.project-card__cta),
+.card li > a:not(.btn),
+.card figcaption > a:not(.btn),
+.callout p > a:not(.btn),
+.callout li > a:not(.btn),
+.deck-modal__content p > a:not(.btn),
+.deck-modal__content li > a:not(.btn),
+.deck-modal__content figcaption > a:not(.btn) {
+    color: var(--accent-warm);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(var(--accent-warm-rgb), 0.5);
+    transition: color var(--dur) var(--ease), text-decoration-color var(--dur) var(--ease);
+}
+
+.card p > a:not(.btn):not(.project-card__title-link):not(.project-card__media-link):not(.project-card__cta):hover,
+.card p > a:not(.btn):not(.project-card__title-link):not(.project-card__media-link):not(.project-card__cta):focus-visible,
+.card li > a:not(.btn):hover,
+.card li > a:not(.btn):focus-visible,
+.card figcaption > a:not(.btn):hover,
+.card figcaption > a:not(.btn):focus-visible,
+.callout p > a:not(.btn):hover,
+.callout p > a:not(.btn):focus-visible,
+.callout li > a:not(.btn):hover,
+.callout li > a:not(.btn):focus-visible,
+.deck-modal__content p > a:not(.btn):hover,
+.deck-modal__content p > a:not(.btn):focus-visible,
+.deck-modal__content li > a:not(.btn):hover,
+.deck-modal__content li > a:not(.btn):focus-visible,
+.deck-modal__content figcaption > a:not(.btn):hover,
+.deck-modal__content figcaption > a:not(.btn):focus-visible {
+    color: #6EE7B7;
+    text-decoration-color: var(--accent-warm);
+}
+
+/* Composant .chip canonique (accent / neutral / soft) */
+.chip,
+.hero-landing__chips li {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(var(--accent-cool-rgb), 0.08);
+    border: 1px solid rgba(var(--accent-cool-rgb), 0.3);
+    color: var(--accent-cool);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.01em;
+    transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.chip:hover,
+.hero-landing__chips li:hover {
+    background: rgba(var(--accent-cool-rgb), 0.16);
+    border-color: rgba(var(--accent-cool-rgb), 0.55);
+}
+
+.chip--neutral {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.18);
+    color: var(--text-soft);
+}
+
+.chip--neutral:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.32);
+}
+
+.chip--soft {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--muted);
+}
+
+.chip--soft:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* prefers-reduced-motion : coupe toutes les animations de pulse / spin globaux */
+@media (prefers-reduced-motion: reduce) {
+    .hero-profile__status-dot,
+    .hero-landing__pulse {
+        animation: none !important;
+    }
+}
+
+/* Smooth scroll global (sauf si l'utilisateur a demande reduce-motion) */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Footer */
+.site-footer {
+    margin-top: 64px;
+    padding: 36px 0 24px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.site-footer__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) auto;
+    gap: 20px clamp(20px, 4vw, 48px);
+    align-items: center;
+}
+
+.site-footer__brand strong {
+    color: var(--text);
+    font-size: 15px;
+    display: block;
+    letter-spacing: 0.01em;
+}
+
+.site-footer__brand span {
+    display: block;
+    margin-top: 2px;
+    font-size: 12.5px;
+    color: var(--muted);
+}
+
+.site-footer__nav,
+.site-footer__actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.site-footer__nav {
+    grid-column: 1 / -1;
+    justify-content: center;
+    margin: 14px 0 6px;
+    padding: 14px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.site-footer__nav a,
+.site-footer__actions a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: color var(--dur) var(--ease);
+}
+
+.site-footer__nav a:hover,
+.site-footer__nav a:focus-visible,
+.site-footer__actions a:hover,
+.site-footer__actions a:focus-visible {
+    color: var(--accent-cool);
+    outline: none;
+}
+
+.site-footer__back-top {
+    color: rgba(var(--accent-cool-rgb), 0.85) !important;
+}
+
+.site-footer__copy {
+    grid-column: 1 / -1;
+    margin: 12px 0 0;
+    font-size: 11px;
+    opacity: 0.7;
+    text-align: center;
+    letter-spacing: 0.04em;
+}
+
+@media (max-width: 720px) {
+    .site-footer__inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .site-footer__actions {
+        justify-content: center;
+    }
+}
+
+/* ===================================================================
+   PROFILE : page profil "dashboard SaaS" - grille compacte unifiee.
+   Une seule grille de 11 cartes avec barre de tabs en haut (filtre
+   par categorie). Style Linear / Notion : ligne horizontale avec
+   thumbnail petit + titre + chip categorie + fleche.
+   =================================================================== */
+.profile {
+    padding: clamp(8px, 2vh, 20px) 0 32px;
+}
+
+/* TABS : segmented control startup */
+.profile__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid var(--hairline-strong);
+    border-radius: 12px;
+    margin: 0 0 22px;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.profile__tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 16px;
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    color: var(--text-soft);
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--dur-fast) var(--ease);
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.profile__tab::after { content: none; }
+
+.profile__tab-count {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--muted);
+    font-weight: 500;
+    transition: color var(--dur-fast) var(--ease);
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.04);
+    line-height: 1;
+}
+
+.profile__tab:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.profile__tab.is-active {
+    background: var(--accent);
+    color: #061914;
+    box-shadow: 0 0 22px rgba(var(--accent-rgb), 0.32);
+}
+
+.profile__tab.is-active .profile__tab-count {
+    background: rgba(6, 25, 20, 0.18);
+    color: #061914;
+}
+
+/* GRID : 2-col compact, auto-fill responsive */
+.profile__grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 8px;
+    /* on contient le scan line a l'interieur, mais sans clipper les
+       cards qui dependent d'effets de hover (glow) — overflow x clip,
+       y visible */
+    overflow-x: clip;
+}
+
+/* SCAN LINE : trait vert lumineux qui balaye le grid de gauche a
+   droite quand on change de tab. Injecte dynamiquement par le JS, se
+   detruit auto a la fin de l'animation. */
+.profile__scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg,
+        transparent 0%,
+        var(--accent) 18%,
+        var(--accent) 82%,
+        transparent 100%);
+    box-shadow:
+        0 0 18px var(--accent),
+        0 0 40px rgba(var(--accent-rgb), 0.55),
+        0 0 80px rgba(var(--accent-rgb), 0.25);
+    pointer-events: none;
+    z-index: 20;
+    will-change: transform, opacity;
+    transform: translateX(-20px);
+    opacity: 0;
+}
+
+/* Disable initial fade-in / load animations on cards : on a un
+   animation propre via le filter qui prend le relais. */
+.profile__card,
+.profile__section-header {
+    will-change: transform, opacity, filter;
+}
+
+/* SECTION HEADERS : visibles uniquement sur le filtre "Tout" (les
+   tabs affichent deja la categorie sinon). Forme : label mono caps
+   accent + hairline qui s'estompe vers la droite. Span full grid. */
+.profile__section-header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 0 6px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.20em;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.profile__section-header:first-child {
+    padding-top: 4px;
+}
+
+.profile__section-header span {
+    white-space: nowrap;
+}
+
+.profile__section-header::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg,
+        rgba(var(--accent-rgb), 0.4) 0%,
+        var(--hairline-strong) 30%,
+        transparent 100%);
+}
+
+.profile__section-header[hidden] {
+    display: none;
+}
+
+/* Animation cascade au chargement */
+.profile__card {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: profileCardIn 500ms var(--ease) forwards;
+}
+.profile__card:nth-child(1)  { animation-delay: 60ms; }
+.profile__card:nth-child(2)  { animation-delay: 110ms; }
+.profile__card:nth-child(3)  { animation-delay: 160ms; }
+.profile__card:nth-child(4)  { animation-delay: 210ms; }
+.profile__card:nth-child(5)  { animation-delay: 260ms; }
+.profile__card:nth-child(6)  { animation-delay: 310ms; }
+.profile__card:nth-child(7)  { animation-delay: 360ms; }
+.profile__card:nth-child(8)  { animation-delay: 410ms; }
+.profile__card:nth-child(9)  { animation-delay: 460ms; }
+.profile__card:nth-child(10) { animation-delay: 510ms; }
+.profile__card:nth-child(11) { animation-delay: 560ms; }
+
+@keyframes profileCardIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* CARD : compact + clean, plus de decoration arbitraire. Le titre
+   est le seul element textuel, la fleche fait le job de CTA.
+   Grille plus dense (auto-fill 260px), card plus tassee, plus de
+   gros vide a habiller. */
+.profile__card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 84px;
+    padding: 18px 18px 18px 24px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--hairline-strong);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color var(--dur-fast) var(--ease),
+                background var(--dur-fast) var(--ease),
+                transform var(--dur-fast) var(--ease),
+                box-shadow var(--dur-fast) var(--ease);
+    text-align: left;
+    color: var(--text);
+    font-family: var(--font-sans);
+    text-decoration: none;
+    overflow: hidden;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* Strip d'accent vertical gauche, hairline au repos, accent au hover.
+   La differenciation par categorie est faite par les section headers. */
+.profile__card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 12px;
+    width: 2px;
+    background: var(--hairline-strong);
+    border-radius: 0 2px 2px 0;
+    transition: background var(--dur-fast) var(--ease),
+                box-shadow var(--dur-fast) var(--ease);
+}
+
+.profile__card[hidden] {
+    display: none;
+}
+
+.profile__card:hover,
+.profile__card:focus-visible {
+    border-color: rgba(var(--accent-rgb), 0.5);
+    background: rgba(var(--accent-rgb), 0.04);
+    outline: none;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.42),
+                0 0 32px rgba(var(--accent-rgb), 0.08);
+}
+
+.profile__card:hover::before,
+.profile__card:focus-visible::before {
+    background: var(--accent);
+    box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.5);
+}
+
+/* Note : les formes geometriques en prefixe de chip (carre/triangle/
+   cercle) ont ete retirees, elles font doublon avec les section
+   headers qui regroupent visuellement les cartes par categorie. */
+
+.profile__card.is-active {
+    border-color: rgba(var(--accent-rgb), 0.6);
+    background: rgba(var(--accent-rgb), 0.08);
+}
+
+.profile__card.is-active::before {
+    background: var(--accent);
+}
+
+/* TITRE : taille raisonnable (15-17px), prend la largeur dispo,
+   passe accent au hover. Pas de hairline decorative. */
+.profile__card-title {
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+    font-family: var(--font-sans);
+    font-size: clamp(15px, 1.1vw, 17px);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    transition: color var(--dur-fast) var(--ease);
+}
+
+.profile__card:hover .profile__card-title,
+.profile__card:focus-visible .profile__card-title {
+    color: var(--accent);
+}
+
+.profile__card-arrow {
+    position: static;
+    color: var(--accent);
+    font-size: 14px;
+    line-height: 1;
+    opacity: 0.5;
+    flex-shrink: 0;
+    transition: transform var(--dur-fast) var(--ease),
+                opacity var(--dur-fast) var(--ease);
+}
+
+.profile__card:hover .profile__card-arrow,
+.profile__card:focus-visible .profile__card-arrow {
+    transform: translate(3px, -3px);
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .profile__card {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .profile__tabs {
+        width: 100%;
+        gap: 2px;
+    }
+    .profile__tab {
+        flex: 1;
+        justify-content: center;
+        padding: 8px 8px;
+        font-size: 12.5px;
+    }
+    .profile__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===================================================================
+   PROFILE LAYOUT 2 COLONNES : remplace l'ancienne modal deck.
+   Colonne gauche fixe (cartes empilees), colonne droite fluide
+   (contenu de la carte cliquee affiche inline). Le panel detail est
+   sticky pour rester visible quand on scroll dans la liste de cartes.
+   En dessous de 880px, on bascule en stack vertical.
+   =================================================================== */
+.profile__layout {
+    display: grid;
+    grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+    gap: clamp(20px, 2.5vw, 44px);
+    align-items: start;
+    margin-top: 4px;
+}
+
+/* Override de la grille auto-fill : dans le layout 2 colonnes, les cartes
+   s'empilent verticalement dans leur colonne gauche. */
+.profile__layout .profile__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: visible;
+}
+
+/* Section headers : dans le layout flex column, plus de full-row span. */
+.profile__layout .profile__section-header {
+    grid-column: auto;
+    width: 100%;
+}
+
+/* PANEL DETAIL : sticky a droite, scrollable interne si le contenu
+   depasse la viewport. Surface premium avec hairline + soft shadow. */
+.profile__detail {
+    position: sticky;
+    top: 84px;
+    max-height: calc(100vh - 104px);
+    overflow-y: auto;
+    padding: clamp(22px, 2.6vw, 36px);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--hairline-strong);
+    border-radius: 14px;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.32);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(var(--accent-rgb), 0.35) transparent;
+}
+
+.profile__detail::-webkit-scrollbar {
+    width: 6px;
+}
+
+.profile__detail::-webkit-scrollbar-thumb {
+    background: rgba(var(--accent-rgb), 0.3);
+    border-radius: 3px;
+}
+
+.profile__detail::-webkit-scrollbar-thumb:hover {
+    background: rgba(var(--accent-rgb), 0.55);
+}
+
+.profile__detail-title {
+    margin: 0 0 18px;
+    font-family: var(--font-sans);
+    font-size: clamp(20px, 2vw, 28px);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--hairline-strong);
+    position: relative;
+}
+
+.profile__detail-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 36px;
+    height: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.6);
+}
+
+.profile__detail-title:empty {
+    display: none;
+}
+
+.profile__detail-content {
+    color: var(--text-soft);
+    font-family: var(--font-sans);
+    font-size: clamp(14.5px, 1vw, 16px);
+    line-height: 1.65;
+}
+
+.profile__detail-content p {
+    margin: 0 0 14px;
+}
+
+.profile__detail-content p:last-child {
+    margin-bottom: 0;
+}
+
+.profile__detail-content strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.profile__detail-content em {
+    color: var(--text-soft);
+    font-style: italic;
+}
+
+.profile__detail-content a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(var(--accent-rgb), 0.35);
+    transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+
+.profile__detail-content a:hover,
+.profile__detail-content a:focus-visible {
+    color: var(--accent-soft);
+    border-bottom-color: var(--accent);
+    outline: none;
+}
+
+.profile__detail-content ul {
+    margin: 0 0 14px;
+    padding-left: 22px;
+}
+
+.profile__detail-content li {
+    margin: 0 0 8px;
+}
+
+.profile__detail-content .muted {
+    color: var(--muted);
+    font-size: 0.92em;
+}
+
+.profile__detail-content .inline-preview-toggle {
+    margin: 14px 0;
+}
+
+.profile__detail-content .cv-preview {
+    margin: 14px 0 0;
+}
+
+.profile__detail-content .cv-preview img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--hairline-strong);
+}
+
+/* Etat vide (rien de selectionne, ou tab change et plus de match) */
+.profile__detail--empty .profile__detail-title,
+.profile__detail--empty .profile__detail-content {
+    display: none;
+}
+
+.profile__detail--empty::before {
+    content: "Cliquez sur une carte a gauche pour afficher le contenu.";
+    display: block;
+    color: var(--muted);
+    font-style: italic;
+    text-align: center;
+    padding: 40px 12px;
+}
+
+/* Active card : marquee discrete pour montrer quelle carte est ouverte. */
+.profile__card[aria-pressed="true"] {
+    border-color: rgba(var(--accent-rgb), 0.6);
+    background: rgba(var(--accent-rgb), 0.06);
+}
+
+.profile__card[aria-pressed="true"]::before {
+    background: var(--accent);
+    box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.5);
+}
+
+.profile__card[aria-pressed="true"] .profile__card-arrow {
+    transform: rotate(45deg);
+    opacity: 1;
+}
+
+/* Animation in douce quand on change de carte */
+@keyframes profileDetailIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.profile__detail-title,
+.profile__detail-content {
+    animation: profileDetailIn 360ms var(--ease);
+}
+
+/* RESPONSIVE : sous 1024px, stack vertical. En dessous de ce seuil le
+   panel droit devient trop etroit pour afficher du texte confortablement
+   (les paragraphes deviennent illisibles), donc on bascule en single
+   column avec le panel sous les cartes. Plus de sticky non plus :
+   il viendrait masquer la liste. */
+@media (max-width: 1024px) {
+    .profile__layout {
+        grid-template-columns: 1fr;
+        gap: clamp(20px, 3vw, 32px);
+    }
+    .profile__detail {
+        position: static;
+        max-height: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .profile__detail-title,
+    .profile__detail-content {
+        animation: none;
+    }
+}
+
+/* ===================================================================
+   PROFIL HOLLYWOOD : "galerie cinema". Affiches Saul Bass avec image
+   B&W + duotone rouge OU grand numero typographique pour les chapitres
+   sans diplome. Visible uniquement quand [data-theme="hollywood"], le
+   profil classic en 2 colonnes etant cache.
+   =================================================================== */
+
+.profile-cinema { display: none; }
+[data-theme="hollywood"] .profile { display: none; }
+[data-theme="hollywood"] .profile-cinema { display: block; }
+
+.profile-cinema {
+    padding: clamp(8px, 2vh, 20px) 0 56px;
+    position: relative;
+    isolation: isolate;
+}
+
+/* HEADER : marquee "NOW SHOWING" facon enseigne cinema + titre Bebas */
+.profile-cinema__header {
+    margin: 0 0 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.profile-cinema__marquee {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    color: var(--accent);
+    padding: 6px 12px;
+    border: 1px solid rgba(var(--accent-rgb), 0.55);
+    border-radius: 2px;
+    background: rgba(var(--accent-rgb), 0.06);
+    text-transform: uppercase;
+    position: relative;
+}
+
+.profile-cinema__marquee::before,
+.profile-cinema__marquee::after {
+    content: "★";
+    color: var(--accent);
+    margin: 0 8px 0 0;
+    font-size: 9px;
+    opacity: 0.8;
+}
+
+.profile-cinema__marquee::after {
+    margin: 0 0 0 8px;
+}
+
+.profile-cinema__heading {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(36px, 5.2vw, 64px);
+    line-height: 0.92;
+    letter-spacing: -0.005em;
+    color: var(--text);
+    text-transform: uppercase;
+}
+
+.profile-cinema__subtitle {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    color: var(--text-soft);
+    font-style: italic;
+}
+
+/* TABS : reprend le segmented control mais relooke cinema rouge */
+.profile-cinema__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(var(--accent-rgb), 0.25);
+    border-radius: 2px;
+    margin: 0 0 28px;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.profile-cinema__tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 16px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    color: var(--text-soft);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    cursor: pointer;
+    transition: all var(--dur-fast) var(--ease);
+    line-height: 1;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.profile-cinema__tab-count {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--muted);
+    padding: 2px 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    transition: all var(--dur-fast) var(--ease);
+}
+
+.profile-cinema__tab:hover {
+    color: var(--text);
+    background: rgba(var(--accent-rgb), 0.08);
+}
+
+.profile-cinema__tab.is-active {
+    background: var(--accent);
+    color: #0A0B0F;
+}
+
+.profile-cinema__tab.is-active .profile-cinema__tab-count {
+    background: rgba(0, 0, 0, 0.25);
+    color: #0A0B0F;
+}
+
+/* GRID : posters affiches, 3 par ligne >=1280, 2 entre 720-1279, 1 mobile */
+.profile-cinema__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: clamp(16px, 2vw, 28px);
+    margin: 0 0 clamp(40px, 5vw, 72px);
+}
+
+/* POSTER : aspect ratio 2:3 facon affiche cinema, cadre blanc fin
+   pour separer du fond noir, hover lift + glow rouge. */
+.profile-cinema__poster {
+    position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+    color: inherit;
+    font-family: var(--font-sans);
+    display: block;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.profile-cinema__poster-frame {
+    position: relative;
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+    background: #0F1014;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    isolation: isolate;
+    transition:
+        transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    box-shadow:
+        0 6px 22px rgba(0, 0, 0, 0.55),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+/* Credits : chip CH. + genre en haut, mono caps rouges */
+.profile-cinema__poster-credits {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.profile-cinema__poster-chapter {
+    color: var(--accent);
+    padding: 3px 6px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(var(--accent-rgb), 0.6);
+    border-radius: 1px;
+}
+
+.profile-cinema__poster-genre {
+    color: rgba(255, 255, 255, 0.7);
+    padding: 3px 6px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 1px;
+}
+
+/* POSTER : photo de la carte en NOIR ET BLANC integral. Aucun duotone
+   rouge, juste un grayscale + contraste pousse pour le rendu cinema
+   "affiche papier" Saul Bass. Seul le degrade noir en bas assure la
+   lisibilite du titre. On utilise un <img> a l'interieur plutot que
+   background-image car les URLs dans les CSS custom properties se
+   resolvent relativement au CSS et non au HTML. */
+.profile-cinema__poster-image {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.profile-cinema__poster-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: grayscale(1) contrast(1.18) brightness(1);
+    transition: filter 0.4s ease, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Degrade noir uniquement (pas de rouge) : tres legere assombrissement
+   en haut pour les chips, fort en bas pour le titre. */
+.profile-cinema__poster-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+        rgba(0, 0, 0, 0.55) 0%,
+        rgba(0, 0, 0, 0) 22%,
+        rgba(0, 0, 0, 0) 55%,
+        rgba(0, 0, 0, 0.9) 100%);
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+/* HOVER : lift + glow rouge, image plus contrastee */
+.profile-cinema__poster:hover .profile-cinema__poster-frame,
+.profile-cinema__poster:focus-visible .profile-cinema__poster-frame {
+    transform: translateY(-6px) scale(1.015);
+    border-color: rgba(var(--accent-rgb), 0.7);
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(var(--accent-rgb), 0.25),
+        inset 0 0 0 1px rgba(var(--accent-rgb), 0.18);
+    outline: none;
+}
+
+.profile-cinema__poster:hover .profile-cinema__poster-image img,
+.profile-cinema__poster:focus-visible .profile-cinema__poster-image img {
+    filter: grayscale(0.6) contrast(1.22) brightness(1.08);
+    transform: scale(1.04);
+}
+
+.profile-cinema__poster:hover .profile-cinema__poster-frame::before,
+.profile-cinema__poster:focus-visible .profile-cinema__poster-frame::before {
+    opacity: 0.7;
+}
+
+/* Posters hidden lors du filter */
+.profile-cinema__poster[hidden] {
+    display: none;
+}
+
+/* ===================================================================
+   MODAL CENTRALE CINEMA : fullscreen overlay avec affiche centree.
+   S'ouvre au click sur un poster. Layout 2-col desktop (poster a gauche,
+   contenu a droite) qui passe en stack mobile/tablette.
+   Aucun conflit UI : z-index eleve, body scroll lock, fermeture par
+   backdrop / Escape / bouton close.
+   =================================================================== */
+/* Modal centree dans l'espace entre le header et le bas de viewport,
+   avec un petit % d'espacement (3% au-dessus du header, 3% sous le
+   viewport). Le backdrop couvre tout le viewport (pour le click-to-
+   close) mais le panel est confine via les paddings.
+   La hauteur exacte du header varie selon le viewport (130px desktop,
+   ~158px mobile a cause du wrap des boutons). On utilise une variable
+   --masthead-height pilotee par JS (initMastheadOffset) pour rester
+   precis sur tous les supports. Fallback CSS : clamp si JS pas charge. */
+.profile-cinema__modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --modal-top-gap: calc(var(--masthead-height, clamp(140px, 17vh, 180px)) + 3vh);
+    padding-top: var(--modal-top-gap);
+    padding-bottom: 3vh;
+    padding-left: clamp(12px, 3vw, 40px);
+    padding-right: clamp(12px, 3vw, 40px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 280ms var(--ease);
+}
+
+.profile-cinema__modal:not([hidden]) {
+    pointer-events: auto;
+}
+
+.profile-cinema__modal.is-open {
+    opacity: 1;
+}
+
+.profile-cinema__modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(2, 3, 6, 0.85);
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+    cursor: pointer;
+}
+
+.profile-cinema__modal-panel {
+    position: relative;
+    width: 100%;
+    max-width: 1080px;
+    max-height: 100%;
+    background: linear-gradient(180deg, #0F1014 0%, #08090C 100%);
+    border: 1px solid rgba(var(--accent-rgb), 0.45);
+    border-radius: 2px;
+    box-shadow:
+        0 32px 80px rgba(0, 0, 0, 0.75),
+        0 0 80px rgba(var(--accent-rgb), 0.18),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    display: flex;
+    flex-direction: column;
+    isolation: isolate;
+    overflow: hidden;
+    transform: scale(0.94) translateY(12px);
+    transition: transform 320ms cubic-bezier(0.34, 1.4, 0.6, 1);
+}
+
+.profile-cinema__modal.is-open .profile-cinema__modal-panel {
+    transform: scale(1) translateY(0);
+}
+
+.profile-cinema__modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 5;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(var(--accent-rgb), 0.55);
+    border-radius: 1px;
+    color: var(--text);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.profile-cinema__modal-close:hover,
+.profile-cinema__modal-close:focus-visible {
+    background: var(--accent);
+    color: #0A0B0F;
+    outline: none;
+    transform: scale(1.06);
+}
+
+.profile-cinema__modal-close svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Inner : grid 2-col desktop (poster gauche / contenu droite) */
+.profile-cinema__modal-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 0;
+    overflow: hidden;
+    flex: 1;
+    min-height: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* POSTER cote gauche : image B&W centree dans son conteneur.
+   L'image utilise object-fit: contain donc conserve son ratio 2:3
+   et est entouree de whitespace.
+   Pour que le chip CH. XX reste toujours colle au coin haut-gauche
+   de l'IMAGE (pas du conteneur), on calcule sa position via JS et
+   on la pousse dans --chip-top et --chip-left. Le JS observe les
+   resize via ResizeObserver. */
+.profile-cinema__modal-poster {
+    position: relative;
+    margin: 0;
+    background: #050608;
+    overflow: hidden;
+    isolation: isolate;
+    border-right: 1px solid rgba(var(--accent-rgb), 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(20px, 2vw, 36px);
+    min-height: 0;
+}
+
+.profile-cinema__modal-poster-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    filter: grayscale(1) contrast(1.18) brightness(1);
+}
+
+/* Chip CH. XX : position calculee par JS via --chip-top / --chip-left
+   pour suivre EXACTEMENT le coin haut-gauche de l'image visible
+   (object-fit: contain genere du whitespace autour). Fallback CSS
+   au cas ou le JS n'a pas encore calcule : 14px du coin du conteneur. */
+.profile-cinema__modal-poster-credits {
+    position: absolute;
+    top: var(--chip-top, 14px);
+    left: var(--chip-left, 14px);
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: top 0.2s ease, left 0.2s ease;
+}
+
+.profile-cinema__modal-chapter {
+    color: var(--accent);
+    padding: 5px 9px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(var(--accent-rgb), 0.7);
+    border-radius: 1px;
+}
+
+/* CONTENT cote droit : titre Bebas + texte scrollable */
+.profile-cinema__modal-body {
+    padding: clamp(28px, 3.5vw, 52px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(var(--accent-rgb), 0.4) transparent;
+}
+
+.profile-cinema__modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.profile-cinema__modal-body::-webkit-scrollbar-thumb {
+    background: rgba(var(--accent-rgb), 0.35);
+    border-radius: 2px;
+}
+
+.profile-cinema__modal-title {
+    margin: 0 0 22px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(26px, 3.4vw, 42px);
+    line-height: 0.96;
+    letter-spacing: 0.005em;
+    color: var(--text);
+    text-transform: uppercase;
+    position: relative;
+}
+
+.profile-cinema__modal-content {
+    font-family: var(--font-sans);
+    font-size: clamp(14.5px, 1vw, 16px);
+    line-height: 1.7;
+    color: var(--text-soft);
+}
+
+.profile-cinema__modal-content p {
+    margin: 0 0 14px;
+}
+
+.profile-cinema__modal-content p:last-child {
+    margin-bottom: 0;
+}
+
+.profile-cinema__modal-content strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.profile-cinema__modal-content em {
+    color: var(--text-soft);
+    font-style: italic;
+}
+
+.profile-cinema__modal-content a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(var(--accent-rgb), 0.4);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.profile-cinema__modal-content a:hover,
+.profile-cinema__modal-content a:focus-visible {
+    color: var(--accent-soft);
+    border-bottom-color: var(--accent);
+    outline: none;
+}
+
+.profile-cinema__modal-content ul {
+    margin: 0 0 14px;
+    padding-left: 22px;
+}
+
+.profile-cinema__modal-content li {
+    margin: 0 0 8px;
+}
+
+.profile-cinema__modal-content .muted {
+    color: var(--muted);
+    font-size: 0.92em;
+}
+
+.profile-cinema__modal-content .cv-preview {
+    margin: 14px 0 0;
+}
+
+.profile-cinema__modal-content .cv-preview img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 2px;
+    border: 1px solid rgba(var(--accent-rgb), 0.35);
+    filter: grayscale(1) contrast(1.05);
+    transition: filter 0.3s ease;
+}
+
+.profile-cinema__modal-content .cv-preview img:hover {
+    filter: grayscale(0) contrast(1);
+}
+
+.profile-cinema__modal-content .inline-preview-toggle {
+    margin: 14px 0;
+}
+
+/* Body lock pour eviter scroll background */
+body.is-cinema-modal-open {
+    overflow: hidden;
+}
+
+/* ===================================================================
+   RESPONSIVE
+   - 1024 et + : 2 colonnes poster + contenu
+   - 720-1023 : 2 colonnes mais plus compact
+   - sous 720 : stack vertical (poster top, contenu sous, full width)
+   =================================================================== */
+
+/* Stack vertical pour tablettes portrait et mobile.
+   On conserve le padding-top dynamique base sur --masthead-height
+   pour que la modal reste sous le header. */
+@media (max-width: 760px) {
+    .profile-cinema__modal {
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-bottom: 2vh;
+    }
+    .profile-cinema__modal-panel {
+        max-width: 100%;
+    }
+    .profile-cinema__modal-inner {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto minmax(0, 1fr);
+    }
+    .profile-cinema__modal-poster {
+        max-height: 34vh;
+        border-right: 0;
+        border-bottom: 1px solid rgba(var(--accent-rgb), 0.25);
+        padding: 16px;
+    }
+    .profile-cinema__modal-body {
+        padding: 22px 20px 26px;
+    }
+}
+
+/* Tres petits ecrans : encore plus compact */
+@media (max-width: 480px) {
+    .profile-cinema__modal {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+    .profile-cinema__modal-poster {
+        max-height: 28vh;
+    }
+    .profile-cinema__modal-close {
+        width: 32px;
+        height: 32px;
+        top: 8px;
+        right: 8px;
+    }
+}
+
+/* Grid posters responsive */
+@media (max-width: 720px) {
+    .profile-cinema__grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 14px;
+    }
+    .profile-cinema__heading {
+        font-size: clamp(28px, 8vw, 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-cinema__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .profile-cinema__tabs {
+        width: 100%;
+    }
+    .profile-cinema__tab {
+        flex: 1;
+        justify-content: center;
+        padding: 8px 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .profile-cinema__poster-frame,
+    .profile-cinema__poster-image img,
+    .profile-cinema__modal,
+    .profile-cinema__modal-panel {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* ===================================================================
+   CONTACT HOLLYWOOD : "TV vintage". Visible uniquement quand
+   [data-theme="hollywood"], le .contact classic etant cache.
+   Le form a des IDs prefix "tv-" (pas de conflit), mais les attrs
+   name sont les memes (EmailJS recoit la meme structure).
+   =================================================================== */
+
+.contact-tv { display: none; }
+[data-theme="hollywood"] .contact { display: none; }
+[data-theme="hollywood"] .contact-tv { display: flex; }
+
+.contact-tv {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: clamp(24px, 4vw, 60px);
+    padding: clamp(8px, 1.6vh, 20px) clamp(12px, 3vw, 40px) clamp(36px, 5vh, 64px);
+    position: relative;
+}
+
+/* INTRO : titre + lead + visuel decoratif a GAUCHE de la TV.
+   align-self: stretch pour suivre la hauteur de la TV ; on place le
+   titre tout en haut, le visuel remplit l'espace restant. */
+.contact-tv__intro {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 460px;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* VISUEL : affiche Tokyo style Saul Bass deja en N&B/cream + accent
+   rouge dans l'image. Pas de filtre destructif, juste un encadrement
+   et un leger fondu noir en haut/bas pour merger avec la DA. Hidden
+   mobile. */
+.contact-tv__visual {
+    margin: clamp(12px, 1.6vw, 20px) 0 0;
+    flex: 1 1 auto;
+    min-height: 200px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(var(--accent-rgb), 0.4);
+    border-radius: 4px;
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.5),
+        0 0 24px rgba(var(--accent-rgb), 0.12),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    isolation: isolate;
+}
+
+.contact-tv__visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: contrast(1.05);
+}
+
+/* Leger fondu noir top + bottom pour fondre dans la page (la creme
+   de l'image cogne sinon avec le fond noir). Z-index 1 pour passer
+   au dessus de l'image. */
+.contact-tv__visual::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+        rgba(10, 11, 15, 0.4) 0%,
+        rgba(0, 0, 0, 0) 18%,
+        rgba(0, 0, 0, 0) 82%,
+        rgba(10, 11, 15, 0.55) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.contact-tv__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(36px, 4.4vw, 64px);
+    line-height: 0.92;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin: 0;
+}
+
+.contact-tv__lead {
+    font-family: var(--font-sans);
+    font-size: clamp(14px, 1vw, 16px);
+    line-height: 1.6;
+    color: var(--text-soft);
+    margin: 0;
+    max-width: 48ch;
+}
+
+.contact-tv__link {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(var(--accent-rgb), 0.4);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-tv__link:hover,
+.contact-tv__link:focus-visible {
+    color: var(--accent-soft);
+    border-bottom-color: var(--accent);
+    outline: none;
+}
+
+/* TV-SET : boitier brun + ecran sombre + chin avec knobs.
+   Structure flex column : top-bezel (ON AIR) / screen (form) / chin
+   (knobs). La hauteur du screen est elastique, donc le TV s'adapte
+   au contenu peu importe l'ecran. */
+.tv-set {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: clamp(420px, 48vw, 620px);
+    background: linear-gradient(160deg, #2a201c 0%, #1a0e0a 100%);
+    border-radius: clamp(14px, 1.6vw, 22px);
+    padding: clamp(10px, 1.4vw, 18px);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    box-shadow:
+        inset 0 0 0 3px rgba(0, 0, 0, 0.4),
+        inset 0 6px 20px rgba(255, 200, 180, 0.05),
+        0 24px 60px rgba(0, 0, 0, 0.6),
+        0 0 50px rgba(var(--accent-rgb), 0.12);
+}
+
+/* LIVE chip flottant en haut a droite, A L'INTERIEUR du cadre noir
+   (sur le screen, pas sur le boitier brun). Z-index 5 pour passer
+   au dessus des scanlines + vignette. */
+.tv-set__live {
+    position: absolute;
+    top: clamp(10px, 1.4vw, 18px);
+    right: clamp(10px, 1.4vw, 18px);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-mono);
+    font-size: clamp(9px, 0.75vw, 10px);
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    color: rgba(255, 255, 255, 0.85);
+    text-transform: uppercase;
+    z-index: 5;
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(var(--accent-rgb), 0.55);
+    border-radius: 2px;
+}
+
+.tv-set__live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    animation: tv-set-blink 1.6s infinite;
+}
+
+@keyframes tv-set-blink {
+    50% { opacity: 0.3; }
+}
+
+/* SCREEN : zone sombre cathodique avec scanlines + vignette CRT */
+.tv-set__screen {
+    position: relative;
+    background: linear-gradient(180deg, #0a0b10 0%, #050608 100%);
+    border-radius: clamp(6px, 1vw, 10px);
+    padding: clamp(18px, 2.4vw, 32px) clamp(16px, 2.4vw, 30px);
+    overflow: hidden;
+    margin-top: 0; /* le top-bezel du tv-set fait deja la place */
+    box-shadow:
+        inset 0 0 0 1px rgba(var(--accent-rgb), 0.4),
+        inset 0 0 60px rgba(0, 0, 0, 0.8);
+}
+
+/* Scanlines CRT */
+.tv-set__screen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(0deg,
+        transparent 0,
+        transparent 2px,
+        rgba(255, 255, 255, 0.04) 2px,
+        rgba(255, 255, 255, 0.04) 3px);
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Vignette doux sur les bords (CRT incurve) */
+.tv-set__screen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.65) 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.tv-set__content {
+    position: relative;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.2vw, 16px);
+}
+
+/* Form : override les styles de base pour s'integrer dans la TV
+   (theme sombre + accents rouges). Les classes .contact-form et
+   .field viennent du CSS du classic, on les habille en sombre ici. */
+.tv-set__form .contact-form__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(12px, 1.2vw, 18px);
+    margin: 8px 0 0;
+}
+
+.tv-set__form .field { display: flex; flex-direction: column; gap: 6px; }
+.tv-set__form .field--full { grid-column: 1 / -1; }
+
+.tv-set__form .field label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+}
+
+.tv-set__form .field input,
+.tv-set__form .field textarea {
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 3px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    width: 100%;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.tv-set__form .field textarea {
+    min-height: 100px;
+    resize: vertical;
+    font-family: var(--font-sans);
+}
+
+.tv-set__form .field input::placeholder,
+.tv-set__form .field textarea::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.tv-set__form .field input:focus,
+.tv-set__form .field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.tv-set__form .contact-form__actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.tv-set__form .btn.primary {
+    background: var(--accent);
+    color: #0A0B0F;
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 12px 22px;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tv-set__form .btn.primary:hover,
+.tv-set__form .btn.primary:focus-visible {
+    background: transparent;
+    color: var(--accent);
+    outline: none;
+}
+
+.tv-set__form .contact-form__status {
+    margin: 8px 0 0;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* CHIN : bandeau bas avec knobs + brand (compact) */
+.tv-set__chin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(12px, 1.6vw, 20px);
+    padding: clamp(10px, 1.4vw, 16px) clamp(14px, 2vw, 24px) 4px;
+    position: relative;
+}
+
+.tv-set__knob {
+    width: clamp(16px, 1.4vw, 22px);
+    height: clamp(16px, 1.4vw, 22px);
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #4a3a35 0%, #1a0e0a 60%, #0a0507 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.6);
+    position: relative;
+    flex-shrink: 0;
+}
+
+.tv-set__knob::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 1px;
+}
+
+.tv-set__brand {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: clamp(8px, 0.7vw, 10px);
+    letter-spacing: 0.32em;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* ============================================================
+   RESPONSIVE FIXES
+   ============================================================ */
+
+/* Tablettes et grands phones : stack vertical (intro au-dessus, TV en dessous)
+   Le visuel Tokyo est cache : sur mobile/tablette, on ne charge pas l'image
+   pour eviter le poids et la complexite. */
+@media (max-width: 880px) {
+    .contact-tv {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+    .contact-tv__intro {
+        max-width: 100%;
+        align-self: auto;
+        align-items: flex-start;
+    }
+    .contact-tv__title {
+        font-size: clamp(32px, 8vw, 48px);
+    }
+    .contact-tv__visual {
+        display: none;
+    }
+    .tv-set {
+        max-width: 100%;
+        align-self: center;
+        width: min(620px, 100%);
+    }
+}
+
+@media (max-width: 720px) {
+    .tv-set__form .contact-form__grid { grid-template-columns: 1fr; }
+    .tv-set__brand { font-size: 8.5px; letter-spacing: 0.26em; }
+    .tv-set__chin { gap: 14px; padding: 14px 16px 6px; }
+}
+
+/* Petits phones (iPhone SE 1ere gen et plus petits) : fix overflow */
+@media (max-width: 380px) {
+    .contact-tv {
+        padding: 16px 8px 30px;
+    }
+    .tv-set {
+        padding: 10px;
+        border-radius: 14px;
+    }
+    .tv-set__screen {
+        padding: 18px 14px;
+        margin-top: 0;
+    }
+    .tv-set__live {
+        right: 8px;
+        top: 8px;
+        padding: 3px 6px;
+        font-size: 8.5px;
+    }
+    .tv-set__live span:last-child { display: none; }
+    .tv-set__brand { display: none; }
+    .tv-set__chin { gap: 10px; padding: 10px 12px 4px; }
+    .tv-set__knob {
+        width: 18px;
+        height: 18px;
+    }
+    .tv-set__title {
+        font-size: clamp(22px, 7.5vw, 28px);
+    }
+    .tv-set__form .field input,
+    .tv-set__form .field textarea {
+        font-size: 13px;
+        padding: 9px 12px;
+    }
+}
+
+/* Grands ecrans : permettre a la TV et a l'intro de respirer */
+@media (min-width: 1600px) {
+    .tv-set { max-width: 680px; }
+    .contact-tv__intro { max-width: 520px; }
+    .contact-tv__title { font-size: 64px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tv-set__live-dot { animation: none; }
+}
+
+/* ===================================================================
+   PROJETS HOLLYWOOD : "pellicule cinema" 35mm horizontale + projection
+   mode full-bleed cinemascope. Visible uniquement quand
+   [data-theme="hollywood"], le projects-shell classic etant cache.
+   =================================================================== */
+
+.projects-cinema { display: none; }
+[data-theme="hollywood"] .projects-shell { display: none; }
+[data-theme="hollywood"] .projects-cinema { display: block; }
+
+.projects-cinema {
+    padding: clamp(12px, 2.5vh, 28px) 0 56px;
+    position: relative;
+    isolation: isolate;
+}
+
+/* HEADER */
+.projects-cinema__header {
+    margin: 0 0 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.projects-cinema__heading {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(36px, 5.2vw, 64px);
+    line-height: 0.92;
+    letter-spacing: -0.005em;
+    color: var(--text);
+    text-transform: uppercase;
+}
+
+.projects-cinema__subtitle {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    color: var(--text-soft);
+    font-style: italic;
+}
+
+/* ============ PELLICULE 35MM ============
+   Strip horizontal scrollable. Les perforations sont rendues en CSS
+   via un repeating linear-gradient (carres clairs sur fond noir).
+   =================================================================== */
+
+.projects-cinema__reel {
+    position: relative;
+    background: #0A0B0F;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(var(--accent-rgb), 0.4) transparent;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    cursor: grab;
+    /* Disable text/img selection pendant le drag */
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-x;
+}
+
+.projects-cinema__reel:active,
+.projects-cinema__reel.is-dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+}
+
+.projects-cinema__reel.is-dragging .projects-cinema__frame {
+    pointer-events: none;
+}
+
+.projects-cinema__reel::-webkit-scrollbar {
+    height: 6px;
+}
+
+.projects-cinema__reel::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.projects-cinema__reel::-webkit-scrollbar-thumb {
+    background: rgba(var(--accent-rgb), 0.35);
+    border-radius: 2px;
+}
+
+/* PELLICULE : frames empilees horizontalement.
+   Les PERFORATIONS 35mm sont posees en background sur ce container
+   (= toute la longueur du scroll), donc elles suivent les frames
+   jusqu'au bout de la pellicule, peu importe le nombre de frames.
+   Repeating-linear-gradient X-axis pour la trame de carres clairs. */
+.projects-cinema__frames {
+    display: flex;
+    gap: 18px;
+    padding: 30px clamp(20px, 4vw, 80px);
+    align-items: stretch;
+    background:
+        /* Top perforation band */
+        repeating-linear-gradient(90deg,
+            transparent 0,
+            transparent 14px,
+            rgba(240, 232, 218, 0.78) 14px,
+            rgba(240, 232, 218, 0.78) 32px,
+            transparent 32px,
+            transparent 46px) 0 0 / 100% 18px no-repeat,
+        /* Bottom perforation band */
+        repeating-linear-gradient(90deg,
+            transparent 0,
+            transparent 14px,
+            rgba(240, 232, 218, 0.78) 14px,
+            rgba(240, 232, 218, 0.78) 32px,
+            transparent 32px,
+            transparent 46px) 0 100% / 100% 18px no-repeat;
+    /* Pour que le bg s'etende sur toute la longueur scroll, important :
+       intrinsic content width sets the bg width */
+    width: max-content;
+    min-width: 100%;
+}
+
+/* Une frame de la pellicule : 2:3 portrait, image B&W centree */
+.projects-cinema__frame {
+    flex: 0 0 auto;
+    width: clamp(180px, 22vw, 280px);
+    aspect-ratio: 2 / 3;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: #0F1014;
+    cursor: pointer;
+    color: inherit;
+    text-align: left;
+    padding: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 2px;
+    scroll-snap-align: center;
+    transition:
+        transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.4s ease;
+    box-shadow:
+        0 6px 22px rgba(0, 0, 0, 0.55),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    isolation: isolate;
+}
+
+.projects-cinema__frame-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: grayscale(1) contrast(1.18) brightness(1);
+    z-index: 0;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.4s ease;
+}
+
+/* Voile noir : meme principe que profil cinema (lisibilite titre) */
+.projects-cinema__frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+        rgba(0, 0, 0, 0.55) 0%,
+        rgba(0, 0, 0, 0) 22%,
+        rgba(0, 0, 0, 0) 55%,
+        rgba(0, 0, 0, 0.92) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* REEL XX top-left */
+.projects-cinema__frame-reel {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 3;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    padding: 4px 7px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(var(--accent-rgb), 0.65);
+    border-radius: 1px;
+}
+
+/* Title bottom */
+.projects-cinema__frame-title {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    z-index: 3;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(14px, 1.1vw, 17px);
+    line-height: 1.05;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+}
+
+/* Hover : lift + glow + image plus contrastee */
+.projects-cinema__frame:hover,
+.projects-cinema__frame:focus-visible {
+    transform: translateY(-6px) scale(1.03);
+    border-color: rgba(var(--accent-rgb), 0.7);
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(var(--accent-rgb), 0.25);
+    outline: none;
+}
+
+.projects-cinema__frame:hover .projects-cinema__frame-img,
+.projects-cinema__frame:focus-visible .projects-cinema__frame-img {
+    filter: grayscale(0.5) contrast(1.2) brightness(1.05);
+    transform: scale(1.04);
+}
+
+/* CONTROLS prev/next + counter */
+.projects-cinema__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 18px 0 0;
+    font-family: var(--font-mono);
+}
+
+.projects-cinema__control {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(var(--accent-rgb), 0.45);
+    border-radius: 1px;
+    color: var(--text);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.projects-cinema__control svg {
+    width: 18px;
+    height: 18px;
+}
+
+.projects-cinema__control:hover,
+.projects-cinema__control:focus-visible {
+    background: var(--accent);
+    color: #0A0B0F;
+    outline: none;
+    transform: scale(1.06);
+}
+
+.projects-cinema__counter {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    color: var(--accent);
+    text-transform: uppercase;
+    min-width: 80px;
+    text-align: center;
+}
+
+/* ============ PROJECTION MODE ============
+   Click sur une frame = takeover full-bleed cinemascope. Image
+   plein viewport, barres letterbox noires en haut/bas avec marquee
+   "NOW SCREENING" + sous-titres style cinema. Totalement different
+   du modal centre du profil.
+   =================================================================== */
+
+.projects-cinema__projection {
+    position: fixed;
+    inset: 0;
+    z-index: 250;
+    background: #000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 320ms var(--ease);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.projects-cinema__projection:not([hidden]) {
+    pointer-events: auto;
+}
+
+.projects-cinema__projection.is-open {
+    opacity: 1;
+}
+
+/* L'image en arriere-plan, full-bleed avec letterbox via les bandes */
+.projects-cinema__projection-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: grayscale(1) contrast(1.18) brightness(0.95);
+    z-index: 0;
+    transform: scale(1.08);
+    transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.projects-cinema__projection.is-open .projects-cinema__projection-image {
+    transform: scale(1);
+}
+
+/* Vignettage noir doux sur les bords pour effet cinema */
+.projects-cinema__projection::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center,
+        transparent 30%,
+        rgba(0, 0, 0, 0.55) 95%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Letterbox : barres noires top et bottom (cinemascope 21:9) */
+.projects-cinema__projection-letterbox {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    transform: translateY(0);
+    transition: transform 380ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.projects-cinema__projection-letterbox--top {
+    top: 0;
+    height: 14vh;
+    min-height: 80px;
+    border-bottom: 1px solid rgba(var(--accent-rgb), 0.4);
+    padding: 0 clamp(20px, 4vw, 56px);
+    justify-content: space-between;
+    transform: translateY(-100%);
+}
+
+.projects-cinema__projection-letterbox--bottom {
+    bottom: 0;
+    min-height: 22vh;
+    border-top: 1px solid rgba(var(--accent-rgb), 0.4);
+    padding: clamp(20px, 3vh, 36px) clamp(20px, 4vw, 56px);
+    justify-content: space-between;
+    gap: clamp(20px, 4vw, 60px);
+    transform: translateY(100%);
+}
+
+.projects-cinema__projection.is-open .projects-cinema__projection-letterbox--top {
+    transform: translateY(0);
+}
+
+.projects-cinema__projection.is-open .projects-cinema__projection-letterbox--bottom {
+    transform: translateY(0);
+}
+
+/* Marquee top : NOW SCREENING + REEL + bobine animee */
+.projects-cinema__projection-marquee {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+}
+
+.projects-cinema__projection-now {
+    color: var(--accent);
+    padding: 6px 10px;
+    border: 1px solid rgba(var(--accent-rgb), 0.65);
+    border-radius: 1px;
+    background: rgba(var(--accent-rgb), 0.08);
+}
+
+.projects-cinema__projection-reel {
+    color: var(--text-soft);
+}
+
+.projects-cinema__projection-spinner {
+    width: 28px;
+    height: 28px;
+    color: var(--accent);
+    display: inline-block;
+    animation: cinemaReelSpin 2.4s linear infinite;
+}
+
+.projects-cinema__projection-spinner svg {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes cinemaReelSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* End screening button */
+.projects-cinema__projection-end {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 1px;
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.projects-cinema__projection-end svg {
+    width: 14px;
+    height: 14px;
+}
+
+.projects-cinema__projection-end:hover,
+.projects-cinema__projection-end:focus-visible {
+    background: var(--accent);
+    color: #0A0B0F;
+    border-color: var(--accent);
+    outline: none;
+}
+
+/* Bottom credits : kicker + title Bebas + synopsis + CTA */
+.projects-cinema__projection-credits {
+    flex: 1;
+    min-width: 0;
+    max-width: 70%;
+}
+
+.projects-cinema__projection-kicker {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.projects-cinema__projection-title {
+    margin: 0 0 10px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 4.2vw, 52px);
+    line-height: 0.96;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+}
+
+.projects-cinema__projection-synopsis {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: clamp(13.5px, 1vw, 15.5px);
+    line-height: 1.55;
+    color: var(--text-soft);
+    max-width: 64ch;
+}
+
+.projects-cinema__projection-cta {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 22px;
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 1px;
+    color: #0A0B0F;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    align-self: center;
+    white-space: nowrap;
+}
+
+.projects-cinema__projection-cta svg {
+    width: 14px;
+    height: 14px;
+}
+
+.projects-cinema__projection-cta:hover,
+.projects-cinema__projection-cta:focus-visible {
+    background: transparent;
+    color: var(--accent);
+    outline: none;
+}
+
+/* Body lock pendant la projection */
+body.is-projection-open {
+    overflow: hidden;
+}
+
+/* RESPONSIVE */
+@media (max-width: 760px) {
+    .projects-cinema__frame {
+        width: clamp(150px, 60vw, 220px);
+    }
+    .projects-cinema__projection-letterbox--bottom {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        min-height: 30vh;
+    }
+    .projects-cinema__projection-credits {
+        max-width: 100%;
+    }
+    .projects-cinema__projection-cta {
+        align-self: flex-start;
+    }
+    .projects-cinema__projection-marquee {
+        gap: 10px;
+        font-size: 10px;
+    }
+    .projects-cinema__projection-end span {
+        display: none;
+    }
+    .projects-cinema__projection-end {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-cinema__heading {
+        font-size: clamp(28px, 8vw, 38px);
+    }
+    .projects-cinema__frame {
+        width: 70vw;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .projects-cinema__projection-image,
+    .projects-cinema__projection-letterbox,
+    .projects-cinema__projection-spinner {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* ===================================================================
+   ARTICLES HOLLYWOOD : word cloud chaotique restored depuis l'ancien
+   design (titres en vrac, tailles + rotations variees, signature
+   visuelle "affiche papier"). Visible uniquement en theme hollywood.
+   =================================================================== */
+
+.articles--hollywood { display: none; }
+[data-theme="hollywood"] .articles--classic { display: none; }
+[data-theme="hollywood"] .articles--hollywood { display: block; }
+
+.word-cloud {
+    list-style: none;
+    margin: clamp(20px, 3vw, 36px) 0 0;
+    padding: clamp(22px, 3.2vw, 40px) 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(18px, 2.6vw, 40px) clamp(20px, 3vw, 44px);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.word-cloud::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 18% 28%, rgba(var(--accent-rgb), 0.07), transparent 38%),
+        radial-gradient(circle at 80% 70%, rgba(var(--accent-rgb), 0.06), transparent 42%);
+    pointer-events: none;
+    filter: blur(20px);
+    z-index: 0;
+}
+
+.word-cloud > * {
+    position: relative;
+    z-index: 1;
+}
+
+.word-cloud__item {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    text-decoration: none;
+    color: var(--text);
+    padding: 12px 18px;
+    border-radius: 14px;
+    /* Tres legere bump 1.15x sur la taille originale (avant on
+       voyait mal, mais 1.7x etait trop). */
+    font-size: calc(var(--size, 1em) * 1.15);
+    transform: rotate(var(--rotate, 0deg)) translateY(var(--shift, 0px));
+    transition:
+        transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+        color 0.3s ease,
+        background 0.3s ease,
+        text-shadow 0.3s ease,
+        box-shadow 0.3s ease;
+    line-height: 1.06;
+    max-width: 30ch;
+    cursor: pointer;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.word-cloud__item::after { content: none; }
+
+.word-cloud__item--accent {
+    color: var(--accent);
+}
+
+.word-cloud__item--soft {
+    color: var(--text-soft);
+    opacity: 0.78;
+}
+
+.word-cloud__item--feature {
+    color: var(--text);
+    background: linear-gradient(180deg, rgba(var(--accent-rgb), 0.06), rgba(var(--accent-rgb), 0.02));
+    border: 1px solid rgba(var(--accent-rgb), 0.22);
+    padding: 20px 28px;
+    max-width: 36ch;
+}
+
+.word-cloud__item:hover,
+.word-cloud__item:focus-visible {
+    transform: rotate(0deg) translateY(-3px) scale(1.04);
+    color: #ffffff;
+    background: rgba(var(--accent-rgb), 0.12);
+    text-shadow: 0 0 30px rgba(var(--accent-rgb), 0.65);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+    outline: none;
+    opacity: 1;
+}
+
+.word-cloud__item--feature:hover,
+.word-cloud__item--feature:focus-visible {
+    background: rgba(var(--accent-rgb), 0.16);
+    border-color: rgba(var(--accent-rgb), 0.55);
+}
+
+.word-cloud__day {
+    font-size: 0.40em;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(var(--accent-rgb), 0.85);
+    line-height: 1;
+    margin-bottom: 5px;
+    font-family: var(--font-mono);
+}
+
+.word-cloud__item:hover .word-cloud__day,
+.word-cloud__item:focus-visible .word-cloud__day {
+    color: var(--accent);
+}
+
+.word-cloud__title {
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    line-height: 1.05;
+    display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .word-cloud__item {
+        transform: none;
+        transition: color 0.2s ease, background 0.2s ease;
+    }
+    .word-cloud__item:hover,
+    .word-cloud__item:focus-visible {
+        transform: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .word-cloud {
+        gap: 14px 16px;
+        padding: 18px 4px;
+    }
+    .word-cloud__item {
+        font-size: calc(var(--size, 1em) * 0.78);
+        max-width: 92vw;
+    }
+    .word-cloud__item--feature {
+        padding: 14px 18px;
+    }
+}
+
+/* ===================================================================
+   ARTICLES : page articles "startup blog index", v2.
+   10 cartes uniformes en grille dense 3-col. Chaque carte porte un
+   grand numero fantome (le jour) en fond pour la texture visuelle.
+   Hover : la carte se reveille (border, lift, glow, le fantome
+   s'illumine et translate, fleche se decroche). Aucun "feature"
+   editorial, toutes les publications sont au meme niveau.
+   =================================================================== */
+.articles {
+    padding: clamp(20px, 4vh, 40px) 0 24px;
+    max-width: 1200px;
+}
+
+.articles__lead {
+    margin: 0 0 32px;
+    font-size: clamp(15px, 1.15vw, 17px);
+    line-height: 1.55;
+    color: var(--text-soft);
+    max-width: 64ch;
+}
+
+/* GRID : auto-fill 3-col dense */
+.articles__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+}
+
+.articles__list > li {
+    margin: 0;
+}
+
+/* CARD : container minimaliste, isolation pour le ::before */
+.articles__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14px;
+    min-height: 160px;
+    padding: 16px 18px 14px;
+    background: rgba(255, 255, 255, 0.018);
+    border: 1px solid var(--hairline-strong);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text);
+    overflow: hidden;
+    isolation: isolate;
+    transition: border-color var(--dur-fast) var(--ease),
+                background var(--dur-fast) var(--ease),
+                transform var(--dur-fast) var(--ease),
+                box-shadow var(--dur-fast) var(--ease);
+    font-family: var(--font-sans);
+}
+
+.articles__item::after { content: none; }
+
+/* GHOST NUMBER : grand numero du jour en arriere-plan, mono caps,
+   tres faiblement opaque. Texture visuelle premium "Vercel/Linear". */
+.articles__item::before {
+    content: attr(data-day);
+    position: absolute;
+    bottom: -28px;
+    right: -10px;
+    z-index: -1;
+    font-family: var(--font-mono);
+    font-size: 128px;
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    line-height: 0.85;
+    color: rgba(var(--accent-rgb), 0.07);
+    pointer-events: none;
+    transition: color var(--dur) var(--ease),
+                transform var(--dur) var(--ease);
+}
+
+.articles__item:hover,
+.articles__item:focus-visible {
+    border-color: rgba(var(--accent-rgb), 0.5);
+    background: rgba(var(--accent-rgb), 0.05);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.42),
+                0 0 32px rgba(var(--accent-rgb), 0.10);
+    outline: none;
+}
+
+/* Ghost number qui s'illumine + glisse legerement vers le haut */
+.articles__item:hover::before,
+.articles__item:focus-visible::before {
+    color: rgba(var(--accent-rgb), 0.20);
+    transform: translate(-4px, -8px);
+}
+
+/* TOP ROW : day chip + arrow */
+.articles__item-day {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    padding: 5px 10px;
+    background: rgba(var(--accent-rgb), 0.08);
+    border: 1px solid rgba(var(--accent-rgb), 0.25);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.articles__item-title {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    /* Le clamp coupait mid-mot sur les titres a mots composes
+       (ex: "Retrieval-Augmented"). On force le break uniquement sur
+       les espaces avec hyphens auto en fallback. */
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
+    transition: color var(--dur-fast) var(--ease);
+    flex: 1;
+}
+
+.articles__item:hover .articles__item-title {
+    color: var(--accent);
+}
+
+.articles__item-arrow {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    color: var(--accent);
+    font-size: 14px;
+    line-height: 1;
+    opacity: 0.55;
+    transition: transform var(--dur-fast) var(--ease),
+                opacity var(--dur-fast) var(--ease);
+}
+
+.articles__item:hover .articles__item-arrow,
+.articles__item:focus-visible .articles__item-arrow {
+    transform: translate(3px, -3px);
+    opacity: 1;
+}
+
+/* Animation cascade fade-in au chargement */
+.articles__list > li {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: articlesFadeIn 500ms var(--ease) forwards;
+}
+.articles__list > li:nth-child(1)  { animation-delay: 80ms; }
+.articles__list > li:nth-child(2)  { animation-delay: 120ms; }
+.articles__list > li:nth-child(3)  { animation-delay: 160ms; }
+.articles__list > li:nth-child(4)  { animation-delay: 200ms; }
+.articles__list > li:nth-child(5)  { animation-delay: 240ms; }
+.articles__list > li:nth-child(6)  { animation-delay: 280ms; }
+.articles__list > li:nth-child(7)  { animation-delay: 320ms; }
+.articles__list > li:nth-child(8)  { animation-delay: 360ms; }
+.articles__list > li:nth-child(9)  { animation-delay: 400ms; }
+.articles__list > li:nth-child(10) { animation-delay: 440ms; }
+.articles__list > li:nth-child(11) { animation-delay: 480ms; }
+.articles__list > li:nth-child(12) { animation-delay: 520ms; }
+
+@keyframes articlesFadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .articles__list > li {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+    .articles__item,
+    .articles__item::before {
+        transition: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .articles__list {
+        grid-template-columns: 1fr;
+    }
+    .articles__item::before {
+        font-size: 110px;
+    }
+}
+
+/* Articles list */
+.articles-deck {
+    margin-top: 8px;
+}
+
+.articles-list {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.articles-list > li {
+    margin: 0;
+}
+
+.article-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 18px 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03), 0 4px 12px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.article-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, rgba(var(--accent-cool-rgb), 0), rgba(var(--accent-cool-rgb), 0.7), rgba(var(--accent-cool-rgb), 0));
+    opacity: 0;
+    transition: opacity var(--dur) var(--ease);
+}
+
+.article-card:hover,
+.article-card:focus-visible {
+    border-color: rgba(var(--accent-cool-rgb), 0.55);
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 1px rgba(var(--accent-cool-rgb), 0.12), 0 12px 30px rgba(0, 0, 0, 0.45);
+    outline: none;
+}
+
+.article-card:hover::before,
+.article-card:focus-visible::before {
+    opacity: 1;
+}
+
+.article-card__meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.article-card__kicker {
+    color: var(--accent-cool);
+    font-weight: 600;
+}
+
+.article-card__date {
+    color: var(--muted);
+}
+
+.article-card__title {
+    font-size: clamp(17px, 2.2vw, 21px);
+    font-weight: 700;
+    line-height: 1.32;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    transition: color var(--dur) var(--ease);
+}
+
+.article-card:hover .article-card__title,
+.article-card:focus-visible .article-card__title {
+    color: var(--accent-cool);
+}
+
+.article-card__hint {
+    margin-top: 2px;
+    font-size: 12px;
+    color: rgba(var(--accent-cool-rgb), 0.85);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.article-card__hint::after {
+    content: "\2192";
+    transition: transform var(--dur) var(--ease);
+}
+
+.article-card:hover .article-card__hint::after,
+.article-card:focus-visible .article-card__hint::after {
+    transform: translateX(4px);
+}
+
+@media (max-width: 600px) {
+    .article-card {
+        padding: 14px 16px;
+    }
+}
+
+/* Hero landing : layout 2 colonnes (texte gauche + photo droite) dans une card unique */
+.hero-landing {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-landing > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-landing__main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 56px);
+    align-items: center;
+    position: relative;
+    isolation: isolate;
+}
+
+.hero-landing__main::before {
+    content: "";
+    position: absolute;
+    top: -15%;
+    right: -10%;
+    width: 55%;
+    height: 130%;
+    background: radial-gradient(circle, rgba(var(--accent-cool-rgb), 0.16), transparent 65%);
+    pointer-events: none;
+    filter: blur(14px);
+    z-index: -1;
+}
+
+.hero-landing__kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent-cool);
+    font-weight: 700;
+    margin: 0 0 14px;
+}
+
+.hero-landing__pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-warm);
+    box-shadow: 0 0 12px rgba(var(--accent-warm-rgb), 0.85);
+    animation: heroProfilePulse 2s ease-in-out infinite;
+    display: inline-block;
+}
+
+.hero-landing__title {
+    margin: 0 0 16px;
+    line-height: 0.98;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.hero-landing__title-first {
+    font-size: clamp(20px, 2.6vw, 28px);
+    font-weight: 500;
+    color: var(--text-soft);
+    letter-spacing: 0.01em;
+    line-height: 1;
+}
+
+.hero-landing__title-last {
+    font-size: clamp(34px, 5.8vw, 60px);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 0.98;
+    color: var(--text);
+    background: linear-gradient(180deg, var(--text) 60%, rgba(226, 228, 233, 0.78));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-landing__role {
+    font-size: clamp(15px, 1.6vw, 18px);
+    color: var(--text-soft);
+    margin: 0 0 20px;
+    line-height: 1.5;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 8px;
+}
+
+.hero-landing__role-accent {
+    color: var(--accent-cool);
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 1px;
+    background: linear-gradient(180deg, transparent calc(100% - 3px), rgba(var(--accent-cool-rgb), 0.45) calc(100% - 3px));
+    background-size: 100% 100%;
+}
+
+.hero-landing__role-sep {
+    color: rgba(var(--accent-cool-rgb), 0.5);
+    font-weight: 700;
+}
+
+.hero-landing__chips {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+.hero-landing__chips li {
+    background: rgba(var(--accent-cool-rgb), 0.08);
+    border: 1px solid rgba(var(--accent-cool-rgb), 0.3);
+    color: var(--accent-cool);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.01em;
+    transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.hero-landing__chips li:hover {
+    background: rgba(var(--accent-cool-rgb), 0.16);
+    border-color: rgba(var(--accent-cool-rgb), 0.55);
+}
+
+.hero-landing__note {
+    font-size: 0.85em;
+    color: var(--muted);
+    margin: 0;
+}
+
+.hero-landing__visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-landing__sep {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin: clamp(24px, 3.5vw, 36px) 0 clamp(16px, 2.5vw, 24px);
+}
+
+.hero-landing__formation-kicker {
+    margin: 0 0 6px;
+}
+
+/* Espacement entre le summary "En savoir plus" et le contenu deplie */
+details.inline-preview-toggle[open] > .formation-details {
+    margin-top: 18px;
+}
+
+/* === FORMATION-DETAILS : liste des 15 projets OpenClassrooms ============
+   Aere, titre de projet souligne en vert + numero mono compteur a gauche,
+   les <b> secondaires (mots-cles techno dans la description) sont
+   degraisses pour eviter le mur de bold qui rendait l'ensemble illisible. */
+.formation-details {
+    max-width: 980px;
+    padding: 8px 0 0;
+}
+
+.formation-details__intro {
+    margin: 0 0 24px;
+    font-size: clamp(15px, 1.1vw, 17px);
+    line-height: 1.55;
+    color: var(--text-soft);
+    max-width: 72ch;
+}
+
+.formation-details__intro b {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.formation-details__list {
+    list-style: none;
+    counter-reset: formation-counter;
+    margin: 0 0 28px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formation-details__list > li {
+    counter-increment: formation-counter;
+    position: relative;
+    padding: 4px 0 0 56px;
+    font-size: clamp(14px, 1vw, 16px);
+    line-height: 1.55;
+    color: var(--text-soft);
+}
+
+/* Numero a gauche : 01, 02, ... 15 en mono caps champagne */
+.formation-details__list > li::before {
+    content: counter(formation-counter, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 5px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    font-weight: 600;
+    padding: 4px 8px;
+    background: rgba(var(--accent-rgb), 0.08);
+    border: 1px solid rgba(var(--accent-rgb), 0.22);
+    border-radius: 4px;
+    line-height: 1;
+}
+
+/* Premier <b> de chaque li = titre du projet, en bloc + souligne vert.
+   Cela force le saut de ligne, le titre ressort visuellement, et la
+   description respire en dessous. */
+.formation-details__list > li > b:first-child {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text);
+    font-weight: 600;
+    font-size: clamp(15px, 1.15vw, 17px);
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+    padding-bottom: 3px;
+    border-bottom: 1px solid rgba(var(--accent-rgb), 0.4);
+    width: fit-content;
+    max-width: 100%;
+}
+
+/* Bolds suivants dans la description = mots cles techno, on les
+   degraisse pour ne plus avoir un mur de gras. Une teinte legere les
+   distingue toujours du texte courant. */
+.formation-details__list > li > b:not(:first-child) {
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* Bloc "Technos couvertes" en bas : muted + paragraphe respirant */
+.formation-details__technos {
+    margin: 0 0 16px;
+    padding: 16px 18px;
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.018);
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-soft);
+    max-width: none;
+}
+
+.formation-details__technos b {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+}
+
+/* FOOTER : lien PDF + bouton "Replier" cote a cote (desktop) ou
+   empile (mobile). Permet de refermer le panel sans avoir a remonter. */
+.formation-details__footer {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.formation-details__cta {
+    margin: 0;
+}
+
+.formation-details__collapse {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid var(--hairline-strong);
+    border-radius: 999px;
+    color: var(--text-soft);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition: all var(--dur-fast) var(--ease);
+    line-height: 1;
+}
+
+.formation-details__collapse:hover,
+.formation-details__collapse:focus-visible {
+    border-color: rgba(var(--accent-rgb), 0.45);
+    background: rgba(var(--accent-rgb), 0.06);
+    color: var(--text);
+    transform: translateY(-1px);
+    outline: none;
+}
+
+.formation-details__collapse-arrow {
+    color: var(--accent);
+    font-size: 14px;
+    line-height: 1;
+    transition: transform var(--dur-fast) var(--ease);
+}
+
+.formation-details__collapse:hover .formation-details__collapse-arrow,
+.formation-details__collapse:focus-visible .formation-details__collapse-arrow {
+    transform: translateY(-3px);
+}
+
+@media (max-width: 600px) {
+    .formation-details__list > li {
+        padding-left: 48px;
+    }
+}
+
+.hero-landing__formation-intro {
+    margin: 0 0 14px;
+    color: var(--text-soft);
+    font-size: clamp(14px, 1.5vw, 16px);
+    line-height: 1.6;
+}
+
+@media (max-width: 720px) {
+    .hero-landing__main {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-landing__kicker,
+    .hero-landing__chips {
+        justify-content: center;
+    }
+
+    .hero-landing__visual {
+        order: -1;
+        margin-bottom: 8px;
+    }
+}
+
+.hero-profile__avatar-wrap {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.hero-profile__avatar {
+    width: clamp(140px, 18vw, 200px);
+    height: clamp(140px, 18vw, 200px);
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(var(--accent-cool-rgb), 0.45);
+    box-shadow:
+        0 0 0 6px rgba(var(--accent-cool-rgb), 0.08),
+        0 0 36px rgba(var(--accent-cool-rgb), 0.3),
+        0 18px 44px rgba(0, 0, 0, 0.55);
+    transition: transform var(--dur-slow) var(--ease), box-shadow var(--dur-slow) var(--ease);
+    display: block;
+}
+
+.hero-profile__avatar:hover {
+    transform: scale(1.03);
+    box-shadow:
+        0 0 0 8px rgba(var(--accent-cool-rgb), 0.13),
+        0 0 60px rgba(var(--accent-cool-rgb), 0.45),
+        0 22px 56px rgba(0, 0, 0, 0.65);
+}
+
+.hero-profile__status {
+    position: absolute;
+    bottom: 8px;
+    right: -6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px;
+    background: rgba(13, 18, 30, 0.94);
+    border: 1px solid rgba(var(--accent-warm-rgb), 0.45);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-warm);
+    letter-spacing: 0.03em;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.55);
+    text-transform: uppercase;
+}
+
+.hero-profile__status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-warm);
+    box-shadow: 0 0 10px rgba(var(--accent-warm-rgb), 0.85);
+    animation: heroProfilePulse 2s ease-in-out infinite;
+}
+
+@keyframes heroProfilePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.55;
+        transform: scale(0.8);
+    }
+}
+
+.hero-profile__info {
+    flex: 1 1 280px;
+    min-width: 0;
+}
+
+.hero-profile__info .kicker {
+    margin: 0 0 6px;
+}
+
+.hero-profile__name {
+    font-size: clamp(22px, 3.2vw, 32px);
+    margin: 0 0 6px;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+.hero-profile__role {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-size: clamp(14px, 1.4vw, 16px);
+}
+
+.hero-profile__chips {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+}
+
+.hero-profile__chips li {
+    background: rgba(var(--accent-cool-rgb), 0.08);
+    border: 1px solid rgba(var(--accent-cool-rgb), 0.3);
+    color: var(--accent-cool);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.01em;
+    transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.hero-profile__chips li:hover {
+    background: rgba(var(--accent-cool-rgb), 0.16);
+    border-color: rgba(var(--accent-cool-rgb), 0.55);
+}
+
+@media (max-width: 640px) {
+    .hero-profile {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .hero-profile__chips {
+        justify-content: center;
+    }
+
+    .hero-profile__status {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: -6px;
+    }
+}
+
+/* ===================================================================
+   LAUNCH : hero accueil "startup product launch".
+   Layout asymetrique : headline gauche dominant, photo droite "produit".
+   Inter Black pour le titre, pill "Open to work" en vert vif, meta en
+   tags row, CTA primary plein + secondary outline, toggle minimal.
+   Inspirations : Cursor, Linear, Vercel.
+   =================================================================== */
+.launch {
+    position: relative;
+    min-height: calc(100dvh - 200px);
+    padding: clamp(20px, 4vh, 56px) 0 16px;
+    display: flex;
+    align-items: flex-start;
+    isolation: isolate;
+}
+
+.launch__inner {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 0.7fr);
+    column-gap: clamp(32px, 5vw, 88px);
+    /* Row gap reduit : le toggle "En savoir plus" est en grid-row 2 et
+       doit rester visuellement proche des CTA, pas espace par le meme
+       gap genereux que la colonne. */
+    row-gap: clamp(14px, 2vh, 22px);
+    align-items: start;
+}
+
+/* === COLONNE GAUCHE : pile flex verticale === */
+.launch__left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(18px, 2.6vh, 28px);
+    min-width: 0;
+}
+
+/* PILL "Open to work" — badge produit vert */
+.launch__pill {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 7px 14px 7px 12px;
+    background: rgba(var(--accent-rgb), 0.10);
+    border: 1px solid rgba(var(--accent-rgb), 0.30);
+    border-radius: 999px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0;
+    box-shadow: 0 0 28px rgba(var(--accent-rgb), 0.14);
+}
+
+.launch__pill-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    animation: launchPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes launchPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(0.85); }
+}
+
+/* TITRE — Inter ExtraBold massif, tracking serre */
+.launch__title {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: clamp(44px, 7vw, 96px);
+    font-weight: 800;
+    line-height: 0.94;
+    letter-spacing: -0.038em;
+    color: var(--text);
+    text-transform: none;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: initial;
+}
+
+.launch__title-first {
+    display: block;
+    color: var(--text);
+}
+
+.launch__title-last {
+    display: block;
+    color: var(--text);
+}
+
+/* Le tiret en accent vert */
+.launch__title-dash {
+    color: var(--accent);
+    font-weight: 800;
+    margin: 0 0.01em;
+}
+
+/* SUBTITLE — role en regular weight, "AI Engineer" highlight vert */
+.launch__role {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: clamp(18px, 1.7vw, 22px);
+    font-weight: 400;
+    color: var(--text-soft);
+    line-height: 1.4;
+    max-width: 36ch;
+}
+
+.launch__role strong {
+    color: var(--text);
+    font-weight: 600;
+    background: linear-gradient(180deg,
+        transparent calc(100% - 5px),
+        rgba(var(--accent-rgb), 0.45) calc(100% - 5px),
+        rgba(var(--accent-rgb), 0.45) calc(100% - 2px),
+        transparent calc(100% - 2px));
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding-bottom: 2px;
+}
+
+/* META : info read-only, pas de pill interactive. On reste sur du mono
+   caps avec un petit dot vert separateur entre chaque item (signale
+   "info statique" plutot que "tag cliquable"). */
+.launch__meta {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 14px;
+}
+
+.launch__meta li {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--text-soft);
+    letter-spacing: 0.16em;
+    line-height: 1;
+    padding: 4px 0;
+}
+
+/* Petit dot vert entre chaque item (sauf le dernier) */
+.launch__meta li:not(:last-child)::after {
+    content: "";
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.7;
+    flex-shrink: 0;
+}
+
+/* CTA BUTTONS — primary plein vert + secondary outline */
+.launch__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.launch__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-decoration: none;
+    text-transform: none;
+    cursor: pointer;
+    transition: all var(--dur-fast) var(--ease);
+    border: 1px solid transparent;
+    line-height: 1;
+}
+
+.launch__cta::after { content: none; }
+
+.launch__cta--primary {
+    background: var(--accent);
+    color: #061914;
+    box-shadow: 0 0 28px rgba(var(--accent-rgb), 0.35);
+}
+
+.launch__cta--primary:hover,
+.launch__cta--primary:focus-visible {
+    background: var(--accent-soft);
+    transform: translateY(-1px);
+    box-shadow: 0 0 40px rgba(var(--accent-rgb), 0.55);
+    outline: none;
+}
+
+.launch__cta--secondary {
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--text);
+    border-color: var(--hairline-strong);
+}
+
+.launch__cta--secondary:hover,
+.launch__cta--secondary:focus-visible {
+    border-color: rgba(var(--accent-rgb), 0.5);
+    background: rgba(var(--accent-rgb), 0.06);
+    color: var(--accent);
+    transform: translateY(-1px);
+    outline: none;
+}
+
+.launch__cta-arrow {
+    font-size: 13px;
+    transition: transform var(--dur-fast) var(--ease);
+    line-height: 1;
+}
+
+.launch__cta:hover .launch__cta-arrow {
+    transform: translateX(3px);
+}
+
+.launch__cta--secondary .launch__cta-arrow {
+    color: var(--accent);
+}
+
+/* TOGGLE programme — discret link sous les CTA */
+.launch__details,
+.launch__details.inline-preview-toggle {
+    /* Enfant direct du grid .launch__inner.
+       Ferme : occupe la colonne 1 (sous les CTA visuellement).
+       Ouvert : span sur les deux colonnes pour respirer en full-width.
+       Le double selecteur force la specificite sur .inline-preview-toggle
+       qui sinon impose margin: 20px 0. */
+    grid-column: 1 / 2;
+    grid-row: 2;
+    margin: 0;
+}
+
+.launch__details[open],
+.launch__details.inline-preview-toggle[open] {
+    grid-column: 1 / -1;
+}
+
+.launch__details > summary.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+    background: transparent;
+    border: 0;
+    color: var(--muted);
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0;
+    text-transform: none;
+    cursor: pointer;
+    box-shadow: none;
+    border-radius: 0;
+    transition: color var(--dur-fast) var(--ease);
+}
+
+.launch__details > summary.btn::-webkit-details-marker {
+    display: none;
+}
+
+.launch__details > summary.btn::after {
+    content: "+";
+    font-family: var(--font-sans);
+    font-size: 18px;
+    line-height: 0.7;
+    color: var(--accent);
+    font-weight: 400;
+    transition: transform var(--dur) var(--ease);
+}
+
+.launch__details[open] > summary.btn::after {
+    content: "\2212";
+}
+
+.launch__details > summary.btn:hover,
+.launch__details > summary.btn:focus-visible {
+    color: var(--text);
+    outline: none;
+}
+
+/* === COLONNE DROITE : photo "produit" === */
+.launch__right {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 8px;
+}
+
+.launch__photo-card {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 4 / 5;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(160deg, #1A1D26 0%, #0E1014 100%);
+    border: 1px solid var(--hairline-strong);
+    box-shadow:
+        0 0 0 1px rgba(var(--accent-rgb), 0.08),
+        0 30px 60px rgba(0, 0, 0, 0.55),
+        0 0 80px rgba(var(--accent-rgb), 0.10);
+    transition: transform var(--dur-slow) var(--ease), box-shadow var(--dur-slow) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.launch__photo-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(var(--accent-rgb), 0.3);
+    box-shadow:
+        0 0 0 1px rgba(var(--accent-rgb), 0.3),
+        0 40px 80px rgba(0, 0, 0, 0.65),
+        0 0 100px rgba(var(--accent-rgb), 0.18);
+}
+
+.launch__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform var(--dur-slow) var(--ease);
+    filter: contrast(1.04) brightness(1.02);
+}
+
+.launch__photo-card:hover .launch__photo {
+    transform: scale(1.04);
+}
+
+
+/* === ANIMATIONS d'entree cascade === */
+.launch__pill,
+.launch__title,
+.launch__role,
+.launch__meta,
+.launch__ctas,
+.launch__details,
+.launch__right {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: launchFadeIn 700ms var(--ease) forwards;
+}
+.launch__pill    { animation-delay: 80ms; }
+.launch__title   { animation-delay: 150ms; }
+.launch__role    { animation-delay: 260ms; }
+.launch__meta    { animation-delay: 380ms; }
+.launch__ctas    { animation-delay: 500ms; }
+.launch__details { animation-delay: 600ms; }
+.launch__right   { animation-delay: 340ms; }
+
+@keyframes launchFadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .launch__pill,
+    .launch__title,
+    .launch__role,
+    .launch__meta,
+    .launch__ctas,
+    .launch__details,
+    .launch__right {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+    .launch__pill-dot {
+        animation: none;
+    }
+}
+
+/* === Responsive === */
+@media (max-width: 1100px) {
+    .launch__inner {
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.65fr);
+        gap: 36px;
+    }
+    .launch__photo-card {
+        max-width: 260px;
+    }
+}
+
+@media (max-width: 760px) {
+    .launch {
+        min-height: auto;
+        padding-top: 20px;
+    }
+    .launch__inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+    .launch__right {
+        order: -1;
+        justify-content: flex-start;
+        padding-top: 0;
+    }
+    .launch__photo-card {
+        max-width: 200px;
+    }
+    .launch__title {
+        font-size: clamp(40px, 11vw, 60px);
+    }
+    .launch__role {
+        font-size: clamp(16px, 4.5vw, 20px);
+    }
+    .launch__ctas {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+    .launch__cta {
+        justify-content: center;
+    }
+}
+
+/* ===================================================================
+   HOLLYWOOD THEME : la page d'accueil bascule integralement sur le
+   layout Saul Bass (.bass section sibling de .launch dans index.html).
+   En theme "classic", c'est .launch qui est visible ; en theme
+   "hollywood", .launch se cache et .bass apparait.
+   =================================================================== */
+
+.bass { display: none; }
+[data-theme="hollywood"] .launch { display: none; }
+[data-theme="hollywood"] .bass { display: grid; }
+
+/* === SAUL BASS LAYOUT (restored depuis .claude/styles-archive/saul-bass/)
+   Cinema poster aesthetic : diagonal red strokes, Bebas Neue
+   condensed typography, grayscale portrait avec corner brackets
+   rouges, white marquee bar. Toutes les regles ci-dessous utilisent
+   var(--accent-poster) qui pointe sur var(--accent) (rouge en
+   Hollywood) via les aliases dans variables.css. === */
+
+.bass {
+    position: relative;
+    min-height: calc(100dvh - 180px);
+    grid-template-rows: 1fr auto auto;
+    gap: clamp(16px, 3vh, 32px);
+    padding: clamp(8px, 1.5vh, 18px) 0 8px;
+    overflow: visible;
+    isolation: isolate;
+}
+
+.bass__diagonals {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bass__diag {
+    position: absolute;
+    background: var(--accent-poster);
+    transform-origin: center;
+    opacity: 0;
+    animation: bassDiagDraw 1100ms cubic-bezier(0.16, 1, 0.3, 1) 200ms forwards;
+}
+
+/* Diagonales ANCREES au cadre photo (via le wrap qui a la meme taille).
+   Le wrap fait au max 360x360px (carre, max-width 360). Les diagonales
+   debordent largement vers la gauche/droite via les valeurs negatives.
+   Quand la photo bouge (responsive grid mobile vs desktop), les
+   diagonales suivent puisqu'elles sont ses enfants. */
+.bass__diag--1 {
+    /* Sort du coin haut-droit de la photo, file vers la droite */
+    top: 20%;
+    right: -160px;
+    width: 480px;
+    height: 8px;
+    transform: rotate(-22deg) scaleX(0);
+    transform-origin: right center;
+}
+
+.bass__diag--2 {
+    /* Sort du coin bas-gauche de la photo, file vers la gauche */
+    bottom: 18%;
+    left: -160px;
+    width: 280px;
+    height: 4px;
+    transform: rotate(-22deg) scaleX(0);
+    transform-origin: left center;
+    animation-delay: 450ms;
+}
+
+@keyframes bassDiagDraw {
+    0% { opacity: 0; transform: rotate(-22deg) scaleX(0); }
+    100% { opacity: 1; transform: rotate(-22deg) scaleX(1); }
+}
+
+.bass__main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 64px);
+    align-items: center;
+    position: relative;
+}
+
+/* Wrap autour de la photo. Sert d'ANCRE pour les diagonales : elles
+   sont positionnees relativement a ce wrap, donc collees au cadre
+   photo. Le wrap reprend les dimensions de la photo (carre max 360px)
+   mais avec overflow visible pour laisser deborder les diagonales. */
+.bass__portrait-wrap {
+    position: relative;
+    aspect-ratio: 1;
+    max-width: min(360px, 90%);
+    width: 100%;
+    margin-left: auto;
+    align-self: center;
+    isolation: isolate;
+}
+
+.bass__portrait-wrap > .bass__diagonals {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    /* overflow visible : les diagonales peuvent deborder du cadre */
+    overflow: visible;
+}
+
+.bass__title-block { position: relative; }
+
+.bass__title {
+    margin: 0;
+    line-height: 0.86;
+    font-weight: 700;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    color: var(--text);
+}
+
+.bass__title-first {
+    display: block;
+    font-size: clamp(28px, 3.6vw, 46px);
+    letter-spacing: 0.05em;
+    font-weight: 400;
+    color: var(--text-soft);
+    margin-bottom: -4px;
+    padding-left: 4px;
+}
+
+.bass__title-last {
+    display: block;
+    font-size: clamp(40px, 7.2vw, 94px);
+    letter-spacing: 0.005em;
+    line-height: 0.88;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.bass__title-dash {
+    color: var(--accent-poster);
+    margin: 0 -0.05em;
+}
+
+.bass__rule {
+    display: block;
+    width: clamp(48px, 8vw, 96px);
+    height: 4px;
+    background: var(--accent-poster);
+    margin: clamp(14px, 2vw, 22px) 0 14px;
+}
+
+.bass__role {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.4vw, 30px);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin: 0;
+    font-weight: 400;
+}
+
+.bass__role strong {
+    color: var(--text);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    background: linear-gradient(180deg, transparent calc(100% - 6px), rgba(var(--accent-poster-rgb), 0.7) calc(100% - 6px), rgba(var(--accent-poster-rgb), 0.7) calc(100% - 2px), transparent calc(100% - 2px));
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding-bottom: 2px;
+}
+
+.bass__portrait-frame {
+    position: relative;
+    /* Le frame est maintenant dans .bass__portrait-wrap, qui lui-meme
+       a la taille (aspect-ratio 1 + max-width 360). Le frame remplit
+       le wrap. */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(160deg, #050507 0%, #0E0F14 100%);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.bass__portrait {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(100%) contrast(1.25) brightness(0.95);
+    transition: filter 900ms var(--ease), transform 900ms var(--ease);
+    mix-blend-mode: lighten;
+}
+
+.bass__portrait-frame:hover .bass__portrait {
+    filter: grayscale(70%) contrast(1.15) brightness(1.02);
+    transform: scale(1.02);
+}
+
+.bass__portrait-corner {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 3px solid var(--accent-poster);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.bass__portrait-corner--tl { top: 8px; left: 8px; border-right: 0; border-bottom: 0; }
+.bass__portrait-corner--tr { top: 8px; right: 8px; border-left: 0; border-bottom: 0; }
+.bass__portrait-corner--bl { bottom: 8px; left: 8px; border-right: 0; border-top: 0; }
+.bass__portrait-corner--br { bottom: 8px; right: 8px; border-left: 0; border-top: 0; }
+
+.bass__marquee {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 0;
+    padding: 14px clamp(12px, 2vw, 24px);
+    background: var(--text);
+    color: #0A0B0E;
+    font-family: var(--font-display);
+    font-size: clamp(11px, 1.05vw, 13px);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.bass__marquee-dot {
+    color: var(--accent-poster);
+    font-size: 1.4em;
+    line-height: 0.5;
+}
+
+.bass__bottom {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 24px 36px;
+    padding-top: 4px;
+}
+
+.bass__status {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent-poster);
+    font-weight: 700;
+}
+
+.bass__status-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent-poster);
+    box-shadow: 0 0 12px rgba(var(--accent-poster-rgb), 0.85);
+    animation: heroProfilePulse 2s ease-in-out infinite;
+}
+
+.bass__docs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+}
+
+.bass__docs li { margin: 0; }
+
+.bass__docs a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-soft);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: color var(--dur) var(--ease), transform var(--dur) var(--ease);
+    padding: 4px 0;
+}
+
+.bass__docs a::after { content: none; }
+
+.bass__docs a:hover,
+.bass__docs a:focus-visible {
+    color: var(--text);
+    transform: translateX(2px);
+    outline: none;
+}
+
+.bass__doc-arrow {
+    color: var(--accent-poster);
+    font-size: 14px;
+    transition: transform var(--dur) var(--ease);
+}
+
+.bass__docs a:hover .bass__doc-arrow {
+    transform: translateX(4px);
+}
+
+.bass__doc-num {
+    color: var(--accent-poster);
+    font-weight: 700;
+}
+
+.bass__doc-label {
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-soft);
+}
+
+.bass__details {
+    grid-column: 1 / -1;
+    margin: 4px 0 0;
+}
+
+.bass__details > summary.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: none;
+    transition: color var(--dur) var(--ease);
+}
+
+.bass__details > summary.btn::-webkit-details-marker { display: none; }
+
+.bass__details > summary.btn::after {
+    content: "+";
+    font-size: 14px;
+    line-height: 1;
+    color: var(--accent-poster);
+    transition: transform var(--dur) var(--ease);
+}
+
+.bass__details[open] > summary.btn::after { content: "\2212"; }
+
+.bass__details > summary.btn:hover,
+.bass__details > summary.btn:focus-visible {
+    color: var(--accent-poster);
+    outline: none;
+}
+
+@media (max-width: 1100px) {
+    .bass { min-height: auto; max-height: none; }
+    .bass__title-last { font-size: clamp(40px, 6.2vw, 76px); }
+    .bass__portrait-frame { max-width: min(300px, 90%); }
+    .bass__marquee { font-size: 10.5px; gap: 10px; padding: 12px 14px; }
+}
+
+@media (max-width: 760px) {
+    .bass { min-height: auto; max-height: none; }
+    .bass__main { grid-template-columns: 1fr; gap: 20px; }
+    .bass__portrait-frame { order: -1; margin: 0 auto; max-width: 240px; }
+    .bass__bottom { grid-template-columns: 1fr; }
+    .bass__title-first { font-size: clamp(22px, 6vw, 32px); }
+    .bass__title-last { font-size: clamp(36px, 11vw, 56px); white-space: normal; }
+    .bass__marquee { font-size: 9.5px; letter-spacing: 0.1em; gap: 8px; }
+    .bass__docs { gap: 8px 18px; }
+}
+
+/* ===================================================================
+   DATASHEET (LEGACY v4) : layout fiche signaletique tech / passport / API doc
+   Tient en un seul ecran. Toggle programme s'ouvre par dessus si necessaire.
+   =================================================================== */
+.datasheet {
+    min-height: calc(100dvh - 140px);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+}
+
+/* TOPLINE : ID + statut, style ticket / passport, sans separateur */
+.datasheet__topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.datasheet__id {
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.datasheet__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--accent-warm);
+    font-weight: 700;
+}
+
+.datasheet__status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent-warm);
+    box-shadow: 0 0 12px rgba(var(--accent-warm-rgb), 0.85);
+    animation: heroProfilePulse 2s ease-in-out infinite;
+}
+
+/* CORPS : 2 colonnes (fields gauche + photo droite) */
+.datasheet__body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: clamp(20px, 4vw, 60px);
+    align-items: stretch;
+    padding: clamp(24px, 4vh, 48px) 0;
+    position: relative;
+}
+
+/* FIELDS : key:value rows style data sheet */
+.datasheet__fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.datasheet__row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 10px 0;
+}
+
+.datasheet__row dt {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.datasheet__row dd {
+    margin: 0;
+    font-size: clamp(14px, 1.4vw, 17px);
+    color: var(--text);
+    letter-spacing: -0.005em;
+    line-height: 1.35;
+}
+
+.datasheet__row dd strong {
+    color: var(--accent-cool);
+    font-weight: 600;
+}
+
+/* Ligne NAME : la marque, en grand */
+.datasheet__row--name {
+    padding: 18px 0 22px;
+}
+
+.datasheet__row--name dd {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.9;
+}
+
+.datasheet__name-first {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2vw, 26px);
+    color: var(--text-soft);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    opacity: 0.85;
+}
+
+.datasheet__name-last {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5.5vw, 64px);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    color: var(--text);
+    line-height: 0.88;
+    margin-top: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 55%, rgba(226, 228, 233, 0.7) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* PHOTO droite */
+.datasheet__visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.datasheet__visual::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(var(--accent-cool-rgb), 0.18), transparent 60%);
+    filter: blur(60px);
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.datasheet__portrait {
+    position: relative;
+    width: 100%;
+    max-width: min(440px, 90%);
+    max-height: 100%;
+    height: auto;
+    object-fit: contain;
+    filter:
+        drop-shadow(0 18px 30px rgba(0, 0, 0, 0.45))
+        drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))
+        contrast(1.03);
+    transition: transform 900ms var(--ease), filter 900ms var(--ease);
+    z-index: 1;
+}
+
+.datasheet__visual:hover .datasheet__portrait {
+    transform: translateY(-6px);
+    filter:
+        drop-shadow(0 24px 40px rgba(0, 0, 0, 0.55))
+        drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35))
+        contrast(1.05);
+}
+
+/* FOOTER de la fiche : docs + toggle programme, sans separateur */
+.datasheet__footer {
+    padding: clamp(16px, 2.5vh, 24px) 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.datasheet__docs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 32px;
+}
+
+.datasheet__docs a {
+    display: inline-grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 14px;
+    padding: 4px 0;
+    text-decoration: none;
+    color: var(--text-soft);
+    transition:
+        color var(--dur) var(--ease),
+        transform var(--dur) var(--ease);
+}
+
+.datasheet__docs a:hover,
+.datasheet__docs a:focus-visible {
+    color: var(--text);
+    transform: translateX(2px);
+    outline: none;
+}
+
+.datasheet__doc-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    font-weight: 700;
+    transition: color var(--dur) var(--ease);
+}
+
+.datasheet__docs a:hover .datasheet__doc-num {
+    color: var(--accent-warm);
+}
+
+.datasheet__doc-label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.datasheet__doc-arrow {
+    color: var(--muted);
+    transition: color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.datasheet__docs a:hover .datasheet__doc-arrow {
+    color: var(--accent-warm);
+    transform: translateX(4px);
+}
+
+.datasheet__details {
+    margin: 6px 0 0;
+}
+
+/* Toggle programme en style "lien" plutot que bouton */
+.datasheet__details > summary.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color var(--dur) var(--ease);
+    box-shadow: none;
+}
+
+.datasheet__details > summary.btn::-webkit-details-marker {
+    display: none;
+}
+
+.datasheet__details > summary.btn::after {
+    content: "+";
+    font-size: 14px;
+    line-height: 1;
+    transition: transform var(--dur) var(--ease);
+}
+
+.datasheet__details[open] > summary.btn::after {
+    content: "\2212";
+    /* signe moins */
+}
+
+.datasheet__details > summary.btn:hover,
+.datasheet__details > summary.btn:focus-visible {
+    color: var(--accent-warm);
+    outline: none;
+}
+
+@media (max-width: 760px) {
+    .datasheet {
+        min-height: auto;
+    }
+    .datasheet__body {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .datasheet__visual {
+        order: -1;
+        max-height: 260px;
+        height: 260px;
+    }
+    .datasheet__portrait {
+        max-width: 220px;
+    }
+    .datasheet__row {
+        grid-template-columns: 96px 1fr;
+        gap: 14px;
+        padding: 11px 0;
+    }
+    .datasheet__row dt {
+        font-size: 10px;
+    }
+}
+
+/* ===================================================================
+   HERO EDITO (LEGACY v3) : composition asymetrique magazine avec photo grande echelle
+   Objectif : tient en un seul ecran (height: 100vh - header) sans scroll
+   =================================================================== */
+.hero-edito {
+    /* 100dvh - hauteur du header (~110px avec breadcrumbs) - margin-bottom du header (32px) */
+    min-height: calc(100dvh - 180px);
+    max-height: calc(100dvh - 180px);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    position: relative;
+}
+
+.hero-edito__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(20px, 4vw, 60px);
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* TEXTE GAUCHE */
+.hero-edito__text {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.hero-edito__kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent-cool);
+    font-weight: 700;
+    margin: 0 0 clamp(28px, 5vw, 44px);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-edito__pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent-warm);
+    box-shadow: 0 0 12px rgba(var(--accent-warm-rgb), 0.85);
+    animation: heroProfilePulse 2s ease-in-out infinite;
+    display: inline-block;
+}
+
+.hero-edito__name {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 clamp(20px, 3.5vw, 32px);
+    line-height: 0.9;
+    font-weight: 700;
+}
+
+.hero-edito__first {
+    font-size: clamp(26px, 3.4vw, 44px);
+    color: var(--text-soft);
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    font-family: var(--font-display);
+    text-transform: none;
+    padding-left: clamp(2px, 0.5vw, 6px);
+    opacity: 0.85;
+}
+
+.hero-edito__last {
+    font-size: clamp(44px, 8.5vw, 112px);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    color: var(--text);
+    margin-top: 2px;
+    font-family: var(--font-display);
+    line-height: 0.88;
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 60%, rgba(226, 228, 233, 0.65) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+.hero-edito__role {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 18px;
+    font-size: clamp(15px, 1.6vw, 19px);
+    color: var(--text-soft);
+}
+
+.hero-edito__role-line {
+    display: inline-block;
+    width: clamp(28px, 4vw, 56px);
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent-cool), transparent);
+    flex-shrink: 0;
+}
+
+.hero-edito__role strong {
+    color: var(--accent-cool);
+    font-weight: 600;
+}
+
+.hero-edito__meta {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    margin: 0 0 36px;
+    text-transform: uppercase;
+}
+
+/* Liste de liens documents : numerotation editoriale */
+.hero-edito__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-width: 480px;
+}
+
+.hero-edito__links li {
+    margin: 0;
+}
+
+.hero-edito__links a {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+    text-decoration: none;
+    color: var(--text-soft);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition:
+        color var(--dur) var(--ease),
+        border-color var(--dur) var(--ease),
+        transform var(--dur) var(--ease);
+}
+
+.hero-edito__links a:hover,
+.hero-edito__links a:focus-visible {
+    color: var(--text);
+    border-color: rgba(var(--accent-warm-rgb), 0.45);
+    transform: translateX(4px);
+    outline: none;
+}
+
+.hero-edito__link-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    font-weight: 700;
+    transition: color var(--dur) var(--ease);
+}
+
+.hero-edito__links a:hover .hero-edito__link-num,
+.hero-edito__links a:focus-visible .hero-edito__link-num {
+    color: var(--accent-warm);
+}
+
+.hero-edito__link-label {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+}
+
+.hero-edito__link-arrow {
+    font-size: 16px;
+    color: var(--muted);
+    transition: color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.hero-edito__links a:hover .hero-edito__link-arrow,
+.hero-edito__links a:focus-visible .hero-edito__link-arrow {
+    color: var(--accent-warm);
+    transform: translateX(4px);
+}
+
+/* PHOTO DROITE : portrait transparent flottant, sans mask, drop-shadow naturelle */
+.hero-edito__visual {
+    position: relative;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Halo accent flou derriere la photo */
+.hero-edito__visual::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(var(--accent-cool-rgb), 0.22), transparent 60%);
+    filter: blur(60px);
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.hero-edito__portrait {
+    position: relative;
+    width: 100%;
+    max-width: min(520px, 75%);
+    max-height: 100%;
+    height: auto;
+    object-fit: contain;
+    /* La photo est transparente : on laisse PIL faire son travail, juste une drop-shadow */
+    filter:
+        drop-shadow(0 18px 30px rgba(0, 0, 0, 0.45))
+        drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))
+        contrast(1.03);
+    transition: transform 900ms var(--ease), filter 900ms var(--ease);
+    z-index: 1;
+}
+
+.hero-edito__visual:hover .hero-edito__portrait,
+.hero-edito__visual:focus-within .hero-edito__portrait {
+    transform: translateY(-6px);
+    filter:
+        drop-shadow(0 24px 40px rgba(0, 0, 0, 0.55))
+        drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35))
+        contrast(1.05);
+}
+
+@media (max-width: 760px) {
+    .hero-edito {
+        min-height: auto;
+        max-height: none;
+        padding: 20px 0;
+    }
+    .hero-edito__grid {
+        grid-template-columns: 1fr;
+        align-items: center;
+        gap: 16px;
+        height: auto;
+    }
+    .hero-edito__text {
+        height: auto;
+    }
+    .hero-edito__visual {
+        order: -1;
+        max-height: 280px;
+        height: 280px;
+    }
+    .hero-edito__portrait {
+        max-width: 240px;
+    }
+    .hero-edito__last {
+        font-size: clamp(36px, 12vw, 64px);
+    }
+}
+
+/* ===================================================================
+   SECTION EDITO : numero fantome en background, contenu sobre
+   =================================================================== */
+.section-edito {
+    position: relative;
+    padding: clamp(60px, 10vh, 120px) 0 clamp(40px, 6vh, 80px);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+}
+
+.section-edito__num {
+    position: absolute;
+    top: clamp(16px, 4vh, 36px);
+    right: -1%;
+    font-family: var(--font-display);
+    font-size: clamp(140px, 22vw, 280px);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    color: rgba(255, 255, 255, 0.04);
+    line-height: 0.85;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+}
+
+.section-edito > *:not(.section-edito__num) {
+    position: relative;
+    z-index: 1;
+}
+
+.section-edito__kicker {
+    margin: 0 0 14px;
+}
+
+.section-edito__lead {
+    font-size: clamp(16px, 1.7vw, 19px);
+    line-height: 1.55;
+    color: var(--text-soft);
+    max-width: 680px;
+    margin: 0 0 28px;
+}
+}

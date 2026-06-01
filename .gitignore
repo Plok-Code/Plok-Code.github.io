@@ -1,0 +1,34 @@
+.claude/
+archives/
+external_projects/
+__pycache__/
+*.pyc
+Thumbs.db
+.DS_Store
+
+# Audio player and music card (paused, will be restored from local backup later)
+js/audio-player.js
+js/playlist.js
+js/track-fx.js
+js/unlock.js
+js/zero-gravity.js
+assets/audio/
+assets/cards/musique.jpg
+
+# Brouillon local de la synthese profil
+profil-synthese.md
+
+# Pages de mockup local + screenshots de design exploration (pas en prod)
+contact-test.html
+design-mockups/
+
+# Archive locale : ancien portfolio + brouillons + assets non utilises.
+# JAMAIS pousse sur github. Conserve uniquement en local pour reference.
+_attic/
+
+# Ancienne version du portfolio (avec audio player + jeux video, etc.)
+# Archive dans _attic/ pour reference locale uniquement.
+version-data-engineer/
+
+# Plan de dev obsolete (modularisation deja faite)
+js_implementation_plan.md

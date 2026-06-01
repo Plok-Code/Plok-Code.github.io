@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Page introuvable — Idris NAULLEAU-AURIAL</title>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio:theme');
+        if (t && ['classic','hollywood'].indexOf(t) >= 0) {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+  <div class="page">
+    <header class="masthead">
+      <a class="masthead__brand" href="index.html" aria-label="Idris Naulleau-Aurial — Accueil">
+        <span class="masthead__initials">I&middot;N&middot;A</span>
+        <span class="masthead__fullname">Idris Naulleau-Aurial</span>
+      </a>
+
+      <nav class="masthead__nav" aria-label="Navigation principale">
+        <a href="index.html"><span>01</span>Accueil</a>
+        <a href="profil.html"><span>02</span>Profil</a>
+        <a href="articles.html"><span>03</span>Articles</a>
+        <a href="projets.html"><span>04</span>Projets</a>
+        <a href="contact.html"><span>05</span>Contact</a>
+      </nav>
+
+      <div class="masthead__actions" aria-label="Liens rapides">
+        <a class="masthead__action" href="https://www.linkedin.com/in/idris-naulleau-aurial-9278b711b/"
+          target="_blank" rel="noreferrer">
+          <span class="masthead__action-arrow" aria-hidden="true">&#x2197;</span>
+          LinkedIn
+        </a>
+        <details class="masthead__theme">
+          <summary class="masthead__action">
+            <span class="masthead__action-swatch" aria-hidden="true"></span>
+            Th&egrave;me
+          </summary>
+          <div class="masthead__theme-menu">
+            <button type="button" class="masthead__theme-option" data-theme="classic">
+              <span class="masthead__theme-swatch" style="--swatch:#22D3A0;"></span>
+              <span>Classic</span>
+            </button>
+            <button type="button" class="masthead__theme-option" data-theme="hollywood">
+              <span class="masthead__theme-swatch" style="--swatch:#E63946;"></span>
+              <span>Hollywood</span>
+            </button>
+          </div>
+        </details>
+        <details class="masthead__cv">
+          <summary class="masthead__action">
+            <span class="masthead__action-arrow" aria-hidden="true">&darr;</span>
+            Mon CV
+          </summary>
+          <div class="masthead__cv-menu">
+            <a href="assets/documents/Papier CV DE alternance.pdf" target="_blank" rel="noreferrer">Version &agrave;
+              imprimer</a>
+            <a href="assets/documents/Mail CV DE alternance.pdf" target="_blank" rel="noreferrer">Version
+              num&eacute;rique</a>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="card reveal reveal-on-load" style="text-align:center;padding:64px 32px;">
+        <p class="kicker">Erreur 404</p>
+        <h1 style="font-size:clamp(48px,8vw,96px);margin:0 0 16px;">404</h1>
+        <p style="font-size:18px;max-width:480px;margin:0 auto 32px;">Cette page n'existe pas ou a été déplacée.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a class="btn primary" href="index.html">Retour à l'accueil</a>
+          <a class="btn secondary" href="projets.html">Voir les projets</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>

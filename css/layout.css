@@ -1,0 +1,465 @@
+.page {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 clamp(18px, 2.8vw, 52px) 72px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================================
+   MASTHEAD : header startup / produit tech.
+   Brand sans-serif bold + monospace tagline, nav lien pill discret
+   avec etat actif vert, actions outline pill avec fleche accent.
+   Sticky avec backdrop blur, hairline du bas tres subtile.
+   ============================================================ */
+header.masthead {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: clamp(16px, 4vw, 48px);
+    margin: 0 0 20px;
+    padding: 16px 0 14px;
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: rgba(10, 11, 15, 0.72);
+    -webkit-backdrop-filter: saturate(160%) blur(18px);
+            backdrop-filter: saturate(160%) blur(18px);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+header.masthead::after {
+    content: "";
+    grid-column: 1 / -1;
+    height: 1px;
+    background: var(--hairline);
+    margin-top: 14px;
+}
+
+/* BRAND : initiales bold sans + nom complet en mono petit caps */
+.masthead__brand {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+    text-decoration: none;
+    color: var(--text);
+    line-height: 1;
+}
+
+.masthead__brand::after {
+    content: none !important;
+}
+
+.masthead__initials {
+    font-family: var(--font-sans);
+    font-size: clamp(15px, 1.3vw, 17px);
+    letter-spacing: 0.04em;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1;
+    color: var(--text);
+    transition: color var(--dur-fast) var(--ease);
+}
+
+.masthead__fullname {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    line-height: 1;
+    font-weight: 500;
+}
+
+.masthead__brand:hover .masthead__initials,
+.masthead__brand:focus-visible .masthead__initials {
+    color: var(--accent);
+}
+
+/* NAV : liens clean sans-serif, etat actif pill vert. Numero cache. */
+nav.masthead__nav {
+    display: flex;
+    justify-content: center;
+    gap: clamp(2px, 0.5vw, 6px);
+    flex-wrap: wrap;
+}
+
+nav.masthead__nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    color: var(--text-soft);
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    letter-spacing: 0;
+    font-style: normal;
+    font-weight: 500;
+    position: relative;
+    transition: color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+    background: transparent;
+    border-radius: 8px;
+    text-transform: none;
+}
+
+nav.masthead__nav a::after { content: none; }
+
+/* Les numero 01..05 sont caches : trop "magazine", pas startup */
+nav.masthead__nav a > span {
+    display: none;
+}
+
+nav.masthead__nav a:hover,
+nav.masthead__nav a:focus-visible {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.05);
+    outline: none;
+}
+
+nav.masthead__nav a[aria-current="page"] {
+    color: var(--accent);
+    background: rgba(var(--accent-rgb), 0.12);
+}
+
+nav.masthead__nav a[aria-current="page"]::before {
+    content: none;
+}
+
+/* ACTIONS : pill buttons outline + accent arrow */
+.masthead__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.masthead__action {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    text-decoration: none;
+    color: var(--text-soft);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    letter-spacing: 0;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: none;
+    padding: 7px 14px;
+    border: 1px solid var(--hairline-strong);
+    border-radius: 999px;
+    background: transparent;
+    cursor: pointer;
+    list-style: none;
+    transition: all var(--dur-fast) var(--ease);
+}
+
+.masthead__action::-webkit-details-marker { display: none; }
+.masthead__action::after { content: none !important; }
+
+.masthead__action-arrow {
+    color: var(--accent);
+    font-size: 12px;
+    font-style: normal;
+    transition: transform var(--dur-fast) var(--ease);
+}
+
+.masthead__action:hover,
+.masthead__action:focus-visible {
+    color: var(--text);
+    border-color: rgba(var(--accent-rgb), 0.45);
+    background: rgba(var(--accent-rgb), 0.06);
+    outline: none;
+}
+
+.masthead__action:hover .masthead__action-arrow {
+    transform: translate(2px, -2px);
+}
+
+.masthead__cv,
+.masthead__theme {
+    position: relative;
+}
+
+/* THEME SWITCHER : meme dropdown pattern que Mon CV, avec swatches */
+.masthead__theme > summary.masthead__action {
+    /* hereditee de .masthead__action, on garde le meme look */
+}
+
+/* Swatch sur le trigger : petit point colore qui prend la teinte du
+   theme actif. Remplace la fleche par un indicateur visuel direct. */
+.masthead__action-swatch {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.5);
+    flex-shrink: 0;
+    transition: background var(--dur) var(--ease),
+                box-shadow var(--dur) var(--ease);
+}
+
+.masthead__theme-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 200px;
+    background: var(--surface);
+    border: 1px solid var(--hairline-strong);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    z-index: 40;
+    box-shadow: var(--shadow-lg);
+    padding: 6px;
+}
+
+.masthead__theme-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 14px;
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    text-align: left;
+    color: var(--text-soft);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition: color var(--dur-fast) var(--ease),
+                background var(--dur-fast) var(--ease);
+    line-height: 1;
+    width: 100%;
+}
+
+.masthead__theme-option::after { content: none; }
+
+.masthead__theme-option:hover,
+.masthead__theme-option:focus-visible {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.05);
+    outline: none;
+}
+
+.masthead__theme-option.is-active {
+    color: var(--accent);
+    background: rgba(var(--accent-rgb), 0.10);
+}
+
+.masthead__theme-option.is-active::before {
+    content: "";
+    position: absolute;
+    right: 14px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 6px var(--accent);
+}
+
+/* Swatch dans le menu : petite pastille de la couleur du theme,
+   anneau hairline pour la lisibilite sur fond sombre */
+.masthead__theme-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--swatch, var(--accent));
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+                0 0 10px rgba(var(--accent-rgb), 0.18);
+    flex-shrink: 0;
+}
+
+.masthead__cv-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 240px;
+    background: var(--surface);
+    border: 1px solid var(--hairline-strong);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    z-index: 40;
+    box-shadow: var(--shadow-lg);
+    padding: 6px;
+}
+
+.masthead__cv-menu a {
+    display: block;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: var(--text-soft);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    letter-spacing: 0;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: none;
+    border: 0;
+    border-radius: 8px;
+    transition: all var(--dur-fast) var(--ease);
+}
+
+.masthead__cv-menu a::after { content: none; }
+
+.masthead__cv-menu a:last-child {
+    border-bottom: 0;
+}
+
+.masthead__cv-menu a:hover,
+.masthead__cv-menu a:focus-visible {
+    color: var(--accent);
+    background: rgba(var(--accent-rgb), 0.08);
+}
+
+@media (max-width: 880px) {
+    header.masthead {
+        grid-template-columns: 1fr auto;
+        gap: 12px 16px;
+    }
+    nav.masthead__nav {
+        grid-column: 1 / -1;
+        order: 3;
+        justify-content: flex-start;
+        gap: 2px;
+    }
+    nav.masthead__nav a {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+    .masthead__action {
+        padding: 6px 12px;
+        font-size: 12.5px;
+    }
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 0;
+    border-radius: 0;
+    border: 0;
+    background: transparent;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--text);
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    display: inline-block;
+    position: relative;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    transition: all var(--dur-fast) var(--ease);
+}
+
+nav a::after {
+    content: none;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+nav a[aria-current="page"] {
+    color: var(--accent-cool);
+    background: rgba(var(--accent-cool-rgb), 0.08);
+    box-shadow: 0 0 0 1px rgba(var(--accent-cool-rgb), 0.15);
+}
+
+.header-actions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Breadcrumbs : sur les fiches projet, posees comme sibling du masthead.
+   Plus de flex-basis 100% (n'etait utile que dans le flex header old).
+   Plus de border-top : le masthead a deja sa hairline en bas, on enchaine
+   directement. */
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px 0 4px;
+    margin: 0 0 12px;
+    color: var(--muted);
+    font-size: 11px;
+    font-family: var(--font-mono);
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+}
+
+.breadcrumbs a::after {
+    content: none;
+}
+
+.breadcrumbs__trail,
+.breadcrumbs__aside {
+    width: 100%;
+}
+
+.breadcrumbs__trail {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-width: 0;
+}
+
+.breadcrumbs__aside {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.breadcrumbs__label {
+    white-space: nowrap;
+    color: var(--muted);
+}
+
+.breadcrumbs a {
+    color: inherit;
+    transition: color var(--dur-fast);
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs a:focus-visible {
+    color: var(--accent-cool);
+}
+
+.breadcrumbs__sep {
+    opacity: 0.4;
+}
+
+.section {
+    margin-top: 32px;
+}

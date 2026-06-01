@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/documents/
+
+Sitemap: https://plok-code.github.io/sitemap.xml

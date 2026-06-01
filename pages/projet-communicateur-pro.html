@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="G-rard : automatisation et centralisation des flux Discord/Trello/Google Drive pour la communication d'équipe.">
+  <meta property="og:title" content="G-rard — Automation Communication | Idris NAULLEAU-AURIAL">
+  <meta property="og:description" content="Bot open source centralisant les événements Discord, Trello et Google Drive pour les équipes pro.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="robots" content="index, follow">
+  <title>Idris NAULLEAU-AURIAL - G-rard</title>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio:theme');
+        if (t && ['classic','hollywood'].indexOf(t) >= 0) {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="../js/main.js"></script>
+</head>
+
+<body>
+  <div class="page">
+    <header class="masthead">
+      <a class="masthead__brand" href="../index.html" aria-label="Idris Naulleau-Aurial — Accueil">
+        <span class="masthead__initials">I&middot;N&middot;A</span>
+        <span class="masthead__fullname">Idris Naulleau-Aurial</span>
+      </a>
+
+      <nav class="masthead__nav" aria-label="Navigation principale">
+        <a href="../index.html"><span>01</span>Accueil</a>
+        <a href="../profil.html"><span>02</span>Profil</a>
+        <a href="../articles.html"><span>03</span>Articles</a>
+        <a href="../projets.html" aria-current="page"><span>04</span>Projets</a>
+        <a href="../contact.html"><span>05</span>Contact</a>
+      </nav>
+
+      <div class="masthead__actions" aria-label="Liens rapides">
+        <a class="masthead__action" href="https://www.linkedin.com/in/idris-naulleau-aurial-9278b711b/"
+          target="_blank" rel="noreferrer">
+          <span class="masthead__action-arrow" aria-hidden="true">&#x2197;</span>
+          LinkedIn
+        </a>
+        <details class="masthead__theme">
+          <summary class="masthead__action">
+            <span class="masthead__action-swatch" aria-hidden="true"></span>
+            Th&egrave;me
+          </summary>
+          <div class="masthead__theme-menu">
+            <button type="button" class="masthead__theme-option" data-theme="classic">
+              <span class="masthead__theme-swatch" style="--swatch:#22D3A0;"></span>
+              <span>Classic</span>
+            </button>
+            <button type="button" class="masthead__theme-option" data-theme="hollywood">
+              <span class="masthead__theme-swatch" style="--swatch:#E63946;"></span>
+              <span>Hollywood</span>
+            </button>
+          </div>
+        </details>
+        <details class="masthead__cv">
+          <summary class="masthead__action">
+            <span class="masthead__action-arrow" aria-hidden="true">&darr;</span>
+            Mon CV
+          </summary>
+          <div class="masthead__cv-menu">
+            <a href="../assets/documents/Papier CV DE alternance.pdf" target="_blank" rel="noreferrer">Version &agrave;
+              imprimer</a>
+            <a href="../assets/documents/Mail CV DE alternance.pdf" target="_blank" rel="noreferrer">Version
+              num&eacute;rique</a>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+      <div class="breadcrumbs__trail">
+        <a href="../index.html">Accueil</a>
+        <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+        <a href="../projets.html">Projets</a>
+        <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+        <span aria-current="page">G-rard</span>
+      </div>
+    </nav>
+
+    <main id="main">
+      <section class="card reveal reveal-on-load">
+        <p class="kicker">Projet</p>
+        <h1>G-rard - Trello, Drive et GitHub vers Discord</h1>
+        <div class="project-meta">
+          <span class="pill">Catégorie : Automatisation et collaboration</span>
+          <span class="pill">Statut : termine</span>
+        </div>
+        <p class="muted">
+          Objectif : centraliser dans Discord les evenements utiles d'un projet pour reduire l'inertie collective,
+          limiter les conflits de taches et donner a toute l'equipe le meme niveau d'information sans obliger chacun a
+          surveiller Trello, Drive et GitHub en permanence.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="https://github.com/Plok-Code/G-rard" target="_blank"
+            rel="noreferrer">Voir le GitHub</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="card reveal">
+          <div class="article-tags" aria-label="Technologies et briques du projet">
+            <span class="tag">Node.js</span>
+            <span class="tag">Express</span>
+            <span class="tag">Discord.js</span>
+            <span class="tag">Trello Webhooks</span>
+            <span class="tag">Google Drive API</span>
+            <span class="tag">GitHub Webhooks</span>
+            <span class="tag">Open Source</span>
+          </div>
+
+          <p class="muted">
+            G-rard transforme des evenements disperses en un flux de coordination unique dans Discord, pour que
+            l'equipe garde une lecture immediate de ce qui bouge vraiment dans le projet.
+          </p>
+
+          <h2>Constat de depart</h2>
+          <p>
+            Dans mes projets en equipe, j'ai souvent retrouve le meme empilement d'outils : Trello pour organiser,
+            Discord pour communiquer, Google Drive ou Nextcloud pour partager, GitHub pour produire. Le probleme n'est
+            pas que ces outils soient mauvais. Le probleme, c'est que l'information se disperse entre eux.
+          </p>
+          <p>
+            Quand quelqu'un deplace une carte, modifie un document, ouvre une pull request ou pousse un commit, le
+            reste de l'equipe ne le voit pas toujours au bon moment. Cette latence ralentit les process, cree des
+            conflits de taches, augmente les malentendus et finit par couter de l'energie au projet.
+          </p>
+
+          <h2>Intuition produit</h2>
+          <p>
+            Dans beaucoup d'equipes, Discord joue deja le role de salle de pause, salle de reunion et bureaux en meme
+            temps. Je suis donc parti d'une idee simple : si c'est deja l'espace central de l'equipe, alors c'est la
+            que les evenements importants du projet doivent remonter.
+          </p>
+          <p>
+            J'ai pense G-rard comme un systeme de haut-parleurs numeriques. Des annonces immediates, consultables quand
+            chacun le souhaite, qui rendent visible qui a fait quoi sans obliger tout le monde a surveiller chaque
+            plateforme separement.
+          </p>
+
+          <h2>Apercu du produit</h2>
+          <div class="project-showcase" aria-label="Captures du projet G-rard">
+            <figure class="project-shot">
+              <img class="project-image project-image--contain" src="../assets/images/grard2.png"
+                alt="Notifications GitHub dans Discord : pushs, commits et pull requests avec cartes recapitulatives."
+                loading="lazy" data-lightbox>
+            </figure>
+            <figure class="project-shot">
+              <img class="project-image project-image--contain" src="../assets/images/grard3.png"
+                alt="Notifications Trello dans Discord : deplacement de cartes et commentaires sur les taches."
+                loading="lazy" data-lightbox>
+            </figure>
+            <figure class="project-shot">
+              <img class="project-image project-image--contain" src="../assets/images/grard1.png"
+                alt="Notifications documentaires dans Discord : creation et activite sur des fichiers partages."
+                loading="lazy" data-lightbox>
+            </figure>
+          </div>
+
+          <h2>Comment G-rard fonctionne</h2>
+          <p>
+            G-rard est un bot Node.js qui relie Trello, Google Drive et GitHub a Discord. Le service recupere les
+            evenements, verifie leur origine, filtre ceux qui sont vraiment utiles, les reformule dans un format clair
+            puis les publie dans les bons salons.
+          </p>
+
+          <div class="mini-timeline" aria-label="Fonctionnement global du projet">
+            <span class="mini-timeline__step">Trello / Drive / GitHub</span>
+            <span class="mini-timeline__sep" aria-hidden="true">→</span>
+            <span class="mini-timeline__step">Webhook ou polling</span>
+            <span class="mini-timeline__sep" aria-hidden="true">→</span>
+            <span class="mini-timeline__step">Filtrage et normalisation</span>
+            <span class="mini-timeline__sep" aria-hidden="true">→</span>
+            <span class="mini-timeline__step">Mapping utilisateur</span>
+            <span class="mini-timeline__sep" aria-hidden="true">→</span>
+            <span class="mini-timeline__step">Salon Discord cible</span>
+          </div>
+
+          <div class="callout">
+            <h3>Architecture globale</h3>
+            <ul>
+              <li>Trello et GitHub poussent leurs evenements vers des routes Express securisees par signature, afin de verifier que le message provient bien de la bonne source.</li>
+              <li>Google Drive est suivi par polling incremental via l'API Google, avec gestion d'un etat persistant pour eviter les relectures inutiles et le spam.</li>
+              <li>Chaque integration peut avoir son propre salon Discord, son propre role a notifier et ses propres regles de filtrage.</li>
+              <li>Un annuaire d'identites relie les profils Trello, Drive et GitHub aux comptes Discord pour afficher le bon pseudo et, si besoin, mentionner directement la bonne personne.</li>
+            </ul>
+          </div>
+
+          <h2>Impact sur l'equipe</h2>
+          <p>
+            L'apport de G-rard n'est pas seulement de notifier. Il reduit le temps mort entre une action et sa prise de
+            conscience collective. Une information importante ne reste plus enfouie dans un outil secondaire : elle
+            rejoint directement l'espace ou l'equipe se parle deja.
+          </p>
+          <p>
+            Le resultat recherche est tres concret : moins d'inertie, moins d'oublis, moins de collisions de travail,
+            et une meilleure lisibilite de l'activite du projet sans imposer une surveillance permanente a chaque
+            membre de l'equipe.
+          </p>
+
+          <h2>Open source par logique de produit</h2>
+          <p>
+            J'ai choisi de rendre le projet open source parce que ce besoin depasse largement un seul contexte. Beaucoup
+            d'equipes ont besoin de mieux centraliser leur communication operationnelle. Le depot permet donc de
+            reprendre l'outil, l'auditer, l'adapter et le deployer selon sa propre organisation.
+          </p>
+
+        </div>
+      </section>
+    </main>
+
+
+  </div>
+</body>
+
+</html>

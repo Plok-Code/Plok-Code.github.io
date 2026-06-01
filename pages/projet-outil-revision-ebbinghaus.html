@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apprendre avec la Science : outil Python de révision basé sur la courbe d'Ebbinghaus, scraping et génération auto-tests via LLM.">
+  <meta property="og:title" content="Apprendre avec la Science — Python & LLM | Idris NAULLEAU-AURIAL">
+  <meta property="og:description" content="Outil bénévole automatisant un planning de révision Ebbinghaus et générant des tests de compréhension via scraping + LLM.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="robots" content="index, follow">
+  <title>Idris NAULLEAU-AURIAL - Apprendre avec la Science</title>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio:theme');
+        if (t && ['classic','hollywood'].indexOf(t) >= 0) {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="../js/main.js"></script>
+</head>
+
+<body>
+  <div class="page">
+    <header class="masthead">
+      <a class="masthead__brand" href="../index.html" aria-label="Idris Naulleau-Aurial — Accueil">
+        <span class="masthead__initials">I&middot;N&middot;A</span>
+        <span class="masthead__fullname">Idris Naulleau-Aurial</span>
+      </a>
+
+      <nav class="masthead__nav" aria-label="Navigation principale">
+        <a href="../index.html"><span>01</span>Accueil</a>
+        <a href="../profil.html"><span>02</span>Profil</a>
+        <a href="../articles.html"><span>03</span>Articles</a>
+        <a href="../projets.html" aria-current="page"><span>04</span>Projets</a>
+        <a href="../contact.html"><span>05</span>Contact</a>
+      </nav>
+
+      <div class="masthead__actions" aria-label="Liens rapides">
+        <a class="masthead__action" href="https://www.linkedin.com/in/idris-naulleau-aurial-9278b711b/"
+          target="_blank" rel="noreferrer">
+          <span class="masthead__action-arrow" aria-hidden="true">&#x2197;</span>
+          LinkedIn
+        </a>
+        <details class="masthead__theme">
+          <summary class="masthead__action">
+            <span class="masthead__action-swatch" aria-hidden="true"></span>
+            Th&egrave;me
+          </summary>
+          <div class="masthead__theme-menu">
+            <button type="button" class="masthead__theme-option" data-theme="classic">
+              <span class="masthead__theme-swatch" style="--swatch:#22D3A0;"></span>
+              <span>Classic</span>
+            </button>
+            <button type="button" class="masthead__theme-option" data-theme="hollywood">
+              <span class="masthead__theme-swatch" style="--swatch:#E63946;"></span>
+              <span>Hollywood</span>
+            </button>
+          </div>
+        </details>
+        <details class="masthead__cv">
+          <summary class="masthead__action">
+            <span class="masthead__action-arrow" aria-hidden="true">&darr;</span>
+            Mon CV
+          </summary>
+          <div class="masthead__cv-menu">
+            <a href="../assets/documents/Papier CV DE alternance.pdf" target="_blank" rel="noreferrer">Version &agrave;
+              imprimer</a>
+            <a href="../assets/documents/Mail CV DE alternance.pdf" target="_blank" rel="noreferrer">Version
+              num&eacute;rique</a>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+      <div class="breadcrumbs__trail">
+        <a href="../index.html">Accueil</a>
+        <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+        <a href="../projets.html">Projets</a>
+        <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+        <span aria-current="page">Apprendre avec la Science</span>
+      </div>
+    </nav>
+
+    <main id="main">
+      <section class="card reveal reveal-on-load">
+        <p class="kicker">Projet</p>
+        <h1>Apprendre avec la Science - automatisation des r&eacute;visions</h1>
+        <div class="project-meta">
+          <span class="pill">Cat&eacute;gorie : Projets Data</span>
+          <span class="pill">Statut : termin&eacute;</span>
+        </div>
+        <p class="muted">
+          Objectif : transformer une recherche personnelle sur la m&eacute;morisation efficace en un outil capable de
+          planifier les r&eacute;visions, r&eacute;cup&eacute;rer les contenus du jour, et g&eacute;n&eacute;rer automatiquement un auto-test pertinent
+          diffus&eacute; sur Discord.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="https://github.com/Plok-Code/R-visions-WCS" target="_blank"
+            rel="noreferrer">Voir le GitHub</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="card reveal">
+          <div class="article-tags" aria-label="Technologies et briques du projet">
+            <span class="tag">Python</span>
+            <span class="tag">Excel</span>
+            <span class="tag">Discord</span>
+            <span class="tag">Playwright</span>
+            <span class="tag">Beautiful Soup</span>
+            <span class="tag">LLM API</span>
+            <span class="tag">Webhook</span>
+            <span class="tag">Make / Integromat</span>
+          </div>
+
+          <h2>Gen&egrave;se</h2>
+          <p>
+            L'apprentissage est un sujet central pour moi. J'ai donc d&eacute;cid&eacute; de me former s&eacute;rieusement aux meilleures
+            techniques de m&eacute;morisation et d'&eacute;tudier la litt&eacute;rature scientifique sur le sujet. Cette recherche m'a
+            pouss&eacute; &agrave; comprendre concr&egrave;tement ce qui se passe lorsqu'on apprend : s&eacute;lection de l'information, m&eacute;moire de
+            travail, stockage en m&eacute;moire long terme, r&eacute;cup&eacute;ration, consolidation et courbe d'Ebbinghaus.
+          </p>
+          <p>
+            En pratique, cela m'a amen&eacute; &agrave; comparer les m&eacute;thodes d'apprentissage les plus efficaces, &agrave; distinguer les
+            faux bons conseils des approches vraiment solides, puis &agrave; concevoir un outil capable d'automatiser ce
+            travail de r&eacute;vision. Le premier r&eacute;sultat a pris la forme d'un prototype no-code construit avec
+            <strong>Make / Integromat</strong>.
+          </p>
+
+          <h2>La recherche scientifique derri&egrave;re l'outil</h2>
+          <p>
+            Le point de d&eacute;part est une <strong>m&eacute;ta-analyse synth&eacute;tisant plus de 700 &eacute;tudes
+            scientifiques</strong> sur les techniques d'apprentissage. Plut&ocirc;t que de partir de l'intuition ou des
+            conseils habituels, j'ai voulu classer ces techniques par efficacit&eacute; r&eacute;elle pour ne garder que
+            celles qui tiennent debout face &agrave; la donn&eacute;e.
+          </p>
+          <p>
+            En parall&egrave;le, j'ai cartographi&eacute; le <strong>fonctionnement r&eacute;el de la m&eacute;moire</strong> :
+          </p>
+          <ul>
+            <li><strong>M&eacute;moire sensorielle</strong> (de quelques millisecondes &agrave; 4 secondes) : tri massif des
+              stimuli per&ccedil;us par nos sens, avant tout transfert conscient.</li>
+            <li><strong>M&eacute;moire de travail</strong> (15 &agrave; 30 secondes, ~7 &eacute;l&eacute;ments) : passage obligatoire,
+              activ&eacute; par le focus volontaire (motivation, cortex pr&eacute;frontal) ou involontaire (stimuli externes).</li>
+            <li><strong>M&eacute;moire long terme</strong> : stockage durable via l'hippocampe et la neuroplasticit&eacute;,
+              renforc&eacute; par l'engagement actif et l'importance &eacute;motionnelle de l'information.</li>
+            <li><strong>R&eacute;cup&eacute;ration et consolidation</strong> : chaque rappel "remonte" l'information vers la
+              m&eacute;moire de travail et aplatit la courbe d'oubli pour les prochains jours.</li>
+          </ul>
+          <p>
+            La <strong>courbe d'Ebbinghaus</strong> donne la m&eacute;trique cl&eacute; : <strong>58 % d'information
+            retenue apr&egrave;s 20 minutes, 34 % apr&egrave;s 24h, autour de 21 &agrave; 25 % apr&egrave;s une
+            semaine</strong> si on ne fait rien. Bien r&eacute;parties dans le temps, <strong>7 r&eacute;visions
+            suffisent pour ancrer une information &agrave; vie</strong> : J+0 (20 min), J+1, J+3, J+7, J+14, J+30, J+90,
+            J+180, puis un rappel tous les 2 ans.
+          </p>
+
+          <h2>Tier-list des techniques d'apprentissage</h2>
+          <p>
+            La m&eacute;ta-analyse permet de trancher entre les m&eacute;thodes qui marchent vraiment et celles qui sont
+            vendues mais inefficaces :
+          </p>
+          <ul>
+            <li><strong>Tier S (&agrave; mettre en place absolument)</strong> : <strong>auto-test</strong> (questions
+              ouvertes, pas de QCM), <strong>r&eacute;p&eacute;tition espac&eacute;e</strong> (revoir une notion &agrave;
+              J+1, J+3, J+7, J+14&hellip; plut&ocirc;t qu'en une seule session), <strong>sessions courtes type
+              Pomodoro</strong> (blocs de 20 minutes coup&eacute;s par de courtes pauses).</li>
+            <li><strong>Tier A (bons compl&eacute;ments)</strong> : <strong>m&eacute;thode Feynman</strong> (expliquer
+              le cours comme &agrave; un enfant de 10 ans), mind maps, <strong>interleaved practice</strong>
+              (alterner les mati&egrave;res), <strong>self-explain</strong> et <strong>elaborative questions</strong>
+              (creuser le "pourquoi"). Ces deux derni&egrave;res sont encore plus efficaces quand on les pratique
+              <em>en mode Feynman</em> : se forcer &agrave; vulgariser pour quelqu'un d'autre fait remonter les vrais
+              trous de compr&eacute;hension, l&agrave; o&ugrave; un monologue mental se contente souvent d'une
+              illusion de ma&icirc;trise.</li>
+            <li><strong>Tier C (n&eacute;gligeable)</strong> : relecture passive, surlignage, r&eacute;sum&eacute;,
+              imagerie-texte, mn&eacute;motechniques.</li>
+            <li><strong>&Agrave; fuir</strong> : le mod&egrave;le <strong>VARK</strong> (apprenant "visuel" vs
+              "auditif" : aucune base scientifique), le <strong>speed reading</strong> et le
+              <strong>sleep learning</strong>.</li>
+          </ul>
+
+          <h2>Premier prototype no-code avec Make</h2>
+          <p>
+            Une fois la tier-list pos&eacute;e, l'objectif du prototype &eacute;tait clair : <strong>automatiser les
+            deux techniques Tier S qui demandent le plus de discipline dans le temps</strong>, &agrave; savoir
+            l'<strong>auto-test</strong> et la <strong>r&eacute;p&eacute;tition espac&eacute;e</strong>. Le reste
+            (Pomodoro, Feynman, mind maps&hellip;) reste &agrave; la main de l'apprenant, parce que ces techniques se
+            d&eacute;clenchent au moment de l'&eacute;tude, pas du rappel.
+          </p>
+          <p>
+            J'ai voulu rendre tout &ccedil;a <strong>utilisable au quotidien sans frottement</strong>. Premi&egrave;re
+            version, 100 % no-code, autour de trois briques :
+          </p>
+          <ul>
+            <li><strong>Google Sheets</strong> comme base de donn&eacute;es : une ligne par cours (titre, lien, date
+              d'&eacute;tude), avec un calcul automatique des 7 dates de r&eacute;vision selon la courbe d'Ebbinghaus.</li>
+            <li><strong>Make (ex-Integromat)</strong> comme orchestrateur : un sc&eacute;nario d&eacute;clench&eacute;
+              <strong>chaque matin &agrave; 8h</strong>, qui lit la feuille Google Sheets et r&eacute;cup&egrave;re les
+              cours dont la date de r&eacute;vision tombe le jour m&ecirc;me.</li>
+            <li><strong>Sortie multi-canal</strong> : un sc&eacute;nario envoie un message <strong>via webhook
+              Discord</strong> (ping personnel, titres des cours en gras), un autre &eacute;crit dans un
+              <strong>Google Doc &eacute;pingl&eacute;</strong> pour ceux qui n'utilisent pas Discord.</li>
+          </ul>
+          <p>
+            La derni&egrave;re brique &eacute;tait le <strong>g&eacute;n&eacute;rateur d'auto-tests</strong> : pour
+            chaque cours &agrave; r&eacute;viser, j'utilisais le GPT custom <em>Video Summarizer</em> sur ChatGPT, qui
+            ing&egrave;re l'URL d'une vid&eacute;o YouTube, en sort une synth&egrave;se puis g&eacute;n&egrave;re des
+            <strong>questions ouvertes</strong> (jamais de QCM, conform&eacute;ment &agrave; la m&eacute;ta-analyse).
+            Le rappel quotidien tombe, je clique sur les liens du message, je passe l'auto-test en deux &agrave; dix
+            minutes selon l'enjeu.
+          </p>
+          <p>
+            Cette premi&egrave;re version expose d&eacute;j&agrave; le coeur de la d&eacute;marche : s'appuyer sur les
+            meilleures pratiques issues de la recherche, utiliser la r&eacute;p&eacute;tition espac&eacute;e au bon
+            moment, privil&eacute;gier l'auto-test plut&ocirc;t que la simple relecture, et supprimer au maximum la
+            friction op&eacute;rationnelle pour que r&eacute;viser devienne quelque chose de faisable au quotidien.
+          </p>
+
+          <h2>Adaptation pour la Wild Code School</h2>
+          <p>
+            Pendant mon cursus Data Analyst &agrave; la <strong>Wild Code School</strong>, j'ai pr&eacute;sent&eacute;
+            cet outil aux responsables p&eacute;dagogiques et je leur ai propos&eacute; une adaptation sur mesure pour
+            la promotion. Ils m'ont fait confiance et m'ont laiss&eacute; carte blanche pour le mettre en place :
+            <strong>acc&egrave;s &agrave; leur serveur Discord</strong> pour la diffusion des tests, et
+            <strong>autorisation explicite de scraper leur plateforme p&eacute;dagogique Odyssey</strong> pour
+            r&eacute;cup&eacute;rer le contenu des cours.
+          </p>
+          <p>
+            Concr&egrave;tement, le proto Make avait un d&eacute;faut : il fallait encore <strong>aller cliquer
+            manuellement</strong> sur chaque cours, le copier dans ChatGPT pour g&eacute;n&eacute;rer le test, et
+            recommencer pour chaque cours du jour. Sur une journ&eacute;e charg&eacute;e &agrave; quatre ou cinq cours
+            &agrave; r&eacute;viser, ce sont quinze minutes de friction qui suffisent &agrave; faire d&eacute;crocher
+            la majorit&eacute; des &eacute;tudiants. L'objectif de la V2 &eacute;tait simple :
+            <strong>aller jusqu'au "0 clic"</strong>, un seul test consolid&eacute; pos&eacute; chaque matin dans
+            Discord, pr&ecirc;t &agrave; &ecirc;tre fait.
+          </p>
+
+          <h2>Pipeline automatis&eacute;</h2>
+          <p>
+            Sortie de Make / no-code, place &agrave; un <strong>vrai script Python</strong> que je peux planifier en
+            cron (Linux/Mac) ou via le Planificateur de t&acirc;ches Windows. Stack complet :
+          </p>
+          <ul>
+            <li><strong>Excel</strong> <code>Revision_WCS.xlsx</code> : planning des cours (nom, URL Odyssey, date) avec
+              calcul automatique des dates de r&eacute;vision selon la courbe d'Ebbinghaus.</li>
+            <li><strong>Playwright</strong> (Chromium headless) : connexion automatique &agrave; Odyssey,
+              navigation vers chaque cours du jour, extraction du contenu (HTML, images, liens Google Drive / Colab)
+              puis conversion en Markdown propre.</li>
+            <li><strong>Groq + Llama 3.3 70B</strong> (API gratuite, ~14 000 requ&ecirc;tes par jour) :
+              <strong>un seul test consolid&eacute;</strong> par jour, 15 &agrave; 20 minutes, environ 2-3 questions
+              <strong>ouvertes</strong> par cours, m&eacute;lang&eacute;es pour favoriser la compr&eacute;hension
+              transversale. Pas de QCM, pas de corrig&eacute; (conforme &agrave; la m&eacute;ta-analyse).</li>
+            <li><strong>Webhook Discord</strong> : envoi du test format&eacute; en Markdown avec d&eacute;coupage
+              automatique pour respecter la limite de 2 000 caract&egrave;res par message.</li>
+          </ul>
+
+          <div class="mini-timeline" aria-label="Pipeline du projet">
+            <span class="mini-timeline__step">Excel des cours</span>
+            <span class="mini-timeline__sep" aria-hidden="true">→</span>
+            <span class="mini-timeline__step">Calcul Ebbinghaus</span>
+            <span class="mini-timeline__sep" aria-hidden="true">→</span>
+            <span class="mini-timeline__step">Login Odyssey + scraping (Playwright)</span>
+            <span class="mini-timeline__sep" aria-hidden="true">→</span>
+            <span class="mini-timeline__step">Llama 3.3 70B (Groq)</span>
+            <span class="mini-timeline__sep" aria-hidden="true">→</span>
+            <span class="mini-timeline__step">Webhook Discord</span>
+          </div>
+
+          <div class="callout">
+            <h3>Cha&icirc;ne de traitement (1 ex&eacute;cution = ~30 secondes)</h3>
+            <ol>
+              <li><strong>Analyse du planning</strong> : lecture du <code>Revision_WCS.xlsx</code>, extraction des
+                cours dont la date de r&eacute;vision tombe aujourd'hui.</li>
+              <li><strong>Scraping automatis&eacute;</strong> : Playwright lance un Chromium headless,
+                s'authentifie sur Odyssey avec les credentials de l'<code>.env</code>, navigue sur chaque cours.</li>
+              <li><strong>Extraction de contenu</strong> : HTML transform&eacute; en Markdown, images et ressources
+                Google Drive / Colab incluses.</li>
+              <li><strong>G&eacute;n&eacute;ration IA</strong> : agr&eacute;gation du contenu de tous les cours du
+                jour, appel &agrave; l'API Groq avec un prompt syst&egrave;me "professeur de Data Science",
+                production d'un test unique coh&eacute;rent.</li>
+              <li><strong>Distribution Discord</strong> : d&eacute;coupage intelligent (&lt; 2 000 caract&egrave;res),
+                pr&eacute;servation du Markdown, envoi via webhook dans le salon Discord d&eacute;di&eacute; aux
+                promos Data Analyst de septembre 2025.</li>
+            </ol>
+          </div>
+
+          <h2>Garde-fou : validation humaine avant diffusion</h2>
+          <p>
+            Si j'avais d&eacute;ploy&eacute; les tests tels que le mod&egrave;le les g&eacute;n&eacute;rait, j'aurais
+            potentiellement <strong>fait apprendre des erreurs &agrave; des &eacute;l&eacute;ves</strong>. Sur ce projet
+            j'ai donc pris la solution la plus honn&ecirc;te : <strong>une validation humaine avant
+            d&eacute;ploiement</strong>. Lent, pas scalable, mais je dormais tranquille.
+          </p>
+          <p>
+            Concr&egrave;tement, le pipeline d&eacute;crit ci-dessus a deux destinations Discord successives :
+            <strong>un serveur priv&eacute;</strong> qui me sert de salle de relecture, puis, apr&egrave;s validation
+            manuelle de ma part, <strong>le serveur officiel de la Wild Code School</strong>. Si une question
+            d&eacute;rive (hors-sujet, ambigu&euml;, factuellement fausse), je la corrige ou la relance avant qu'elle
+            n'atteigne les &eacute;tudiants.
+          </p>
+          <p>
+            J'ai pouss&eacute; cette r&eacute;flexion plus loin dans un article publi&eacute; sur LinkedIn :
+            <strong>quelques leviers concrets</strong> pour fiabiliser la sortie d'un LLM en production sans relire
+            10 000 outputs par jour (grounding strict, consensus N-shots, second mod&egrave;le critic, QA
+            &eacute;chantillonn&eacute;e &agrave; 2-5 %, flagging des questions o&ugrave; tout le monde se plante&hellip;).
+            &Agrave; lire dans la <a href="../articles.html">section Articles du portfolio</a> sous
+            <em>&laquo; Les projets LLMs sont-ils r&eacute;ellement fiables en entreprise ? &raquo;</em>.
+          </p>
+
+          <p>
+            Le coeur technique du projet, c'est de <strong>fiabiliser le scraping</strong> face &agrave; une
+            plateforme p&eacute;dagogique qui n'expose pas d'API publique (gestion du login, des sessions, des
+            redirections), et de <strong>contraindre le LLM</strong> &agrave; produire un format reproductible
+            d'un jour &agrave; l'autre (questions ouvertes, pas de fuite de r&eacute;ponses, longueur ma&icirc;tris&eacute;e).
+          </p>
+          <p>
+            Le projet est <strong>open source sous GPLv3</strong> et disponible sur
+            <a href="https://github.com/Plok-Code/R-visions-WCS" target="_blank" rel="noreferrer">github.com/Plok-Code/R-visions-WCS</a>.
+            Tout est gratuit pour l'apprenant : Groq (free tier), Discord (webhooks illimit&eacute;s), Python
+            (open source). Coup d'usage quotidien : ~0,007 % du quota Groq gratuit, soit infiniment scalable
+            &agrave; l'&eacute;chelle d'une promo.
+          </p>
+        </div>
+      </section>
+    </main>
+
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tous les projets d'Idris NAULLEAU-AURIAL : dashboards BI, applications web, automatisation et outils IA / Data.">
+  <meta property="og:title" content="Projets — Idris NAULLEAU-AURIAL">
+  <meta property="og:description" content="Découvrez les projets Data, IA et Backend d'Idris NAULLEAU-AURIAL : BI, Python, automatisation.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="robots" content="index, follow">
+  <title>Idris NAULLEAU-AURIAL - Projets</title>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio:theme');
+        if (t && ['classic','hollywood'].indexOf(t) >= 0) {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+  <noscript><div style="padding:14px 20px;background:#16181D;color:#E2E4E9;font-family:sans-serif;font-size:14px;border-bottom:2px solid #38BDF8;text-align:center;">Ce portfolio nécessite JavaScript pour fonctionner. Veuillez l'activer dans votre navigateur.</div></noscript>
+  <div class="page">
+    <header class="masthead">
+      <a class="masthead__brand" href="index.html" aria-label="Idris Naulleau-Aurial — Accueil">
+        <span class="masthead__initials">I&middot;N&middot;A</span>
+        <span class="masthead__fullname">Idris Naulleau-Aurial</span>
+      </a>
+
+      <nav class="masthead__nav" aria-label="Navigation principale">
+        <a href="index.html"><span>01</span>Accueil</a>
+        <a href="profil.html"><span>02</span>Profil</a>
+        <a href="articles.html"><span>03</span>Articles</a>
+        <a href="projets.html" aria-current="page"><span>04</span>Projets</a>
+        <a href="contact.html"><span>05</span>Contact</a>
+      </nav>
+
+      <div class="masthead__actions" aria-label="Liens rapides">
+        <a class="masthead__action" href="https://www.linkedin.com/in/idris-naulleau-aurial-9278b711b/"
+          target="_blank" rel="noreferrer">
+          <span class="masthead__action-arrow" aria-hidden="true">&#x2197;</span>
+          LinkedIn
+        </a>
+        <details class="masthead__theme">
+          <summary class="masthead__action">
+            <span class="masthead__action-swatch" aria-hidden="true"></span>
+            Th&egrave;me
+          </summary>
+          <div class="masthead__theme-menu">
+            <button type="button" class="masthead__theme-option" data-theme="classic">
+              <span class="masthead__theme-swatch" style="--swatch:#22D3A0;"></span>
+              <span>Classic</span>
+            </button>
+            <button type="button" class="masthead__theme-option" data-theme="hollywood">
+              <span class="masthead__theme-swatch" style="--swatch:#E63946;"></span>
+              <span>Hollywood</span>
+            </button>
+          </div>
+        </details>
+        <details class="masthead__cv">
+          <summary class="masthead__action">
+            <span class="masthead__action-arrow" aria-hidden="true">&darr;</span>
+            Mon CV
+          </summary>
+          <div class="masthead__cv-menu">
+            <a href="assets/documents/Papier CV DE alternance.pdf" target="_blank" rel="noreferrer">Version &agrave;
+              imprimer</a>
+            <a href="assets/documents/Mail CV DE alternance.pdf" target="_blank" rel="noreferrer">Version
+              num&eacute;rique</a>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <main id="main">
+      <h1 class="sr-only">Projets</h1>
+
+      <section class="projects-shell" aria-label="Liste des projets">
+        <aside class="project-nav" aria-label="Navigation des blocs projets">
+          <details class="project-nav__menu" data-project-nav-menu open>
+            <summary class="project-nav__current" id="project-nav-current">
+              <span class="sr-only">Navigation des catégories de projets</span>
+            </summary>
+            <div class="project-nav__list" id="project-nav"></div>
+          </details>
+        </aside>
+
+        <div class="project-rail" id="project-rail" tabindex="0" aria-label="Défilement des projets">
+          <section class="project-screen reveal" id="outils-netflix-app" data-project-screen data-type="project"
+            data-nav-label="Pépite Production [App de recommendation de contenus]" data-nav-group="data">
+            <article class="card project-card">
+              <div class="project-card__header">
+                <a class="project-card__title project-card__title-link" href="pages/projet-netflix.html">
+                  <p class="kicker">Data</p>
+                  <h3>Pépite Production (app web + dashboards + recommandation)</h3>
+                </a>
+              <a class="project-card__arrow-link" href="pages/projet-netflix.html" aria-label="Voir le projet : Pépite Production">
+                <span aria-hidden="true">&#x2197;</span>
+              </a>
+              </div>
+              <a class="project-card__media-link" href="pages/projet-netflix.html"
+                aria-label="Voir le projet : Pépite Production">
+                <img class="project-image" src="assets/images/pepiteprodhome.png"
+                  alt="Aperçu de l'accueil du projet Pépite Production."
+                  loading="lazy">
+              </a>
+              <p><strong>Contexte :</strong> projet scolaire - application web avec authentification, espace client et
+                espace administrateur.</p>
+              <p><strong>Objectif :</strong> fournir à l’admin des dashboards avec KPIs pertinents, et proposer une
+                recommandation de films adaptée à chaque utilisateur.</p>
+              <p><strong>Compétences démontrées :</strong> conception d’un backoffice, définition de KPIs, gestion des
+                rôles, logique de recommandation (Machine Learning), UX d’un produit de contenu.</p>
+              <div class="project-meta">
+                <span class="pill">Statut : terminé</span>
+              </div>
+            </article>
+          </section>
+
+          <section class="project-screen reveal" id="data-dashboard-entreprise" data-project-screen data-type="project"
+            data-nav-label="Toys & Models [BI, Dashboard, KPIs]" data-nav-group="data">
+            <article class="card project-card">
+              <div class="project-card__header">
+                <a class="project-card__title project-card__title-link" href="pages/projet-dashboard-entreprise.html">
+                  <p class="kicker">Projets Data</p>
+                  <h3>Toys & Models : Dashboard dynamique pour une entreprise</h3>
+                </a>
+              <a class="project-card__arrow-link" href="pages/projet-dashboard-entreprise.html" aria-label="Voir le projet : Toys &amp; Models">
+                <span aria-hidden="true">&#x2197;</span>
+              </a>
+              </div>
+              <a class="project-card__media-link" href="pages/projet-dashboard-entreprise.html"
+                aria-label="Voir le projet : Toys &amp; Models">
+                <img class="project-image" src="assets/images/Toyandmodel1.png" alt="Illustration d'un dashboard et KPIs."
+                  loading="lazy">
+              </a>
+              <p><strong>Contexte :</strong> projet de data analyse décisionnelle à partir d’une base métier existante.
+              </p>
+              <p><strong>Objectif :</strong> transformer les données en indicateurs exploitables et concevoir un tableau
+                de bord clair, fiable et maintenable.</p>
+              <p><strong>Compétences démontrées :</strong> extraction et préparation des données, requêtes SQL,
+                structuration pour le reporting, modélisation analytique, définition de KPIs et visualisation pour
+                l’aide à la décision.</p>
+              <div class="project-meta">
+                <span class="pill">Statut : terminé</span>
+              </div>
+            </article>
+          </section>
+
+          <section class="project-screen reveal" id="outils-communicateur-pro" data-project-screen data-type="project"
+            data-nav-label="G-rard [App de communication pour la gestion d'équipe]"
+            data-nav-group="automation-backend">
+            <article class="card project-card">
+              <div class="project-card__header">
+                <a class="project-card__title project-card__title-link" href="pages/projet-communicateur-pro.html">
+                  <p class="kicker">Automation / Backend</p>
+                  <h3>G-rard (centraliser et automatiser les flux d'interractions et communication pour les entreprises)</h3>
+                </a>
+              <a class="project-card__arrow-link" href="pages/projet-communicateur-pro.html" aria-label="Voir le projet : Communicateur pro">
+                <span aria-hidden="true">&#x2197;</span>
+              </a>
+              </div>
+              <a class="project-card__media-link" href="pages/projet-communicateur-pro.html"
+                aria-label="Voir le projet : Communicateur pro">
+                <img class="project-image" src="assets/images/grard.png"
+                  alt="Illustration abstraite : connecteurs et flux d’événements." loading="lazy">
+              </a>
+              <p><strong>Contexte :</strong> projet open source - création d'une app pour centraliser la
+                communication sur Discord via Trello et Google Drive pour les projets pro.</p>
+              <p><strong>Objectif :</strong> centraliser les événements et notifier l’équipe sur Discord (qui a fait
+                quoi, où).</p>
+              <p><strong>Compétences démontrées :</strong> intégration d’APIs, automation, gestion d’événements,
+                structuration de messages, fiabilité opérationnelle.</p>
+              <div class="project-meta">
+                <span class="pill">Statut : terminé</span>
+              </div>
+            </article>
+          </section>
+
+          <section class="project-screen reveal" id="encours-cadris-ai" data-project-screen
+            data-type="project" data-nav-label="Cadris.ai [SaaS Agentique pour l'architecture de projets numériques]"
+            data-nav-group="ia">
+            <article class="card project-card">
+              <div class="project-card__header">
+                <a class="project-card__title project-card__title-link" href="pages/projet-plateforme-revision-ds.html">
+                  <p class="kicker">IA</p>
+                  <h3>Cadris.ai - SaaS Agentique pour l'architecture de projets numériques</h3>
+                </a>
+              <a class="project-card__arrow-link" href="pages/projet-plateforme-revision-ds.html" aria-label="Voir le projet : Cadris.ai">
+                <span aria-hidden="true">&#x2197;</span>
+              </a>
+              </div>
+              <a class="project-card__media-link" href="pages/projet-plateforme-revision-ds.html"
+                aria-label="Voir le projet : Cadris.ai">
+                <img class="project-image" src="assets/images/cadris1.png"
+                  alt="Landing Cadris.ai : « Arrêtez de coder à l'aveugle. Cadrez d'abord. »"
+                  loading="lazy">
+              </a>
+              <p><strong>Contexte :</strong> projet commercial - SaaS en cours sur cadris.ai, pensé pour les
+                fondateurs, freelances et devs qui veulent passer du « j'ai une idée » au « j'ai un plan
+                exécutable » en quelques minutes.</p>
+              <p><strong>Objectif :</strong> orchestrer 8 agents IA en 4 vagues séquentielles qui produisent un
+                dossier de cadrage de 24 documents (stratégie, business, produit, tech, design, CLAUDE.md).</p>
+              <p><strong>Compétences démontrées :</strong> orchestration multi-agents (OpenAI Agents SDK), FinOps
+                LLM (Llama 3.3 free / GPT-4.1 paid), architecture monorepo (FastAPI + Next.js 15), streaming SSE,
+                sécurité HMAC, déploiement GCP Cloud Run, billing Stripe.</p>
+              <div class="project-meta">
+                <span class="pill">Statut : en cours</span>
+              </div>
+            </article>
+          </section>
+
+          <section class="project-screen reveal" id="data-outil-revision-ebbinghaus" data-project-screen
+            data-type="project" data-nav-label="Apprendre avec la Science [App Python, Scraping, LLM]"
+            data-nav-group="ia">
+            <article class="card project-card">
+              <div class="project-card__header">
+                <a class="project-card__title project-card__title-link" href="pages/projet-outil-revision-ebbinghaus.html">
+                  <p class="kicker">IA</p>
+                  <h3>Apprendre avec la Science [App Python, Scraping, LLM]</h3>
+                </a>
+              <a class="project-card__arrow-link" href="pages/projet-outil-revision-ebbinghaus.html" aria-label="Voir le projet : Apprendre avec la Science">
+                <span aria-hidden="true">&#x2197;</span>
+              </a>
+              </div>
+              <a class="project-card__media-link" href="pages/projet-outil-revision-ebbinghaus.html"
+                aria-label="Voir le projet : Apprendre avec la Science">
+                <img class="project-image" src="assets/images/apprendre1.png" alt="Illustration de la courbe de d'Ebbinghaus."
+                  loading="lazy">
+              </a>
+              <p><strong>Contexte :</strong> projet non commercial bénévole - création d'un outil pour mon ancienne école de Data
+                Science (projet non scolaire) pour favoriser l'assimilation des cours pour tous les élèves.</p>
+              <p><strong>Objectif :</strong> automatiser un planning de révision et générer des tests de compréhension.
+              </p>
+              <p><strong>Compétences démontrées :</strong> structuration (Sheets en base), scraping, génération
+                d’auto-tests via LLM, analyse de la littérature scientifique dans le champs de l'apprentissage et la
+                mémorisation.</p>
+              <div class="project-meta">
+                <span class="pill">Statut : terminé</span>
+              </div>
+            </article>
+          </section>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           HOLLYWOOD : pellicule 35mm horizontale. Click sur une frame
+           = projection mode full-bleed (different du modal profil).
+           Visible uniquement quand [data-theme="hollywood"].
+           ============================================================ -->
+      <section class="projects-cinema" aria-label="Projets — pellicule cinéma">
+        <header class="projects-cinema__header">
+          <h2 class="projects-cinema__heading">Mes projets</h2>
+          <p class="projects-cinema__subtitle">5 productions en Data, IA et Backend. Faites defiler la pellicule et cliquez sur une image pour en savoir plus.</p>
+        </header>
+
+        <!-- PELLICULE : strip horizontal scrollable, perforations en
+             background-image sur les frames (suivent toute la longueur) -->
+        <div class="projects-cinema__reel" data-projects-reel tabindex="0" aria-label="Pellicule des projets, defiler horizontalement">
+          <div class="projects-cinema__frames">
+
+            <button class="projects-cinema__frame" type="button"
+              data-projects-frame data-reel="01"
+              data-title="Cadris.ai - SaaS Agentique pour l'architecture de projets num&eacute;riques"
+              data-kicker="IA"
+              data-image="assets/images/cadris1.png"
+              data-status="en cours"
+              data-href="pages/projet-plateforme-revision-ds.html"
+              data-synopsis="SaaS commercial en cours. Orchestre 8 agents IA en 4 vagues qui produisent un dossier de cadrage de 24 documents. FastAPI + Next.js 15, streaming SSE, Cloud Run, Stripe.">
+              <span class="projects-cinema__frame-reel">PROJET IA</span>
+              <img class="projects-cinema__frame-img" src="assets/images/cadris1.png" alt="" loading="lazy">
+              <span class="projects-cinema__frame-title">Cadris.ai</span>
+            </button>
+
+            <button class="projects-cinema__frame" type="button"
+              data-projects-frame data-reel="02"
+              data-title="Apprendre avec la Science [App Python, Scraping, LLM]"
+              data-kicker="IA"
+              data-image="assets/images/apprendre1.png"
+              data-status="terminé"
+              data-href="pages/projet-outil-revision-ebbinghaus.html"
+              data-synopsis="Outil benevole pour mon ancienne ecole de Data Science. Automatise un planning de revision (courbe d'Ebbinghaus) et genere des auto-tests via LLM. Scraping + Sheets en base.">
+              <span class="projects-cinema__frame-reel">PROJET IA</span>
+              <img class="projects-cinema__frame-img" src="assets/images/apprendre1.png" alt="" loading="lazy">
+              <span class="projects-cinema__frame-title">Apprendre avec la Science</span>
+            </button>
+
+            <button class="projects-cinema__frame" type="button"
+              data-projects-frame data-reel="03"
+              data-title="P&eacute;pite Production (app web + dashboards + recommandation)"
+              data-kicker="Data"
+              data-image="assets/images/pepiteprodhome.png"
+              data-status="terminé"
+              data-href="pages/projet-netflix.html"
+              data-synopsis="App web complete avec espace client et back-office admin, dashboards KPIs et moteur de recommandation de films par Machine Learning.">
+              <span class="projects-cinema__frame-reel">PROJET DATA</span>
+              <img class="projects-cinema__frame-img" src="assets/images/pepiteprodhome.png" alt="" loading="lazy">
+              <span class="projects-cinema__frame-title">P&eacute;pite Production</span>
+            </button>
+
+            <button class="projects-cinema__frame" type="button"
+              data-projects-frame data-reel="04"
+              data-title="Toys &amp; Models : Dashboard dynamique pour une entreprise"
+              data-kicker="Data"
+              data-image="assets/images/Toyandmodel1.png"
+              data-status="terminé"
+              data-href="pages/projet-dashboard-entreprise.html"
+              data-synopsis="Transformation de donnees brutes en tableau de bord BI clair et maintenable. SQL avance, modelisation analytique, KPIs et visualisation pour l'aide a la decision.">
+              <span class="projects-cinema__frame-reel">PROJET DATA</span>
+              <img class="projects-cinema__frame-img" src="assets/images/Toyandmodel1.png" alt="" loading="lazy">
+              <span class="projects-cinema__frame-title">Toys &amp; Models</span>
+            </button>
+
+            <button class="projects-cinema__frame" type="button"
+              data-projects-frame data-reel="05"
+              data-title="G-rard (automatisation des flux d'interaction et communication)"
+              data-kicker="Automation / Backend"
+              data-image="assets/images/grard.png"
+              data-status="terminé"
+              data-href="pages/projet-communicateur-pro.html"
+              data-synopsis="Open source. Centralise les evenements Trello + Google Drive et notifie l'equipe sur Discord (qui a fait quoi, ou). Integration d'APIs, gestion d'evenements, fiabilite operationnelle.">
+              <span class="projects-cinema__frame-reel">PROJET BACKEND</span>
+              <img class="projects-cinema__frame-img" src="assets/images/grard.png" alt="" loading="lazy">
+              <span class="projects-cinema__frame-title">G-rard</span>
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Boutons prev/next pour faire defiler la pellicule -->
+        <div class="projects-cinema__controls">
+          <button class="projects-cinema__control" type="button" data-projects-prev aria-label="Bobine pr&eacute;c&eacute;dente">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 6 L9 12 L15 18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square"/></svg>
+          </button>
+          <span class="projects-cinema__counter" data-projects-counter>01 / 05</span>
+          <button class="projects-cinema__control" type="button" data-projects-next aria-label="Bobine suivante">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6 L15 12 L9 18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square"/></svg>
+          </button>
+        </div>
+
+        <!-- PROJECTION MODE : takeover full-bleed cinemascope -->
+        <div class="projects-cinema__projection" data-projects-projection hidden aria-hidden="true">
+          <div class="projects-cinema__projection-image" data-projects-projection-image></div>
+          <div class="projects-cinema__projection-letterbox projects-cinema__projection-letterbox--top">
+            <div class="projects-cinema__projection-marquee">
+              <span class="projects-cinema__projection-now">NOW SCREENING</span>
+              <span class="projects-cinema__projection-reel" data-projects-projection-reel></span>
+              <span class="projects-cinema__projection-spinner" aria-hidden="true">
+                <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="16" cy="16" r="3" fill="currentColor"/><circle cx="16" cy="6" r="2" fill="currentColor"/><circle cx="16" cy="26" r="2" fill="currentColor"/><circle cx="6" cy="16" r="2" fill="currentColor"/><circle cx="26" cy="16" r="2" fill="currentColor"/></svg>
+              </span>
+            </div>
+            <button class="projects-cinema__projection-end" type="button" data-projects-projection-close>
+              <span>END SCREENING</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6 L18 18 M18 6 L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+            </button>
+          </div>
+          <div class="projects-cinema__projection-letterbox projects-cinema__projection-letterbox--bottom">
+            <div class="projects-cinema__projection-credits">
+              <span class="projects-cinema__projection-kicker" data-projects-projection-kicker></span>
+              <h3 class="projects-cinema__projection-title" data-projects-projection-title></h3>
+              <p class="projects-cinema__projection-synopsis" data-projects-projection-synopsis></p>
+            </div>
+            <a class="projects-cinema__projection-cta" data-projects-projection-cta href="#">
+              <span>View full feature</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17 L17 7 M9 7 L17 7 L17 15" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+
+  </div>
+</body>
+
+</html>

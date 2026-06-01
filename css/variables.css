@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ===========================================================
+     LAUNCH PALETTE
+     Dark startup product page : near-black + electric mint green.
+     Inspirations : Linear, Vercel, Cursor. Type sans-serif Inter
+     en toutes graisses, accent vert vif tech, hairlines blancs.
+     =========================================================== */
+  --bg: #0A0B0F;
+  --surface: #11131A;
+  --surface-2: #161922;
+  --surface-glass: rgba(255, 255, 255, 0.025);
+  --border-glass: rgba(255, 255, 255, 0.10);
+  --border-metal: rgba(255, 255, 255, 0.12);
+  --border: rgba(255, 255, 255, 0.08);
+  --hairline: rgba(255, 255, 255, 0.06);
+  --hairline-strong: rgba(255, 255, 255, 0.14);
+
+  --text: #F2F4F7;
+  --text-soft: rgba(242, 244, 247, 0.78);
+  --muted: #6B7280;
+
+  /* Single bright accent : mint green tech (DEFAUT) */
+  --accent: #22D3A0;
+  --accent-rgb: 34, 211, 160;
+  --accent-soft: #6EE7B7;
+  --accent-deep: #10B981;
+  --accent-glow: rgba(34, 211, 160, 0.32);
+
+  /* Aliases : pointent sur --accent pour que les anciennes pages
+     (project-rail, deck-modal, hero-edito, lightbox, etc.) suivent
+     automatiquement le theme actif. */
+  --accent-cool: var(--accent);
+  --accent-cool-rgb: var(--accent-rgb);
+  --accent-warm: var(--accent);
+  --accent-warm-rgb: var(--accent-rgb);
+  --accent-poster: var(--accent);
+  --accent-poster-rgb: var(--accent-rgb);
+
+  /* Type stack : full sans, no serif. Inter pour tout, Mono pour
+     les badges techniques. */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Inter", system-ui, sans-serif;
+  --font-serif: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --max-width: 1280px;
+  --prose: 860px;
+  --radius: 10px;
+  --radius-pill: 999px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur: 320ms;
+  --dur-fast: 180ms;
+  --dur-slow: 900ms;
+  --ring: 2px solid rgba(var(--accent-rgb), 0.7);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 10px 30px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 24px var(--accent-glow);
+
+  color-scheme: dark;
+}
+
+/* ===========================================================
+   THEMES : 2 variantes seulement.
+     - Classic  : vert mint startup tech (defaut, identique a :root)
+     - Hollywood : rouge cinabre Saul Bass + transformations
+                   "affiche de film" sur la page d'accueil
+                   (decorations dans components.css)
+   ============================================================ */
+
+[data-theme="classic"] {
+  --accent: #22D3A0;
+  --accent-rgb: 34, 211, 160;
+  --accent-soft: #6EE7B7;
+  --accent-deep: #10B981;
+  --accent-glow: rgba(34, 211, 160, 0.32);
+}
+
+[data-theme="hollywood"] {
+  --accent: #E63946;
+  --accent-rgb: 230, 57, 70;
+  --accent-soft: #F87171;
+  --accent-deep: #B91C1C;
+  --accent-glow: rgba(230, 57, 70, 0.32);
+  /* Bebas Neue : font condensee signature des affiches Saul Bass */
+  --font-display: "Bebas Neue", "Inter", system-ui, sans-serif;
+}

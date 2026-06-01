@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pépite Production : application web avec authentification, dashboards KPIs et recommandation de films par Machine Learning.">
+  <meta property="og:title" content="Pépite Production — App Recommandation | Idris NAULLEAU-AURIAL">
+  <meta property="og:description" content="Projet scolaire : backoffice Data avec KPIs et système de recommandation ML pour une plateforme de contenu.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="robots" content="index, follow">
+  <title>Idris NAULLEAU-AURIAL - WildFlix (app de recommandation)</title>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio:theme');
+        if (t && ['classic','hollywood'].indexOf(t) >= 0) {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=20260308-lightbox-gallery">
+  <script type="module" src="../js/main.js?v=20260308-lightbox-gallery"></script>
+</head>
+
+<body>
+  <div class="page">
+    <header class="masthead">
+      <a class="masthead__brand" href="../index.html" aria-label="Idris Naulleau-Aurial — Accueil">
+        <span class="masthead__initials">I&middot;N&middot;A</span>
+        <span class="masthead__fullname">Idris Naulleau-Aurial</span>
+      </a>
+
+      <nav class="masthead__nav" aria-label="Navigation principale">
+        <a href="../index.html"><span>01</span>Accueil</a>
+        <a href="../profil.html"><span>02</span>Profil</a>
+        <a href="../articles.html"><span>03</span>Articles</a>
+        <a href="../projets.html" aria-current="page"><span>04</span>Projets</a>
+        <a href="../contact.html"><span>05</span>Contact</a>
+      </nav>
+
+      <div class="masthead__actions" aria-label="Liens rapides">
+        <a class="masthead__action" href="https://www.linkedin.com/in/idris-naulleau-aurial-9278b711b/"
+          target="_blank" rel="noreferrer">
+          <span class="masthead__action-arrow" aria-hidden="true">&#x2197;</span>
+          LinkedIn
+        </a>
+        <details class="masthead__theme">
+          <summary class="masthead__action">
+            <span class="masthead__action-swatch" aria-hidden="true"></span>
+            Th&egrave;me
+          </summary>
+          <div class="masthead__theme-menu">
+            <button type="button" class="masthead__theme-option" data-theme="classic">
+              <span class="masthead__theme-swatch" style="--swatch:#22D3A0;"></span>
+              <span>Classic</span>
+            </button>
+            <button type="button" class="masthead__theme-option" data-theme="hollywood">
+              <span class="masthead__theme-swatch" style="--swatch:#E63946;"></span>
+              <span>Hollywood</span>
+            </button>
+          </div>
+        </details>
+        <details class="masthead__cv">
+          <summary class="masthead__action">
+            <span class="masthead__action-arrow" aria-hidden="true">&darr;</span>
+            Mon CV
+          </summary>
+          <div class="masthead__cv-menu">
+            <a href="../assets/documents/Papier CV DE alternance.pdf" target="_blank" rel="noreferrer">Version &agrave;
+              imprimer</a>
+            <a href="../assets/documents/Mail CV DE alternance.pdf" target="_blank" rel="noreferrer">Version
+              num&eacute;rique</a>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+      <div class="breadcrumbs__trail">
+        <a href="../index.html">Accueil</a>
+        <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+        <a href="../projets.html">Projets</a>
+        <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+        <span aria-current="page">WildFlix</span>
+      </div>
+    </nav>
+
+    <main id="main">
+      <section class="card reveal reveal-on-load">
+        <p class="kicker">Projet</p>
+        <h1>WildFlix - app web de recommandation de films</h1>
+        <div class="project-meta">
+          <span class="pill">Cat&eacute;gorie : Data, BI &amp; Machine Learning</span>
+          <span class="pill">Statut : termin&eacute;</span>
+        </div>
+        <p class="muted">
+          Le brief demandait un site <strong>Streamlit</strong> avec <strong>machine learning</strong>,
+          <strong>authentification</strong>, un <strong>dashboard Power BI</strong> et un
+          <strong>dashboard Python</strong>. La version livr&eacute;e couvre ces deux faces :
+          <strong>c&ocirc;t&eacute; user</strong>, recherche, fiche film, favoris et recommandations ;
+          <strong>c&ocirc;t&eacute; admin</strong>, filtres utilisateurs, KPI, int&eacute;gration Power BI et choix
+          du mod&egrave;le ML.
+        </p>
+        <div class="hero-actions">
+          <button class="btn primary" type="button" data-brief-open="wildflix" aria-haspopup="dialog"
+            aria-controls="brief-modal-wildflix" aria-expanded="false">
+            Voir le brief
+          </button>
+          <a class="btn secondary" href="https://github.com/Plok-Code/Pepite-Production" target="_blank"
+            rel="noreferrer">Voir le GitHub</a>
+        </div>
+        <div class="callout">
+          <h3>Important : &agrave; lire</h3>
+          <p><strong>Compte admin de test</strong></p>
+          <p><strong>S&eacute;curit&eacute; :</strong> ce login public n'existe que pour la d&eacute;monstration. Le
+            compte est limit&eacute; &agrave; un environnement de test isol&eacute;, sans donn&eacute;es sensibles ni
+            acc&egrave;s &agrave; une base de production. Dans un cadre r&eacute;el, je passe par des secrets hors d&eacute;p&ocirc;t,
+            des mots de passe hash&eacute;s et des acc&egrave;s non expos&eacute;s publiquement.</p>
+          <p><strong>Login :</strong> <code>admin@wildflix.com</code><br><strong>Mot de passe :</strong> <code>admin.123</code></p>
+          <p><strong>D&eacute;monstration :</strong> l'h&eacute;bergement de donn&eacute;es &eacute;tant payant et l'essai Railway termin&eacute;, cette version tourne avec une base persistante h&eacute;berg&eacute;e sur un d&eacute;p&ocirc;t priv&eacute; pour le compte test.</p>
+          <p><strong>Cons&eacute;quence :</strong> la cr&eacute;ation de compte, la m&eacute;moire utilisateur globale et les agr&eacute;gations sur les users enregistr&eacute;s pour les dashboards ne sont donc pas actives dans cette d&eacute;monstration, mais la logique applicative est bien pr&eacute;sente.</p>
+          <p><strong>Conseil :</strong> likez quelques films d&egrave;s la connexion pour alimenter les dashboards et le mod&egrave;le de recommandation.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="https://pepite.streamlit.app" target="_blank" rel="noreferrer">Voir l'app</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="deck-modal brief-modal" id="brief-modal-wildflix" data-brief-modal="wildflix" hidden
+        aria-hidden="true">
+        <div class="deck-modal__backdrop" data-brief-modal-backdrop></div>
+        <div class="deck-modal__panel brief-modal__panel" data-brief-modal-panel role="dialog" aria-modal="true"
+          aria-labelledby="brief-modal-title-wildflix" tabindex="-1">
+          <button class="icon-btn deck-modal__close" type="button" data-brief-modal-close aria-label="Fermer">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 6l12 12"></path>
+              <path d="M18 6l-12 12"></path>
+            </svg>
+          </button>
+          <div class="deck-modal__body brief-modal__body">
+            <div class="deck-modal__scroll-cue" data-brief-modal-scroll-cue aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 5v14"></path>
+                <path d="M7 14l5 5 5-5"></path>
+              </svg>
+              <span>D&eacute;filer</span>
+            </div>
+            <h2 class="deck-modal__title sr-only" id="brief-modal-title-wildflix">Brief WildFlix</h2>
+            <div class="deck-modal__content brief-modal__content">
+              <section class="card">
+                <p class="kicker">Brief du projet</p>
+                <h1>WildFlix - syst&egrave;me de recommandation de films</h1>
+                <p class="muted">
+                  Source :
+                  <a href="https://patrick-wampe.github.io/Synapse-Learners/wildprojet2wildflix.html" target="_blank"
+                    rel="noreferrer">patrick-wampe.github.io/Synapse-Learners</a>
+                </p>
+              </section>
+
+              <section class="section">
+                <div class="card doc-sheet">
+                  <h2>Cadre</h2>
+                  <p>
+                    Le client est un cin&eacute;ma local en perte de vitesse qui souhaite passer au digital avec un site
+                    capable d'aider ses usagers &agrave; d&eacute;couvrir des films et de soutenir ses d&eacute;cisions de
+                    programmation.
+                  </p>
+                  <p>
+                    Le coeur du sujet est un moteur de recommandation en contexte de <strong>cold start</strong> :
+                    aucun historique utilisateur au d&eacute;part, donc impossibilit&eacute; de d&eacute;marrer avec un
+                    filtrage collaboratif classique.
+                  </p>
+
+                  <h2>Demandes du brief</h2>
+                  <ul>
+                    <li>Une application web Streamlit capable de recommander des films &agrave; partir d'un titre.</li>
+                    <li>Deux couches de visualisation : un dashboard <code>Power BI</code> et un dashboard
+                      <code>Python</code>.
+                    </li>
+                    <li>Une r&eacute;flexion libre sur les KPI pertinents pour un cin&eacute;ma.</li>
+                    <li>En bonus : enrichissement via <code>OMDb API</code>, authentification, profils et affichage des
+                      affiches films.</li>
+                  </ul>
+
+                  <h2>Nos choix</h2>
+                  <p>
+                    Nous avons retenu <strong>IMDb 5000 Movie Dataset</strong> pour construire un MVP rapidement, tout
+                    en gardant du temps pour le nettoyage, les automatisations, l'enrichissement API et la partie
+                    recommandation / BI.
+                  </p>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="card reveal">
+          <div class="article-tags" aria-label="Technologies et briques du projet">
+            <span class="tag">Streamlit</span>
+            <span class="tag">IMDb 5000</span>
+            <span class="tag">OMDb</span>
+            <span class="tag">TMDb</span>
+            <span class="tag">KNN</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Railway</span>
+          </div>
+
+          <h2>Du brief au livrable</h2>
+          <p>
+            Le brief imposait deux blocs clairs. D'abord un produit <strong>user-facing</strong> :
+            un <strong>site Streamlit</strong> capable de recommander des films dans un contexte de
+            <strong>cold start</strong>, avec recherche, affiches, navigation et compte utilisateur. Ensuite une couche
+            <strong>admin / BI</strong> : un <strong>dashboard Power BI</strong>, un
+            <strong>dashboard Python</strong>, et assez de donn&eacute;es propres pour piloter le catalogue.
+          </p>
+          <p>
+            Nous avons r&eacute;pondu &agrave; ce brief avec une vraie cha&icirc;ne produit + data : nettoyage sous
+            <strong>Pandas</strong>, enrichissement via <strong>OMDb</strong> et <strong>TMDb</strong>, mod&eacute;lisation
+            analytique, puis int&eacute;gration dans une application <strong>Streamlit</strong> compl&egrave;te,
+            connect&eacute;e &agrave; un espace admin et &agrave; un moteur de recommandation en
+            <strong>machine learning</strong>.
+          </p>
+
+          <div class="callout">
+            <h3>Produit livr&eacute;</h3>
+            <ul>
+              <li><strong>C&ocirc;t&eacute; user</strong> : site Streamlit avec accueil &eacute;ditorial, recherche tol&eacute;rante aux fautes, fiche film, favoris, profil, authentification et recommandations.</li>
+              <li><strong>C&ocirc;t&eacute; admin</strong> : filtres utilisateurs, top films lik&eacute;s, dashboard Python, int&eacute;gration Power BI et s&eacute;lection du mod&egrave;le KNN utilis&eacute; par l'app.</li>
+              <li><strong>C&ocirc;t&eacute; data</strong> : pipeline Pandas, nettoyage des doublons, compl&eacute;tion par API, sch&eacute;ma en &eacute;toile, dictionnaire de donn&eacute;es et KPI exploitables.</li>
+              <li><strong>C&ocirc;t&eacute; machine learning</strong> : recommandation content-based avec plusieurs mod&egrave;les <code>KNN</code> et fallback si le moteur ML n'est pas disponible.</li>
+            </ul>
+          </div>
+
+          <div class="project-showcase" data-lightbox-gallery="wildflix" aria-label="Aper&ccedil;us WildFlix">
+            <figure class="project-shot">
+              <img class="project-image project-image--contain" src="../assets/images/pepiteprodhome.png"
+                alt="Capture de l'accueil de l'application WildFlix" loading="lazy" data-lightbox>
+            </figure>
+            <figure class="project-shot">
+              <img class="project-image project-image--contain"
+                src="../assets/presentation/wildflix/powerbi-page-1.png"
+                alt="Dashboard Power BI : r&eacute;alisateurs par popularit&eacute; FB et score moyen" loading="lazy" data-lightbox>
+            </figure>
+            <figure class="project-shot">
+              <img class="project-image project-image--contain"
+                src="../assets/presentation/wildflix/powerbi-page-2.png"
+                alt="Dashboard Power BI : acteurs par popularit&eacute; FB et par score" loading="lazy" data-lightbox>
+            </figure>
+            <figure class="project-shot">
+              <img class="project-image project-image--contain"
+                src="../assets/presentation/wildflix/powerbi-page-5.png"
+                alt="Dashboard Power BI : genres les mieux not&eacute;s par d&eacute;cennie" loading="lazy" data-lightbox>
+            </figure>
+            <figure class="project-shot">
+              <img class="project-image project-image--contain" src="../assets/presentation/wildflix/image6.png"
+                alt="Analyse du taux de remplissage des colonnes WildFlix" loading="lazy" data-lightbox>
+            </figure>
+            <figure class="project-shot">
+              <img class="project-image project-image--contain" src="../assets/presentation/wildflix/image2.png"
+                alt="Extrait du dictionnaire de donn&eacute;es WildFlix" loading="lazy" data-lightbox>
+            </figure>
+            <figure class="project-shot">
+              <img class="project-image project-image--contain" src="../assets/presentation/wildflix/image3.png"
+                alt="Sch&eacute;ma en &eacute;toile WildFlix" loading="lazy" data-lightbox>
+            </figure>
+          </div>
+
+          <h2>Parcours produit et gestion du cold start</h2>
+          <p>
+            Le dataset source ne contient pas d'historique utilisateur. Nous avons donc construit une entr&eacute;e
+            &eacute;ditoriale pour g&eacute;rer le cold start d&egrave;s la premi&egrave;re visite.
+          </p>
+
+          <div class="callout">
+            <h3>Cat&eacute;gories de l'accueil</h3>
+            <ul>
+              <li><strong>Blockbuster</strong> : score &gt; 8 et d&eacute;ciles de votes 9 &agrave; 10.</li>
+              <li><strong>P&eacute;pite</strong> : score &gt; 8 et d&eacute;ciles de votes 3 &agrave; 7.</li>
+              <li><strong>Niche</strong> : score &gt; 7 et d&eacute;ciles de votes 1 &agrave; 2.</li>
+              <li><strong>Navet</strong> : score &lt; 4.</li>
+            </ul>
+          </div>
+
+          <p>
+            Sur l'accueil, les cartes changent au fil des actualisations mais toujours dans un pool filtr&eacute; sur la
+            qualit&eacute;. Le moteur de recherche accepte aussi une tol&eacute;rance aux fautes de frappe, avec par
+            exemple <em>Spidelmen</em> compris comme <em>Spiderman</em>, puis l'affichage des films marqu&eacute;s
+            <em>Spiderman</em> ou de ce qui s'en rapproche.
+          </p>
+          <p>
+            La fiche film regroupe affiche, m&eacute;tadonn&eacute;es, synopsis, films similaires et un rail
+            <strong>Plus dans ce genre</strong>. La page <strong>Par genre</strong> vise environ 30 films par genre et
+            privil&eacute;gie la qualit&eacute; &agrave; la quantit&eacute; : elle commence sur les blockbusters et
+            p&eacute;pites, puis rel&acirc;che le seuil si n&eacute;cessaire, sans descendre sous une note de 6 dans le
+            rendu final du parcours.
+          </p>
+
+          <div class="mini-timeline" aria-label="Parcours WildFlix">
+            <span class="mini-timeline__step">Accueil &eacute;ditorial</span>
+            <span class="mini-timeline__sep" aria-hidden="true">&rarr;</span>
+            <span class="mini-timeline__step">Recherche tol&eacute;rante</span>
+            <span class="mini-timeline__sep" aria-hidden="true">&rarr;</span>
+            <span class="mini-timeline__step">Fiche film</span>
+            <span class="mini-timeline__sep" aria-hidden="true">&rarr;</span>
+            <span class="mini-timeline__step">Favoris</span>
+            <span class="mini-timeline__sep" aria-hidden="true">&rarr;</span>
+            <span class="mini-timeline__step">Recommandations</span>
+          </div>
+
+          <h2>Pipeline data et mod&eacute;lisation</h2>
+          <p>
+            Le dataset final utilis&eacute; par l'app contient <strong>4 916 films</strong> et
+            <strong>42 colonnes</strong>. Il vient du choix d'un MVP &agrave; partir de
+            <strong>IMDb 5000 Movie Dataset</strong> : une seule table, assez de mati&egrave;re pour travailler la
+            recommandation, mais aussi des trous de donn&eacute;es et des biais assum&eacute;s.
+          </p>
+          <p>
+            Nos explorations ont point&eacute; clairement les limites du jeu de donn&eacute;es : pas de donn&eacute;es
+            utilisateur natives, base fig&eacute;e, surrepr&eacute;sentation des films populaires et colonnes
+            incompl&egrave;tes. Cela justifie le choix d'un syst&egrave;me content-based.
+          </p>
+
+          <div class="callout">
+            <h3>Chronologie r&eacute;elle du projet</h3>
+            <ul>
+              <li><strong>1. Analyse approfondie</strong> : &eacute;tude du besoin m&eacute;tier, exploration <code>Pandas</code> / <code>Seaborn</code>, dictionnaire de donn&eacute;es, choix du grain <code>1 ligne = 1 film</code>, sch&eacute;ma en &eacute;toile cible et arbitrage cold start / content-based.</li>
+              <li><strong>2. Nettoyage et enrichissement</strong> : suppression des doublons, audit des taux de remplissage, automatisation des requ&ecirc;tes <code>OMDb</code> / <code>TMDb</code> avec cache, fusions, colonnes d&eacute;riv&eacute;es et imputations.</li>
+              <li><strong>3. Chantiers parall&egrave;les</strong> : application <code>Streamlit</code>, authentification, mod&egrave;les de recommandation <code>KNN</code>, dashboard Python int&eacute;gr&eacute; et reporting <code>Power BI</code>.</li>
+            </ul>
+          </div>
+
+          <div class="callout">
+            <h3>Travail de pr&eacute;paration de donn&eacute;es</h3>
+            <ul>
+              <li>Suppression des doublons complets et des doublons m&eacute;tier sur <code>movie_title</code> / <code>title_year</code> / <code>movie_imdb_link</code>, puis normalisation de <code>movie_imdb_link</code> en <code>imdb_key</code>.</li>
+              <li>Mise en place d'un script d'automatisation avec <code>omdb_cache.csv</code> et <code>tmdb_cache.csv</code> pour ne rappeler que les identifiants absents, g&eacute;rer les erreurs d'API et sauvegarder l'avancement par batch.</li>
+              <li>Compl&eacute;tion des colonnes manquantes via merge API : <code>duration</code>, <code>language</code>, <code>country</code>, <code>content_rating</code>, <code>budget</code>, <code>title_year</code>, mais aussi <code>Plot</code>, <code>Poster</code>, <code>Metascore</code>, <code>vote_average</code>, <code>vote_count</code> et <code>popularity</code>.</li>
+              <li>Politique de qualit&eacute; &agrave; <strong>95 % de remplissage</strong> : suppression de <code>aspect_ratio</code>, abandon de <code>gross</code> apr&egrave;s analyse de sa redondance, conservation de <code>budget</code> pour le ML, puis imputation par m&eacute;diane group&eacute;e sur <code>genre_main</code>, <code>decade</code> et <code>country_main</code>.</li>
+              <li>Traitement sp&eacute;cifique de <code>plot_keywords</code> : si la colonne &eacute;tait vide, les mots-cl&eacute;s &eacute;taient reconstruits &agrave; partir du <code>Plot</code> / <code>overview</code> via embeddings <code>SentenceTransformer</code>, s&eacute;lection de candidats, puis fusion finale dans <code>plot_keywords_final</code>.</li>
+              <li>Construction d'un sch&eacute;ma en &eacute;toile et d'un dictionnaire de donn&eacute;es pour alimenter les dashboards et structurer la suite du projet.</li>
+            </ul>
+          </div>
+
+          <p>
+            Le mod&egrave;le analytique s'organise autour de <strong>FACT_MOVIES</strong> et de tables de dimensions /
+            bridge pour les genres, acteurs, r&eacute;alisateurs, mots-cl&eacute;s, pays, langue ou ann&eacute;e. Il
+            facilite la lecture BI et les futurs calculs de KPI.
+          </p>
+          <p>
+            Une fois cette base stabilis&eacute;e, trois travaux avancent en parall&egrave;le : l'application
+            <strong>Streamlit</strong> et son parcours utilisateur, les mod&egrave;les de recommandation
+            <strong>machine learning</strong>, puis les dashboards <strong>Python</strong> et
+            <strong>Power BI</strong> branch&eacute;s sur le m&ecirc;me socle de donn&eacute;es nettoy&eacute;es.
+          </p>
+
+          <h2>Moteur de recommandation</h2>
+          <p>
+            La recommandation combine deux familles de features. La partie textuelle agr&egrave;ge genres,
+            <code>plot_keywords_final</code>, writers, acteurs et r&eacute;alisateurs dans une colonne
+            <code>soup</code>, puis l'encode avec <code>CountVectorizer</code>. La partie num&eacute;rique normalise des
+            colonnes comme <code>imdb_score</code>, <code>num_voted_users</code>, <code>vote_average</code>,
+            <code>vote_count</code>, <code>gross</code> ou <code>score_global</code> via
+            <code>MinMaxScaler</code>.
+          </p>
+          <p>
+            Les deux repr&eacute;sentations sont fusionn&eacute;es avant recherche de voisins proches. Nous avons aussi
+            test&eacute; du clustering, mais la version produit retient <strong>NearestNeighbors / KNN</strong>,
+            jug&eacute; plus lisible et plus contr&ocirc;lable pour un usage cin&eacute;ma.
+          </p>
+
+          <div class="callout">
+            <h3>D&eacute;cisions techniques</h3>
+            <ul>
+              <li>Trois mod&egrave;les sont fournis : <code>KNN_cosine.pkl</code>, <code>KNN_euclidean.pkl</code> et <code>KNN_manhattan.pkl</code>.</li>
+              <li>L'admin peut choisir le mod&egrave;le global utilis&eacute; par l'app.</li>
+              <li>En cas d'indisponibilit&eacute; ML, un fallback cosinus plus l&eacute;ger reste actif sur les mots-cl&eacute;s, le genre principal et la langue.</li>
+              <li>Les recommandations sont d&eacute;dupliqu&eacute;es par <code>imdb_key</code> et limit&eacute;es par franchise pour &eacute;viter les listes monotones.</li>
+            </ul>
+          </div>
+
+          <h2>Pilotage admin et KPI</h2>
+          <p>
+            Le compte admin permet de segmenter la lecture des favoris et des KPI selon quatre filtres utilisateurs
+            pr&eacute;vus dans les profils :
+            <strong>&acirc;ge</strong>, <strong>genre</strong>, <strong>r&eacute;sidence dans la Creuse</strong> et
+            <strong>fr&eacute;quentation cin&eacute;ma sur 12 mois</strong>.
+          </p>
+
+          <div class="callout">
+            <h3>Familles de KPI retenues</h3>
+            <ul>
+              <li>Films les plus lik&eacute;s sur le site.</li>
+              <li>Popularit&eacute; des r&eacute;alisateurs.</li>
+              <li>Popularit&eacute; des acteurs.</li>
+              <li>Genre et d&eacute;cennie.</li>
+              <li>Dur&eacute;e.</li>
+              <li>Classification d'&acirc;ge / content rating.</li>
+            </ul>
+          </div>
+
+          <p>
+            Nous ne cherchons pas &laquo; les meilleurs films &raquo; au sens absolu, mais les bons films pour les
+            bonnes personnes, au bon moment. C'est ce qui relie les KPI, la segmentation utilisateur et les
+            d&eacute;cisions de programmation.
+          </p>
+          <p>
+            Nous avons deux couches de restitution : un dashboard Python int&eacute;gr&eacute; directement dans l'app
+            pour l'analyse rapide, et une couche Power BI pour le reporting. Le
+            dashboard Python est le plus connect&eacute; au produit lui-m&ecirc;me : il r&eacute;utilise les comptes,
+            les filtres profils et les favoris du site, puis fusionne ces signaux avec les m&eacute;tadonn&eacute;es
+            films pour produire des KPI comme les pr&eacute;f&eacute;rences par genre ou par langue. Power BI reprend
+            les m&ecirc;mes grandes familles d'indicateurs sur le mod&egrave;le analytique, dans une logique plus BI.
+          </p>
+
+          <h2>Stack et exploitation</h2>
+          <p>
+            Nous avons retenu Streamlit comme choix MVP pour aller vite et livrer une application exploitable de bout
+            en bout. Nous avons fait tourner l'application avec un stockage JSON local en d&eacute;veloppement, puis une
+            cible <strong>MySQL</strong> en production. Le d&eacute;ploiement a &eacute;t&eacute; pens&eacute; avec
+            <strong>Railway</strong>, et l'admin dispose de scripts pour cr&eacute;er un compte, r&eacute;initialiser un
+            mot de passe ou migrer les utilisateurs du local vers MySQL.
+          </p>
+        </div>
+      </section>
+    </main>
+
+  </div>
+</body>
+
+</html>

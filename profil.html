@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Parcours d'Idris NAULLEAU-AURIAL : de l'électronique à l'AI Engineering, en passant par le freelance et la création.">
+  <meta property="og:title" content="Profil — Idris NAULLEAU-AURIAL">
+  <meta property="og:description" content="Parcours d'Idris NAULLEAU-AURIAL : de l'électronique à l'AI Engineering, en passant par le freelance et la création.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="robots" content="index, follow">
+  <title>Idris NAULLEAU-AURIAL - Profil</title>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio:theme');
+        if (t && ['classic','hollywood'].indexOf(t) >= 0) {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+  <noscript><div style="padding:14px 20px;background:#16181D;color:#E2E4E9;font-family:sans-serif;font-size:14px;border-bottom:2px solid #38BDF8;text-align:center;">Ce portfolio nécessite JavaScript pour fonctionner. Veuillez l'activer dans votre navigateur.</div></noscript>
+  <div class="page">
+    <header class="masthead">
+      <a class="masthead__brand" href="index.html" aria-label="Idris Naulleau-Aurial — Accueil">
+        <span class="masthead__initials">I&middot;N&middot;A</span>
+        <span class="masthead__fullname">Idris Naulleau-Aurial</span>
+      </a>
+
+      <nav class="masthead__nav" aria-label="Navigation principale">
+        <a href="index.html"><span>01</span>Accueil</a>
+        <a href="profil.html" aria-current="page"><span>02</span>Profil</a>
+        <a href="articles.html"><span>03</span>Articles</a>
+        <a href="projets.html"><span>04</span>Projets</a>
+        <a href="contact.html"><span>05</span>Contact</a>
+      </nav>
+
+      <div class="masthead__actions" aria-label="Liens rapides">
+        <a class="masthead__action" href="https://www.linkedin.com/in/idris-naulleau-aurial-9278b711b/"
+          target="_blank" rel="noreferrer">
+          <span class="masthead__action-arrow" aria-hidden="true">&#x2197;</span>
+          LinkedIn
+        </a>
+        <details class="masthead__theme">
+          <summary class="masthead__action">
+            <span class="masthead__action-swatch" aria-hidden="true"></span>
+            Th&egrave;me
+          </summary>
+          <div class="masthead__theme-menu">
+            <button type="button" class="masthead__theme-option" data-theme="classic">
+              <span class="masthead__theme-swatch" style="--swatch:#22D3A0;"></span>
+              <span>Classic</span>
+            </button>
+            <button type="button" class="masthead__theme-option" data-theme="hollywood">
+              <span class="masthead__theme-swatch" style="--swatch:#E63946;"></span>
+              <span>Hollywood</span>
+            </button>
+          </div>
+        </details>
+        <details class="masthead__cv">
+          <summary class="masthead__action">
+            <span class="masthead__action-arrow" aria-hidden="true">&darr;</span>
+            Mon CV
+          </summary>
+          <div class="masthead__cv-menu">
+            <a href="assets/documents/Papier CV DE alternance.pdf" target="_blank" rel="noreferrer">Version &agrave;
+              imprimer</a>
+            <a href="assets/documents/Mail CV DE alternance.pdf" target="_blank" rel="noreferrer">Version
+              num&eacute;rique</a>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <main id="main">
+
+      <section class="profile reveal reveal-on-load">
+
+        <!-- TABS : segmented control filter -->
+        <div class="profile__tabs" role="tablist" aria-label="Filtrer par cat&eacute;gorie">
+          <button class="profile__tab is-active" type="button" data-filter="all" role="tab" aria-selected="true" tabindex="0">
+            <span>Tout</span>
+            <span class="profile__tab-count">11</span>
+          </button>
+          <button class="profile__tab" type="button" data-filter="parcours" role="tab" aria-selected="false" tabindex="-1">
+            <span>Parcours</span>
+            <span class="profile__tab-count">4</span>
+          </button>
+          <button class="profile__tab" type="button" data-filter="projets" role="tab" aria-selected="false" tabindex="-1">
+            <span>Projets &amp; avenir</span>
+            <span class="profile__tab-count">3</span>
+          </button>
+          <button class="profile__tab" type="button" data-filter="passions" role="tab" aria-selected="false" tabindex="-1">
+            <span>Passions</span>
+            <span class="profile__tab-count">4</span>
+          </button>
+        </div>
+
+        <!-- LAYOUT 2 COLONNES : cartes en colonne gauche + panel detail
+             a droite. Click sur une carte = contenu affiche inline
+             (plus de modal). Stack vertical en responsive (<880px). -->
+        <div class="profile__layout">
+          <!-- GRID : 11 cartes en colonne, filtrables par tab -->
+          <div class="profile__grid">
+
+          <div class="profile__section-header" data-category-header="parcours">
+            <span>Parcours</span>
+          </div>
+
+          <!-- 01 PARCOURS · &Eacute;tudes initiales -->
+          <button class="profile__card" type="button" data-profile-card data-card-key="etudes"
+            data-card-title="&Eacute;tudes initiales" data-category="parcours" aria-pressed="false">
+            <span class="profile__card-title">&Eacute;tudes initiales</span>
+            <span class="profile__card-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+
+          <!-- 02 PARCOURS · D&eacute;but de la voie professionnelle -->
+          <button class="profile__card" type="button" data-profile-card data-card-key="debut-voie-pro"
+            data-card-title="D&eacute;but de la voie professionnelle" data-category="parcours" aria-pressed="false">
+            <span class="profile__card-title">D&eacute;but de la voie professionnelle</span>
+            <span class="profile__card-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+
+          <!-- 03 PARCOURS · Moi &amp; l'informatique -->
+          <button class="profile__card" type="button" data-profile-card data-card-key="moi-et-informatique"
+            data-card-title="Moi &amp; l'informatique" data-category="parcours" aria-pressed="false">
+            <span class="profile__card-title">Moi &amp; l'informatique</span>
+            <span class="profile__card-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+
+          <!-- 04 PARCOURS · Vers le m&eacute;tier AI Engineer -->
+          <button class="profile__card" type="button" data-profile-card data-card-key="vers-data-engineer"
+            data-card-title="Vers le m&eacute;tier AI Engineer" data-category="parcours" aria-pressed="false">
+            <span class="profile__card-title">Vers le m&eacute;tier AI Engineer</span>
+            <span class="profile__card-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+
+          <template data-card-template="etudes">
+            <p>
+              J&rsquo;ai commenc&eacute; par l&rsquo;&eacute;lectronique avec un <strong>BEP</strong> puis un
+              <strong>BAC PRO Syst&egrave;mes &eacute;lectroniques industriels et domestiques</strong>.
+            </p>
+            <p>
+              Apr&egrave;s le bac pro s&rsquo;ensuivent plusieurs <strong>exp&eacute;riences professionnelles</strong>
+              que je vous d&eacute;taille dans les autres cartes de mon parcours.
+            </p>
+            <p>
+              Aujourd&rsquo;hui, je suis dipl&ocirc;m&eacute; <strong>Data Analyst</strong> &agrave; l&rsquo;issue
+              d&rsquo;une formation intensive &agrave; la <strong>Wild Code School</strong>
+              (septembre 2025 - f&eacute;vrier 2026).
+            </p>
+            <details class="inline-preview-toggle">
+              <summary class="btn primary btn--sm">Voir le dipl&ocirc;me Data Analyst</summary>
+              <figure class="cv-preview">
+                <a href="assets/documents/Parchemin Data Analyst - NAULLEAU-AURIAL Idris.pdf" target="_blank"
+                  rel="noreferrer">
+                  <img src="assets/images/parchemin-data-analyst.png"
+                    alt="Parchemin Data Analyst d&eacute;livr&eacute; par la Wild Code School" loading="lazy">
+                </a>
+              </figure>
+            </details>
+            <p>
+              De cette p&eacute;riode, je garde une grande rigueur m&eacute;thodique et un pragmatisme dans la prise de
+              d&eacute;cision.
+            </p>
+          </template>
+          <template data-card-template="debut-voie-pro">
+            <p class="muted">
+              <em>Note aux recruteurs : mon parcours n'est pas lin&eacute;aire, j'en ai conscience. Je suis
+              cependant convaincu qu'il repr&eacute;sente un v&eacute;ritable atout pour votre entreprise sur le
+              m&eacute;tier que je vise. Chaque &eacute;tape est un choix r&eacute;fl&eacute;chi, et le fil rouge
+              qui les relie devient &eacute;vident une fois la carte lue dans son ensemble. Merci d'avance pour le
+              temps que vous y consacrerez.</em>
+            </p>
+            <p>
+              Apr&egrave;s mes &eacute;tudes, il fallait subvenir &agrave; mes besoins. Faute d'opportunit&eacute;s
+              en informatique dans ma petite ville, j'ai commenc&eacute; par une multitude d'emplois alimentaires.
+            </p>
+            <p>
+              En <strong>2015</strong>, j'ai lanc&eacute; mon activit&eacute; freelance &agrave; plein temps sur la
+              c&ocirc;te, &agrave; Lacanau Oc&eacute;an. Je r&eacute;alisais de petits sites vitrines, du
+              d&eacute;pannage hardware et de la formation informatique.
+            </p>
+            <p>
+              De retour dans le B&eacute;arn, j'ai approfondi mes comp&eacute;tences en <strong>UI/UX Design</strong>
+              pour compl&eacute;ter mon profil.
+            </p>
+            <p>
+              Mon plan a toujours &eacute;t&eacute; de travailler dans les <strong>m&eacute;tiers du
+              num&eacute;rique</strong>. Mais entre temps, le fait d'&ecirc;tre en couple et d'avoir des
+              responsabilit&eacute;s m'a pouss&eacute; &agrave; choisir une voie <strong>plus stable que le
+              freelancing</strong>. Et je n'avais alors <strong>ni les dipl&ocirc;mes pour viser un poste
+              int&eacute;ressant, ni l'argent pour passer un dipl&ocirc;me</strong>.
+            </p>
+            <p>
+              Mon plan est donc devenu le suivant : <strong>5 ans de CDI ouvrent droit &agrave; un Projet de
+              Transition Professionnelle (PTP)</strong>. J'ai donc pris un <strong>CDI de r&eacute;ceptionniste de
+              nuit en h&ocirc;tellerie pendant 5 ans</strong>, le temps d'amortir cet engagement, puis j'ai
+              d&eacute;clench&eacute; le PTP qui m'a permis de viser un <strong>BAC+3 Data Analyst</strong>.
+            </p>
+            <p>
+              Ce plan n'est pas termin&eacute; : mon objectif actuel est un <strong>BAC+5 dans la Data et
+              l'intelligence artificielle</strong>, via le contrat de professionnalisation que je recherche
+              aujourd'hui.
+            </p>
+          </template>
+          <template data-card-template="moi-et-informatique">
+            <p>
+              J&rsquo;ai commenc&eacute; &agrave; c&ocirc;toyer l&rsquo;informatique &agrave; l&rsquo;&eacute;poque de
+              <strong>Windows 98</strong>. En 6e, une initiation au <strong>HTML</strong> m'a fait r&eacute;aliser
+              avec
+              fascination qu'avec quelques lignes, je pouvais cr&eacute;er r&eacute;ellement quelque chose. J'ai par
+              la suite
+              rejoint le <strong>club informatique</strong> du coll&egrave;ge pour m'initier à ce monde.
+            </p>
+            <p>
+              Avec le temps, j&rsquo;ai compris ce qui m'attirait le plus : <strong>transformer une id&eacute;e en
+                solution</strong>. L'informatique n'est pas une fin en soi, c&rsquo;est un outil pour rendre une
+              situation
+              plus claire, plus fiable ou plus simple &agrave; utiliser.
+            </p>
+            <p>
+              D&egrave;s que je veux <strong>prototyper</strong>, <strong>automatiser</strong>,
+              <strong>am&eacute;liorer</strong> ou <strong>structurer</strong>, je reviens naturellement vers le code.
+            </p>
+          </template>
+          <template data-card-template="vers-data-engineer">
+            <p>
+              J&rsquo;ai choisi de viser le m&eacute;tier d&rsquo;<strong>AI Engineer</strong> car il correspond
+              parfaitement &agrave; ma fa&ccedil;on de travailler : <strong>penser en syst&egrave;mes</strong>,
+              <strong>concevoir des solutions concr&egrave;tes</strong> et <strong>transformer des
+              capacit&eacute;s IA en produits r&eacute;ellement utilisables</strong>. C&rsquo;est le
+              m&eacute;tier qui fait le pont entre les avanc&eacute;es de l&rsquo;intelligence artificielle
+              et les besoins terrain, de l&rsquo;id&eacute;e au service d&eacute;ploy&eacute;,
+              fiable et adopt&eacute;.
+            </p>
+            <p>
+              Ce r&ocirc;le demande &agrave; la fois une compr&eacute;hension solide de la donn&eacute;e
+              et une ma&icirc;trise des outils IA modernes (LLMs, agents, RAG, APIs).
+              J&rsquo;ai construit ma trajectoire en deux &eacute;tapes :
+            </p>
+            <ul>
+              <li><strong>&Eacute;tape 1 : Data Analyst</strong> d&eacute;j&agrave; r&eacute;alis&eacute;e via une
+                formation &agrave; la Wild Code School, de <strong>septembre 2025 &agrave; mars 2026</strong>, pour
+                ancrer les fondamentaux (SQL, analyse, compr&eacute;hension de la donn&eacute;e).</li>
+              <li><strong>&Eacute;tape 2 : AI Engineer</strong> en contrat de professionnalisation, pour concevoir, int&eacute;grer
+                et d&eacute;ployer des syst&egrave;mes IA en conditions r&eacute;elles.</li>
+            </ul>
+            <p>
+              Pendant l&rsquo;&eacute;tape 1, j&rsquo;ai valid&eacute; <strong>29 comp&eacute;tences r&eacute;parties
+              en 4 grands axes</strong> : collecte des donn&eacute;es (EDA, SQL avanc&eacute;, web scraping, APIs REST,
+              RGPD), traitement (m&eacute;thodologies agiles, Python, Pandas, regex, nettoyage), mod&eacute;lisation
+              (statistiques descriptives, machine learning, r&eacute;gression, classification, NLP, contr&ocirc;le des
+              biais) et restitution (dataviz, BI, cartographie, accessibilit&eacute;).
+            </p>
+            <p>
+              <a class="btn primary btn--sm" href="assets/documents/odyssey-skills-book-20260507.pdf"
+                target="_blank" rel="noreferrer">Voir le livret de comp&eacute;tences valid&eacute;es</a>
+            </p>
+            <p class="muted">
+              Livret officiel d&eacute;livr&eacute; par la Wild Code School &agrave; l&rsquo;issue de la formation
+              Data Analyst, niveau atteint pour chaque comp&eacute;tence.
+            </p>
+          </template>
+
+          <!-- ============================================
+               PROJETS & AVENIR  (3 cartes)
+               ============================================ -->
+
+          <div class="profile__section-header" data-category-header="projets">
+            <span>Projets &amp; avenir</span>
+          </div>
+
+          <!-- contrat -->
+          <button class="profile__card" type="button" data-profile-card data-card-key="contrat"
+            data-card-title="Ce que j'attends du contrat pro" data-category="projets" aria-pressed="false">
+            <span class="profile__card-title">Ce que j'attends du contrat pro</span>
+            <span class="profile__card-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+
+          <!-- entreprendre -->
+          <button class="profile__card" type="button" data-profile-card data-card-key="entreprendre"
+            data-card-title="Entrepreneuriat" data-category="projets" aria-pressed="false">
+            <span class="profile__card-title">Entrepreneuriat</span>
+            <span class="profile__card-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+
+          <!-- vision -->
+          <button class="profile__card" type="button" data-profile-card data-card-key="vision"
+            data-card-title="Vision de l'avenir" data-category="projets" aria-pressed="false">
+            <span class="profile__card-title">Vision de l'avenir</span>
+            <span class="profile__card-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+
+          <template data-card-template="contrat">
+            <p>Dans mon <strong>contrat pro AI Engineer</strong>, je cherche &agrave; <strong>progresser</strong>
+              tout en
+              produisant du r&eacute;sultat concret. Je cherche un cadre pour <strong>apprendre</strong> et
+              <strong>m'am&eacute;liorer en continu</strong>.
+            </p>
+            <p>Concr&egrave;tement, j'attends :</p>
+            <ul>
+              <li><strong>Un environnement sain</strong> : communication respectueuse et ouverte, feedbacks
+                constructifs,
+                entraide.</li>
+              <li><strong>La possibilit&eacute; de proposer des id&eacute;es</strong> pour participer &agrave;
+                l'am&eacute;lioration des process.</li>
+            </ul>
+          </template>
+          <template data-card-template="entreprendre">
+            <p>J&rsquo;ai une tendance naturelle &agrave; imaginer des id&eacute;es et &agrave; vouloir les
+              concr&eacute;tiser.
+              Ce qui m'attire dans la cr&eacute;ation de projets, c'est la possibilit&eacute; de <strong>transformer
+                une
+                id&eacute;e en quelque chose d'utile</strong> et de la confronter au r&eacute;el.</p>
+            <p>C'est aussi ce qui m'oblige &agrave; <strong>sortir de ma bulle technique</strong> pour comprendre le
+              besoin de
+              l'utilisateur final, les choix de design, ou le marketing.</p>
+            <p>J'ai d&eacute;j&agrave; connu le <strong>freelance</strong> par le pass&eacute;, avec ses hauts et ses
+              bas.
+              Aujourd'hui, mon choix d'un contrat pro est l&agrave; pour me construire une trajectoire solide de
+              mani&egrave;re
+              sereine, tout en gardant mes projets personnels en parall&egrave;le.</p>
+          </template>
+          <template data-card-template="vision">
+            <p>Ma vision &agrave; long terme s'articule autour de la <strong>construction durable</strong>.
+              Je me projette dans des organisations qui laissent une vraie place &agrave; l'<strong>autonomie</strong>
+              et &agrave; la <strong>prise d'initiative</strong>.</p>
+            <p>Mon moteur, c&rsquo;est la croissance : j&rsquo;aime particuli&egrave;rement les phases de
+              construction, de mise en place et d&rsquo;am&eacute;lioration concr&egrave;te d&rsquo;un syst&egrave;me.
+              Je peux aussi m&rsquo;inscrire dans la dur&eacute;e pour le fiabiliser, le documenter et le faire
+              &eacute;voluer, &agrave; condition de continuer &agrave; apprendre et &agrave; relever de nouveaux
+              d&eacute;fis.</p>
+            <p>Mon objectif &agrave; l'issue de l'alternance est de <strong>poursuivre en CDI</strong> dans le
+              domaine o&ugrave; j'aurai &eacute;t&eacute; form&eacute;. Je cherche une &eacute;quipe dans laquelle je
+              peux contribuer &agrave; faire grandir un projet : <strong>construire utile</strong>, avec une
+              logique de <strong>scaling</strong>, grandir en comp&eacute;tence, et apporter des r&eacute;sultats
+              tangibles dans un cadre de confiance.</p>
+          </template>
+
+          <!-- ============================================
+               PASSIONS  (4 cartes)
+               ============================================ -->
+
+          <div class="profile__section-header" data-category-header="passions">
+            <span>Passions</span>
+          </div>
+
+          <!-- echecs -->
+          <button class="profile__card" type="button" data-profile-card data-card-key="echecs"
+            data-card-title="Jeux d'&eacute;checs" data-category="passions" aria-pressed="false">
+            <span class="profile__card-title">Jeux d'&eacute;checs</span>
+            <span class="profile__card-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+
+          <!-- sport -->
+          <button class="profile__card" type="button" data-profile-card data-card-key="sport"
+            data-card-title="Sport" data-category="passions" aria-pressed="false">
+            <span class="profile__card-title">Sport</span>
+            <span class="profile__card-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+
+          <!-- audiovisuel -->
+          <button class="profile__card" type="button" data-profile-card data-card-key="audiovisuel"
+            data-card-title="Cr&eacute;ation audiovisuelle" data-category="passions" aria-pressed="false">
+            <span class="profile__card-title">Cr&eacute;ation audiovisuelle</span>
+            <span class="profile__card-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+
+          <!-- jeux -->
+          <button class="profile__card" type="button" data-profile-card data-card-key="jeux"
+            data-card-title="Cr&eacute;ation de jeux vid&eacute;o" data-category="passions" aria-pressed="false">
+            <span class="profile__card-title">Cr&eacute;ation de jeux vid&eacute;o</span>
+            <span class="profile__card-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+
+          <template data-card-template="echecs">
+            <p>
+              Je me suis mis aux <strong>&eacute;checs</strong> sur le tard. J'ai jou&eacute; en club amateur puis
+              en <strong>division r&eacute;gionale</strong>, ce qui m'a conduit &agrave; passer mon dipl&ocirc;me
+              d'initiateur (<strong>D.I.F.F.E.</strong>) me permettant d'<strong>initier les &eacute;checs en
+              club</strong>.
+            </p>
+            <details class="inline-preview-toggle">
+              <summary class="btn primary btn--sm">Voir le dipl&ocirc;me D.I.F.F.E.</summary>
+              <figure class="cv-preview">
+                <img src="assets/images/SKM_C300i25042921410-1.png" alt="Dipl&ocirc;me D.I.F.F.E." loading="lazy">
+              </figure>
+            </details>
+          </template>
+          <template data-card-template="sport">
+            <p>Le <strong>sport</strong> fait partie int&eacute;grante de mon &eacute;quilibre, c'est ce qui m'a
+              v&eacute;ritablement inculqu&eacute; la discipline et la r&eacute;gularit&eacute;.</p>
+            <p>J'ai pratiqu&eacute; la <strong>natation en comp&eacute;tition</strong> tr&egrave;s t&ocirc;t et ce
+              jusqu'&agrave; mes 19 ans (Niveau N3 : ~1:18 au 100m Brasse, ~58s au 100m Libre).</p>
+            <p>Aujourd'hui, je pratique principalement l'<strong>escalade</strong> (niveau bloc 5C). Comme dans tout
+              ce que
+              j'entreprends, j'y cherche une progression constante et m&eacute;thodique.</p>
+          </template>
+          <template data-card-template="audiovisuel">
+            <p>
+              Mon regard sur la cr&eacute;ation audiovisuelle a d&eacute;marr&eacute; tr&egrave;s t&ocirc;t par une
+              v&eacute;ritable exp&eacute;rimentation au sein d'une association audiovisuelle.
+            </p>
+            <p>
+              Ce qui me passionne dans cette discipline, c'est avant tout la <strong>transmission
+              d'id&eacute;es</strong>, la <strong>communication</strong> et les <strong>techniques de
+              r&eacute;tention de l'attention</strong>. J'aime comprendre comment une m&ecirc;me information peut
+              glisser ou marquer durablement selon la mani&egrave;re dont elle est mise en sc&egrave;ne.
+            </p>
+            <p>
+              J'&eacute;tudie ces sujets depuis plus de <strong>dix ans en autodidacte</strong> &agrave; partir des
+              fondations de la dramaturgie (Aristote, Lavandier, McKee, Egri, Heath, Hitchcock&hellip;), bien au-del&agrave;
+              des recettes habituelles de copywriting.
+            </p>
+            <p>
+              Pour une d&eacute;monstration concr&egrave;te de ce que la dramaturgie peut faire dans un contexte
+              pro, je vous invite &agrave; lire l'article
+              <a href="https://www.linkedin.com/pulse/cet-article-est-un-pi%C3%A8ge-je-vous-pr%C3%A9viens-et-allez-naulleau-aurial-gm1qf/"
+                target="_blank" rel="noreferrer"><em>&laquo; Cet article est un pi&egrave;ge &raquo;</em></a>
+              publi&eacute; dans la section Articles du portfolio.
+            </p>
+            <p>
+              Aujourd'hui je valide les acquis techniques de cette d&eacute;marche c&ocirc;t&eacute; production avec un
+              <strong>Dipl&ocirc;me de Monteur Professionnel</strong>.
+            </p>
+            <details class="inline-preview-toggle">
+              <summary class="btn primary btn--sm">Voir le dipl&ocirc;me de Monteur Professionnel</summary>
+              <figure class="cv-preview">
+                <img src="assets/images/6478-1060151890-1.png" alt="Dipl&ocirc;me de monteur professionnel"
+                  loading="lazy">
+              </figure>
+            </details>
+          </template>
+          <template data-card-template="jeux">
+            <p>Dans l'animation de communaut&eacute;s g&eacute;antes, j'ai notamment plong&eacute; dans la
+              gamification pure en
+              g&eacute;rant des milliers de joueurs sur un <strong>ARG (Alternate Reality Game)</strong> via l'un des
+              plus
+              gros serveurs Discord fran&ccedil;ais.</p>
+            <p>Voulant automatiser certains process complexes, je me suis pris de fascination pour le
+              d&eacute;veloppement
+              ludique et pour toutes les m&eacute;caniques li&eacute;es au jeu vid&eacute;o. J'ai par ce biais
+              valid&eacute;
+              tr&egrave;s concr&egrave;tement une <strong>formation professionnelle de Game Designer</strong>,
+              consolidant des
+              bases indispensables en d&eacute;veloppement UX/Conception.</p>
+            <details class="inline-preview-toggle">
+              <summary class="btn primary btn--sm">Voir le certificat Game Designer</summary>
+              <figure class="cv-preview">
+                <img src="assets/images/Certificat FORMATION PRO GD - Idris NAULLEAU-AURIAL.png"
+                  alt="Certificat de formation GD" loading="lazy">
+              </figure>
+            </details>
+          </template>
+
+          </div>
+          <!-- PANEL DETAIL : affiche le contenu de la carte cliquee. Sticky
+               pour rester visible quand on scroll dans la colonne gauche. -->
+          <aside class="profile__detail" data-profile-detail aria-live="polite">
+            <h2 class="profile__detail-title" data-profile-detail-title></h2>
+            <div class="profile__detail-content" data-profile-detail-content></div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           HOLLYWOOD : profil "galerie cinema". Visible uniquement quand
+           [data-theme="hollywood"]. Les 11 cartes sont presentees comme
+           des affiches de film (Saul Bass), avec image B&amp;W + duotone
+           rouge pour les cartes qui ont un diplome, ou un grand numero
+           typographique pour les autres. Click = chapitre joue dans le
+           panel "Now Playing" en dessous.
+           ============================================================ -->
+      <section class="profile-cinema" aria-label="Profil — galerie cinéma">
+        <header class="profile-cinema__header">
+          <h2 class="profile-cinema__heading">Mon portrait en 11 chapitres</h2>
+          <p class="profile-cinema__subtitle">Cliquez sur une affiche pour lire le chapitre.</p>
+        </header>
+
+        <div class="profile-cinema__tabs" role="tablist" aria-label="Filtrer par cat&eacute;gorie">
+          <button class="profile-cinema__tab is-active" type="button" data-cinema-filter="all" role="tab" aria-selected="true" tabindex="0">
+            <span>Tout</span>
+            <span class="profile-cinema__tab-count">11</span>
+          </button>
+          <button class="profile-cinema__tab" type="button" data-cinema-filter="parcours" role="tab" aria-selected="false" tabindex="-1">
+            <span>Parcours</span>
+            <span class="profile-cinema__tab-count">4</span>
+          </button>
+          <button class="profile-cinema__tab" type="button" data-cinema-filter="projets" role="tab" aria-selected="false" tabindex="-1">
+            <span>Projets &amp; avenir</span>
+            <span class="profile-cinema__tab-count">3</span>
+          </button>
+          <button class="profile-cinema__tab" type="button" data-cinema-filter="passions" role="tab" aria-selected="false" tabindex="-1">
+            <span>Passions</span>
+            <span class="profile-cinema__tab-count">4</span>
+          </button>
+        </div>
+
+        <div class="profile-cinema__grid">
+
+          <!-- 01 PARCOURS · Etudes initiales -->
+          <button class="profile-cinema__poster" type="button"
+            data-cinema-card data-card-key="etudes" data-card-title="&Eacute;tudes initiales" data-category="parcours"
+            aria-pressed="false">
+            <div class="profile-cinema__poster-frame">
+              <div class="profile-cinema__poster-credits">
+                <span class="profile-cinema__poster-chapter">CH. 01</span>
+                <span class="profile-cinema__poster-genre">Parcours</span>
+              </div>
+              <div class="profile-cinema__poster-image" aria-hidden="true">
+                <img src="assets/cards/formationinitial.png" alt="" loading="lazy">
+              </div>
+            </div>
+          </button>
+
+          <!-- 02 PARCOURS · Debut voie pro -->
+          <button class="profile-cinema__poster" type="button"
+            data-cinema-card data-card-key="debut-voie-pro" data-card-title="D&eacute;but de la voie professionnelle" data-category="parcours"
+            aria-pressed="false">
+            <div class="profile-cinema__poster-frame">
+              <div class="profile-cinema__poster-credits">
+                <span class="profile-cinema__poster-chapter">CH. 02</span>
+                <span class="profile-cinema__poster-genre">Parcours</span>
+              </div>
+              <div class="profile-cinema__poster-image" aria-hidden="true">
+                <img src="assets/cards/debutcarrierre.jpg" alt="" loading="lazy">
+              </div>
+            </div>
+          </button>
+
+          <!-- 03 PARCOURS · Moi et informatique -->
+          <button class="profile-cinema__poster" type="button"
+            data-cinema-card data-card-key="moi-et-informatique" data-card-title="Moi &amp; l'informatique" data-category="parcours"
+            aria-pressed="false">
+            <div class="profile-cinema__poster-frame">
+              <div class="profile-cinema__poster-credits">
+                <span class="profile-cinema__poster-chapter">CH. 03</span>
+                <span class="profile-cinema__poster-genre">Parcours</span>
+              </div>
+              <div class="profile-cinema__poster-image" aria-hidden="true">
+                <img src="assets/cards/informatique.png" alt="" loading="lazy">
+              </div>
+            </div>
+          </button>
+
+          <!-- 04 PARCOURS · Vers AI Engineer -->
+          <button class="profile-cinema__poster" type="button"
+            data-cinema-card data-card-key="vers-data-engineer" data-card-title="Vers le m&eacute;tier AI Engineer" data-category="parcours"
+            aria-pressed="false">
+            <div class="profile-cinema__poster-frame">
+              <div class="profile-cinema__poster-credits">
+                <span class="profile-cinema__poster-chapter">CH. 04</span>
+                <span class="profile-cinema__poster-genre">Parcours</span>
+              </div>
+              <div class="profile-cinema__poster-image" aria-hidden="true">
+                <img src="assets/cards/aiengineer.png" alt="" loading="lazy">
+              </div>
+            </div>
+          </button>
+
+          <!-- 05 PROJETS · Contrat -->
+          <button class="profile-cinema__poster" type="button"
+            data-cinema-card data-card-key="contrat" data-card-title="Ce que j'attends du contrat pro" data-category="projets"
+            aria-pressed="false">
+            <div class="profile-cinema__poster-frame">
+              <div class="profile-cinema__poster-credits">
+                <span class="profile-cinema__poster-chapter">CH. 05</span>
+                <span class="profile-cinema__poster-genre">Projets</span>
+              </div>
+              <div class="profile-cinema__poster-image" aria-hidden="true">
+                <img src="assets/cards/cequejattend.jpg" alt="" loading="lazy">
+              </div>
+            </div>
+          </button>
+
+          <!-- 06 PROJETS · Entreprendre -->
+          <button class="profile-cinema__poster" type="button"
+            data-cinema-card data-card-key="entreprendre" data-card-title="Entrepreneuriat" data-category="projets"
+            aria-pressed="false">
+            <div class="profile-cinema__poster-frame">
+              <div class="profile-cinema__poster-credits">
+                <span class="profile-cinema__poster-chapter">CH. 06</span>
+                <span class="profile-cinema__poster-genre">Projets</span>
+              </div>
+              <div class="profile-cinema__poster-image" aria-hidden="true">
+                <img src="assets/cards/entreprenariat.png" alt="" loading="lazy">
+              </div>
+            </div>
+          </button>
+
+          <!-- 07 PROJETS · Vision -->
+          <button class="profile-cinema__poster" type="button"
+            data-cinema-card data-card-key="vision" data-card-title="Vision de l'avenir" data-category="projets"
+            aria-pressed="false">
+            <div class="profile-cinema__poster-frame">
+              <div class="profile-cinema__poster-credits">
+                <span class="profile-cinema__poster-chapter">CH. 07</span>
+                <span class="profile-cinema__poster-genre">Projets</span>
+              </div>
+              <div class="profile-cinema__poster-image" aria-hidden="true">
+                <img src="assets/cards/avenir.jpg" alt="" loading="lazy">
+              </div>
+            </div>
+          </button>
+
+          <!-- 08 PASSIONS · Echecs -->
+          <button class="profile-cinema__poster" type="button"
+            data-cinema-card data-card-key="echecs" data-card-title="Jeux d'&eacute;checs" data-category="passions"
+            aria-pressed="false">
+            <div class="profile-cinema__poster-frame">
+              <div class="profile-cinema__poster-credits">
+                <span class="profile-cinema__poster-chapter">CH. 08</span>
+                <span class="profile-cinema__poster-genre">Passions</span>
+              </div>
+              <div class="profile-cinema__poster-image" aria-hidden="true">
+                <img src="assets/cards/echecs.png" alt="" loading="lazy">
+              </div>
+            </div>
+          </button>
+
+          <!-- 09 PASSIONS · Sport -->
+          <button class="profile-cinema__poster" type="button"
+            data-cinema-card data-card-key="sport" data-card-title="Sport" data-category="passions"
+            aria-pressed="false">
+            <div class="profile-cinema__poster-frame">
+              <div class="profile-cinema__poster-credits">
+                <span class="profile-cinema__poster-chapter">CH. 09</span>
+                <span class="profile-cinema__poster-genre">Passions</span>
+              </div>
+              <div class="profile-cinema__poster-image" aria-hidden="true">
+                <img src="assets/cards/sport.png" alt="" loading="lazy">
+              </div>
+            </div>
+          </button>
+
+          <!-- 10 PASSIONS · Audiovisuel -->
+          <button class="profile-cinema__poster" type="button"
+            data-cinema-card data-card-key="audiovisuel" data-card-title="Cr&eacute;ation audiovisuelle" data-category="passions"
+            aria-pressed="false">
+            <div class="profile-cinema__poster-frame">
+              <div class="profile-cinema__poster-credits">
+                <span class="profile-cinema__poster-chapter">CH. 10</span>
+                <span class="profile-cinema__poster-genre">Passions</span>
+              </div>
+              <div class="profile-cinema__poster-image" aria-hidden="true">
+                <img src="assets/cards/audiovisuel.png" alt="" loading="lazy">
+              </div>
+            </div>
+          </button>
+
+          <!-- 11 PASSIONS · Jeux video -->
+          <button class="profile-cinema__poster" type="button"
+            data-cinema-card data-card-key="jeux" data-card-title="Cr&eacute;ation de jeux vid&eacute;o" data-category="passions"
+            aria-pressed="false">
+            <div class="profile-cinema__poster-frame">
+              <div class="profile-cinema__poster-credits">
+                <span class="profile-cinema__poster-chapter">CH. 11</span>
+                <span class="profile-cinema__poster-genre">Passions</span>
+              </div>
+              <div class="profile-cinema__poster-image" aria-hidden="true">
+                <img src="assets/cards/jeuxvideos.jpg" alt="" loading="lazy">
+              </div>
+            </div>
+          </button>
+
+        </div>
+
+        <!-- MODAL CENTREE : s'ouvre au click sur un poster. Affiche une
+             grosse affiche cinema (image B&amp;W) + contenu du chapitre. -->
+        <div class="profile-cinema__modal" data-cinema-modal hidden aria-hidden="true">
+          <div class="profile-cinema__modal-backdrop" data-cinema-modal-close></div>
+          <div class="profile-cinema__modal-panel" role="dialog" aria-modal="true"
+            aria-labelledby="cinema-modal-title" tabindex="-1">
+            <button class="profile-cinema__modal-close" type="button"
+              data-cinema-modal-close aria-label="Fermer">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M6 6 L18 18 M18 6 L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+              </svg>
+            </button>
+            <div class="profile-cinema__modal-inner">
+              <figure class="profile-cinema__modal-poster">
+                <img class="profile-cinema__modal-poster-img" data-cinema-modal-image src="" alt="" loading="lazy">
+                <div class="profile-cinema__modal-poster-credits">
+                  <span class="profile-cinema__modal-chapter" data-cinema-modal-chapter></span>
+                </div>
+              </figure>
+              <div class="profile-cinema__modal-body">
+                <h2 class="profile-cinema__modal-title" id="cinema-modal-title"
+                  data-cinema-modal-title></h2>
+                <div class="profile-cinema__modal-content" data-cinema-modal-content></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+  </div>
+</body>
+
+</html>

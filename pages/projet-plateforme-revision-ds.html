@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cadris.ai : SaaS multi-agents qui transforme une idée de projet en dossier de cadrage complet (24 documents) en quelques minutes.">
+  <meta property="og:title" content="Cadris.ai — SaaS Agentique de cadrage produit | Idris NAULLEAU-AURIAL">
+  <meta property="og:description" content="8 agents IA en 4 vagues séquentielles produisent un dossier de cadrage exploitable directement par Claude Code / Codex.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="robots" content="index, follow">
+  <title>Idris NAULLEAU-AURIAL - Cadris.ai</title>
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('portfolio:theme');
+        if (t && ['classic','hollywood'].indexOf(t) >= 0) {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="../js/main.js"></script>
+</head>
+
+<body>
+  <div class="page">
+    <header class="masthead">
+      <a class="masthead__brand" href="../index.html" aria-label="Idris Naulleau-Aurial — Accueil">
+        <span class="masthead__initials">I&middot;N&middot;A</span>
+        <span class="masthead__fullname">Idris Naulleau-Aurial</span>
+      </a>
+
+      <nav class="masthead__nav" aria-label="Navigation principale">
+        <a href="../index.html"><span>01</span>Accueil</a>
+        <a href="../profil.html"><span>02</span>Profil</a>
+        <a href="../articles.html"><span>03</span>Articles</a>
+        <a href="../projets.html" aria-current="page"><span>04</span>Projets</a>
+        <a href="../contact.html"><span>05</span>Contact</a>
+      </nav>
+
+      <div class="masthead__actions" aria-label="Liens rapides">
+        <a class="masthead__action" href="https://www.linkedin.com/in/idris-naulleau-aurial-9278b711b/"
+          target="_blank" rel="noreferrer">
+          <span class="masthead__action-arrow" aria-hidden="true">&#x2197;</span>
+          LinkedIn
+        </a>
+        <details class="masthead__theme">
+          <summary class="masthead__action">
+            <span class="masthead__action-swatch" aria-hidden="true"></span>
+            Th&egrave;me
+          </summary>
+          <div class="masthead__theme-menu">
+            <button type="button" class="masthead__theme-option" data-theme="classic">
+              <span class="masthead__theme-swatch" style="--swatch:#22D3A0;"></span>
+              <span>Classic</span>
+            </button>
+            <button type="button" class="masthead__theme-option" data-theme="hollywood">
+              <span class="masthead__theme-swatch" style="--swatch:#E63946;"></span>
+              <span>Hollywood</span>
+            </button>
+          </div>
+        </details>
+        <details class="masthead__cv">
+          <summary class="masthead__action">
+            <span class="masthead__action-arrow" aria-hidden="true">&darr;</span>
+            Mon CV
+          </summary>
+          <div class="masthead__cv-menu">
+            <a href="../assets/documents/Papier CV DE alternance.pdf" target="_blank" rel="noreferrer">Version &agrave;
+              imprimer</a>
+            <a href="../assets/documents/Mail CV DE alternance.pdf" target="_blank" rel="noreferrer">Version
+              num&eacute;rique</a>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+      <div class="breadcrumbs__trail">
+        <a href="../index.html">Accueil</a>
+        <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+        <a href="../projets.html">Projets</a>
+        <span class="breadcrumbs__sep" aria-hidden="true">/</span>
+        <span aria-current="page">Cadris.ai</span>
+      </div>
+    </nav>
+
+    <main id="main">
+      <section class="card reveal reveal-on-load">
+        <p class="kicker">IA / SaaS Agentique</p>
+        <h1>Cadris.ai - SaaS Agentique pour l'architecture de projets num&eacute;riques</h1>
+        <div class="project-meta">
+          <span class="pill">Cat&eacute;gorie : IA, multi-agents, produit SaaS</span>
+          <span class="pill">Statut : en cours</span>
+        </div>
+        <p class="muted">
+          <strong>&laquo; Le cha&icirc;non manquant du vibe coding &raquo;.</strong> Cadris.ai transforme une simple
+          description de projet en un <strong>dossier de cadrage complet de 24 documents</strong>
+          (strat&eacute;gie, business, produit, tech, design, plan d'impl&eacute;mentation, user guide)
+          g&eacute;n&eacute;r&eacute; en quelques minutes par <strong>8 agents IA travaillant en 4 vagues
+          s&eacute;quentielles</strong>. Pens&eacute; pour les devs et fondateurs qui veulent passer du
+          &laquo; j'ai une id&eacute;e &raquo; au &laquo; j'ai un plan ex&eacute;cutable par Claude Code / Codex &raquo;.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="card reveal">
+          <div class="article-tags" aria-label="Technologies et briques du projet">
+            <span class="tag">Multi-agents</span>
+            <span class="tag">OpenAI Agents SDK</span>
+            <span class="tag">GPT-4.1</span>
+            <span class="tag">Llama 3.3 (Together AI)</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Next.js 15</span>
+            <span class="tag">NextAuth v5</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Stripe</span>
+            <span class="tag">GCP Cloud Run</span>
+            <span class="tag">SSE</span>
+            <span class="tag">HMAC</span>
+            <span class="tag">WeasyPrint</span>
+          </div>
+
+          <div class="project-showcase" data-lightbox-gallery="cadris" aria-label="Aper&ccedil;us Cadris.ai">
+            <figure class="project-shot">
+              <img class="project-image project-image--contain" src="../assets/images/cadris1.png"
+                alt="Landing Cadris.ai avec le pitch &laquo; Arr&ecirc;tez de coder &agrave; l'aveugle. Cadrez d'abord. &raquo;"
+                loading="lazy" data-lightbox>
+            </figure>
+            <figure class="project-shot">
+              <img class="project-image project-image--contain" src="../assets/images/cadris2.png"
+                alt="Workspace Cadris : liste des projets en cours et termin&eacute;s d'un utilisateur"
+                loading="lazy" data-lightbox>
+            </figure>
+            <figure class="project-shot">
+              <img class="project-image project-image--contain" src="../assets/images/cadris3.png"
+                alt="Mission Cadris : phase de qualification et progression des vagues d'agents IA"
+                loading="lazy" data-lightbox>
+            </figure>
+            <figure class="project-shot">
+              <img class="project-image project-image--contain" src="../assets/images/cadris4.png"
+                alt="Dossier final Cadris : navigation entre les 24 documents et exports MD / PDF / PPTX"
+                loading="lazy" data-lightbox>
+            </figure>
+            <figure class="project-shot">
+              <img class="project-image project-image--contain" src="../assets/images/cadris5.png"
+                alt="Page billing Cadris : plans Free / Starter / Pro / Expert" loading="lazy" data-lightbox>
+            </figure>
+          </div>
+
+          <h2>Le probl&egrave;me r&eacute;solu</h2>
+          <p>
+            Avec le <em>vibe coding</em>, on demande &agrave; un LLM de coder sans plan. Au mieux on obtient un
+            prototype qui fonctionne 10 minutes. Au pire, on accumule code spaghetti, stack mal choisie,
+            refactos &agrave; rallonge, architecture inadapt&eacute;e et vision produit floue. Le code n'est pas
+            le probl&egrave;me : <strong>c'est ce qui n'a pas &eacute;t&eacute; d&eacute;cid&eacute; avant</strong>
+            qui co&ucirc;te ensuite des semaines.
+          </p>
+          <p>
+            Cadris.ai r&eacute;pond &agrave; cette douleur en industrialisant la phase de cadrage. L'utilisateur
+            d&eacute;crit son projet en quelques phrases, r&eacute;pond &agrave; 5 questions de qualification, puis
+            laisse 8 agents sp&eacute;cialis&eacute;s produire un dossier complet : strat&eacute;gie, business model,
+            user stories, architecture, data model, design system, plan d'impl&eacute;mentation pr&ecirc;t pour
+            Claude Code ou Codex.
+          </p>
+
+          <div class="callout">
+            <h3>Cible utilisateur</h3>
+            <ul>
+              <li><strong>Fondateurs et solopreneurs</strong> qui veulent valider un projet avant d'y mettre du
+                temps technique.</li>
+              <li><strong>Freelances et &eacute;quipes produit</strong> qui doivent livrer un cadrage propre &agrave;
+                un client en quelques jours.</li>
+              <li><strong>D&eacute;veloppeurs</strong> qui utilisent Claude Code / Codex et veulent un brief
+                permanent (CLAUDE.md, user stories, architecture) au lieu de re-cadrer &agrave; chaque session.</li>
+            </ul>
+          </div>
+
+          <h2>Comment &ccedil;a marche : orchestration multi-agents</h2>
+          <p>
+            Le coeur du syst&egrave;me est une orchestration multi-agents pilot&eacute;e par l'<strong>OpenAI Agents
+            SDK</strong>. Les 8 agents sont organis&eacute;s en 4 vagues s&eacute;quentielles, avec une phase de
+            critique entre les vagues 2 et 3 sur les plans payants, et une pause utilisateur pour valider les
+            documents avant la suite.
+          </p>
+
+          <div class="callout">
+            <h3>Les 4 vagues de production</h3>
+            <ol>
+              <li><strong>Vague 1 - Strat&eacute;gie</strong> (1 agent, 4 docs) : vision produit, probl&egrave;me
+                r&eacute;solu, ICP / personas, value proposition.</li>
+              <li><strong>Vague 2 - Cadrage</strong> (3 agents, 8 docs) : business model, pricing, march&eacute;,
+                scope V1, MVP, PRD, user stories, feature specs. <em>Cooldown 10s entre agents + critic + pause user</em>.</li>
+              <li><strong>Vague 3 - Technique</strong> (3 agents, 8 docs) : architecture, stack, NFR / s&eacute;curit&eacute;,
+                data model, API spec, UX principles, information architecture, design system. <em>Critic + pause user</em>.</li>
+              <li><strong>Vague 4 - Consolidation</strong> (1 agent, 4 docs) : executive summary, dossier consolid&eacute;,
+                <code>CLAUDE.md</code> (plan d'impl&eacute;mentation), user guide.</li>
+            </ol>
+          </div>
+
+          <p>
+            Chaque agent fonctionne avec un m&eacute;canisme de <strong>retry exponentiel</strong> (5 tentatives,
+            backoff cap&eacute; &agrave; 120s) et un <strong>fallback documentaire</strong> : si un agent &eacute;choue
+            d&eacute;finitivement, un placeholder est inject&eacute; pour ne jamais laisser de trou dans le dossier
+            final. Le flux est diffus&eacute; en temps r&eacute;el au front via <strong>SSE</strong>
+            (Server-Sent Events) avec un heartbeat toutes les 15s pour maintenir la connexion.
+          </p>
+
+          <h2>Les 24 documents produits</h2>
+          <p>
+            Un dossier Cadris est compos&eacute; de 24 documents organis&eacute;s en 6 dossiers th&eacute;matiques.
+            Chaque document est typ&eacute;, signe son agent producteur, sa version, et porte un badge
+            <em>certainty</em> (Solide / &Agrave; confirmer / Inconnu / Bloquant) qui force l'auteur des prompts
+            &agrave; tracer son niveau de confiance.
+          </p>
+          <div class="callout">
+            <h3>D&eacute;coupage du dossier</h3>
+            <ul>
+              <li><strong>01-strategy</strong> (4 docs) : vision_produit, problem_statement, icp_personas,
+                value_proposition.</li>
+              <li><strong>02-business</strong> (3 docs) : business_model, pricing_strategy, market_analysis.</li>
+              <li><strong>03-product</strong> (5 docs) : scope_document, mvp_definition, prd, user_stories,
+                feature_specs.</li>
+              <li><strong>04-technical</strong> (5 docs) : architecture, tech_stack, nfr_security, data_model,
+                api_spec.</li>
+              <li><strong>05-design</strong> (3 docs) : ux_principles, information_architecture, design_system.</li>
+              <li><strong>06-synthesis</strong> + racine (4 docs) : executive_summary, dossier_consolide,
+                <code>CLAUDE.md</code> (plan d'impl&eacute;mentation step-by-step), user_guide.</li>
+            </ul>
+          </div>
+
+          <h2>Stack technique</h2>
+          <p>
+            Architecture <strong>monorepo</strong> r&eacute;partie sur 4 services, chacun d&eacute;ploy&eacute; en
+            container Cloud Run isol&eacute; (non-root, .dockerignore, secrets via GCP Secret Manager) :
+          </p>
+          <div class="callout">
+            <h3>Services et r&ocirc;les</h3>
+            <ul>
+              <li><strong>apps/web</strong> - Next.js 15 + Turbopack + React + NextAuth v5 (port 3000) : UI
+                publique, auth, gestion de session.</li>
+              <li><strong>apps/control-plane</strong> - FastAPI + SQLAlchemy + bcrypt (port 8000) : auth proxy
+                HMAC, billing Stripe, missions, partage de dossiers.</li>
+              <li><strong>apps/runtime</strong> - FastAPI + OpenAI Agents SDK (port 8001) : orchestration des
+                vagues, stream SSE, retries et fallback documentaires.</li>
+              <li><strong>apps/renderer</strong> - FastAPI + WeasyPrint (port 8002) : conversion Markdown vers
+                PDF haute fid&eacute;lit&eacute;.</li>
+              <li><strong>packages</strong> - schemas partag&eacute;s (Zod c&ocirc;t&eacute; web, Pydantic
+                c&ocirc;t&eacute; Python), client SDK, biblioth&egrave;que de prompts en markdown.</li>
+              <li><strong>Reverse proxy</strong> - Caddy avec HSTS, CSP, X-Frame-Options, HTTPS auto via
+                Let's Encrypt.</li>
+              <li><strong>Base de donn&eacute;es</strong> - SQLite en dev, Postgres Neon.tech en prod.</li>
+              <li><strong>D&eacute;ploiement</strong> - GCP Cloud Run, region europe-west1, 6 services, script
+                unique <code>deploy/gcr/deploy.sh</code>, image tagging git-sha-timestamp pour rollback rapide.</li>
+            </ul>
+          </div>
+
+          <h2>Sp&eacute;cificit&eacute;s du plan Free</h2>
+          <p>
+            Le plan gratuit utilise <strong>Llama 3.3 70B Instruct Turbo</strong> via <strong>Together AI</strong>,
+            wrappp&eacute; avec <code>OpenAIChatCompletionsModel</code> (Together n'expose pas <code>/v1/responses</code>).
+            Pour rester rentable, le contexte par document est tronqu&eacute; &agrave; 800 caract&egrave;res
+            (vs 1200 sur les plans payants), la phase de critique est d&eacute;sactiv&eacute;e, et un retry
+            intelligent re-prompte le mod&egrave;le en mode concis quand un JSON mal form&eacute; est d&eacute;tect&eacute;.
+            Sur Pro / Expert, le moteur bascule sur <strong>GPT-4.1</strong> et l'agent business gagne acc&egrave;s
+            &agrave; <strong>Perplexity</strong> pour les recherches de march&eacute;.
+          </p>
+
+          <h2>Plans tarifaires</h2>
+          <div class="callout">
+            <ul>
+              <li><strong>Free - 0&euro;/mois</strong> : 1 mission par mois, 24 docs, export Markdown.</li>
+              <li><strong>Starter - 9&euro;/mois</strong> : 5 missions, agent critique qualit&eacute;, exports
+                PDF + Markdown.</li>
+              <li><strong>Pro - 29&euro;/mois</strong> (le plus pris) : 10 missions, critic, PDF + MD + ZIP,
+                historique complet, support prioritaire.</li>
+              <li><strong>Expert - 99&euro;/mois</strong> : 20 missions, critic, exports PDF + MD + ZIP + PPTX,
+                support d&eacute;di&eacute;.</li>
+            </ul>
+          </div>
+          <p>
+            L'enforcement des quotas passe par <code>check_and_increment_mission()</code> avec un
+            <code>SELECT ... FOR UPDATE</code> sous Postgres pour &eacute;viter les races, un reset lazy le 1er
+            du mois, et un rollback atomique si le runtime crashe apr&egrave;s l'incr&eacute;ment : le cr&eacute;dit
+            n'est pas consomm&eacute; pour rien.
+          </p>
+
+          <h2>S&eacute;curit&eacute;</h2>
+          <p>
+            Tout le trafic entre le web Next.js et le control-plane FastAPI passe par un <strong>auth proxy
+            HMAC-SHA256</strong> avec replay window de 60s, body hash anti-tampering, et un secret distinct du
+            secret NextAuth. C&ocirc;t&eacute; runtime, un second secret HMAC isole encore le service de
+            l'ext&eacute;rieur. Les <code>user_id</code> sont valid&eacute;s par regex strict pour neutraliser
+            les tentatives de <em>path traversal</em>.
+          </p>
+          <div class="callout">
+            <h3>Garde-fous applicatifs</h3>
+            <ul>
+              <li><strong>Rate limits</strong> : auth 5 req/min/IP, lancement de mission 2 req/min/user, liens
+                publics partag&eacute;s 10 req/min/IP. Impl&eacute;mentation in-memory bounded deque.</li>
+              <li><strong>Caddy</strong> : HSTS <code>max-age=63072000; includeSubDomains; preload</code>, CSP
+                <code>default-src 'self'</code>, <code>X-Frame-Options: DENY</code>, <code>X-Content-Type-Options:
+                nosniff</code>.</li>
+              <li><strong>Share tokens</strong> : 32 octets g&eacute;n&eacute;r&eacute;s via
+                <code>secrets.token_urlsafe</code>, seul le <em>sha256</em> est stock&eacute; en base, TTL 30 jours.</li>
+              <li><strong>Reset password</strong> : token TTL 1h, rate-limit 5 req/min/IP, anti-&eacute;num&eacute;ration
+                sur la r&eacute;ponse.</li>
+            </ul>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn secondary" href="../projets.html">Retour aux projets</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+  </div>
+</body>
+
+</html>
