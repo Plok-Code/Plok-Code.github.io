@@ -13,6 +13,7 @@ import { initContactForms } from './contact.js';
 import { initPresentationViewers } from './presentation-viewer.js';
 import { setupPjax, setInitPageFeatures, hardNavigate } from './pjax.js';
 import { initMagnetic } from './magnetic.js';
+import { initProjectToc } from './project-toc.js';
 
 document.documentElement.classList.add("js");
 
@@ -31,6 +32,7 @@ const initPageFeatures = () => {
     initContactForms();
     initPresentationViewers();
     initMagnetic();
+    initProjectToc();
 };
 
 // Set pjax callback

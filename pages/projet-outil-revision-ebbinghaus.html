@@ -77,10 +77,10 @@
             Mon CV
           </summary>
           <div class="masthead__cv-menu">
-            <a href="../assets/documents/Papier CV DE alternance.pdf" target="_blank" rel="noreferrer">Version &agrave;
-              imprimer</a>
-            <a href="../assets/documents/Mail CV DE alternance.pdf" target="_blank" rel="noreferrer">Version
-              num&eacute;rique</a>
+            <a href="../assets/documents/CV_ML_Engineer_Idris_Naulleau-Aurial.pdf" target="_blank" rel="noreferrer">ML Engineer &middot; PDF</a>
+            <a href="../assets/documents/CV_ML_Engineer_Idris_Naulleau-Aurial.docx" download>ML Engineer &middot; Word</a>
+            <a href="../assets/documents/CV_Data_Engineer_Idris_Naulleau-Aurial.pdf" target="_blank" rel="noreferrer">Data Engineer &middot; PDF</a>
+            <a href="../assets/documents/CV_Data_Engineer_Idris_Naulleau-Aurial.docx" download>Data Engineer &middot; Word</a>
           </div>
         </details>
       </div>
@@ -97,11 +97,10 @@
     </nav>
 
     <main id="main">
-      <section class="card reveal reveal-on-load">
-        <p class="kicker">Projet</p>
-        <h1>Apprendre avec la Science - automatisation des r&eacute;visions</h1>
+      <section class="card reveal reveal-on-load proj-hero">
+        <h1>Apprendre avec la Science</h1>
         <div class="project-meta">
-          <span class="pill">Cat&eacute;gorie : Projets Data</span>
+          <span class="pill">Cat&eacute;gorie : IA</span>
           <span class="pill">Statut : termin&eacute;</span>
         </div>
         <p class="muted">
@@ -109,26 +108,30 @@
           planifier les r&eacute;visions, r&eacute;cup&eacute;rer les contenus du jour, et g&eacute;n&eacute;rer automatiquement un auto-test pertinent
           diffus&eacute; sur Discord.
         </p>
+        <p class="project-stack"><strong>Stack :</strong> Python, LLM (Llama via Groq), API REST, Prompt engineering, Web scraping</p>
         <div class="hero-actions">
-          <a class="btn primary" href="https://github.com/Plok-Code/R-visions-WCS" target="_blank"
-            rel="noreferrer">Voir le GitHub</a>
+          <a class="btn primary" href="https://github.com/Plok-Code/R-visions-WCS" target="_blank" rel="noreferrer">Voir le GitHub</a>
         </div>
       </section>
 
-      <section class="section">
-        <div class="card reveal">
-          <div class="article-tags" aria-label="Technologies et briques du projet">
-            <span class="tag">Python</span>
-            <span class="tag">Excel</span>
-            <span class="tag">Discord</span>
-            <span class="tag">Playwright</span>
-            <span class="tag">Beautiful Soup</span>
-            <span class="tag">LLM API</span>
-            <span class="tag">Webhook</span>
-            <span class="tag">Make / Integromat</span>
-          </div>
-
-          <h2>Gen&egrave;se</h2>
+      <section class="section proj-doc" style="margin-top:14px;">
+        <div class="proj-doc__layout">
+          <aside class="proj-doc__toc">
+            <nav aria-label="Sommaire">
+              <p class="proj-doc__toc-title">Sommaire</p>
+              <ol>
+                <li><a href="#genese">Gen&egrave;se</a></li>
+                <li><a href="#recherche">La recherche scientifique derri&egrave;re l'outil</a></li>
+                <li><a href="#tier-list">Tier-list des techniques d'apprentissage</a></li>
+                <li><a href="#prototype-make">Premier prototype no-code avec Make</a></li>
+                <li><a href="#adaptation-wcs">Adaptation pour la Wild Code School</a></li>
+                <li><a href="#pipeline">Pipeline automatis&eacute;</a></li>
+                <li><a href="#garde-fou">Garde-fou : validation humaine</a></li>
+              </ol>
+            </nav>
+          </aside>
+          <div class="card proj-doc__body">
+          <h2 id="genese">Gen&egrave;se</h2>
           <p>
             L'apprentissage est un sujet central pour moi. J'ai donc d&eacute;cid&eacute; de me former s&eacute;rieusement aux meilleures
             techniques de m&eacute;morisation et d'&eacute;tudier la litt&eacute;rature scientifique sur le sujet. Cette recherche m'a
@@ -142,7 +145,7 @@
             <strong>Make / Integromat</strong>.
           </p>
 
-          <h2>La recherche scientifique derri&egrave;re l'outil</h2>
+          <h2 id="recherche">La recherche scientifique derri&egrave;re l'outil</h2>
           <p>
             Le point de d&eacute;part est une <strong>m&eacute;ta-analyse synth&eacute;tisant plus de 700 &eacute;tudes
             scientifiques</strong> sur les techniques d'apprentissage. Plut&ocirc;t que de partir de l'intuition ou des
@@ -152,16 +155,9 @@
           <p>
             En parall&egrave;le, j'ai cartographi&eacute; le <strong>fonctionnement r&eacute;el de la m&eacute;moire</strong> :
           </p>
-          <ul>
-            <li><strong>M&eacute;moire sensorielle</strong> (de quelques millisecondes &agrave; 4 secondes) : tri massif des
-              stimuli per&ccedil;us par nos sens, avant tout transfert conscient.</li>
-            <li><strong>M&eacute;moire de travail</strong> (15 &agrave; 30 secondes, ~7 &eacute;l&eacute;ments) : passage obligatoire,
-              activ&eacute; par le focus volontaire (motivation, cortex pr&eacute;frontal) ou involontaire (stimuli externes).</li>
-            <li><strong>M&eacute;moire long terme</strong> : stockage durable via l'hippocampe et la neuroplasticit&eacute;,
-              renforc&eacute; par l'engagement actif et l'importance &eacute;motionnelle de l'information.</li>
-            <li><strong>R&eacute;cup&eacute;ration et consolidation</strong> : chaque rappel "remonte" l'information vers la
-              m&eacute;moire de travail et aplatit la courbe d'oubli pour les prochains jours.</li>
-          </ul>
+          <figure class="project-figure">
+            <img src="../assets/images/apprendrescience/memorisation.png" alt="Fonctionnement r&eacute;el de la m&eacute;moire" loading="lazy">
+          </figure>
           <p>
             La <strong>courbe d'Ebbinghaus</strong> donne la m&eacute;trique cl&eacute; : <strong>58 % d'information
             retenue apr&egrave;s 20 minutes, 34 % apr&egrave;s 24h, autour de 21 &agrave; 25 % apr&egrave;s une
@@ -169,8 +165,10 @@
             suffisent pour ancrer une information &agrave; vie</strong> : J+0 (20 min), J+1, J+3, J+7, J+14, J+30, J+90,
             J+180, puis un rappel tous les 2 ans.
           </p>
-
-          <h2>Tier-list des techniques d'apprentissage</h2>
+          <figure class="project-figure">
+            <img src="../assets/images/apprendrescience/courbe4.png" alt="Courbe de l'oubli d'Ebbinghaus et r&eacute;visions espac&eacute;es" loading="lazy">
+          </figure>
+          <h2 id="tier-list">Tier-list des techniques d'apprentissage</h2>
           <p>
             La m&eacute;ta-analyse permet de trancher entre les m&eacute;thodes qui marchent vraiment et celles qui sont
             vendues mais inefficaces :
@@ -194,13 +192,15 @@
               <strong>sleep learning</strong>.</li>
           </ul>
 
-          <h2>Premier prototype no-code avec Make</h2>
+          <figure class="project-figure">
+            <img src="../assets/images/apprendrescience/tierslist.png" alt="Tier-list des techniques d'apprentissage" loading="lazy">
+          </figure>
+          <h2 id="prototype-make">Premier prototype no-code avec Make</h2>
           <p>
             Une fois la tier-list pos&eacute;e, l'objectif du prototype &eacute;tait clair : <strong>automatiser les
             deux techniques Tier S qui demandent le plus de discipline dans le temps</strong>, &agrave; savoir
             l'<strong>auto-test</strong> et la <strong>r&eacute;p&eacute;tition espac&eacute;e</strong>. Le reste
-            (Pomodoro, Feynman, mind maps&hellip;) reste &agrave; la main de l'apprenant, parce que ces techniques se
-            d&eacute;clenchent au moment de l'&eacute;tude, pas du rappel.
+            (Pomodoro, Feynman, mind maps&hellip;) reste &agrave; la main de l'apprenant.
           </p>
           <p>
             J'ai voulu rendre tout &ccedil;a <strong>utilisable au quotidien sans frottement</strong>. Premi&egrave;re
@@ -231,7 +231,10 @@
             friction op&eacute;rationnelle pour que r&eacute;viser devienne quelque chose de faisable au quotidien.
           </p>
 
-          <h2>Adaptation pour la Wild Code School</h2>
+          <figure class="project-figure">
+            <img src="../assets/images/apprendrescience/make.png" alt="Sc&eacute;nario d'automatisation no-code avec Make" loading="lazy">
+          </figure>
+          <h2 id="adaptation-wcs">Adaptation pour la Wild Code School</h2>
           <p>
             Pendant mon cursus Data Analyst &agrave; la <strong>Wild Code School</strong>, j'ai pr&eacute;sent&eacute;
             cet outil aux responsables p&eacute;dagogiques et je leur ai propos&eacute; une adaptation sur mesure pour
@@ -250,23 +253,29 @@
             Discord, pr&ecirc;t &agrave; &ecirc;tre fait.
           </p>
 
-          <h2>Pipeline automatis&eacute;</h2>
+          <figure class="project-figure">
+            <img src="../assets/images/apprendrescience/discord1.png" alt="Test de r&eacute;vision diffus&eacute; sur Discord (1/2)" loading="lazy">
+          </figure>
+          <figure class="project-figure">
+            <img src="../assets/images/apprendrescience/discord2.png" alt="Test de r&eacute;vision diffus&eacute; sur Discord (2/2)" loading="lazy">
+          </figure>
+          <h2 id="pipeline">Pipeline automatis&eacute;</h2>
           <p>
             Sortie de Make / no-code, place &agrave; un <strong>vrai script Python</strong> que je peux planifier en
-            cron (Linux/Mac) ou via le Planificateur de t&acirc;ches Windows. Stack complet :
+            cron (Linux/Mac) ou via le Planificateur de t&acirc;ches Windows. Une ex&eacute;cution compl&egrave;te tourne en ~30 secondes. Stack complet :
           </p>
           <ul>
             <li><strong>Excel</strong> <code>Revision_WCS.xlsx</code> : planning des cours (nom, URL Odyssey, date) avec
               calcul automatique des dates de r&eacute;vision selon la courbe d'Ebbinghaus.</li>
-            <li><strong>Playwright</strong> (Chromium headless) : connexion automatique &agrave; Odyssey,
+            <li><strong>Playwright</strong> (Chromium headless) : connexion automatique &agrave; Odyssey (authentification via un fichier <code>.env</code>),
               navigation vers chaque cours du jour, extraction du contenu (HTML, images, liens Google Drive / Colab)
               puis conversion en Markdown propre.</li>
             <li><strong>Groq + Llama 3.3 70B</strong> (API gratuite, ~14 000 requ&ecirc;tes par jour) :
               <strong>un seul test consolid&eacute;</strong> par jour, 15 &agrave; 20 minutes, environ 2-3 questions
               <strong>ouvertes</strong> par cours, m&eacute;lang&eacute;es pour favoriser la compr&eacute;hension
-              transversale. Pas de QCM, pas de corrig&eacute; (conforme &agrave; la m&eacute;ta-analyse).</li>
+              transversale, pilot&eacute;es par un prompt syst&egrave;me &laquo;&nbsp;professeur de Data Science&nbsp;&raquo;. Pas de QCM, pas de corrig&eacute; (conforme &agrave; la m&eacute;ta-analyse).</li>
             <li><strong>Webhook Discord</strong> : envoi du test format&eacute; en Markdown avec d&eacute;coupage
-              automatique pour respecter la limite de 2 000 caract&egrave;res par message.</li>
+              automatique pour respecter la limite de 2 000 caract&egrave;res par message, dans le salon d&eacute;di&eacute; aux promos Data Analyst de septembre 2025.</li>
           </ul>
 
           <div class="mini-timeline" aria-label="Pipeline du projet">
@@ -281,25 +290,7 @@
             <span class="mini-timeline__step">Webhook Discord</span>
           </div>
 
-          <div class="callout">
-            <h3>Cha&icirc;ne de traitement (1 ex&eacute;cution = ~30 secondes)</h3>
-            <ol>
-              <li><strong>Analyse du planning</strong> : lecture du <code>Revision_WCS.xlsx</code>, extraction des
-                cours dont la date de r&eacute;vision tombe aujourd'hui.</li>
-              <li><strong>Scraping automatis&eacute;</strong> : Playwright lance un Chromium headless,
-                s'authentifie sur Odyssey avec les credentials de l'<code>.env</code>, navigue sur chaque cours.</li>
-              <li><strong>Extraction de contenu</strong> : HTML transform&eacute; en Markdown, images et ressources
-                Google Drive / Colab incluses.</li>
-              <li><strong>G&eacute;n&eacute;ration IA</strong> : agr&eacute;gation du contenu de tous les cours du
-                jour, appel &agrave; l'API Groq avec un prompt syst&egrave;me "professeur de Data Science",
-                production d'un test unique coh&eacute;rent.</li>
-              <li><strong>Distribution Discord</strong> : d&eacute;coupage intelligent (&lt; 2 000 caract&egrave;res),
-                pr&eacute;servation du Markdown, envoi via webhook dans le salon Discord d&eacute;di&eacute; aux
-                promos Data Analyst de septembre 2025.</li>
-            </ol>
-          </div>
-
-          <h2>Garde-fou : validation humaine avant diffusion</h2>
+          <h2 id="garde-fou">Garde-fou : validation humaine avant diffusion</h2>
           <p>
             Si j'avais d&eacute;ploy&eacute; les tests tels que le mod&egrave;le les g&eacute;n&eacute;rait, j'aurais
             potentiellement <strong>fait apprendre des erreurs &agrave; des &eacute;l&eacute;ves</strong>. Sur ce projet
@@ -318,8 +309,8 @@
             <strong>quelques leviers concrets</strong> pour fiabiliser la sortie d'un LLM en production sans relire
             10 000 outputs par jour (grounding strict, consensus N-shots, second mod&egrave;le critic, QA
             &eacute;chantillonn&eacute;e &agrave; 2-5 %, flagging des questions o&ugrave; tout le monde se plante&hellip;).
-            &Agrave; lire dans la <a href="../articles.html">section Articles du portfolio</a> sous
-            <em>&laquo; Les projets LLMs sont-ils r&eacute;ellement fiables en entreprise ? &raquo;</em>.
+            &Agrave; lire directement :
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7459272064672333824/" target="_blank" rel="noreferrer"><em>&laquo; Les projets LLMs sont-ils r&eacute;ellement fiables en entreprise ? &raquo;</em></a>.
           </p>
 
           <p>
@@ -335,6 +326,7 @@
             (open source). Coup d'usage quotidien : ~0,007 % du quota Groq gratuit, soit infiniment scalable
             &agrave; l'&eacute;chelle d'une promo.
           </p>
+        </div>
         </div>
       </section>
     </main>

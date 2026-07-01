@@ -77,10 +77,10 @@
             Mon CV
           </summary>
           <div class="masthead__cv-menu">
-            <a href="../assets/documents/Papier CV DE alternance.pdf" target="_blank" rel="noreferrer">Version &agrave;
-              imprimer</a>
-            <a href="../assets/documents/Mail CV DE alternance.pdf" target="_blank" rel="noreferrer">Version
-              num&eacute;rique</a>
+            <a href="../assets/documents/CV_ML_Engineer_Idris_Naulleau-Aurial.pdf" target="_blank" rel="noreferrer">ML Engineer &middot; PDF</a>
+            <a href="../assets/documents/CV_ML_Engineer_Idris_Naulleau-Aurial.docx" download>ML Engineer &middot; Word</a>
+            <a href="../assets/documents/CV_Data_Engineer_Idris_Naulleau-Aurial.pdf" target="_blank" rel="noreferrer">Data Engineer &middot; PDF</a>
+            <a href="../assets/documents/CV_Data_Engineer_Idris_Naulleau-Aurial.docx" download>Data Engineer &middot; Word</a>
           </div>
         </details>
       </div>
@@ -97,7 +97,7 @@
     </nav>
 
     <main id="main">
-      <section class="card reveal reveal-on-load">
+      <section class="card reveal reveal-on-load proj-hero">
         <p class="kicker">IA / SaaS Agentique</p>
         <h1>Cadris.ai - SaaS Agentique pour l'architecture de projets num&eacute;riques</h1>
         <div class="project-meta">
@@ -114,8 +114,23 @@
         </p>
       </section>
 
-      <section class="section">
-        <div class="card reveal">
+      <section class="section proj-doc" style="margin-top:14px;">
+        <div class="proj-doc__layout">
+          <aside class="proj-doc__toc">
+            <nav aria-label="Sommaire">
+              <p class="proj-doc__toc-title">Sommaire</p>
+              <ol>
+                <li><a href="#le-probleme-resolu">Le probl&egrave;me r&eacute;solu</a></li>
+                <li><a href="#orchestration-multi-agents">Orchestration multi-agents</a></li>
+                <li><a href="#les-24-documents-produits">Les 24 documents produits</a></li>
+                <li><a href="#stack-technique">Stack technique</a></li>
+                <li><a href="#specificites-du-plan-free">Sp&eacute;cificit&eacute;s du plan Free</a></li>
+                <li><a href="#plans-tarifaires">Plans tarifaires</a></li>
+                <li><a href="#securite">S&eacute;curit&eacute;</a></li>
+              </ol>
+            </nav>
+          </aside>
+          <div class="card proj-doc__body">
           <div class="article-tags" aria-label="Technologies et briques du projet">
             <span class="tag">Multi-agents</span>
             <span class="tag">OpenAI Agents SDK</span>
@@ -159,7 +174,7 @@
             </figure>
           </div>
 
-          <h2>Le probl&egrave;me r&eacute;solu</h2>
+          <h2 id="le-probleme-resolu">Le probl&egrave;me r&eacute;solu</h2>
           <p>
             Avec le <em>vibe coding</em>, on demande &agrave; un LLM de coder sans plan. Au mieux on obtient un
             prototype qui fonctionne 10 minutes. Au pire, on accumule code spaghetti, stack mal choisie,
@@ -187,7 +202,7 @@
             </ul>
           </div>
 
-          <h2>Comment &ccedil;a marche : orchestration multi-agents</h2>
+          <h2 id="orchestration-multi-agents">Comment &ccedil;a marche : orchestration multi-agents</h2>
           <p>
             Le coeur du syst&egrave;me est une orchestration multi-agents pilot&eacute;e par l'<strong>OpenAI Agents
             SDK</strong>. Les 8 agents sont organis&eacute;s en 4 vagues s&eacute;quentielles, avec une phase de
@@ -217,7 +232,7 @@
             (Server-Sent Events) avec un heartbeat toutes les 15s pour maintenir la connexion.
           </p>
 
-          <h2>Les 24 documents produits</h2>
+          <h2 id="les-24-documents-produits">Les 24 documents produits</h2>
           <p>
             Un dossier Cadris est compos&eacute; de 24 documents organis&eacute;s en 6 dossiers th&eacute;matiques.
             Chaque document est typ&eacute;, signe son agent producteur, sa version, et porte un badge
@@ -240,7 +255,7 @@
             </ul>
           </div>
 
-          <h2>Stack technique</h2>
+          <h2 id="stack-technique">Stack technique</h2>
           <p>
             Architecture <strong>monorepo</strong> r&eacute;partie sur 4 services, chacun d&eacute;ploy&eacute; en
             container Cloud Run isol&eacute; (non-root, .dockerignore, secrets via GCP Secret Manager) :
@@ -266,7 +281,7 @@
             </ul>
           </div>
 
-          <h2>Sp&eacute;cificit&eacute;s du plan Free</h2>
+          <h2 id="specificites-du-plan-free">Sp&eacute;cificit&eacute;s du plan Free</h2>
           <p>
             Le plan gratuit utilise <strong>Llama 3.3 70B Instruct Turbo</strong> via <strong>Together AI</strong>,
             wrappp&eacute; avec <code>OpenAIChatCompletionsModel</code> (Together n'expose pas <code>/v1/responses</code>).
@@ -277,7 +292,7 @@
             &agrave; <strong>Perplexity</strong> pour les recherches de march&eacute;.
           </p>
 
-          <h2>Plans tarifaires</h2>
+          <h2 id="plans-tarifaires">Plans tarifaires</h2>
           <div class="callout">
             <ul>
               <li><strong>Free - 0&euro;/mois</strong> : 1 mission par mois, 24 docs, export Markdown.</li>
@@ -296,7 +311,7 @@
             n'est pas consomm&eacute; pour rien.
           </p>
 
-          <h2>S&eacute;curit&eacute;</h2>
+          <h2 id="securite">S&eacute;curit&eacute;</h2>
           <p>
             Tout le trafic entre le web Next.js et le control-plane FastAPI passe par un <strong>auth proxy
             HMAC-SHA256</strong> avec replay window de 60s, body hash anti-tampering, et un secret distinct du
@@ -321,6 +336,7 @@
 
           <div class="hero-actions">
             <a class="btn secondary" href="../projets.html">Retour aux projets</a>
+          </div>
           </div>
         </div>
       </section>

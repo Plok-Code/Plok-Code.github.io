@@ -77,10 +77,10 @@
             Mon CV
           </summary>
           <div class="masthead__cv-menu">
-            <a href="../assets/documents/Papier CV DE alternance.pdf" target="_blank" rel="noreferrer">Version &agrave;
-              imprimer</a>
-            <a href="../assets/documents/Mail CV DE alternance.pdf" target="_blank" rel="noreferrer">Version
-              num&eacute;rique</a>
+            <a href="../assets/documents/CV_ML_Engineer_Idris_Naulleau-Aurial.pdf" target="_blank" rel="noreferrer">ML Engineer &middot; PDF</a>
+            <a href="../assets/documents/CV_ML_Engineer_Idris_Naulleau-Aurial.docx" download>ML Engineer &middot; Word</a>
+            <a href="../assets/documents/CV_Data_Engineer_Idris_Naulleau-Aurial.pdf" target="_blank" rel="noreferrer">Data Engineer &middot; PDF</a>
+            <a href="../assets/documents/CV_Data_Engineer_Idris_Naulleau-Aurial.docx" download>Data Engineer &middot; Word</a>
           </div>
         </details>
       </div>
@@ -97,8 +97,7 @@
     </nav>
 
     <main id="main">
-      <section class="card reveal reveal-on-load">
-        <p class="kicker">Projet</p>
+      <section class="card reveal reveal-on-load proj-hero">
         <h1>WildFlix - app web de recommandation de films</h1>
         <div class="project-meta">
           <span class="pill">Cat&eacute;gorie : Data, BI &amp; Machine Learning</span>
@@ -206,8 +205,22 @@
         </div>
       </div>
 
-      <section class="section">
-        <div class="card reveal">
+      <section class="section proj-doc" style="margin-top:14px;">
+        <div class="proj-doc__layout">
+          <aside class="proj-doc__toc">
+            <nav aria-label="Sommaire">
+              <p class="proj-doc__toc-title">Sommaire</p>
+              <ol>
+                <li><a href="#du-brief-au-livrable">Du brief au livrable</a></li>
+                <li><a href="#parcours-produit-et-gestion-du-cold-start">Parcours produit et cold start</a></li>
+                <li><a href="#pipeline-data-et-modelisation">Pipeline data et mod&eacute;lisation</a></li>
+                <li><a href="#moteur-de-recommandation">Moteur de recommandation</a></li>
+                <li><a href="#pilotage-admin-et-kpi">Pilotage admin et KPI</a></li>
+                <li><a href="#stack-et-exploitation">Stack et exploitation</a></li>
+              </ol>
+            </nav>
+          </aside>
+          <div class="card proj-doc__body">
           <div class="article-tags" aria-label="Technologies et briques du projet">
             <span class="tag">Streamlit</span>
             <span class="tag">IMDb 5000</span>
@@ -219,7 +232,7 @@
             <span class="tag">Railway</span>
           </div>
 
-          <h2>Du brief au livrable</h2>
+          <h2 id="du-brief-au-livrable">Du brief au livrable</h2>
           <p>
             Le brief imposait deux blocs clairs. D'abord un produit <strong>user-facing</strong> :
             un <strong>site Streamlit</strong> capable de recommander des films dans un contexte de
@@ -279,7 +292,7 @@
             </figure>
           </div>
 
-          <h2>Parcours produit et gestion du cold start</h2>
+          <h2 id="parcours-produit-et-gestion-du-cold-start">Parcours produit et gestion du cold start</h2>
           <p>
             Le dataset source ne contient pas d'historique utilisateur. Nous avons donc construit une entr&eacute;e
             &eacute;ditoriale pour g&eacute;rer le cold start d&egrave;s la premi&egrave;re visite.
@@ -321,7 +334,7 @@
             <span class="mini-timeline__step">Recommandations</span>
           </div>
 
-          <h2>Pipeline data et mod&eacute;lisation</h2>
+          <h2 id="pipeline-data-et-modelisation">Pipeline data et mod&eacute;lisation</h2>
           <p>
             Le dataset final utilis&eacute; par l'app contient <strong>4 916 films</strong> et
             <strong>42 colonnes</strong>. Il vient du choix d'un MVP &agrave; partir de
@@ -367,7 +380,7 @@
             <strong>Power BI</strong> branch&eacute;s sur le m&ecirc;me socle de donn&eacute;es nettoy&eacute;es.
           </p>
 
-          <h2>Moteur de recommandation</h2>
+          <h2 id="moteur-de-recommandation">Moteur de recommandation</h2>
           <p>
             La recommandation combine deux familles de features. La partie textuelle agr&egrave;ge genres,
             <code>plot_keywords_final</code>, writers, acteurs et r&eacute;alisateurs dans une colonne
@@ -392,7 +405,7 @@
             </ul>
           </div>
 
-          <h2>Pilotage admin et KPI</h2>
+          <h2 id="pilotage-admin-et-kpi">Pilotage admin et KPI</h2>
           <p>
             Le compte admin permet de segmenter la lecture des favoris et des KPI selon quatre filtres utilisateurs
             pr&eacute;vus dans les profils :
@@ -426,7 +439,7 @@
             les m&ecirc;mes grandes familles d'indicateurs sur le mod&egrave;le analytique, dans une logique plus BI.
           </p>
 
-          <h2>Stack et exploitation</h2>
+          <h2 id="stack-et-exploitation">Stack et exploitation</h2>
           <p>
             Nous avons retenu Streamlit comme choix MVP pour aller vite et livrer une application exploitable de bout
             en bout. Nous avons fait tourner l'application avec un stockage JSON local en d&eacute;veloppement, puis une
@@ -434,6 +447,7 @@
             <strong>Railway</strong>, et l'admin dispose de scripts pour cr&eacute;er un compte, r&eacute;initialiser un
             mot de passe ou migrer les utilisateurs du local vers MySQL.
           </p>
+          </div>
         </div>
       </section>
     </main>

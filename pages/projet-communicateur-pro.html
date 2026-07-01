@@ -77,10 +77,10 @@
             Mon CV
           </summary>
           <div class="masthead__cv-menu">
-            <a href="../assets/documents/Papier CV DE alternance.pdf" target="_blank" rel="noreferrer">Version &agrave;
-              imprimer</a>
-            <a href="../assets/documents/Mail CV DE alternance.pdf" target="_blank" rel="noreferrer">Version
-              num&eacute;rique</a>
+            <a href="../assets/documents/CV_ML_Engineer_Idris_Naulleau-Aurial.pdf" target="_blank" rel="noreferrer">ML Engineer &middot; PDF</a>
+            <a href="../assets/documents/CV_ML_Engineer_Idris_Naulleau-Aurial.docx" download>ML Engineer &middot; Word</a>
+            <a href="../assets/documents/CV_Data_Engineer_Idris_Naulleau-Aurial.pdf" target="_blank" rel="noreferrer">Data Engineer &middot; PDF</a>
+            <a href="../assets/documents/CV_Data_Engineer_Idris_Naulleau-Aurial.docx" download>Data Engineer &middot; Word</a>
           </div>
         </details>
       </div>
@@ -97,8 +97,7 @@
     </nav>
 
     <main id="main">
-      <section class="card reveal reveal-on-load">
-        <p class="kicker">Projet</p>
+      <section class="card reveal reveal-on-load proj-hero">
         <h1>G-rard - Trello, Drive et GitHub vers Discord</h1>
         <div class="project-meta">
           <span class="pill">Catégorie : Automatisation et collaboration</span>
@@ -115,8 +114,22 @@
         </div>
       </section>
 
-      <section class="section">
-        <div class="card reveal">
+      <section class="section proj-doc" style="margin-top:14px;">
+        <div class="proj-doc__layout">
+          <aside class="proj-doc__toc">
+            <nav aria-label="Sommaire">
+              <p class="proj-doc__toc-title">Sommaire</p>
+              <ol>
+                <li><a href="#constat-de-depart">Constat de depart</a></li>
+                <li><a href="#intuition-produit">Intuition produit</a></li>
+                <li><a href="#apercu-du-produit">Apercu du produit</a></li>
+                <li><a href="#comment-gerard-fonctionne">Comment G-rard fonctionne</a></li>
+                <li><a href="#impact-sur-l-equipe">Impact sur l'equipe</a></li>
+                <li><a href="#open-source-par-logique-de-produit">Open source par logique de produit</a></li>
+              </ol>
+            </nav>
+          </aside>
+          <div class="card proj-doc__body">
           <div class="article-tags" aria-label="Technologies et briques du projet">
             <span class="tag">Node.js</span>
             <span class="tag">Express</span>
@@ -132,7 +145,7 @@
             l'equipe garde une lecture immediate de ce qui bouge vraiment dans le projet.
           </p>
 
-          <h2>Constat de depart</h2>
+          <h2 id="constat-de-depart">Constat de depart</h2>
           <p>
             Dans mes projets en equipe, j'ai souvent retrouve le meme empilement d'outils : Trello pour organiser,
             Discord pour communiquer, Google Drive ou Nextcloud pour partager, GitHub pour produire. Le probleme n'est
@@ -144,7 +157,7 @@
             conflits de taches, augmente les malentendus et finit par couter de l'energie au projet.
           </p>
 
-          <h2>Intuition produit</h2>
+          <h2 id="intuition-produit">Intuition produit</h2>
           <p>
             Dans beaucoup d'equipes, Discord joue deja le role de salle de pause, salle de reunion et bureaux en meme
             temps. Je suis donc parti d'une idee simple : si c'est deja l'espace central de l'equipe, alors c'est la
@@ -156,7 +169,7 @@
             plateforme separement.
           </p>
 
-          <h2>Apercu du produit</h2>
+          <h2 id="apercu-du-produit">Apercu du produit</h2>
           <div class="project-showcase" aria-label="Captures du projet G-rard">
             <figure class="project-shot">
               <img class="project-image project-image--contain" src="../assets/images/grard2.png"
@@ -175,7 +188,7 @@
             </figure>
           </div>
 
-          <h2>Comment G-rard fonctionne</h2>
+          <h2 id="comment-gerard-fonctionne">Comment G-rard fonctionne</h2>
           <p>
             G-rard est un bot Node.js qui relie Trello, Google Drive et GitHub a Discord. Le service recupere les
             evenements, verifie leur origine, filtre ceux qui sont vraiment utiles, les reformule dans un format clair
@@ -204,7 +217,7 @@
             </ul>
           </div>
 
-          <h2>Impact sur l'equipe</h2>
+          <h2 id="impact-sur-l-equipe">Impact sur l'equipe</h2>
           <p>
             L'apport de G-rard n'est pas seulement de notifier. Il reduit le temps mort entre une action et sa prise de
             conscience collective. Une information importante ne reste plus enfouie dans un outil secondaire : elle
@@ -216,13 +229,14 @@
             membre de l'equipe.
           </p>
 
-          <h2>Open source par logique de produit</h2>
+          <h2 id="open-source-par-logique-de-produit">Open source par logique de produit</h2>
           <p>
             J'ai choisi de rendre le projet open source parce que ce besoin depasse largement un seul contexte. Beaucoup
             d'equipes ont besoin de mieux centraliser leur communication operationnelle. Le depot permet donc de
             reprendre l'outil, l'auditer, l'adapter et le deployer selon sa propre organisation.
           </p>
 
+          </div>
         </div>
       </section>
     </main>

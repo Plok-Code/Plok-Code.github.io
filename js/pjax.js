@@ -43,6 +43,14 @@ export const replacePage = (nextDoc, newUrlHref) => {
     const adoptedPage = document.importNode(nextPage, true);
     currentPage.replaceWith(adoptedPage);
 
+    // Synchronise les classes du <body> avec la page de destination
+    // (ex: is-home). Sans ca, la classe de la page de depart (is-home de
+    // l'accueil) "fuit" en navigation PJAX et casse le layout des pages
+    // suivantes (main passe en flex). On preserve les classes runtime.
+    const runtimeClasses = ['is-pjax-loaded'].filter((c) => document.body.classList.contains(c));
+    document.body.className = nextDoc.body ? nextDoc.body.className : document.body.className;
+    runtimeClasses.forEach((c) => document.body.classList.add(c));
+
     document.title = nextDoc.title || document.title;
     initPageFeatures();
     return true;

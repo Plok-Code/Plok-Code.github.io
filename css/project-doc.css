@@ -1,0 +1,39 @@
+/* ===========================================================
+   PAGES PROJET (doc) : hero + sommaire 2 colonnes + fil d'Ariane.
+   Charge globalement (via style.css) pour survivre a la navigation
+   PJAX : un <style> par page ne s'appliquait qu'au refresh complet.
+   Tout est scope par classe (.proj-*, .breadcrumbs) donc neutre
+   sur les pages qui n'utilisent pas ces classes.
+   =========================================================== */
+
+html { scroll-behavior: smooth; }
+
+/* Fil d'Ariane : meme police (Inter) que le reste, casse normale, plus discret */
+.breadcrumbs { font-family: var(--font-sans); text-transform: none; letter-spacing: 0; font-size: var(--fs-sm); }
+.breadcrumbs a, .breadcrumbs span { font-family: var(--font-sans); font-size: var(--fs-sm); line-height: 1.45; }
+
+/* ===== HERO : empile, CTA GitHub sous le Stack ===== */
+.proj-hero .kicker { margin: 0 0 10px; }
+.proj-hero h1 { margin: 0; font-size: clamp(28px, 3.4vw, 36px); letter-spacing: -0.5px; }
+.proj-hero .project-meta { margin-top: 18px; }
+.proj-hero .muted { margin: 16px 0 0; }
+.proj-hero .project-stack { margin: 14px 0 0; font-size: var(--fs-sm); }
+.proj-hero .hero-actions { margin-top: 20px; }
+
+/* ===== Layout documentaire (sommaire a gauche + corps a droite) ===== */
+.proj-doc__layout { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 28px; align-items: start; }
+.proj-doc__layout .proj-doc__body { border-top: 0 !important; padding-top: 0 !important; }
+.proj-doc__toc { position: sticky; top: 144px; align-self: start; }
+.proj-doc__toc-title { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: var(--fs-overline); color: var(--text-soft); margin: 0 0 12px; }
+.proj-doc__toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.proj-doc__toc a { display: block; padding: 7px 0 7px 14px; border-left: 2px solid var(--hairline-strong); color: var(--text-soft); text-decoration: none; font-size: var(--fs-sm); line-height: 1.35; transition: color .2s, border-color .2s; }
+.proj-doc__toc a:hover, .proj-doc__toc a:focus-visible { color: var(--accent); border-left-color: var(--accent); }
+.proj-doc__toc a.is-active { color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
+.proj-doc__body h2 { scroll-margin-top: 144px; }
+.proj-doc__body h2:first-of-type { margin-top: 0; }
+.proj-doc__body ul, .proj-doc__body ol { padding-left: 22px; }
+.project-figure { margin: 22px 0 4px; }
+.project-figure img { max-width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--hairline-strong); }
+.project-figure--row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 620px) { .project-figure--row { grid-template-columns: 1fr; } }
+@media (max-width: 880px) { .proj-doc__layout { grid-template-columns: 1fr; gap: 16px; } .proj-doc__toc { position: static; top: auto; } }

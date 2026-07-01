@@ -45,6 +45,25 @@
   --font-serif: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
+  /* ===========================================================
+     ECHELLE TYPOGRAPHIQUE unifiee (voir docs/identite-visuelle.md)
+     La seule echelle autorisee : fini les 10.5 / 11.5 / 12.5 / 13.5...
+     =========================================================== */
+  --fs-overline: 11px;   /* sur-titres mono MAJ : kicker, pill, breadcrumb */
+  --fs-caption: 12px;    /* legendes, meta fine */
+  --fs-sm: 13px;         /* UI secondaire : sommaire, petites listes */
+  --fs-ui: 14px;         /* UI par defaut : boutons, nav */
+  --fs-base: 16px;       /* corps de texte */
+  --fs-lg: 18px;         /* chapeau / intro */
+  --fs-xl: 21px;         /* sous-titres h3 */
+  --fs-2xl: 26px;        /* titres secondaires */
+  --fs-h2: clamp(22px, 2.4vw, 28px);  /* titre de section */
+  --fs-h1: clamp(30px, 4.5vw, 44px);  /* titre de page */
+  --fs-display: clamp(44px, 7vw, 92px); /* hero accueil */
+  --lh-tight: 1.12;
+  --lh-snug: 1.4;
+  --lh-normal: 1.6;
+
   --max-width: 1280px;
   --prose: 860px;
   --radius: 10px;
