@@ -32,3 +32,6 @@ version-data-engineer/
 
 # Plan de dev obsolete (modularisation deja faite)
 js_implementation_plan.md
+
+# Doc de travail interne du systeme typo (non rendu par le site, cite en commentaire CSS)
+docs/identite-visuelle.md
